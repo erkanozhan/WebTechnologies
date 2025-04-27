@@ -1,13 +1,4 @@
----
-title: "HTML `<div>` Etiketi Kapsamlı Eğitim Materyali"
-author: "Oluşturan: [Adınız/Kuruluşunuz - İsteğe Bağlı]"
-date: "`r format(Sys.Date(), '%d %B %Y')`"
-output:
-  html_document:
-    toc: true # İçerik tablosu ekler
-    toc_depth: 3 # İçerik tablosuna kadar dahil edilecek başlık seviyesi
-    number_sections: true # Başlıkları numaralandırır
----
+
 
 # Giriş / Genel Bakış
 
