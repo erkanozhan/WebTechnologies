@@ -283,3 +283,135 @@ console.log(nesne.ad); // Ali
 - Modern framework’lerle (React, Angular) SPA uygulamaları
 
 ---
+### Örnek
+
+```html
+<!DOCTYPE HTML>
+<html lang="tr">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not Hesaplama</title>
+<head>
+  
+  <label for="vize">Vize Notu (%40):</label>
+  <input type="number" id="vize" /><br>
+  <label for="final">Final Notu (%60):</label>
+  <input type="number" id="final" /><br>
+  <button onclick="notHesapla()">Sonucu Göster</button>
+  <p id="notSonucu"></p>
+
+  <script>
+      function notHesapla() {
+      let vize = parseFloat(document.getElementById("vize").value);
+      let final = parseFloat(document.getElementById("final").value);
+      let sonucText = document.getElementById("notSonucu");
+
+      if (isNaN(vize) || isNaN(final) || vize < 0 || vize > 100 || final < 0 || final > 100) {
+        sonucText.textContent = "Lütfen 0-100 arası geçerli notlar giriniz.";
+        return;
+      }
+
+      let ortalama = (vize * 0.4) + (final * 0.6);
+      let durum = (ortalama >= 60 && final >= 50) ? "Geçtiniz" : "Kaldınız";
+
+      sonucText.textContent = `Ortalama: ${ortalama.toFixed(2)} / ${durum}`;
+    }
+  </script>
+</body>
+</html>
+```
+### Kodun Açıklaması:
+## JavaScript Fonksiyonunun Açıklamaları
+
+### `parseFloat()`
+
+- `parseFloat()` fonksiyonu, string (metin) türündeki veriyi ondalıklı sayıya dönüştürür.
+- `input` elemanlarından alınan değerler varsayılan olarak string'tir.
+- Örnek: `"85.6"` → `85.6` (float)
+
+### `document.getElementById()`
+
+- HTML içerisindeki `id` özelliğine sahip elemente erişmek için kullanılır.
+
+### `isNaN()`
+
+- `isNaN()` fonksiyonu bir değerin sayı olup olmadığını kontrol eder.
+- `NaN`: "Not a Number" (Geçersiz sayı)
+
+### `textContent`
+
+- Belirli bir HTML elemanının yazı içeriğini değiştirmek için kullanılır.
+
+---
+
+## Mantıksal Operatörler
+
+### `||` (VEYA - OR)
+
+- En az bir koşul doğruysa işlem gerçekleşir.
+- Örnek:
+
+```javascript
+if (vize < 0 || vize > 100)
+```
+
+Eğer `vize` ya 0’dan küçük ya da 100’den büyükse `true` olur.
+
+### `&&` (VE - AND)
+
+- Tüm koşullar doğruysa işlem gerçekleşir.
+- Örnek:
+
+```javascript
+if (ortalama >= 60 && final >= 50)
+```
+
+Hem ortalama 60 veya üzeri **ve** final 50 veya üzeri ise öğrenci geçer.
+
+---
+
+## `if` Koşulu Açıklaması
+
+```javascript
+if (isNaN(vize) || isNaN(final) || vize < 0 || vize > 100 || final < 0 || final > 100)
+```
+
+- Vize ya da final notu girilmemişse (`isNaN`)
+- 0 ile 100 arası dışında bir değer girilmişse
+- Yukarıdaki durumlarda kullanıcıya uyarı verilir.
+
+---
+
+## Ortalama Hesaplama
+
+```javascript
+let ortalama = (vize * 0.4) + (final * 0.6);
+```
+
+- Vize notu %40, final notu %60 etkilidir.
+
+---
+
+## Durum Değerlendirmesi
+
+```javascript
+let durum = (ortalama >= 60 && final >= 50) ? "Geçtiniz" : "Kaldınız";
+```
+
+- Koşul doğruysa `"Geçtiniz"`
+- Yanlışsa `"Kaldınız"`
+
+Bu yapı `ternary operator` olarak adlandırılır.
+
+---
+
+## Sonucun Ekrana Yazdırılması
+
+```javascript
+sonucText.textContent = `Ortalama: ${ortalama.toFixed(2)} / ${durum}`;
+```
+
+- Sonuç kullanıcıya görsel olarak gösterilir.
+- `toFixed(2)` sayıyı virgülden sonra iki basamakla gösterir.
+
+---
