@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>141-171 CSS Deneme Sayfası</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('https://picsum.photos/1200/800'); /* dış kaynaklı resim */
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    .kapsayici {
+      background-color: rgba(255, 255, 255, 0.9);
+      width: 80%;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 20px;
+      border: 5px double #444;
+      box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+      line-height: 1.8em;
+      text-align: justify;
+      letter-spacing: 1px;
+      word-spacing: 3px;
+    }
+
+    h1 {
+      text-align: center;
+      text-transform: uppercase;
+      text-shadow: 3px 3px 5px #666;
+      color: darkblue;
+    }
+
+    p {
+      text-indent: 2em;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .vurgulu {
+      text-decoration: underline overline;
+      color: crimson;
+      font-weight: bold;
+    }
+
+    .kutu {
+      width: 300px;
+      height: 100px;
+      margin: 20px auto;
+      border-top: solid 5px red;
+      border-right: dashed 5px green;
+      border-bottom: double 5px blue;
+      border-left: dotted 5px orange;
+      background-color: #b4dbe6;
+      padding: 20px;
+      border-radius: 30px 10px 40px 20px;
+      text-align: center;
+      opacity: 0.85;
+    }
+
+    .overflow-ornek {
+      width: 200px;
+      height: 100px;
+      overflow: auto;
+      border: 2px solid black;
+      margin: 20px auto;
+      padding: 10px;
+      background-color: #f2f2f2;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="kapsayici">
+    <h1>CSS Uygulama Alanı</h1>
+    <p>
+      Gençler, bu sayfa üzerinden <span class="vurgulu">CSS metin biçimlendirme</span> özelliklerini görebilir ve düzenleyebilirsiniz. Satır aralıkları, girintiler, hizalamalar, harf/kelime aralıkları, gölgeler, renkler ve daha fazlası.
+    </p>
+
+    <p>
+      Arka plan olarak hem renk hem de görsel var gençler. Sayfa içeriği yarı saydam bir kutu ile daha okunabilir hale getirildi. Kartvizit kutusu ve overflow kutusu da örnek olarak eklenmiştir.
+    </p>
+
+    <div class="kutu">
+      Kenarlık ve arka plan kutusu
+    </div>
+
+    <div class="overflow-ornek">
+      Bu kutuda overflow özelliği uygulanmıştır. İçerik taşarsa scroll çubuğu otomatik olarak görünür. Böylece taşan yazılar engellenmeden kullanıcıya sunulabilir. CSS ile kutular bu şekilde şekillendirilebilir.
+    </div>
+  </div>
+</body>
+</html>
