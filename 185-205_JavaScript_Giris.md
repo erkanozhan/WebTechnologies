@@ -288,38 +288,64 @@ console.log(nesne.ad); // Ali
 ```html
 <!DOCTYPE HTML>
 <html lang="tr">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Not Hesaplama</title>
+  <!-- Belge türü ve dil ayarı -->
+  <meta charset="UTF-8">
+  <!-- Karakter kodlaması Türkçe karakterler için UTF-8 olarak ayarlandı -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Mobil uyumluluk için viewport ayarı -->
+  <title>Not Hesaplama</title>
+  <!-- Sayfa başlığı -->
 <head>
   
   <label for="vize">Vize Notu (%40):</label>
+  <!-- Vize notu için etiket -->
   <input type="number" id="vize" /><br>
+  <!-- Vize notu girişi için sayı tipi input ve satır sonu -->
   <label for="final">Final Notu (%60):</label>
+  <!-- Final notu için etiket -->
   <input type="number" id="final" /><br>
+  <!-- Final notu girişi için sayı tipi input ve satır sonu -->
   <button onclick="notHesapla()">Sonucu Göster</button>
+  <!-- Sonucu hesaplamak için buton, tıklandığında notHesapla fonksiyonu çağrılır -->
   <p id="notSonucu"></p>
+  <!-- Sonucun ekrana yazdırılacağı paragraf etiketi -->
 
   <script>
-      function notHesapla() {
-      let vize = parseFloat(document.getElementById("vize").value);
-      let final = parseFloat(document.getElementById("final").value);
-      let sonucText = document.getElementById("notSonucu");
+    function notHesapla() {
+    // notHesapla adında bir fonksiyon tanımlanıyor
+    let vize = parseFloat(document.getElementById("vize").value);
+    // "vize" inputundan alınan değer ondalıklı sayıya çevrilerek vize değişkenine atanıyor
+    let final = parseFloat(document.getElementById("final").value);
+    // "final" inputundan alınan değer ondalıklı sayıya çevrilerek final değişkenine atanıyor
+    let sonucText = document.getElementById("notSonucu");
+    // Sonucun yazdırılacağı paragraf etiketi seçiliyor
 
-      if (isNaN(vize) || isNaN(final) || vize < 0 || vize > 100 || final < 0 || final > 100) {
-        sonucText.textContent = "Lütfen 0-100 arası geçerli notlar giriniz.";
-        return;
-      }
-
-      let ortalama = (vize * 0.4) + (final * 0.6);
-      let durum = (ortalama >= 60 && final >= 50) ? "Geçtiniz" : "Kaldınız";
-
-      sonucText.textContent = `Ortalama: ${ortalama.toFixed(2)} / ${durum}`;
+    if (isNaN(vize) || isNaN(final) || vize < 0 || vize > 100 || final < 0 || final > 100) {
+    // Girilen değerlerin sayı olup olmadığı ve 0-100 aralığında olup olmadığı kontrol ediliyor
+    sonucText.textContent = "Lütfen 0-100 arası geçerli notlar giriniz.";
+    // Geçersiz girişte kullanıcıya uyarı mesajı gösteriliyor
+    return;
+    // Fonksiyon burada sonlandırılıyor
     }
+
+    let ortalama = (vize * 0.4) + (final * 0.6);
+    // Vize ve final notları ağırlıklı olarak hesaplanıp ortalama değişkenine atanıyor
+    let durum = (ortalama >= 60 && final >= 50) ? "Geçtiniz" : "Kaldınız";
+    // Ortalama 60 ve üzeri, final 50 ve üzeri ise "Geçtiniz", aksi halde "Kaldınız" sonucu atanıyor
+
+    sonucText.textContent = `Ortalama: ${ortalama.toFixed(2)} / ${durum}`;
+    // Sonuç, virgülden sonra iki basamak olacak şekilde ekrana yazdırılıyor
+  }
   </script>
 </body>
 </html>
 ```
+
+---
+
+### Kodun Genel Açıklaması
+
+Bu HTML ve JavaScript kodu, bir öğrencinin vize ve final notlarını alarak, ağırlıklı ortalamasını hesaplamak ve başarı durumunu belirlemek amacıyla tasarlanmıştır. Kullanıcıdan alınan vize ve final notları, `parseFloat` fonksiyonu ile ondalıklı sayıya dönüştürülür. Girişlerin geçerliliği, hem sayı olup olmadıkları hem de 0 ile 100 arasında olup olmadıkları koşullarıyla denetlenir. Geçersiz bir girişte kullanıcıya uyarı mesajı gösterilir ve işlem sonlandırılır. Geçerli notlar için, vize notunun %40'ı ve final notunun %60'ı alınarak ortalama hesaplanır. Ardından, ortalama en az 60 ve final notu en az 50 ise öğrenci "Geçtiniz", aksi halde "Kaldınız" olarak değerlendirilir. Sonuç, iki ondalık basamak hassasiyetinde kullanıcıya sunulur. Bu yapı, temel kullanıcı girişi doğrulama ve koşullu mantık uygulamalarını içeren klasik bir not hesaplama algoritması örneğidir.
 ### Kodun Açıklaması:
 ## JavaScript Fonksiyonunun Açıklamaları
 
