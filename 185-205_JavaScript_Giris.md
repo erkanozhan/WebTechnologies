@@ -1,51 +1,48 @@
-# JavaScript Ders Notu
+# JavaScript Ders Notları
 
-## 1. Client-Server Mimarisi
+## 1. İstemci-Sunucu (Client-Server) Mimarisi
 
-Client-Server mimarisi, istemci (client) ve sunucu (server) arasında görev paylaşımı yapılan bir sistem modelidir.
+İstemci-sunucu mimarisi, bilgisayar ağlarında görevlerin istemci (client) ve sunucu (server) arasında paylaştırıldığı temel bir sistem modelidir. Bu modelde, istemci tarafı genellikle kullanıcı arayüzünü ve kullanıcıdan gelen talepleri yönetirken, sunucu tarafı ise veri işleme, depolama, kimlik doğrulama gibi arka plan işlemlerini yürütür.
 
-- **Client (İstemci):** Web tarayıcısı gibi, kullanıcının isteğini sunucuya ileten ve gelen cevabı görüntüleyen taraftır.
-- **Server (Sunucu):** İstemciden gelen isteği işleyip uygun cevabı dönen bilgisayardır.
+- **İstemci (Client):** Kullanıcının bilgisayarında çalışan ve genellikle bir web tarayıcısı aracılığıyla sunucuya istek gönderen yazılım veya donanım birimidir. İstemci, sunucudan aldığı yanıtları kullanıcıya sunar.
+- **Sunucu (Server):** İstemciden gelen istekleri karşılayan, işleyen ve uygun yanıtları döndüren merkezi bilgisayardır. Sunucu, veri tabanı işlemleri, kimlik doğrulama ve iş mantığı gibi kritik görevleri üstlenir.
 
-Bu yapı sayesinde görevler paylaşılır: istemci kullanıcı arayüzünü çalıştırırken, sunucu veritabanı işlemlerini, kimlik doğrulamasını vb. yürütür.
+Bu yapı sayesinde, sistem kaynakları daha verimli kullanılır ve güvenlik, ölçeklenebilirlik gibi avantajlar elde edilir.
 
 ---
 
-## 2. Client-side ve Server-side Scripting
+## 2. İstemci Tarafı ve Sunucu Tarafı Betikleme (Client-side ve Server-side Scripting)
 
-### Client-side Scripting
+### İstemci Tarafı Betikleme (Client-side Scripting)
 
-- Tarayıcıda çalışır.
-- Kullanıcının bilgisayarında işlenir.
-- Hızlı geri dönüş sağlar.
-- Güvenlik açısından sınırlıdır.
-- Örnek diller: **JavaScript**, HTML, CSS
+- Kodlar doğrudan kullanıcının tarayıcısında çalışır.
+- İşlemler istemcinin bilgisayarında gerçekleştiği için hızlı yanıt süreleri sağlar.
+- Güvenlik açısından sınırlı yetkilere sahiptir; kritik işlemler için uygun değildir.
+- Yaygın olarak kullanılan diller: **JavaScript**, HTML, CSS.
 
-### Server-side Scripting
+### Sunucu Tarafı Betikleme (Server-side Scripting)
 
-- Sunucuda çalışır.
-- Veritabanı işlemleri ve kullanıcı doğrulaması yapılır.
-- Her işlemde sunucuya istek gönderilir.
-- Güvenliğe daha uygundur.
-- Örnek diller: **PHP**, Python, Node.js, ASP.NET
+- Kodlar sunucu üzerinde çalışır ve istemciden gelen talepleri işler.
+- Veri tabanı işlemleri, kullanıcı doğrulama gibi güvenlik gerektiren işlemler burada gerçekleştirilir.
+- Her işlemde istemciden sunucuya istek gönderilir ve sunucudan yanıt alınır.
+- Güvenlik açısından daha uygundur.
+- Yaygın olarak kullanılan diller: **PHP**, Python, Node.js, ASP.NET.
 
 ---
 
 ## 3. JavaScript Nedir?
 
-JavaScript, web tarayıcılarında çalışan **istemci taraflı (client-side)** bir **script dilidir**. HTML ve CSS ile birlikte çalışarak web sayfalarına **etkileşim ve dinamiklik** kazandırır.
-
-JavaScript programlama dilinden farklı olarak tarayıcıda yorumlanarak çalışır ve derlenmeye ihtiyaç duymaz.
+JavaScript, web tarayıcılarında çalışan, dinamik ve etkileşimli web sayfaları oluşturmak için kullanılan bir **istemci taraflı (client-side) betik dilidir**. HTML ve CSS ile birlikte kullanılarak web sayfalarına hareketlilik ve kullanıcı etkileşimi kazandırır. JavaScript, derlenmeye ihtiyaç duymadan, tarayıcı tarafından doğrudan yorumlanarak çalışır. Modern JavaScript, sunucu tarafında da (ör. Node.js ile) kullanılabilmektedir.
 
 ---
 
-## 4. JavaScript Nasıl Eklenir?
+## 4. JavaScript’in Web Sayfasına Eklenmesi
 
-JavaScript üç yolla web sayfasına eklenebilir:
+JavaScript kodları web sayfalarına üç farklı yöntemle entegre edilebilir:
 
-- **HTML içinde script etiketiyle**
-- **Harici `.js` dosyası ile**
-- **HTML öğelerine doğrudan olay (event) atanarak**
+- **HTML içinde `<script>` etiketiyle:** JavaScript kodları doğrudan HTML dosyasının içerisine yazılır.
+- **Harici `.js` dosyası ile:** JavaScript kodları ayrı bir dosyada tutulur ve HTML dosyasına `<script src="dosya.js"></script>` etiketiyle dahil edilir.
+- **HTML öğelerine doğrudan olay (event) atanarak:** HTML etiketlerine doğrudan olay özellikleri (ör. `onclick`) eklenerek JavaScript fonksiyonları tetiklenir.
 
 ### Örnek:
 
@@ -53,7 +50,7 @@ JavaScript üç yolla web sayfasına eklenebilir:
 <!DOCTYPE html>
 <html>
 <head>
-  <title>JS Giriş</title>
+  <title>JavaScript’e Giriş</title>
 </head>
 <body>
   <h1>Merhaba</h1>
@@ -68,11 +65,11 @@ JavaScript üç yolla web sayfasına eklenebilir:
 
 ## 5. Değişkenler
 
-Değişkenler veri saklamak için kullanılır.
+JavaScript’te değişkenler, veri saklamak amacıyla kullanılır. Değişken tanımlamak için üç ana anahtar kelime kullanılır:
 
-- `let` – değiştirilebilir
-- `const` – sabit (değiştirilemez)
-- `var` – eski (artık önerilmez)
+- `let`: Değeri değiştirilebilir değişken tanımlar.
+- `const`: Sabit, değeri değiştirilemeyen değişken tanımlar.
+- `var`: Eski tip değişken tanımıdır, günümüzde önerilmez.
 
 ```javascript
 let isim = "Ayşe";
@@ -83,29 +80,33 @@ const yas = 30;
 
 ## 6. Veri Türleri
 
-JavaScript’te temel veri türleri şunlardır:
+JavaScript’te temel veri türleri aşağıdaki gibidir:
 
-- **String** → `"merhaba"`
-- **Number** → `42`, `3.14`
-- **Boolean** → `true`, `false`
-- **Array** → `[1, 2, 3]`
-- **Object** → `{ad: "Ali", yas: 25}`
-- **null** → boş değeri ifade eder
-- **undefined** → tanımlanmamış değişken
+- **String:** Metinsel ifadeler. Örnek: `"merhaba"`
+- **Number:** Sayısal değerler. Örnek: `42`, `3.14`
+- **Boolean:** Mantıksal değerler. Örnek: `true`, `false`
+- **Array:** Sıralı veri koleksiyonları. Örnek: `[1, 2, 3]`
+- **Object:** Anahtar-değer çiftlerinden oluşan yapılar. Örnek: `{ad: "Ali", yas: 25}`
+- **null:** Bilinçli olarak boş bırakılmış değer.
+- **undefined:** Tanımlanmamış değişkenlerin varsayılan değeri.
 
 ---
 
 ## 7. Operatörler
 
-| Tür | Operatörler |
-|-----|-------------|
-| Aritmetik | `+`, `-`, `*`, `/`, `%` |
-| Karşılaştırma | `==`, `===`, `!=`, `!==`, `<`, `>` |
-| Mantıksal | `&&`, `||`, `!` |
+JavaScript’te çeşitli işlemler için farklı operatörler kullanılır:
+
+| Tür           | Operatörler                           |
+|---------------|---------------------------------------|
+| Aritmetik     | `+`, `-`, `*`, `/`, `%`               |
+| Karşılaştırma | `==`, `===`, `!=`, `!==`, `<`, `>`    |
+| Mantıksal     | `&&`, `||`, `!`                       |
 
 ---
 
 ## 8. Koşul İfadeleri (if/else)
+
+Koşul ifadeleri, belirli bir şartın sağlanıp sağlanmadığına göre farklı kod bloklarının çalıştırılmasını sağlar.
 
 ```javascript
 let puan = 75;
@@ -122,6 +123,8 @@ if (puan >= 90) {
 ---
 
 ## 9. Döngüler
+
+Döngüler, belirli bir işlemin birden fazla kez tekrarlanmasını sağlar.
 
 ### `for` Döngüsü
 
@@ -145,7 +148,7 @@ while (i < 3) {
 
 ## 10. Fonksiyonlar
 
-Fonksiyonlar tekrar eden işlemleri kapsüllemek için kullanılır.
+Fonksiyonlar, belirli bir işlemi gerçekleştiren ve gerektiğinde tekrar tekrar çağrılabilen kod bloklarıdır.
 
 ```javascript
 function topla(a, b) {
@@ -159,7 +162,7 @@ let sonuc = topla(5, 7); // 12
 
 ## 11. Olaylar (Events)
 
-Olaylar, kullanıcının sayfa ile etkileşime girmesiyle tetiklenir.
+Olaylar, kullanıcının web sayfası ile etkileşime girmesi sonucu tetiklenen işlemlerdir. Örneğin, bir butona tıklanması bir olaydır.
 
 ### Örnek:
 
@@ -175,9 +178,9 @@ function selamla() {
 
 ---
 
-## 12. DOM (Document Object Model)
+## 12. Belge Nesne Modeli (DOM - Document Object Model)
 
-JavaScript ile HTML elemanlarına erişip değiştirmek için kullanılır.
+DOM, HTML ve XML belgelerinin programatik olarak erişilmesini ve değiştirilmesini sağlayan bir modeldir. JavaScript ile DOM üzerinden HTML elemanlarına erişebilir ve bu elemanların özelliklerini değiştirebilirsiniz.
 
 ### Örnek:
 
@@ -196,13 +199,13 @@ function degistir() {
 
 ## 13. Diziler (Arrays)
 
-Verileri sıralı şekilde saklamak için kullanılır.
+Diziler, birden fazla veriyi sıralı şekilde saklamak için kullanılır.
 
 ```javascript
 let sayilar = [10, 20, 30];
 
-sayilar.push(40);  // sona ekler
-sayilar.pop();     // son elemanı çıkarır
+sayilar.push(40);  // Diziye yeni bir eleman ekler
+sayilar.pop();     // Dizinin son elemanını çıkarır
 
 sayilar.forEach(function(sayi) {
   console.log(sayi);
@@ -213,7 +216,7 @@ sayilar.forEach(function(sayi) {
 
 ## 14. Nesneler (Objects)
 
-Anahtar-değer (key-value) yapısıyla veri saklar.
+Nesneler, anahtar-değer (key-value) çiftleriyle veri saklamaya yarar.
 
 ```javascript
 let ogrenci = {
@@ -228,6 +231,8 @@ console.log(ogrenci.ad); // Zeynep
 
 ## 15. Koşul Kısaltması (Ternary Operator)
 
+Ternary operatörü, kısa koşul ifadeleri yazmak için kullanılır.
+
 ```javascript
 let yas = 18;
 let mesaj = (yas >= 18) ? "Reşit" : "Çocuk";
@@ -236,9 +241,9 @@ console.log(mesaj);
 
 ---
 
-## 16. Template Literals (Şablon Metinler)
+## 16. Şablon Metinler (Template Literals)
 
-Backtick `` ` `` karakteri ile kullanılır.
+Şablon metinler, değişkenlerin ve ifadelerin metin içerisine kolayca gömülmesini sağlar. Backtick (`` ` ``) karakteri ile kullanılır.
 
 ```javascript
 let ad = "Kemal";
@@ -247,12 +252,12 @@ console.log(`Merhaba, ${ad}`);
 
 ---
 
-## 17. Zamanlayıcılar
+## 17. Zamanlayıcı Fonksiyonlar
 
-Belirli sürede ya da aralıklarla işlem yapmak için:
+JavaScript’te belirli bir süre sonra veya belirli aralıklarla kod çalıştırmak için zamanlayıcı fonksiyonlar kullanılır:
 
-- `setTimeout()` → bir defaya mahsus gecikmeli çalıştırır
-- `setInterval()` → periyodik çalıştırır
+- `setTimeout()`: Belirtilen süre sonra bir defa çalışır.
+- `setInterval()`: Belirtilen aralıklarla tekrar tekrar çalışır.
 
 ```javascript
 setTimeout(function() {
@@ -264,7 +269,7 @@ setTimeout(function() {
 
 ## 18. JSON (JavaScript Object Notation)
 
-Veri paylaşımı için yaygın kullanılan formattır.
+JSON, veri paylaşımı ve saklama için yaygın olarak kullanılan, hafif ve insan tarafından okunabilir bir veri formatıdır.
 
 ```javascript
 let jsonVeri = '{"ad":"Ali","yas":25}';
@@ -274,99 +279,115 @@ console.log(nesne.ad); // Ali
 
 ---
 
-## 19. JavaScript Nerelerde Kullanılır?
+## 19. JavaScript’in Kullanım Alanları
+
+JavaScript, günümüzde çok çeşitli alanlarda kullanılmaktadır:
 
 - Web sitelerinde dinamik içerik oluşturma
-- Form doğrulama
-- Buton ve menü etkileşimi
-- Web oyunları
-- Modern framework’lerle (React, Angular) SPA uygulamaları
+- Form doğrulama işlemleri
+- Buton ve menü gibi kullanıcı arayüzü etkileşimleri
+- Web tabanlı oyun geliştirme
+- Modern JavaScript framework’leri (React, Angular, Vue) ile tek sayfa uygulamaları (SPA) geliştirme
 
 ---
-### Örnek
+
+### Uygulamalı Örnek: Not Hesaplama
+
+Aşağıda, bir öğrencinin vize ve final notlarını alarak ağırlıklı ortalamasını hesaplayan ve başarı durumunu belirleyen bir uygulama örneği sunulmuştur.
 
 ```html
 <!DOCTYPE HTML>
+<!-- HTML belgesinin türünü belirtir ve tarayıcıya sayfanın HTML5 standardında yazıldığını bildirir. -->
 <html lang="tr">
-  <!-- Belge türü ve dil ayarı -->
-  <meta charset="UTF-8">
-  <!-- Karakter kodlaması Türkçe karakterler için UTF-8 olarak ayarlandı -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Mobil uyumluluk için viewport ayarı -->
-  <title>Not Hesaplama</title>
-  <!-- Sayfa başlığı -->
+<!-- HTML belgesinin dilini Türkçe olarak ayarlar. -->
 <head>
-  
+  <meta charset="UTF-8">
+  <!-- Karakter kodlamasını UTF-8 olarak belirler, Türkçe karakterlerin doğru görüntülenmesini sağlar. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Sayfanın mobil cihazlarda düzgün ölçeklenmesini ve uyumlu görünmesini sağlar. -->
+  <title>Not Hesaplama</title>
+  <!-- Tarayıcı sekmesinde görünen başlığı belirler. -->
+</head>
+<body>
   <label for="vize">Vize Notu (%40):</label>
-  <!-- Vize notu için etiket -->
+  <!-- Kullanıcıdan vize notunu almak için bir etiket oluşturur ve ilgili input ile ilişkilendirir. -->
   <input type="number" id="vize" /><br>
-  <!-- Vize notu girişi için sayı tipi input ve satır sonu -->
+  <!-- Vize notu için sayısal bir giriş alanı sağlar ve satır sonu ekler. -->
   <label for="final">Final Notu (%60):</label>
-  <!-- Final notu için etiket -->
+  <!-- Kullanıcıdan final notunu almak için bir etiket oluşturur ve ilgili input ile ilişkilendirir. -->
   <input type="number" id="final" /><br>
-  <!-- Final notu girişi için sayı tipi input ve satır sonu -->
+  <!-- Final notu için sayısal bir giriş alanı sağlar ve satır sonu ekler. -->
   <button onclick="notHesapla()">Sonucu Göster</button>
-  <!-- Sonucu hesaplamak için buton, tıklandığında notHesapla fonksiyonu çağrılır -->
+  <!-- Kullanıcıya not hesaplama işlemini başlatacak bir buton sunar ve tıklanınca 'notHesapla' fonksiyonunu çağırır. -->
   <p id="notSonucu"></p>
-  <!-- Sonucun ekrana yazdırılacağı paragraf etiketi -->
+  <!-- Hesaplanan sonucun ekranda gösterileceği paragraf alanını tanımlar. -->
 
   <script>
     function notHesapla() {
-    // notHesapla adında bir fonksiyon tanımlanıyor
-    let vize = parseFloat(document.getElementById("vize").value);
-    // "vize" inputundan alınan değer ondalıklı sayıya çevrilerek vize değişkenine atanıyor
-    let final = parseFloat(document.getElementById("final").value);
-    // "final" inputundan alınan değer ondalıklı sayıya çevrilerek final değişkenine atanıyor
-    let sonucText = document.getElementById("notSonucu");
-    // Sonucun yazdırılacağı paragraf etiketi seçiliyor
+      // Vize ve final notlarını al
+      let vize = parseFloat(document.getElementById("vize").value);
+      // 'vize' inputundan alınan değeri ondalıklı sayıya çevirir ve 'vize' değişkenine atar.
+      let final = parseFloat(document.getElementById("final").value);
+      // 'final' inputundan alınan değeri ondalıklı sayıya çevirir ve 'final' değişkenine atar.
+      let sonucText = document.getElementById("notSonucu");
+      // Sonucun yazdırılacağı paragraf elemanını seçer ve 'sonucText' değişkenine atar.
 
-    if (isNaN(vize) || isNaN(final) || vize < 0 || vize > 100 || final < 0 || final > 100) {
-    // Girilen değerlerin sayı olup olmadığı ve 0-100 aralığında olup olmadığı kontrol ediliyor
-    sonucText.textContent = "Lütfen 0-100 arası geçerli notlar giriniz.";
-    // Geçersiz girişte kullanıcıya uyarı mesajı gösteriliyor
-    return;
-    // Fonksiyon burada sonlandırılıyor
+      // Girişlerin geçerliliğini kontrol et
+      if (isNaN(vize) || isNaN(final) || vize < 0 || vize > 100 || final < 0 || final > 100) {
+        // Vize veya final notu sayı değilse ya da 0-100 aralığında değilse, kullanıcıya uyarı mesajı gösterir.
+        sonucText.textContent = "Lütfen 0-100 arası geçerli notlar giriniz.";
+        // Geçersiz girişlerde fonksiyonun çalışmasını sonlandırır.
+        return;
+      }
+
+      // Ortalama ve başarı durumu hesapla
+      let ortalama = (vize * 0.4) + (final * 0.6);
+      // Vize notunun %40'ı ve final notunun %60'ı alınarak ağırlıklı ortalama hesaplanır.
+      let durum = (ortalama >= 60 && final >= 50) ? "Geçtiniz" : "Kaldınız";
+      // Ortalama en az 60 ve final en az 50 ise "Geçtiniz", aksi halde "Kaldınız" sonucu atanır.
+
+      // Sonucu ekrana yazdır
+      sonucText.textContent = `Ortalama: ${ortalama.toFixed(2)} / ${durum}`;
+      // Hesaplanan ortalama ve başarı durumu, iki ondalık basamak hassasiyetinde kullanıcıya gösterilir.
     }
-
-    let ortalama = (vize * 0.4) + (final * 0.6);
-    // Vize ve final notları ağırlıklı olarak hesaplanıp ortalama değişkenine atanıyor
-    let durum = (ortalama >= 60 && final >= 50) ? "Geçtiniz" : "Kaldınız";
-    // Ortalama 60 ve üzeri, final 50 ve üzeri ise "Geçtiniz", aksi halde "Kaldınız" sonucu atanıyor
-
-    sonucText.textContent = `Ortalama: ${ortalama.toFixed(2)} / ${durum}`;
-    // Sonuç, virgülden sonra iki basamak olacak şekilde ekrana yazdırılıyor
-  }
   </script>
+  <!-- JavaScript kodlarını içeren script bloğu, not hesaplama işlemlerini gerçekleştirir. -->
 </body>
 </html>
 ```
 
+### Kodun Açıklaması
+
+Bu örnek uygulama, kullanıcıdan alınan vize ve final notlarını kullanarak ağırlıklı ortalamayı hesaplamakta ve öğrencinin başarı durumunu belirlemektedir. Kodun işleyişi şu şekildedir:
+
+1. **Veri Girişi ve Dönüştürme:** Kullanıcıdan alınan vize ve final notları, `parseFloat()` fonksiyonu ile ondalıklı sayıya dönüştürülür. HTML’deki `input` elemanlarından alınan değerler varsayılan olarak metin (string) tipindedir.
+2. **Geçerlilik Kontrolü:** `isNaN()` fonksiyonu ile girilen değerlerin sayı olup olmadığı, ayrıca 0 ile 100 arasında olup olmadığı kontrol edilir. Geçersiz girişlerde kullanıcıya uyarı mesajı gösterilir ve fonksiyon sonlandırılır.
+3. **Ortalama Hesaplama:** Vize notunun %40’ı ve final notunun %60’ı alınarak ağırlıklı ortalama hesaplanır.
+4. **Başarı Durumu:** Ortalama en az 60 ve final notu en az 50 ise öğrenci “Geçtiniz”, aksi halde “Kaldınız” olarak değerlendirilir. Bu işlem, kısa koşul ifadesi (ternary operator) ile gerçekleştirilir.
+5. **Sonucun Gösterilmesi:** Sonuç, iki ondalık basamak hassasiyetinde kullanıcıya sunulur.
+
 ---
 
-### Kodun Genel Açıklaması
+### JavaScript Fonksiyonlarının Açıklamaları
 
-Bu HTML ve JavaScript kodu, bir öğrencinin vize ve final notlarını alarak, ağırlıklı ortalamasını hesaplamak ve başarı durumunu belirlemek amacıyla tasarlanmıştır. Kullanıcıdan alınan vize ve final notları, `parseFloat` fonksiyonu ile ondalıklı sayıya dönüştürülür. Girişlerin geçerliliği, hem sayı olup olmadıkları hem de 0 ile 100 arasında olup olmadıkları koşullarıyla denetlenir. Geçersiz bir girişte kullanıcıya uyarı mesajı gösterilir ve işlem sonlandırılır. Geçerli notlar için, vize notunun %40'ı ve final notunun %60'ı alınarak ortalama hesaplanır. Ardından, ortalama en az 60 ve final notu en az 50 ise öğrenci "Geçtiniz", aksi halde "Kaldınız" olarak değerlendirilir. Sonuç, iki ondalık basamak hassasiyetinde kullanıcıya sunulur. Bu yapı, temel kullanıcı girişi doğrulama ve koşullu mantık uygulamalarını içeren klasik bir not hesaplama algoritması örneğidir.
-### Kodun Açıklaması:
-## JavaScript Fonksiyonunun Açıklamaları
+#### `parseFloat()`
 
-### `parseFloat()`
+- String türündeki veriyi ondalıklı sayıya dönüştürür.
+- HTML `input` elemanlarından alınan değerler varsayılan olarak string tipindedir.
+- Örnek: `"85.6"` → `85.6`
 
-- `parseFloat()` fonksiyonu, string (metin) türündeki veriyi ondalıklı sayıya dönüştürür.
-- `input` elemanlarından alınan değerler varsayılan olarak string'tir.
-- Örnek: `"85.6"` → `85.6` (float)
+#### `document.getElementById()`
 
-### `document.getElementById()`
+- HTML belgesindeki belirli bir `id` değerine sahip elemana erişmek için kullanılır.
 
-- HTML içerisindeki `id` özelliğine sahip elemente erişmek için kullanılır.
+#### `isNaN()`
 
-### `isNaN()`
+- Bir değerin sayı olup olmadığını kontrol eder.
+- `NaN` (Not a Number): Geçersiz sayı anlamına gelir.
 
-- `isNaN()` fonksiyonu bir değerin sayı olup olmadığını kontrol eder.
-- `NaN`: "Not a Number" (Geçersiz sayı)
+#### `textContent`
 
-### `textContent`
-
-- Belirli bir HTML elemanının yazı içeriğini değiştirmek için kullanılır.
+- Bir HTML elemanının metin içeriğini değiştirmek için kullanılır.
 
 ---
 
@@ -380,8 +401,7 @@ Bu HTML ve JavaScript kodu, bir öğrencinin vize ve final notlarını alarak, a
 ```javascript
 if (vize < 0 || vize > 100)
 ```
-
-Eğer `vize` ya 0’dan küçük ya da 100’den büyükse `true` olur.
+Burada, `vize` ya 0’dan küçük ya da 100’den büyükse koşul sağlanır.
 
 ### `&&` (VE - AND)
 
@@ -391,12 +411,11 @@ Eğer `vize` ya 0’dan küçük ya da 100’den büyükse `true` olur.
 ```javascript
 if (ortalama >= 60 && final >= 50)
 ```
-
 Hem ortalama 60 veya üzeri **ve** final 50 veya üzeri ise öğrenci geçer.
 
 ---
 
-## `if` Koşulu Açıklaması
+## Koşul İfadesi Açıklaması
 
 ```javascript
 if (isNaN(vize) || isNaN(final) || vize < 0 || vize > 100 || final < 0 || final > 100)
@@ -404,7 +423,7 @@ if (isNaN(vize) || isNaN(final) || vize < 0 || vize > 100 || final < 0 || final 
 
 - Vize ya da final notu girilmemişse (`isNaN`)
 - 0 ile 100 arası dışında bir değer girilmişse
-- Yukarıdaki durumlarda kullanıcıya uyarı verilir.
+- Bu durumlarda kullanıcıya uyarı verilir.
 
 ---
 
@@ -414,7 +433,7 @@ if (isNaN(vize) || isNaN(final) || vize < 0 || vize > 100 || final < 0 || final 
 let ortalama = (vize * 0.4) + (final * 0.6);
 ```
 
-- Vize notu %40, final notu %60 etkilidir.
+- Vize notu %40, final notu %60 oranında etkilidir.
 
 ---
 
@@ -426,8 +445,7 @@ let durum = (ortalama >= 60 && final >= 50) ? "Geçtiniz" : "Kaldınız";
 
 - Koşul doğruysa `"Geçtiniz"`
 - Yanlışsa `"Kaldınız"`
-
-Bu yapı `ternary operator` olarak adlandırılır.
+- Bu yapı, kısa koşul ifadesi (ternary operator) olarak adlandırılır.
 
 ---
 
@@ -437,7 +455,7 @@ Bu yapı `ternary operator` olarak adlandırılır.
 sonucText.textContent = `Ortalama: ${ortalama.toFixed(2)} / ${durum}`;
 ```
 
-- Sonuç kullanıcıya görsel olarak gösterilir.
-- `toFixed(2)` sayıyı virgülden sonra iki basamakla gösterir.
+- Sonuç, kullanıcıya iki ondalık basamak hassasiyetinde gösterilir.
+- `toFixed(2)` fonksiyonu, sayıyı virgülden sonra iki basamakla sınırlar.
 
 ---
