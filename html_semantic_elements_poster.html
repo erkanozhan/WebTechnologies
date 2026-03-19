@@ -1,197 +1,326 @@
-
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TNKÜ Çorlu Mühendislik Fakültesi Bilgisayar Mühendisliği Bölümü — HTML5 Semantik Yapı Ders Posteri">
+<meta name="keywords" content="HTML5, semantik etiket, web teknolojileri, bilgisayar mühendisliği, TNKÜ, BMB112">
+<meta name="author" content="Dr. Öğr. Üyesi Erkan Özhan">
+<title>BMB112 — HTML5 Semantik Yapı | TNKÜ Bilgisayar Mühendisliği</title>
 <style>
   :root {
-    --sky: #a8d5e2;
-    --cream: #f2e8c4;
-    --gold: #e8b830;
-    --gold-dark: #b8891a;
-    --green-dark: #1a3d0a;
-    --green-mid: #3a6b1a;
-    --green-light: #5a9028;
-    --green-pale: #c8e098;
-    --outline: 2.5px solid #1a3d0a;
+    --pastel-blue:    #c8dff5;
+    --pastel-blue-dk: #7aafd4;
+    --pastel-lav:     #ddd6f3;
+    --pastel-lav-dk:  #9b8ec4;
+    --pastel-mint:    #c9edd8;
+    --pastel-mint-dk: #6aad96;
+    --pastel-peach:   #fde8d8;
+    --pastel-peach-dk:#d9906a;
+    --pastel-yellow:  #fef3c7;
+    --pastel-yellow-dk:#c9a227;
+    --pastel-rose:    #fce4ec;
+    --pastel-rose-dk: #d4748a;
+    --bg:             #f4f7fb;
+    --white:          #ffffff;
+    --ink:            #2c3e50;
+    --ink-mid:        #4a5568;
+    --ink-soft:       #718096;
+    --outline-blue:   2px solid #7aafd4;
+    --outline-lav:    2px solid #9b8ec4;
+    --outline-mint:   2px solid #6aad96;
     --tag-font: 'Courier New', monospace;
+    --body-font: 'Georgia', serif;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--cream); }
+
+  body {
+    background: var(--bg);
+    font-family: var(--body-font);
+    color: var(--ink);
+    padding: 1.2rem;
+  }
+
   .page-wrap {
-    font-family: 'Georgia', serif;
-    background: var(--cream);
-    padding: 1rem;
-    max-width: 860px;
+    max-width: 900px;
     margin: 0 auto;
   }
-  .tag-label {
+
+  /* ── ÜSTBILGI ŞERIDI ── */
+  .top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 1.5px solid var(--pastel-blue-dk);
+  }
+  .top-bar .brand {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .top-bar .brand .univ {
+    font-family: var(--tag-font);
+    font-size: 10px;
+    color: var(--pastel-lav-dk);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .top-bar .brand .dept {
+    font-size: 13px;
+    color: var(--ink);
+    font-weight: bold;
+    letter-spacing: 0.03em;
+  }
+  .top-bar .course-badge {
     font-family: var(--tag-font);
     font-size: 11px;
-    font-weight: bold;
-    letter-spacing: 0.05em;
-    padding: 2px 7px;
-    border: 1.5px solid var(--green-dark);
-    display: inline-block;
-    margin-bottom: 6px;
+    background: var(--pastel-lav);
+    color: var(--pastel-lav-dk);
+    border: 1.5px solid var(--pastel-lav-dk);
+    padding: 4px 12px;
   }
-  /* HEADER */
+
+  /* ── ETİKET ETIKETI ── */
+  .tag-label {
+    font-family: var(--tag-font);
+    font-size: 10.5px;
+    font-weight: bold;
+    letter-spacing: 0.06em;
+    padding: 2px 8px;
+    border: 1.5px solid currentColor;
+    display: inline-block;
+    margin-bottom: 7px;
+  }
+
+  /* ── HEADER ── */
   .demo-header {
-    background: var(--gold);
-    border: var(--outline);
-    padding: 18px 24px 14px;
+    background: var(--pastel-blue);
+    border: var(--outline-blue);
+    padding: 18px 22px 14px;
     position: relative;
     margin-bottom: 4px;
   }
-  .demo-header .tag-label { background: var(--gold-dark); color: #fff5cc; border-color: #7a5a00; }
-  .demo-header h1 { font-size: 22px; color: var(--green-dark); letter-spacing: 0.04em; }
-  .demo-header p { font-size: 12px; color: #6a4a00; margin-top: 3px; }
-  /* NAV */
+  .demo-header .tag-label { color: var(--pastel-blue-dk); }
+  .demo-header h1 {
+    font-size: 21px;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+  }
+  .demo-header .sub {
+    font-size: 12px;
+    color: var(--ink-mid);
+    margin-top: 4px;
+    font-family: var(--tag-font);
+  }
+
+  /* ── NAV ── */
   .demo-nav {
-    background: var(--green-dark);
-    border: var(--outline);
+    background: var(--pastel-lav);
+    border: var(--outline-lav);
     border-top: none;
-    padding: 10px 24px;
+    padding: 9px 22px;
     display: flex;
     align-items: center;
     gap: 6px;
     flex-wrap: wrap;
     margin-bottom: 6px;
   }
-  .demo-nav .tag-label { background: #0d2205; color: #c8e098; border-color: #c8e098; }
+  .demo-nav .tag-label { color: var(--pastel-lav-dk); }
   .demo-nav a {
-    color: var(--gold);
+    color: var(--pastel-lav-dk);
     text-decoration: none;
-    font-size: 13px;
+    font-size: 12px;
     font-family: var(--tag-font);
-    padding: 3px 12px;
-    border: 1.5px solid var(--gold);
-    border-radius: 0;
+    padding: 3px 11px;
+    border: 1.5px solid var(--pastel-lav-dk);
+    background: var(--white);
   }
-  .demo-nav .sep { color: var(--green-light); font-size: 16px; }
-  /* BODY ROW */
+  .demo-nav a:hover { background: var(--pastel-lav); }
+  .demo-nav .sep { color: var(--pastel-lav-dk); font-size: 14px; }
+
+  /* ── BODY ROW ── */
   .body-row {
     display: grid;
-    grid-template-columns: 1fr 240px;
+    grid-template-columns: 1fr 230px;
     gap: 6px;
     margin-bottom: 6px;
   }
-  /* MAIN */
+
+  /* ── MAIN ── */
   .demo-main {
-    border: var(--outline);
-    background: var(--cream);
+    background: var(--white);
+    border: var(--outline-blue);
     padding: 14px 16px;
   }
-  .demo-main > .tag-label { background: var(--sky); color: var(--green-dark); }
-  /* SECTION */
+  .demo-main > .tag-label { color: var(--pastel-blue-dk); }
+
+  /* ── SECTION ── */
   .demo-section {
-    border: 2px solid var(--green-mid);
-    background: #eef8d8;
+    background: var(--pastel-mint);
+    border: var(--outline-mint);
     padding: 12px 14px;
     margin-top: 10px;
   }
-  .demo-section .tag-label { background: var(--green-mid); color: #eef8d8; }
-  .demo-section h2 { font-size: 15px; color: var(--green-dark); margin: 4px 0 6px; }
-  .demo-section p { font-size: 12px; color: #2a4a10; line-height: 1.6; }
-  /* ARTICLE */
+  .demo-section .tag-label { color: #4a8c72; }
+  .demo-section h2 { font-size: 14px; color: var(--ink); margin: 4px 0 6px; }
+  .demo-section > p { font-size: 12px; color: var(--ink-mid); line-height: 1.65; }
+
+  /* ── ARTICLE ── */
   .demo-article {
-    border: 2px solid var(--green-light);
-    background: #fff;
-    padding: 10px 14px;
-    margin-top: 8px;
+    background: var(--white);
+    border: 1.5px solid #a8d5c2;
+    padding: 10px 13px;
+    margin-top: 7px;
   }
-  .demo-article .tag-label { background: var(--green-light); color: #fff; }
-  .demo-article h3 { font-size: 13px; color: var(--green-dark); margin: 4px 0 4px; }
-  .demo-article p { font-size: 11px; color: #3a3a2a; line-height: 1.6; }
-  /* ASIDE */
+  .demo-article .tag-label { color: #4a8c72; }
+  .demo-article h3 { font-size: 12.5px; color: var(--ink); margin: 4px 0 4px; }
+  .demo-article p  { font-size: 11px;  color: var(--ink-mid); line-height: 1.65; }
+
+  /* ── ASIDE ── */
   .demo-aside {
-    border: var(--outline);
-    background: var(--green-mid);
-    padding: 14px 14px;
+    background: var(--pastel-lav);
+    border: var(--outline-lav);
+    padding: 14px 13px;
   }
-  .demo-aside .tag-label { background: var(--green-dark); color: var(--green-pale); border-color: var(--green-pale); }
-  .demo-aside h4 { font-size: 13px; color: var(--gold); margin: 8px 0 6px; }
-  .demo-aside ul { padding-left: 0; list-style: none; }
+  .demo-aside .tag-label { color: var(--pastel-lav-dk); }
+  .demo-aside h4 { font-size: 12px; color: var(--pastel-lav-dk); margin: 8px 0 7px; font-family: var(--tag-font); letter-spacing: 0.06em; }
+  .demo-aside ul { padding: 0; list-style: none; }
   .demo-aside ul li {
-    font-size: 11px; color: var(--green-pale);
+    font-size: 11px;
+    color: var(--ink-mid);
     padding: 4px 0;
-    border-bottom: 1px solid #2d5a10;
+    border-bottom: 1px solid #c5b8e8;
     font-family: var(--tag-font);
   }
-  .demo-aside ul li::before { content: "▶ "; color: var(--gold); }
-  .aside-box {
-    background: var(--green-dark);
-    border: 1.5px solid var(--gold);
+  .demo-aside ul li::before { content: "▸ "; color: var(--pastel-lav-dk); }
+
+  .aside-note {
+    background: var(--white);
+    border: 1.5px solid var(--pastel-lav-dk);
     padding: 8px 10px;
     margin-top: 10px;
   }
-  .aside-box p { font-size: 11px; color: #d8e8b0; line-height: 1.5; }
-  /* FOOTER */
+  .aside-note .note-head {
+    font-family: var(--tag-font);
+    font-size: 9.5px;
+    color: var(--pastel-lav-dk);
+    letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+  .aside-note p { font-size: 10.5px; color: var(--ink-mid); line-height: 1.55; }
+
+  .aside-complexity {
+    background: var(--pastel-peach);
+    border: 1.5px solid var(--pastel-peach-dk);
+    padding: 8px 10px;
+    margin-top: 8px;
+  }
+  .aside-complexity .note-head { color: var(--pastel-peach-dk); font-family: var(--tag-font); font-size: 9.5px; letter-spacing: 0.08em; margin-bottom: 5px; }
+  .aside-complexity table { width: 100%; font-size: 10px; border-collapse: collapse; }
+  .aside-complexity td { padding: 2px 4px; color: var(--ink-mid); font-family: var(--tag-font); }
+  .aside-complexity td:first-child { color: var(--pastel-peach-dk); font-weight: bold; }
+
+  /* ── FOOTER ── */
   .demo-footer {
-    background: var(--green-dark);
-    border: var(--outline);
-    border-top: 4px solid var(--gold);
-    padding: 14px 24px;
+    background: var(--pastel-yellow);
+    border: 2px solid var(--pastel-yellow-dk);
+    border-top: 3px solid var(--pastel-yellow-dk);
+    padding: 14px 22px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 10px;
   }
-  .demo-footer .tag-label { background: #0d2205; color: var(--gold); border-color: var(--gold); margin-bottom: 8px; display: block; }
-  .footer-col h5 { font-size: 11px; color: var(--gold); font-family: var(--tag-font); margin-bottom: 6px; letter-spacing: 0.08em; }
-  .footer-col p, .footer-col a { font-size: 11px; color: #a8c878; line-height: 1.7; display: block; text-decoration: none; }
-  /* Tree deco */
-  .tree-strip {
+  .demo-footer .tag-label { color: var(--pastel-yellow-dk); display: block; margin-bottom: 8px; }
+  .footer-col h5 {
+    font-size: 10px;
+    color: var(--pastel-yellow-dk);
+    font-family: var(--tag-font);
+    letter-spacing: 0.1em;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+  }
+  .footer-col p,
+  .footer-col a {
+    font-size: 11px;
+    color: var(--ink-mid);
+    line-height: 1.75;
+    display: block;
+    text-decoration: none;
+  }
+  .footer-bottom {
+    width: 100%;
+    border-top: 1px solid #e5d08a;
+    padding-top: 8px;
     display: flex;
-    gap: 3px;
-    margin: 6px 0 2px;
-    align-items: flex-end;
+    justify-content: space-between;
+    align-items: center;
   }
-  .bridge-deco {
-    border-top: 3px solid var(--gold);
-    border-bottom: none;
-    height: 8px;
-    position: relative;
-    margin-bottom: 4px;
+  .footer-bottom span {
+    font-size: 10px;
+    color: var(--ink-soft);
+    font-family: var(--tag-font);
   }
-  .bridge-deco::after {
-    content: '';
-    position: absolute;
-    bottom: -6px; left: 50%;
-    transform: translateX(-50%);
-    width: 60%; height: 6px;
-    border-radius: 50% 50% 0 0;
-    border: 2.5px solid var(--gold);
-    border-bottom: none;
+
+  /* ── LEGEND ── */
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: var(--white);
+    border: 1px solid #dde3ed;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--tag-font);
+    font-size: 10px;
+    color: var(--ink-mid);
+  }
+  .legend-dot {
+    width: 10px; height: 10px;
+    border: 1.5px solid currentColor;
+    flex-shrink: 0;
   }
 </style>
-
+</head>
+<body>
 <div class="page-wrap">
 
-  <div style="margin-bottom:10px; display:flex; align-items:center; gap:10px;">
-    <svg width="120" height="36" viewBox="0 0 120 36">
-      <!-- mini bridge deco from the image -->
-      <line x1="0" y1="12" x2="120" y2="12" stroke="#e8b830" stroke-width="3"/>
-      <path d="M10,12 Q60,36 110,12" fill="none" stroke="#e8b830" stroke-width="2.5"/>
-      <line x1="30" y1="12" x2="30" y2="30" stroke="#1a3d0a" stroke-width="1.5"/>
-      <line x1="60" y1="12" x2="60" y2="36" stroke="#1a3d0a" stroke-width="1.5"/>
-      <line x1="90" y1="12" x2="90" y2="30" stroke="#1a3d0a" stroke-width="1.5"/>
-      <!-- trees -->
-      <polygon points="5,12 9,4 13,12" fill="#1a3d0a"/>
-      <polygon points="14,12 19,3 24,12" fill="#3a6b1a"/>
-      <polygon points="95,12 100,3 105,12" fill="#1a3d0a"/>
-      <polygon points="105,12 110,4 115,12" fill="#3a6b1a"/>
-    </svg>
-    <span style="font-family:'Courier New',monospace; font-size:12px; color:#3a6b1a; letter-spacing:0.1em;">HTML SEMANTİK YAPI — CANLI ÖRNEK</span>
+  <!-- ÜST BANT -->
+  <div class="top-bar">
+    <div class="brand">
+      <span class="univ">Tekirdağ Namık Kemal Üniversitesi &nbsp;·&nbsp; Çorlu Mühendislik Fakültesi</span>
+      <span class="dept">Bilgisayar Mühendisliği Bölümü</span>
+    </div>
+    <span class="course-badge">BMB112 — Web Teknolojileri</span>
   </div>
 
   <!-- HEADER -->
   <div class="demo-header">
     <span class="tag-label">&lt;header&gt;</span>
-    <h1>Köprüler ve Kentler</h1>
-    <p>Mühendislik ve Mimarlık Bülteni &nbsp;·&nbsp; Cilt 7, Sayı 3</p>
-    <svg style="position:absolute;right:24px;top:50%;transform:translateY(-50%)" width="60" height="40" viewBox="0 0 60 40">
-      <rect x="18" y="8" width="24" height="20" fill="none" stroke="#1a3d0a" stroke-width="2"/>
-      <rect x="22" y="4" width="16" height="10" rx="8" ry="8" fill="none" stroke="#1a3d0a" stroke-width="2"/>
-      <line x1="0" y1="28" x2="60" y2="28" stroke="#1a3d0a" stroke-width="2"/>
-      <path d="M5,28 Q30,40 55,28" fill="none" stroke="#1a3d0a" stroke-width="1.5"/>
+    <h1>HTML5 Semantik Yapı Rehberi</h1>
+    <p class="sub">Dr. Öğr. Üyesi Erkan Özhan &nbsp;·&nbsp; eozhan@nku.edu.tr &nbsp;·&nbsp; 2024–2025 Bahar</p>
+    <!-- mini CPU deco -->
+    <svg style="position:absolute;right:22px;top:50%;transform:translateY(-50%)" width="56" height="44" viewBox="0 0 56 44">
+      <rect x="14" y="10" width="28" height="24" rx="3" fill="none" stroke="#7aafd4" stroke-width="2"/>
+      <rect x="19" y="15" width="18" height="14" rx="1" fill="#c8dff5" stroke="#7aafd4" stroke-width="1"/>
+      <line x1="20" y1="10" x2="20" y2="5"  stroke="#9b8ec4" stroke-width="1.5"/>
+      <line x1="28" y1="10" x2="28" y2="5"  stroke="#9b8ec4" stroke-width="1.5"/>
+      <line x1="36" y1="10" x2="36" y2="5"  stroke="#9b8ec4" stroke-width="1.5"/>
+      <line x1="20" y1="34" x2="20" y2="39" stroke="#9b8ec4" stroke-width="1.5"/>
+      <line x1="28" y1="34" x2="28" y2="39" stroke="#9b8ec4" stroke-width="1.5"/>
+      <line x1="36" y1="34" x2="36" y2="39" stroke="#9b8ec4" stroke-width="1.5"/>
+      <line x1="14" y1="18" x2="6"  y2="18" stroke="#6aad96" stroke-width="1.5"/>
+      <line x1="14" y1="26" x2="6"  y2="26" stroke="#6aad96" stroke-width="1.5"/>
+      <line x1="42" y1="18" x2="50" y2="18" stroke="#6aad96" stroke-width="1.5"/>
+      <line x1="42" y1="26" x2="50" y2="26" stroke="#6aad96" stroke-width="1.5"/>
     </svg>
   </div>
 
@@ -200,11 +329,11 @@
     <span class="tag-label">&lt;nav&gt;</span>
     <a href="#">Ana Sayfa</a>
     <span class="sep">|</span>
-    <a href="#">Projeler</a>
+    <a href="#">Ders Notları</a>
     <span class="sep">|</span>
-    <a href="#">Araştırma</a>
+    <a href="#">Ödevler</a>
     <span class="sep">|</span>
-    <a href="#">Ekip</a>
+    <a href="#">Kaynaklar</a>
     <span class="sep">|</span>
     <a href="#">İletişim</a>
   </nav>
@@ -219,29 +348,36 @@
       <!-- SECTION 1 -->
       <section class="demo-section">
         <span class="tag-label">&lt;section&gt;</span>
-        <h2>Orman Üzerindeki Yapılar</h2>
-        <p>Köprüler, yalnızca birer geçiş noktası değil; aynı zamanda mühendislik anlayışının somut yansımalarıdır. Kemerli tasarım, yükü zemine dağıtarak dayanıklılığı artırır.</p>
+        <h2>Semantik Etiketler Neden Önemlidir?</h2>
+        <p>Anlam taşıyan (semantic) etiketler, belgenin yapısını hem tarayıcıya hem de geliştiriciye açıkça iletir. Erişilebilirlik (accessibility) ve arama motoru optimizasyonu (SEO) doğrudan bu yapıdan beslenir.</p>
 
-        <!-- ARTICLE -->
+        <!-- ARTICLE 1 -->
         <article class="demo-article">
           <span class="tag-label">&lt;article&gt;</span>
-          <h3>Kemer Köprü Mekaniği</h3>
-          <p>Kemer (arch) geometrisi, dikey yükleri yatay baskıya dönüştürerek ayaklara iletir. Roma aqueduct'larından modern viaduklara kadar aynı ilke geçerliliğini korur.</p>
+          <h3>DOM Ağacı ve Semantik Hiyerarşi</h3>
+          <p>DOM (Document Object Model — Belge Nesne Modeli), sayfayı bir ağaç (tree) veri yapısı olarak tutar. Semantik etiketler bu ağaca anlam katmanı ekler; düğümler (node) yalnızca içerik değil, bağlam da taşır.</p>
         </article>
 
         <!-- ARTICLE 2 -->
         <article class="demo-article" style="margin-top:6px">
           <span class="tag-label">&lt;article&gt;</span>
-          <h3>Yeşil Alan Entegrasyonu</h3>
-          <p>Çevresiyle uyumlu kentsel yapılar, biyoçeşitlilik koridoru işlevi görebilir. Yapı–doğa dengesi sürdürülebilir kent tasarımının odak noktasıdır.</p>
+          <h3>Erişilebilirlik ve ARIA</h3>
+          <p>ARIA (Accessible Rich Internet Applications — Erişilebilir Zengin İnternet Uygulamaları) rolleri, semantik etiketlerle birlikte ekran okuyucuların (screen reader) içeriği doğru yorumlamasını sağlar.</p>
         </article>
       </section>
 
       <!-- SECTION 2 -->
       <section class="demo-section" style="margin-top:8px">
         <span class="tag-label">&lt;section&gt;</span>
-        <h2>Malzeme ve Renk</h2>
-        <p>Çelik sarısı ile koyu yeşilin kontrastı, hem estetik hem işlevsel bir tercih olarak öne çıkar. Renk, yapının çevresiyle konuşma biçimidir.</p>
+        <h2>Etiket–İşlev Eşleşmesi</h2>
+        <p>Her semantik etiketin belirli bir sorumluluğu vardır. <code style="font-size:11px;background:#dff0e8;padding:1px 4px;">&lt;header&gt;</code> giriş bilgisi, <code style="font-size:11px;background:#dff0e8;padding:1px 4px;">&lt;main&gt;</code> birincil içerik, <code style="font-size:11px;background:#dff0e8;padding:1px 4px;">&lt;footer&gt;</code> ise sayfa kapanış verisini tanımlar. <code style="font-size:11px;background:#dff0e8;padding:1px 4px;">&lt;div&gt;</code> anlam taşımaz; salt düzen (layout) amacıyla kullanılır.</p>
+
+        <!-- ARTICLE 3 -->
+        <article class="demo-article" style="margin-top:7px">
+          <span class="tag-label">&lt;article&gt;</span>
+          <h3>Algoritma Karmaşıklığı ile Kıyaslama</h3>
+          <p>Anlamsız <code style="font-size:10px;background:#f0f0f0;padding:1px 3px;">&lt;div&gt;</code> katmanları eklemek, gereksiz iç içe döngü yazmak gibidir: işlevsel görünür ancak bakımı (maintenance) zorlaştırır, okunabilirliği (readability) düşürür.</p>
+        </article>
       </section>
     </main>
 
@@ -249,7 +385,7 @@
     <aside class="demo-aside">
       <span class="tag-label">&lt;aside&gt;</span>
 
-      <h4>Hızlı Başvuru</h4>
+      <h4>SEMANTİK ETİKETLER</h4>
       <ul>
         <li>header</li>
         <li>nav</li>
@@ -258,22 +394,43 @@
         <li>article</li>
         <li>aside</li>
         <li>footer</li>
+        <li>figure</li>
+        <li>figcaption</li>
+        <li>time</li>
+        <li>mark</li>
+        <li>details</li>
       </ul>
 
-      <div class="aside-box" style="margin-top:12px">
-        <p style="color:var(--gold); font-family:'Courier New',monospace; font-size:10px; margin-bottom:4px;">NOT:</p>
-        <p>&lt;div&gt; yerine anlamlı etiketler kullanmak hem erişilebilirliği hem de SEO puanını artırır.</p>
+      <div class="aside-note">
+        <div class="note-head">NOT — SEO ETKİSİ</div>
+        <p>Google, semantik yapıyı içerik kalitesi sinyali olarak kullanır. Doğru etiket seçimi SERP sıralamasını doğrudan etkiler.</p>
       </div>
 
-      <svg width="100%" height="60" viewBox="0 0 200 60" style="margin-top:12px">
-        <line x1="0" y1="20" x2="200" y2="20" stroke="#e8b830" stroke-width="2.5"/>
-        <path d="M10,20 Q100,55 190,20" fill="none" stroke="#e8b830" stroke-width="2"/>
-        <polygon points="15,20 20,10 25,20" fill="#1a3d0a"/>
-        <polygon points="30,20 37,8 44,20" fill="#2d5a1b"/>
-        <polygon points="48,20 55,6 62,20" fill="#1a3d0a"/>
-        <polygon points="140,20 147,8 154,20" fill="#1a3d0a"/>
-        <polygon points="158,20 165,6 172,20" fill="#2d5a1b"/>
-        <polygon points="176,20 182,10 188,20" fill="#1a3d0a"/>
+      <div class="aside-complexity">
+        <div class="note-head">KARŞILAŞTIRMA</div>
+        <table>
+          <tr><td>&lt;div&gt;</td><td>Anlamsız, genel</td></tr>
+          <tr><td>&lt;section&gt;</td><td>Tematik grup</td></tr>
+          <tr><td>&lt;article&gt;</td><td>Bağımsız içerik</td></tr>
+          <tr><td>&lt;aside&gt;</td><td>Yardımcı bilgi</td></tr>
+        </table>
+      </div>
+
+      <!-- mini devre diyagramı -->
+      <svg width="100%" height="50" viewBox="0 0 200 50" style="margin-top:12px">
+        <line x1="10" y1="25" x2="190" y2="25" stroke="#9b8ec4" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <circle cx="40"  cy="25" r="5" fill="#ddd6f3" stroke="#9b8ec4" stroke-width="1.5"/>
+        <circle cx="80"  cy="25" r="5" fill="#ddd6f3" stroke="#9b8ec4" stroke-width="1.5"/>
+        <circle cx="120" cy="25" r="5" fill="#ddd6f3" stroke="#9b8ec4" stroke-width="1.5"/>
+        <circle cx="160" cy="25" r="5" fill="#ddd6f3" stroke="#9b8ec4" stroke-width="1.5"/>
+        <line x1="40"  y1="25" x2="40"  y2="10" stroke="#6aad96" stroke-width="1.5"/>
+        <line x1="80"  y1="25" x2="80"  y2="10" stroke="#6aad96" stroke-width="1.5"/>
+        <line x1="120" y1="25" x2="120" y2="10" stroke="#6aad96" stroke-width="1.5"/>
+        <line x1="160" y1="25" x2="160" y2="10" stroke="#6aad96" stroke-width="1.5"/>
+        <rect x="30" y="4" width="20" height="6" rx="1" fill="#c9edd8" stroke="#6aad96" stroke-width="1"/>
+        <rect x="70" y="4" width="20" height="6" rx="1" fill="#c9edd8" stroke="#6aad96" stroke-width="1"/>
+        <rect x="110" y="4" width="20" height="6" rx="1" fill="#c9edd8" stroke="#6aad96" stroke-width="1"/>
+        <rect x="150" y="4" width="20" height="6" rx="1" fill="#c9edd8" stroke="#6aad96" stroke-width="1"/>
       </svg>
     </aside>
 
@@ -283,32 +440,42 @@
   <footer class="demo-footer">
     <div class="footer-col">
       <span class="tag-label">&lt;footer&gt;</span>
-      <h5>YAYINCI</h5>
-      <p>Mühendislik Fakültesi</p>
-      <p>Bilgisayar Mühendisliği Bölümü</p>
+      <h5>Bölüm</h5>
+      <p>Bilgisayar Mühendisliği</p>
+      <p>Çorlu Mühendislik Fakültesi</p>
+      <p>TNKÜ — Tekirdağ</p>
     </div>
     <div class="footer-col">
-      <h5>WEB TEKNOLOJİLERİ</h5>
-      <a href="#">BMB112 Ders Sayfası</a>
-      <a href="#">Kaynaklar</a>
+      <h5>Ders</h5>
+      <a href="#">BMB112 Web Teknolojileri</a>
+      <a href="#">Ders Planı (Syllabus)</a>
       <a href="#">Ödev Takvimi</a>
     </div>
     <div class="footer-col">
-      <h5>SEMANTİK HTML</h5>
-      <p style="color:#8ab868">HTML5 — 2014'ten bu yana</p>
-      <p style="color:#8ab868">W3C Standardı</p>
+      <h5>Standartlar</h5>
+      <p>HTML5 — W3C, 2014</p>
+      <p>WHATWG Living Standard</p>
+      <p>WAI-ARIA 1.2</p>
     </div>
-    <div style="width:100%; border-top:1px solid #2d5a10; padding-top:8px; display:flex; justify-content:space-between; align-items:center;">
-      <span style="font-size:10px; color:#6a8a50; font-family:'Courier New',monospace">&lt;/footer&gt; — sayfa sonu</span>
-      <svg width="80" height="18" viewBox="0 0 80 18">
-        <line x1="0" y1="8" x2="80" y2="8" stroke="#e8b830" stroke-width="2"/>
-        <path d="M5,8 Q40,18 75,8" fill="none" stroke="#e8b830" stroke-width="1.5"/>
-        <polygon points="8,8 12,2 16,8" fill="#3a6b1a"/>
-        <polygon points="20,8 25,1 30,8" fill="#1a3d0a"/>
-        <polygon points="50,8 55,1 60,8" fill="#1a3d0a"/>
-        <polygon points="63,8 67,2 71,8" fill="#3a6b1a"/>
-      </svg>
+    <div class="footer-col">
+      <h5>İletişim</h5>
+      <a href="mailto:eozhan@nku.edu.tr">eozhan@nku.edu.tr</a>
+      <p>Çorlu Müh. Fak. Z-12</p>
+    </div>
+    <div class="footer-bottom">
+      <span>&lt;/footer&gt; — BMB112 · 2024–2025 Bahar · Dr. Öğr. Üyesi Erkan Özhan</span>
+      <span>TNKÜ Bilgisayar Müh.</span>
     </div>
   </footer>
 
+  <!-- RENK LEJANDI -->
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#c8dff5;color:#7aafd4"></div> &lt;header&gt; / &lt;main&gt;</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#ddd6f3;color:#9b8ec4"></div> &lt;nav&gt; / &lt;aside&gt;</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#c9edd8;color:#4a8c72"></div> &lt;section&gt; / &lt;article&gt;</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#fef3c7;color:#c9a227"></div> &lt;footer&gt;</div>
+  </div>
+
 </div>
+</body>
+</html>
