@@ -1,46 +1,42 @@
-# HTML Bağlantıları: Anchor (Çapa) Etiketi ve Yönlendirme Mantığı
+# HTML Bağlantıları: `<a>` Etiketi, href Niteliği ve Yönlendirme Mimarisi
 
-Gençler, HTML'in temelini ve web'i gerçek anlamda birbirine bağlı bir "ağ" (web) haline getiren en önemli yapı taşını inceleyeceğiz. Bir HTML belgesini statik bir metin dosyası olmaktan çıkarıp, onu diğer belgelere, sunuculara veya aynı belgenin farklı bölümlerine bağlayan eleman `<a>` etiketidir.
-
-Buradaki `a` harfi, İngilizce **Anchor** (Çapa) kelimesinin baş harfidir. Kelimenin kökeni Latince *ancora* sözcüğüne dayanır ve denizcilikte gemiyi belirli bir noktaya sabitlemek için denize atılan demir anlamına gelir. Bilgisayar bilimlerinde bu terimin seçilmesi tesadüfi değildir; tıpkı bir geminin bulunduğu noktadan denizin dibindeki bir noktaya fiziksel bir bağ kurması gibi, anchor etiketi de okuduğunuz mevcut metin ile hedefteki diğer bir belge arasında mantıksal bir bağ kurar, oraya "demir atar".
-
-## Temel Kullanım ve `href` Niteliği
-
-Bir çapa etiketinin tek başına bir anlam ifade etmesi mümkün değildir. Nereye demir atacağını tarayıcıya (browser) söylemeniz gerekir. Bu noktada **Hypertext Reference** (Hipermetin Referansı - `href`) niteliği devreye girer. `href`, kullanıcının tıkladığında yönlendirileceği hedef adresi barındırır.
+Gençler, web sayfalarının sadece okunabilir durağan metinler olmaktan çıkıp, birbirine bağlı devasa bir ağ (web) oluşturmasını sağlayan temel yapıyı inceleyeceğiz. Bir HTML belgesinde başka bir sayfaya, görsele veya sunucuya geçiş yapmak istediğimizde `<a>` etiketi ve onun ayrılmaz bir parçası olan `href` niteliğini (attribute) kullanırız.
 
 ```html
 <a href="https://www.nku.edu.tr">Namık Kemal Üniversitesi</a>
 ```
 
-Yukarıdaki kod parçasında, açılış ve kapanış etiketleri arasındaki metin ("Namık Kemal Üniversitesi"), kullanıcının ekranda göreceği ve tıklayabileceği kısımdır. `href` ise perdenin arkasında çalışan, veri paketlerinin hangi sunucuya veya belgeye yönlendirileceğini belirten referans noktasıdır.
+Bu kod parçasında, açılış ve kapanış etiketleri arasındaki metin ("Namık Kemal Üniversitesi"), kullanıcının ekranda göreceği ve etkileşime gireceği kısımdır. Ancak perdenin arkasında çalışan ve veri paketlerinin hangi sunucuya veya belgeye yönlendirileceğini belirten referans noktası `href` niteliğidir. `href`, **Hypertext Reference** (Hipermetin Referansı) kelimelerinin kısaltmasıdır. Hipermetin, normal okuma sırasının ötesine geçerek başka metinlere atıfta bulunan, onları birbirine bağlayan yapılardır. 
+
+Etiketin ismi olan `a` harfinin nereden geldiğini bilmek, bu mimarinin mantığını kavramanıza yardımcı olacaktır. `a` harfi, İngilizce **Anchor** (Çapa) kelimesinin baş harfidir. Kelimenin kökeni Latince *ancora* sözcüğüne dayanır ve denizcilikte gemiyi belirli bir noktaya sabitlemek için denize atılan demiri ifade eder. Tıpkı bir geminin bulunduğu noktadan denizin dibindeki bir konuma fiziksel bir bağ kurması gibi, anchor etiketi de okuduğunuz mevcut metin ile hedefteki diğer bir belge arasında mantıksal bir bağ kurar; yönlendirmeyi oraya sabitler, yani "demir atar".
 
 ## Adresleme Yöntemleri: Mutlak ve Göreli Referanslar
 
-Bağlantıların hedef noktalarını belirtirken, kaynakların nerede olduğuna bağlı olarak iki farklı adresleme stratejisi kullanılır.
+Bağlantıların hedef noktalarını belirlerken, kaynakların bulunduğu konuma göre iki farklı adresleme stratejisi uygularız.
 
-1. **Mutlak Adresleme (Absolute URL - Mutlak Tekdüze Kaynak Bulucu):** Hedef belgenin internet üzerindeki tam ve kesin konumudur. Genellikle dış kaynaklara, farklı alan adlarına (domain) bağlantı verirken kullanılır. Protokol (`http` veya `https`) ile başlamak zorundadır.
+1. **Mutlak Adresleme (Absolute URL - Mutlak Tekdüze Kaynak Bulucu):** Hedef belgenin internet ağındaki tam ve bağımsız konumudur. Genellikle dış kaynaklara veya farklı alan adlarına (domain) bağlantı verirken kullanılır. İletişim kuralı olan protokol (`http` veya `https`) ile başlamak zorundadır.
    ```html
    <a href="https://www.google.com/search?q=html">Google'da HTML Ara</a>
    ```
 
-2. **Göreli Adresleme (Relative URL - Göreli Tekdüze Kaynak Bulucu):** Bağlantı verilen dosya ile bağlantıyı veren dosya aynı proje veya sunucu dizini (directory) içindeyse kullanılır. Sadece dosyanın konumuna göre bir yol (path) çizilir.
+2. **Göreli Adresleme (Relative URL - Göreli Tekdüze Kaynak Bulucu):** Bağlantı verilen hedef dosya ile mevcut dosyanız aynı proje dizini (directory) içindeyse kullanılır. Bu yöntemde tam adresi yazmak yerine, bulunduğunuz klasöre göre bir yol (path) çizersiniz. Bu yöntem, projeyi yerel bilgisayarınızdan çıkarıp başka bir sunucuya taşıdığınızda bağlantıların kopmamasını sağlar.
    ```html
    <!-- Aynı klasördeki bir dosyaya bağlantı -->
    <a href="iletisim.html">İletişim Sayfası</a>
 
-   <!-- Bir üst klasöre çıkıp oradaki dosyaya bağlantı -->
+   <!-- Bir üst dizine çıkıp oradaki dosyaya bağlantı -->
    <a href="../hakkimizda.html">Hakkımızda</a>
    ```
 
 ## Sayfa İçi Yönlendirmeler (Fragment Identifiers)
 
-Çapa etiketi her zaman farklı bir belgeye gitmek zorunda değildir. Özellikle çok uzun bir metin okuyorsanız, belgenin en üstüne veya belirli bir başlığa doğrudan atlamak isteyebilirsiniz. Bunun için HTML elemanlarının `id` (Kimlik - Identifier) niteliği kullanılır. `href` değerinin başına kare `#` sembolü (hash) konularak belirli bir `id` değerine sahip elemana referans verilir.
+Anchor etiketi her zaman fiziksel olarak farklı bir belgeye gitmek zorunda değildir. Çok uzun bir metin okuyorsanız, sayfanın en üstüne veya belirli bir başlığa doğrudan sıçramak isteyebilirsiniz. Bunun için HTML elemanlarının `id` (Kimlik - Identifier) niteliği kullanılır. `href` değerinin başına kare `#` sembolü (hash) konularak sayfa içindeki belirli bir referansa çapa atılır.
 
 ```html
 <!-- Sayfanın alt kısımlarında bir başlık -->
 <h2 id="veri-yapilari">Veri Yapıları Konusu</h2>
 
-<!-- Başka bir noktadan o başlığa yönlendiren bağlantı -->
+<!-- Başka bir noktadan ilgili başlığa yönlendiren bağlantı -->
 <a href="#veri-yapilari">Veri Yapıları bölümüne git</a>
 ```
 
