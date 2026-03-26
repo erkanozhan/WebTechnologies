@@ -76,31 +76,25 @@ Bu riski ortadan kaldırmak için, kullanıcıdan bağımsız dış bağlantıla
 
 Bağlantıların bir belgeden diğerine ve belge içindeki farklı noktalara olan yönlendirme mantığını aşağıdaki yönlendirme grafiğinde yapısal olarak inceleyebiliriz:
 
-```dot
-digraph AnchorRouting {
-    rankdir=LR;
-    fontname="Helvetica";
-    node [fontname="Helvetica", shape=box, style=filled, fillcolor="#E8E8E8", color="#555555"];
-    edge [fontname="Helvetica", color="#555555"];
-
-    Index [label="index.html\n(Ana Sayfa)"];
-    Contact [label="iletisim.html\n(Göreli Bağlantı)"];
-    External [label="https://nku.edu.tr\n(Mutlak Bağlantı)", shape=ellipse, fillcolor="#A9F5A9"];
+```mermaid
+flowchart LR
+    Index["index.html<br>(Ana Sayfa)"]
+    Contact["iletisim.html<br>(Göreli Bağlantı)"]
+    External(["https://nku.edu.tr<br>(Mutlak Bağlantı)"])
     
-    subgraph cluster_page {
-        label = "Sayfa İçi Yönlendirme (Fragment)";
-        style=dashed;
-        color="#333333";
-        bgcolor="#FAFAFA";
-        
-        Header [label="<a href=\"#alt-kisim\">"];
-        Footer [label="<h2 id=\"alt-kisim\">"];
-    }
+    subgraph SayfaIci ["Sayfa İçi Yönlendirme (Fragment)"]
+        direction LR
+        Header["&lt;a href='#alt-kisim'&gt;"]
+        Footer["&lt;h2 id='alt-kisim'&gt;"]
+    end
 
-    Index -> Contact [label=" href=\"iletisim.html\""];
-    Index -> External [label=" href=\"https://...\""];
-    Header -> Footer [label=" Sayfa İçi Kaydırma"];
-}
+    Index -- "href='iletisim.html'" --> Contact
+    Index -- "href='https://...'" --> External
+    Header -- "Sayfa İçi Kaydırma" --> Footer
+
+    classDef default fill:#E8E8E8,stroke:#555,stroke-width:1px,color:#333;
+    classDef extNode fill:#A9F5A9,stroke:#555,stroke-width:1px,color:#333;
+    class External extNode;
 ```
 
 Özetlemek gerekirse, `<a>` etiketi basit bir metin işaretleme işleminden ibaret değildir. Hedefin konumuna göre mutlak veya göreli adreslemeyi kullanmayı, sayfa içi yönlendirmelerle kullanıcı deneyimini artırmayı ve yeni sekme açarken oluşabilecek güvenlik açıklarını `rel="noopener noreferrer"` ile kapatmayı öğrenmek, güvenli ve bütünleşik bir web mimarisi kurmanın temel şartıdır.
