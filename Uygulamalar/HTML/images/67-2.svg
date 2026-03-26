@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 340" font-family="monospace" font-size="13">
+  <!-- table kutusu -->
+  <rect x="10" y="10" width="600" height="320" rx="6" fill="#eaf2f8" stroke="#2c3e50" stroke-width="2"/>
+  <text x="20" y="30" font-weight="bold" fill="#2c3e50">&lt;table&gt;</text>
+
+  <!-- thead -->
+  <rect x="30" y="45" width="560" height="75" rx="4" fill="#d5f5e3" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="40" y="63" font-weight="bold" fill="#27ae60">&lt;thead&gt;</text>
+  <!-- tr in thead -->
+  <rect x="50" y="70" width="520" height="40" rx="3" fill="#fff" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="60" y="90" fill="#333">&lt;tr&gt;</text>
+  <rect x="110" y="75" width="140" height="28" rx="3" fill="#f9e79f" stroke="#f39c12" stroke-width="1"/>
+  <text x="120" y="94" fill="#333">&lt;th&gt; Ürün Adı</text>
+  <rect x="260" y="75" width="140" height="28" rx="3" fill="#f9e79f" stroke="#f39c12" stroke-width="1"/>
+  <text x="270" y="94" fill="#333">&lt;th&gt; Stok Mik.</text>
+  <rect x="410" y="75" width="140" height="28" rx="3" fill="#f9e79f" stroke="#f39c12" stroke-width="1"/>
+  <text x="420" y="94" fill="#333">&lt;th&gt; Satış Mik.</text>
+
+  <!-- tbody -->
+  <rect x="30" y="130" width="560" height="140" rx="4" fill="#ebf5fb" stroke="#2980b9" stroke-width="1.5"/>
+  <text x="40" y="148" font-weight="bold" fill="#2980b9">&lt;tbody&gt;</text>
+  <!-- tr 1 -->
+  <rect x="50" y="155" width="520" height="40" rx="3" fill="#fff" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="60" y="178" fill="#333">&lt;tr&gt;</text>
+  <rect x="110" y="160" width="140" height="28" rx="3" fill="#fff" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="120" y="179" fill="#333">&lt;td&gt; Kalem</text>
+  <rect x="260" y="160" width="140" height="28" rx="3" fill="#fff" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="270" y="179" fill="#333">&lt;td&gt; 114</text>
+  <rect x="410" y="160" width="140" height="28" rx="3" fill="#fff" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="420" y="179" fill="#333">&lt;td&gt; 50</text>
+  <!-- tr 2 -->
+  <rect x="50" y="205" width="520" height="40" rx="3" fill="#fff" stroke="#7f8c8d" stroke-width="1"/>
+  <text x="60" y="228" fill="#333">&lt;tr&gt;</text>
+  <rect x="110" y="210" width="140" height="28" rx="3" fill="#fff" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="120" y="229" fill="#333">&lt;td&gt; Defter</text>
+  <rect x="260" y="210" width="140" height="28" rx="3" fill="#fff" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="270" y="229" fill="#333">&lt;td&gt; 89</text>
+  <rect x="410" y="210" width="140" height="28" rx="3" fill="#fff" stroke="#bdc3c7" stroke-width="1"/>
+  <text x="420" y="229" fill="#333">&lt;td&gt; 19</text>
+
+  <!-- tfoot -->
+  <rect x="30" y="280" width="560" height="40" rx="4" fill="#fdedec" stroke="#e74c3c" stroke-width="1.5"/>
+  <text x="40" y="305" font-weight="bold" fill="#e74c3c">&lt;tfoot&gt;</text>
+  <text x="150" y="305" fill="#333">&lt;tr&gt; &lt;td&gt; Toplam &lt;td&gt; 203 &lt;td&gt; 69</text>
+
+  <text x="500" y="30" font-weight="bold" fill="#2c3e50">&lt;/table&gt;</text>
+</svg>
