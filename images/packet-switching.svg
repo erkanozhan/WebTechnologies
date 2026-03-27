@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 350">
+    <rect width="700" height="350" fill="#f8f9fa"/>
+    
+    <!-- Source & Dest -->
+    <rect x="20" y="150" width="80" height="50" rx="5" fill="#3498db"/>
+    <text x="60" y="180" fill="white" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Kaynak</text>
+
+    <rect x="600" y="150" width="80" height="50" rx="5" fill="#27ae60"/>
+    <text x="640" y="180" fill="white" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Hedef</text>
+
+    <!-- Routers -->
+    <circle cx="200" cy="100" r="30" fill="#95a5a6"/>
+    <text x="200" y="105" fill="white" font-family="Arial" font-size="14" text-anchor="middle">R1</text>
+    
+    <circle cx="200" cy="250" r="30" fill="#95a5a6"/>
+    <text x="200" y="255" fill="white" font-family="Arial" font-size="14" text-anchor="middle">R2</text>
+
+    <circle cx="350" cy="175" r="30" fill="#95a5a6"/>
+    <text x="350" y="180" fill="white" font-family="Arial" font-size="14" text-anchor="middle">R3</text>
+
+    <circle cx="500" cy="100" r="30" fill="#95a5a6"/>
+    <text x="500" y="105" fill="white" font-family="Arial" font-size="14" text-anchor="middle">R4</text>
+
+    <circle cx="500" cy="250" r="30" fill="#95a5a6"/>
+    <text x="500" y="255" fill="white" font-family="Arial" font-size="14" text-anchor="middle">R5</text>
+
+    <!-- Links -->
+    <path d="M 100 165 L 175 115" stroke="#bdc3c7" stroke-width="2"/>
+    <path d="M 100 185 L 175 235" stroke="#bdc3c7" stroke-width="2"/>
+    <path d="M 230 100 L 470 100" stroke="#bdc3c7" stroke-width="2"/>
+    <path d="M 225 115 L 325 160" stroke="#bdc3c7" stroke-width="2"/>
+    <path d="M 230 250 L 470 250" stroke="#bdc3c7" stroke-width="2"/>
+    <path d="M 225 235 L 325 190" stroke="#bdc3c7" stroke-width="2"/>
+    <path d="M 375 160 L 475 115" stroke="#bdc3c7" stroke-width="2"/>
+    <path d="M 375 190 L 475 235" stroke="#bdc3c7" stroke-width="2"/>
+    <path d="M 525 115 L 600 165" stroke="#bdc3c7" stroke-width="2"/>
+    <path d="M 525 235 L 600 185" stroke="#bdc3c7" stroke-width="2"/>
+
+    <!-- Packets -->
+    <rect x="130" y="120" width="20" height="20" fill="#e74c3c"/>
+    <text x="140" y="135" fill="white" font-family="Arial" font-size="12" text-anchor="middle">1</text>
+    <rect x="270" y="85" width="20" height="20" fill="#e74c3c"/>
+    <text x="280" y="100" fill="white" font-family="Arial" font-size="12" text-anchor="middle">1</text>
+    <rect x="420" y="150" width="20" height="20" fill="#8e44ad"/>
+    <text x="430" y="165" fill="white" font-family="Arial" font-size="12" text-anchor="middle">2</text>
+    <rect x="130" y="210" width="20" height="20" fill="#8e44ad"/>
+    <text x="140" y="225" fill="white" font-family="Arial" font-size="12" text-anchor="middle">2</text>
+    <rect x="270" y="235" width="20" height="20" fill="#f39c12"/>
+    <text x="280" y="250" fill="white" font-family="Arial" font-size="12" text-anchor="middle">3</text>
+    <rect x="540" y="125" width="20" height="20" fill="#e74c3c"/>
+    <text x="550" y="140" fill="white" font-family="Arial" font-size="12" text-anchor="middle">1</text>
+    <rect x="540" y="200" width="20" height="20" fill="#8e44ad"/>
+    <text x="550" y="215" fill="white" font-family="Arial" font-size="12" text-anchor="middle">2</text>
+    
+    <text x="350" y="320" fill="#333" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">Paket Anahtarlama: Paketler hedefe farklı rotalardan ulaşabilir.</text>
+</svg>

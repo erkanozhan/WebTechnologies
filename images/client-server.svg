@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300">
+    <rect width="600" height="300" fill="#f8f9fa"/>
+    <!-- Client -->
+    <rect x="50" y="100" width="100" height="80" rx="10" fill="#3498db"/>
+    <rect x="70" y="180" width="60" height="10" fill="#2980b9"/>
+    <rect x="40" y="190" width="120" height="10" rx="3" fill="#34495e"/>
+    <text x="100" y="145" fill="white" font-family="Arial" font-size="16" text-anchor="middle" font-weight="bold">İstemci</text>
+    <text x="100" y="230" fill="#333" font-family="Arial" font-size="14" text-anchor="middle">Bilgisayar/Telefon</text>
+
+    <!-- Server -->
+    <rect x="450" y="60" width="80" height="150" rx="5" fill="#2c3e50"/>
+    <rect x="460" y="80" width="60" height="20" fill="#ecf0f1"/>
+    <rect x="460" y="110" width="60" height="20" fill="#ecf0f1"/>
+    <rect x="460" y="140" width="60" height="20" fill="#ecf0f1"/>
+    <circle cx="470" cy="180" r="5" fill="#e74c3c"/>
+    <text x="490" y="240" fill="#333" font-family="Arial" font-size="14" text-anchor="middle">Sunucu</text>
+
+    <!-- Arrows -->
+    <path d="M 180 120 L 420 120" stroke="#e67e22" stroke-width="4" fill="none" marker-end="url(#arrow-orange)"/>
+    <text x="300" y="110" fill="#e67e22" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">İstek (Request)</text>
+
+    <path d="M 420 160 L 180 160" stroke="#27ae60" stroke-width="4" fill="none" marker-end="url(#arrow-green)"/>
+    <text x="300" y="185" fill="#27ae60" font-family="Arial" font-size="14" text-anchor="middle" font-weight="bold">Yanıt (Response)</text>
+
+    <defs>
+        <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z" fill="#e67e22" />
+        </marker>
+        <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z" fill="#27ae60" />
+        </marker>
+    </defs>
+</svg>
