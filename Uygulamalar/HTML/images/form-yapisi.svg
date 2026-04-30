@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="365" font-family="Arial, sans-serif" font-size="13">
+  <!-- Background -->
+  <rect width="720" height="365" fill="#f9fafb" rx="10"/>
+
+  <!-- Title -->
+  <text x="360" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a1a2e">HTML Form Yapısı — Eleman Hiyerarşisi</text>
+
+  <!-- === LINES (drawn before nodes) === -->
+
+  <!-- form → split 1 -->
+  <line x1="360" y1="73" x2="360" y2="100" stroke="#bbb" stroke-width="1.5"/>
+  <line x1="200" y1="100" x2="560" y2="100" stroke="#bbb" stroke-width="1.5"/>
+  <line x1="200" y1="100" x2="200" y2="122" stroke="#bbb" stroke-width="1.5"/>
+  <line x1="560" y1="100" x2="560" y2="122" stroke="#bbb" stroke-width="1.5"/>
+
+  <!-- fieldset → split 2 -->
+  <line x1="200" y1="158" x2="200" y2="192" stroke="#bbb" stroke-width="1.5"/>
+  <line x1="60"  y1="192" x2="510" y2="192" stroke="#bbb" stroke-width="1.5"/>
+  <line x1="60"  y1="192" x2="60"  y2="212" stroke="#bbb" stroke-width="1.5"/>
+  <line x1="200" y1="192" x2="200" y2="212" stroke="#bbb" stroke-width="1.5"/>
+  <line x1="360" y1="192" x2="360" y2="212" stroke="#bbb" stroke-width="1.5"/>
+  <line x1="510" y1="192" x2="510" y2="212" stroke="#bbb" stroke-width="1.5"/>
+
+  <!-- label+input → detail box -->
+  <line x1="200" y1="248" x2="200" y2="268" stroke="#bbb" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- === NODES === -->
+
+  <!-- form -->
+  <rect x="290" y="37" width="140" height="36" fill="#1a1a2e" rx="6"/>
+  <text x="360" y="59" text-anchor="middle" font-family="'Courier New',monospace" fill="#fff">&lt;form&gt;</text>
+
+  <!-- fieldset -->
+  <rect x="120" y="122" width="160" height="36" fill="#2471a3" rx="6"/>
+  <text x="200" y="144" text-anchor="middle" font-family="'Courier New',monospace" fill="#fff">&lt;fieldset&gt;</text>
+
+  <!-- iframe -->
+  <rect x="480" y="122" width="160" height="36" fill="#7f8c8d" rx="6"/>
+  <text x="560" y="144" text-anchor="middle" font-family="'Courier New',monospace" fill="#fff">&lt;iframe&gt;</text>
+  <text x="560" y="174" text-anchor="middle" font-size="11" fill="#888">(form dışı)</text>
+
+  <!-- legend -->
+  <rect x="5" y="212" width="110" height="36" fill="#e67e22" rx="6"/>
+  <text x="60" y="234" text-anchor="middle" font-family="'Courier New',monospace" fill="#fff">&lt;legend&gt;</text>
+
+  <!-- label+input -->
+  <rect x="130" y="212" width="140" height="36" fill="#7d3c98" rx="6"/>
+  <text x="200" y="228" text-anchor="middle" font-family="'Courier New',monospace" font-size="11" fill="#fff">&lt;label&gt; +</text>
+  <text x="200" y="242" text-anchor="middle" font-family="'Courier New',monospace" font-size="11" fill="#fff">&lt;input type="…"&gt;</text>
+
+  <!-- textarea -->
+  <rect x="290" y="212" width="140" height="36" fill="#148f77" rx="6"/>
+  <text x="360" y="234" text-anchor="middle" font-family="'Courier New',monospace" fill="#fff">&lt;textarea&gt;</text>
+
+  <!-- submit/reset -->
+  <rect x="445" y="212" width="130" height="36" fill="#c0392b" rx="6"/>
+  <text x="510" y="228" text-anchor="middle" font-family="'Courier New',monospace" font-size="12" fill="#fff">submit</text>
+  <text x="510" y="242" text-anchor="middle" font-family="'Courier New',monospace" font-size="12" fill="#fff">reset</text>
+
+  <!-- detail box: input types -->
+  <rect x="130" y="268" width="140" height="84" fill="#f4ecf7" stroke="#7d3c98" stroke-width="1" rx="5"/>
+  <text x="200" y="284" text-anchor="middle" font-size="11" fill="#5d6d7e">text · email</text>
+  <text x="200" y="299" text-anchor="middle" font-size="11" fill="#5d6d7e">date · color</text>
+  <text x="200" y="314" text-anchor="middle" font-size="11" fill="#5d6d7e">password · tel</text>
+  <text x="200" y="329" text-anchor="middle" font-size="11" fill="#5d6d7e">radio · checkbox</text>
+  <text x="200" y="346" text-anchor="middle" font-size="10" fill="#999">type= değerleri</text>
+</svg>
