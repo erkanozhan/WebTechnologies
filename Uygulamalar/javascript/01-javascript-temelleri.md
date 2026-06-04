@@ -1,200 +1,244 @@
-# 01 - JavaScript Temelleri: Değişkenler, Veri Tipleri ve Operatörler
 
-## 1. Değişkenler Nedir?
+# 01 - JavaScript Temelleri
 
-Değişken, bir veriyi hafızada saklayan isimlendirilmiş bir kutucuktur.
+HTML bir sayfanın *ne* içerdiğini belirler, CSS *nasıl göründüğünü* tanımlar; JavaScript ise sayfanın *nasıl davranacağını* programlar. Bir sayfaya tıklandığında açılan menü, doğrulanan form, canlı güncellenen içerik — bunların arkasında JavaScript vardır.
 
-JavaScript'te değişken tanımlamak için 3 anahtar kelime vardır:
-
-| Anahtar Kelime | Kullanım | Açıklama |
-|----------------|----------|----------|
-| `var` | Eski yöntem | Tüm dosyada geçerli, tekrar tanımlanabilir |
-| `let` | Modern yöntem | Sadece blok içinde geçerli, değeri değişebilir |
-| `const` | Sabit değer | Değeri bir daha değiştirilemez |
-
-```javascript
-// var - eski yöntem (artık pek kullanılmıyor)
-var isim = "Ahmet";
-
-// let - değeri değişebilen değişken
-let yas = 20;
-yas = 21; // değiştirilebilir ✓
-
-// const - sabit değer
-const PI = 3.14159;
-// PI = 3; // HATA! const değiştirilemez ✗
-```
+JavaScript, 1995 yılında Brendan Eich tarafından Netscape bünyesinde tasarlandı ve on yıllar içinde dünyanın en yaygın kullanılan programlama diline dönüştü. Aynı yıl Microsoft benzer bir dil olan JScript'i geliştirdi; iki dilin uyumsuzluğu sorunu ortadan kaldırmak için ECMA (European Computer Manufacturers Association) standardizasyona gitti ve dil **ECMAScript** adıyla standartlaştırıldı.
 
 ---
 
-## 2. Veri Tipleri
+## 1. JavaScript Nerede Çalışır?
 
-JavaScript'te 7 temel veri tipi vardır:
+Derlenen (compiled) dillerde kod önce makine diline çevrilir; ardından çalıştırılır. JavaScript ise *yorumlanan* (interpreted) bir dildir: tarayıcının JavaScript motoru kodu satır satır okuyup anında yürütür.
 
-### 2.1 String (Metin)
+### İstemci Taraflı mı, Sunucu Taraflı mı?
+
+| Tür                  | Nerede Çalışır              | Örnekler             |
+|----------------------|-----------------------------|----------------------|
+| **İstemci taraflı**  | Kullanıcının tarayıcısında  | JavaScript           |
+| **Sunucu taraflı**   | Web sunucusunda             | PHP, Python, Node.js |
+
+Tarayıcı JavaScript'i sunucuya sormadan çalıştırır; bu nedenle hızlı etkileşimler için idealdir. Veritabanı erişimi ya da kullanıcı kimlik doğrulama gibi güvenlik gerektiren işlemler sunucu tarafında kalmalıdır.
+
+---
+
+## 2. JavaScript'i Sayfaya Dahil Etme
+
+### `<script>` Etiketi
+
+**Satır içi (inline):**
+
+```html
+<script>
+  alert("Merhaba Dünya!");
+</script>
+```
+
+**Harici dosya:**
+
+```html
+<script src="script.js"></script>
+```
+
+Harici yöntem tercih edilir: kod bakımı kolaylaşır, aynı dosya birden fazla sayfada kullanılabilir.
+
+### `<script>` Etiketi Nereye?
+
+```html
+<!-- Önerilen: </body> kapanış etiketinin hemen öncesi -->
+<body>
+  <h1>İçerik</h1>
+  <script src="script.js"></script>
+</body>
+```
+
+Sayfa başında (`<head>` içinde) yerleştirilen script, HTML tam yüklenmeden çalışabilir ve henüz oluşturulmamış elemanları bulamaz. Sayfanın sonuna koymak, HTML'in önce yüklenmesini garanti eder.
+
+---
+
+## 3. Değişkenler
+
+Değişken, bir veriyi hafızada saklayan isimlendirilmiş bir kutucuktur. JavaScript'te üç anahtar kelime vardır:
+
+| Anahtar Kelime | Kapsam | Açıklama |
+| --- | --- | --- |
+| `var` | Fonksiyon kapsamı | Eski yöntem — artık pek kullanılmıyor |
+| `let` | Blok kapsamı | Modern: değeri değiştirilebilir |
+| `const` | Blok kapsamı | Modern: değeri değiştirilemez |
+
+```javascript
+var  isim = "Ahmet";   // eski yöntem
+let  yas  = 20;
+yas = 21;              // değiştirilebilir ✓
+
+const PI = 3.14159;
+// PI = 3;             // HATA! const değiştirilemez ✗
+```
+
+> **Kural:** Modern JavaScript'te `var` yerine `let` ve `const` kullanılır. Değer değişmeyecekse `const`, değişecekse `let` tercih edilir.
+
+---
+
+## 4. Veri Tipleri
+
+JavaScript'te 7 temel veri tipi vardır.
+
+### 4.1 String (Metin)
 
 Tırnak işaretleri içine yazılan metinlerdir.
 
 ```javascript
-let ad = "Fatma";           // çift tırnak
-let soyad = 'Yılmaz';       // tek tırnak
+let ad    = "Fatma";
+let soyad = 'Yılmaz';
 let mesaj = `Merhaba, ${ad} ${soyad}!`; // şablon literal (template literal)
 
-console.log(mesaj); // Çıktı: Merhaba, Fatma Yılmaz!
+console.log(mesaj); // Merhaba, Fatma Yılmaz!
 ```
 
-**String özellikleri ve metotları:**
+**Yaygın string metotları:**
 
 ```javascript
 let metin = "Web Teknolojileri";
 
-console.log(metin.length);          // 17 (karakter sayısı)
+console.log(metin.length);          // 17
 console.log(metin.toUpperCase());   // WEB TEKNOLOJİLERİ
 console.log(metin.toLowerCase());   // web teknolojileri
 console.log(metin.includes("Web")); // true
-console.log(metin.indexOf("Tek"));  // 4 (kaçıncı karakterde başladığı)
+console.log(metin.indexOf("Tek"));  // 4
 ```
 
 ---
 
-### 2.2 Number (Sayı)
+### 4.2 Number (Sayı)
 
 Tam sayı ve ondalıklı sayıları kapsar.
 
 ```javascript
-let tamSayi = 42;
+let tamSayi   = 42;
 let ondalikli = 3.14;
-let negatif = -10;
+let negatif   = -10;
 
-// Matematiksel işlemler
-console.log(5 + 3);   // 8
-console.log(10 - 4);  // 6
-console.log(3 * 7);   // 21
-console.log(15 / 4);  // 3.75
-console.log(15 % 4);  // 3 (kalan - modulo)
-console.log(2 ** 8);  // 256 (üs alma)
+console.log(5 + 3);  // 8
+console.log(15 % 4); // 3  (modulo — kalan)
+console.log(2 ** 8); // 256 (üs alma)
 ```
 
 **Sayı dönüşümleri:**
 
 ```javascript
-let metinSayi = "42";
-let gercekSayi = Number(metinSayi); // string'i sayıya çevirir
-let tamSayiDon = parseInt("3.9");   // 3 (ondalık kısmı atar)
-let ondalikDon = parseFloat("3.9"); // 3.9
+let metinSayi  = "42";
+Number(metinSayi);   // 42  — string'i sayıya çevirir
+parseInt("3.9");     // 3   — ondalık kısmı atar
+parseFloat("3.9");   // 3.9
 
-console.log(typeof metinSayi);  // "string"
-console.log(typeof gercekSayi); // "number"
+console.log(typeof metinSayi); // "string"
+console.log(typeof Number(metinSayi)); // "number"
 ```
 
 ---
 
-### 2.3 Boolean (Mantıksal)
+### 4.3 Boolean (Mantıksal)
 
 Sadece `true` (doğru) veya `false` (yanlış) değer alır.
 
 ```javascript
 let ogrenciMi = true;
-let mezunMu = false;
+let mezunMu   = false;
 
-// Karşılaştırma işlemleri boolean döndürür
-console.log(5 > 3);   // true
-console.log(5 < 3);   // false
-console.log(5 === 5); // true (hem değer hem tip eşit mi?)
-console.log(5 == "5");  // true  (sadece değer eşit mi? - dikkat!)
-console.log(5 === "5"); // false (değer VE tip eşit mi? - güvenli yol)
+console.log(5 > 3);    // true
+console.log(5 == "5"); // true  (gevşek eşitlik — sadece değer)
+console.log(5 === "5");// false (katı eşitlik — değer VE tip)
 ```
+
+> **Kural:** `==` yerine her zaman `===` kullanın; tip dönüşümünden kaynaklanan beklenmedik sonuçları önler.
 
 ---
 
-### 2.4 Undefined ve Null
+### 4.4 Null ve Undefined
 
 ```javascript
-let tanimlanmamis; // değer atanmamış
-console.log(tanimlanmamis); // undefined
-
-let bosDeger = null; // kasıtlı olarak boş bırakılmış
-console.log(bosDeger); // null
+let tanimlanmamis;         // değer atanmamış → undefined
+let bosDeger = null;       // kasıtlı olarak boş → null
 ```
 
 ---
 
-### 2.5 typeof Operatörü
-
-Bir değişkenin tipini öğrenmek için kullanılır:
+### 4.5 `typeof` Operatörü
 
 ```javascript
 console.log(typeof "Merhaba"); // "string"
 console.log(typeof 42);        // "number"
 console.log(typeof true);      // "boolean"
 console.log(typeof undefined); // "undefined"
-console.log(typeof null);      // "object" (JavaScript'in bilinen bir hatası!)
+console.log(typeof null);      // "object"  ← JavaScript'in bilinen bir hatası!
 ```
 
 ---
 
-## 3. Operatörler
+### 4.6 Otomatik Tip Dönüşümü
 
-### 3.1 Aritmetik Operatörler
+JavaScript zayıf tiplidir: farklı türler bir arada kullanıldığında otomatik dönüşüm gerçekleşir.
+
+```javascript
+"5" + 3  // "53"  — sayı metne dönüştürüldü, birleştirildi
+"5" - 3  // 2     — metin sayıya dönüştürüldü, çıkarıldı
+```
+
+---
+
+## 5. Operatörler
+
+### 5.1 Aritmetik Operatörler
 
 ```javascript
 let a = 10, b = 3;
 
-console.log(a + b);  // 13 - toplama
-console.log(a - b);  // 7  - çıkarma
-console.log(a * b);  // 30 - çarpma
-console.log(a / b);  // 3.333... - bölme
-console.log(a % b);  // 1  - mod (kalan)
-console.log(a ** b); // 1000 - üs (10³)
+console.log(a + b);  // 13
+console.log(a - b);  // 7
+console.log(a * b);  // 30
+console.log(a / b);  // 3.333...
+console.log(a % b);  // 1  (mod — kalan)
+console.log(a ** b); // 1000 (10³)
 ```
 
-### 3.2 Atama Operatörleri
+### 5.2 Atama Operatörleri
 
 ```javascript
 let x = 10;
-
-x += 5;  // x = x + 5 → 15
-x -= 3;  // x = x - 3 → 12
-x *= 2;  // x = x * 2 → 24
-x /= 4;  // x = x / 4 → 6
-x ++;    // x = x + 1 → 7
-x --;    // x = x - 1 → 6
+x += 5;  // x = 15
+x -= 3;  // x = 12
+x *= 2;  // x = 24
+x /= 4;  // x = 6
+x++;     // x = 7
+x--;     // x = 6
 ```
 
-### 3.3 Karşılaştırma Operatörleri
+### 5.3 Karşılaştırma Operatörleri
 
 ```javascript
 let sayi = 5;
 
 console.log(sayi > 3);   // true
-console.log(sayi < 3);   // false
 console.log(sayi >= 5);  // true
-console.log(sayi <= 4);  // false
-console.log(sayi == 5);  // true (gevşek eşitlik)
-console.log(sayi === 5); // true (katı eşitlik - BUNU KULLANIN)
-console.log(sayi != 3);  // true
-console.log(sayi !== 3); // true (katı eşitsizlik)
+console.log(sayi == 5);  // true  (gevşek — kullanmayın)
+console.log(sayi === 5); // true  (katı — BUNU KULLANIN)
+console.log(sayi !== 3); // true  (katı eşitsizlik)
 ```
 
-### 3.4 Mantıksal Operatörler
+### 5.4 Mantıksal Operatörler
 
 ```javascript
 let yas = 20;
 let ogrenciMi = true;
 
-// && (VE) - her iki koşul da doğruysa true
-console.log(yas >= 18 && ogrenciMi); // true
-
-// || (VEYA) - en az biri doğruysa true
-console.log(yas < 18 || ogrenciMi); // true
-
-// ! (DEĞİL) - true ise false, false ise true yapar
-console.log(!ogrenciMi); // false
+console.log(yas >= 18 && ogrenciMi); // true  — VE: her ikisi de doğru
+console.log(yas < 18  || ogrenciMi); // true  — VEYA: en az biri doğru
+console.log(!ogrenciMi);             // false — DEĞİL
 ```
 
 ---
 
-## 4. Konsola Çıktı Verme
+## 6. Konsola Çıktı Verme
 
 ```javascript
 console.log("Merhaba!");        // Normal çıktı
@@ -202,13 +246,151 @@ console.warn("Dikkat!");        // Sarı uyarı
 console.error("Hata oluştu!"); // Kırmızı hata mesajı
 ```
 
-> **İpucu:** Tarayıcıda F12 tuşuna basarak Geliştirici Araçları → Console sekmesini açabilirsiniz.
+> **İpucu:** Tarayıcıda F12 → Geliştirici Araçları → Console sekmesi.
 
 ---
 
-## 5. Tam Uygulama Örneği
+## 7. DOM: Sayfayı JavaScript ile Yakalamak
 
-Aşağıdaki kodu bir `.html` dosyasına kopyalayıp tarayıcıda açın:
+DOM (Document Object Model), HTML sayfasının JavaScript tarafından görülen yapısıdır. Tarayıcı her etiketi bir nesneye dönüştürür; bu nesneler hiyerarşik bir ağaç oluşturur.
+
+```text
+document
+└── html
+    ├── head
+    │   └── title
+    └── body
+        ├── h1
+        └── p
+```
+
+### Eleman Seçme
+
+```javascript
+const baslik        = document.getElementById("baslik");
+const ilkParagraf   = document.querySelector("p");
+const tumParagraflar = document.querySelectorAll(".metin");
+```
+
+### İçerik ve Stil Değiştirme
+
+```javascript
+baslik.textContent = "Yeni Başlık";      // yalnızca metin
+baslik.innerHTML   = "<em>Merhaba</em>"; // HTML dahil
+
+baslik.style.color    = "crimson";
+baslik.style.fontSize = "2em";
+```
+
+---
+
+## 8. Fonksiyonlar
+
+Fonksiyon, bir kez tanımlanıp defalarca çağrılabilen komut bloğudur.
+
+```javascript
+function selamla(isim) {
+  return "Merhaba, " + isim + "!";
+}
+
+console.log(selamla("Erkan")); // "Merhaba, Erkan!"
+```
+
+**Ok fonksiyonu (arrow function) — modern kısaltma:**
+
+```javascript
+const selamla = (isim) => "Merhaba, " + isim + "!";
+```
+
+---
+
+## 9. Koşullar ve Döngüler
+
+### `if / else`
+
+```javascript
+let saat = 14;
+
+if (saat < 12) {
+  console.log("Günaydın!");
+} else if (saat < 18) {
+  console.log("İyi öğleden sonralar!");
+} else {
+  console.log("İyi akşamlar!");
+}
+```
+
+### `for` Döngüsü
+
+```javascript
+for (let i = 0; i < 5; i++) {
+  console.log("Adım " + i);
+}
+```
+
+---
+
+## 10. Olaylar ve `addEventListener`
+
+Bir "olay" (event), kullanıcının ya da tarayıcının yaptığı eylemdir: tıklama, klavye tuşuna basma, sayfa yüklenme…
+
+```javascript
+const dugme = document.getElementById("dugme");
+
+dugme.addEventListener("click", () => {
+  dugme.textContent = "Tıklandı!";
+  dugme.style.backgroundColor = "green";
+});
+```
+
+### Yaygın Olay Türleri
+
+| Olay | Ne Zaman Tetiklenir |
+| --- | --- |
+| `click` | Eleman tıklandığında |
+| `dblclick` | Çift tıklandığında |
+| `mouseover` | Fare üzerine geldiğinde |
+| `mouseout` | Fare üzerinden ayrıldığında |
+| `keydown` | Klavye tuşuna basıldığında |
+| `keyup` | Tuş bırakıldığında |
+| `submit` | Form gönderildiğinde |
+| `change` | Giriş alanı değeri değiştiğinde |
+| `load` | Sayfa tamamen yüklendiğinde |
+| `DOMContentLoaded` | DOM hazır olduğunda |
+
+### `removeEventListener`
+
+```javascript
+function tiklamaIsleyici() {
+  console.log("Tıklandı");
+}
+
+dugme.addEventListener("click", tiklamaIsleyici);
+dugme.removeEventListener("click", tiklamaIsleyici);
+```
+
+`removeEventListener` çalışması için işlevin adıyla tanımlanmış ve aynı referansın verilmiş olması gerekir; anonim işlevler kaldırılamaz.
+
+---
+
+## 11. İstemci / Sunucu Mimarisi
+
+```text
+Kullanıcı                  İnternet              Sunucu
+┌──────────┐   HTTP İsteği  ──────────►  ┌──────────────┐
+│ Tarayıcı │                              │  Web Sunucu  │
+│ (Client) │ ◄──────────────  HTTP Yanıtı │  (Server)    │
+└──────────┘                             └──────────────┘
+```
+
+**İstemci (client):** Tarayıcı — HTML, CSS ve JavaScript'i çalıştırır.  
+**Sunucu (server):** Web sunucusu — veritabanı sorgular, iş mantığı yürütür, yanıtı oluşturur.
+
+Üç katmanlı (3-tier) mimaride araya bir uygulama katmanı eklenir; bu katman sunucu taraflı işlemleri veritabanından ayırır ve ölçeklenebilirliği artırır.
+
+---
+
+## 12. Tam Uygulama Örneği
 
 ```html
 <!DOCTYPE html>
@@ -245,24 +427,18 @@ Aşağıdaki kodu bir `.html` dosyasına kopyalayıp tarayıcıda açın:
 
     <script>
         function bilgiKarti() {
-            // Kullanıcıdan değerleri al
-            let ad = document.getElementById("adInput").value;
+            let ad  = document.getElementById("adInput").value;
             let yas = Number(document.getElementById("yasInput").value);
 
-            // Boş girdi kontrolü
             if (ad === "" || yas === 0) {
                 alert("Lütfen tüm alanları doldurun!");
                 return;
             }
 
-            // Doğum yılını hesapla (const kullanıyoruz çünkü değişmez)
-            const buYil = new Date().getFullYear();
+            const buYil     = new Date().getFullYear();
             const dogumYili = buYil - yas;
+            let ogrenciMi   = yas >= 18 && yas <= 30;
 
-            // Öğrenci mi? (boolean kullanımı)
-            let ogrenciMi = yas >= 18 && yas <= 30;
-
-            // Şablon literal ile mesaj oluştur
             let mesaj = `
                 <strong>Ad:</strong> ${ad}<br>
                 <strong>Yaş:</strong> ${yas}<br>
@@ -271,7 +447,6 @@ Aşağıdaki kodu bir `.html` dosyasına kopyalayıp tarayıcıda açın:
                 <strong>Ad Uzunluğu:</strong> ${ad.length} karakter
             `;
 
-            // Sonucu sayfada göster
             document.getElementById("bilgiMetni").innerHTML = mesaj;
             document.getElementById("sonucAlani").style.display = "block";
         }
@@ -282,8 +457,58 @@ Aşağıdaki kodu bir `.html` dosyasına kopyalayıp tarayıcıda açın:
 
 ---
 
+## Uygulama Görevleri
+
+### Görev 1 — DOM Manipülasyonu
+
+`dom.html` ve `dom.js` dosyaları oluşturun:
+
+- Bir `<h1>` ve bir `<p>` elemanı oluşturun; her ikisine `id` verin
+- Bir `<button>` ekleyin; tıklandığında başlığın rengini ve paragrafın metnini değiştiren bir `addEventListener` yazın
+- İkinci bir düğme ekleyin; tıklandığında `display: none` ile bir elemanı gizlesin, tekrar tıklandığında geri getirsin (toggle mantığı)
+
+### Görev 2 — Form Doğrulama
+
+`dogrulama.html` dosyası oluşturun:
+
+- Bir metin alanı ve gönder düğmesinden oluşan basit bir form oluşturun
+- Form gönderildiğinde `submit` olayını yakalayın; `event.preventDefault()` ile varsayılan gönderme davranışını durdurun
+- Alan boşsa `alert` gösterin; doluysa "Teşekkürler, [isim]!" mesajı verin
+
+### Görev 3 — Olay Zenginleştirme
+
+`olaylar.html` dosyası oluşturun:
+
+- `mouseover` ve `mouseout` olaylarını kullanan, fare üzerine gelince rengi değişen en az üç kart oluşturun
+- `keydown` olayını yakalayan ve hangi tuşa basıldığını `event.key` ile sayfada gösteren bir kod yazın
+- `DOMContentLoaded` olayını kullanarak sayfa yüklenince otomatik odak alan bir giriş alanı oluşturun
+
+---
+
 ## Alıştırmalar
 
 1. `firstName` ve `lastName` adında iki değişken tanımlayın ve tam adınızı bir `fullName` değişkenine birleştirin.
-2. 0-100 arasında bir not değişkeni tanımlayın. Notun 50'den büyük olup olmadığını `console.log` ile yazdırın.
+2. 0–100 arasında bir not değişkeni tanımlayın. Notun 50'den büyük olup olmadığını `console.log` ile yazdırın.
 3. Bir dikdörtgenin en ve boyunu değişkenlerde saklayın, alanını hesaplayıp ekrana yazdırın.
+
+---
+
+## Hızlı Başvuru
+
+| Kavram / Metot | Örnek | Açıklama |
+| --- | --- | --- |
+| `let` | `let x = 5;` | Değiştirilebilir değişken |
+| `const` | `const PI = 3.14;` | Sabit değişken |
+| `typeof` | `typeof x` | Değişken tipini öğrenme |
+| `===` | `x === 5` | Katı eşitlik (değer + tip) |
+| Template literal | `` `${x}` `` | String içine değişken gömme |
+| `document.getElementById` | `document.getElementById("id")` | ID ile eleman seçme |
+| `document.querySelector` | `document.querySelector(".cls")` | CSS seçici ile eleman seçme |
+| `element.textContent` | `el.textContent = "Yeni"` | Metin içeriği değiştirme |
+| `element.innerHTML` | `el.innerHTML = "<b>Yeni</b>"` | HTML içeriği değiştirme |
+| `element.style` | `el.style.color = "red"` | Satır içi stil değiştirme |
+| `addEventListener` | `el.addEventListener("click", fn)` | Olay dinleyici ekleme |
+| `removeEventListener` | `el.removeEventListener("click", fn)` | Olay dinleyici kaldırma |
+| `event.preventDefault()` | Form submit'ini durdurmak | Varsayılan davranışı engelleme |
+| `console.log()` | `console.log(deger)` | Konsola yazdırma |
+| `alert()` | `alert("Mesaj")` | Uyarı diyaloğu |
