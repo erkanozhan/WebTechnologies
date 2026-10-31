@@ -3,20 +3,20 @@
 
 HTML bir sayfanın *ne* içerdiğini belirler, CSS *nasıl göründüğünü* tanımlar; JavaScript ise sayfanın *nasıl davranacağını* programlar. Bir sayfaya tıklandığında açılan menü, doğrulanan form, canlı güncellenen içerik — bunların arkasında JavaScript vardır.
 
-JavaScript, 1995 yılında Brendan Eich tarafından Netscape bünyesinde tasarlandı ve on yıllar içinde dünyanın en yaygın kullanılan programlama diline dönüştü. Aynı yıl Microsoft benzer bir dil olan JScript'i geliştirdi; iki dilin uyumsuzluğu sorunu ortadan kaldırmak için ECMA (European Computer Manufacturers Association) standardizasyona gitti ve dil **ECMAScript** adıyla standartlaştırıldı.
+JavaScript, 1995 yılında Brendan Eich tarafından Netscape bünyesinde tasarlandı ve on yıllar içinde dünyanın en yaygın kullanılan programlama diline dönüştü. Bir yıl sonra, 1996'da Microsoft, Internet Explorer 3 ile birlikte benzer bir dil olan JScript'i yayımladı. İki dil arasındaki uyumsuzlukları ortadan kaldırmak için Netscape dili Avrupa standart kuruluşu ECMA'ya (European Computer Manufacturers Association; bugünkü adıyla Ecma International) sundu ve dil 1997'de **ECMAScript** adıyla standartlaştırıldı.
 
 ---
 
 ## 1. JavaScript Nerede Çalışır?
 
-Derlenen (compiled) dillerde kod önce makine diline çevrilir; ardından çalıştırılır. JavaScript ise *yorumlanan* (interpreted) bir dildir: tarayıcının JavaScript motoru kodu satır satır okuyup anında yürütür.
+Derlenen (compiled) dillerde kod, geliştirici tarafından önceden makine diline çevrilir; kullanıcıya bu çevrilmiş program dağıtılır. JavaScript'te ise geliştirici böyle bir derleme adımı yapmaz; kaynak kod doğrudan tarayıcıya gönderilir. Tarayıcının JavaScript motoru (Chrome'da V8, Firefox'ta SpiderMonkey) betiği önce **bütünüyle ayrıştırır** (parse), ardından yorumlayarak çalıştırmaya başlar ve sık çalışan bölümleri anında derler (Just-In-Time - JIT derleme). Kod satır satır okunup yürütülmez: Betiğin herhangi bir yerindeki tek bir sözdizimi hatası, o betiğin hiçbir satırının çalışmamasına yol açar.
 
 ### İstemci Taraflı mı, Sunucu Taraflı mı?
 
 | Tür                  | Nerede Çalışır              | Örnekler             |
 |----------------------|-----------------------------|----------------------|
 | **İstemci taraflı**  | Kullanıcının tarayıcısında  | JavaScript           |
-| **Sunucu taraflı**   | Web sunucusunda             | PHP, Python, Node.js |
+| **Sunucu taraflı**   | Web sunucusunda             | PHP, Python, Java, C#, JavaScript (Node.js çalışma ortamıyla) |
 
 Tarayıcı JavaScript'i sunucuya sormadan çalıştırır; bu nedenle hızlı etkileşimler için idealdir. Veritabanı erişimi ya da kullanıcı kimlik doğrulama gibi güvenlik gerektiren işlemler sunucu tarafında kalmalıdır.
 
@@ -52,7 +52,24 @@ Harici yöntem tercih edilir: kod bakımı kolaylaşır, aynı dosya birden fazl
 </body>
 ```
 
-Sayfa başında (`<head>` içinde) yerleştirilen script, HTML tam yüklenmeden çalışabilir ve henüz oluşturulmamış elemanları bulamaz. Sayfanın sonuna koymak, HTML'in önce yüklenmesini garanti eder.
+Sayfa başında (`<head>` içinde) yerleştirilen script, HTML tam yüklenmeden çalışabilir ve henüz oluşturulmamış öğeleri bulamaz. Sayfanın sonuna koymak, HTML'in önce yüklenmesini garanti eder.
+
+**Modern çözüm: `defer` niteliği.** Harici betikler `<head>` içinde `defer` niteliğiyle yazıldığında tarayıcı betiği HTML'i ayrıştırmaya devam ederken arka planda indirir, ancak çalıştırmayı HTML tamamen ayrıştırıldıktan sonraya erteler. Böylece hem indirme erken başlar hem de betik çalıştığında tüm öğeler hazırdır:
+
+```html
+<head>
+  <script src="script.js" defer></script>
+</head>
+```
+
+```text
+defer olmadan, <head> içinde:  HTML ayrıştırma ──■ (durur) betik indir ▸ çalıştır ──► HTML ayrıştırma devam
+</body> öncesinde:             HTML ayrıştırma ─────────────────────► betik indir ▸ çalıştır
+defer ile, <head> içinde:      HTML ayrıştırma ─────────────────────► betik çalıştır
+                                    └─ betik arka planda indirilir ─┘
+```
+
+`defer` yalnızca `src` niteliği olan harici betiklerde etkilidir; satır içi `<script>` bloklarında dikkate alınmaz.
 
 ---
 
@@ -63,8 +80,8 @@ Değişken, bir veriyi hafızada saklayan isimlendirilmiş bir kutucuktur. JavaS
 | Anahtar Kelime | Kapsam | Açıklama |
 | --- | --- | --- |
 | `var` | Fonksiyon kapsamı | Eski yöntem — artık pek kullanılmıyor |
-| `let` | Blok kapsamı | Modern: değeri değiştirilebilir |
-| `const` | Blok kapsamı | Modern: değeri değiştirilemez |
+| `let` | Blok kapsamı | Modern: yeniden değer atanabilir |
+| `const` | Blok kapsamı | Modern: yeniden değer atanamaz |
 
 ```javascript
 var  isim = "Ahmet";   // eski yöntem
@@ -72,16 +89,42 @@ let  yas  = 20;
 yas = 21;              // değiştirilebilir ✓
 
 const PI = 3.14159;
-// PI = 3;             // HATA! const değiştirilemez ✗
+// PI = 3;             // HATA! const değişkene yeniden değer atanamaz ✗
 ```
 
-> **Kural:** Modern JavaScript'te `var` yerine `let` ve `const` kullanılır. Değer değişmeyecekse `const`, değişecekse `let` tercih edilir.
+> **Kural:** Modern JavaScript'te `var` yerine `let` ve `const` kullanılır. Değişkene yeniden değer atanmayacaksa `const`, atanacaksa `let` tercih edilir.
+
+**`const` neyi engeller?** `const` değişkenin gösterdiği yeri sabitler, o yerdeki nesnenin içeriğini değil. Bir nesne veya dizinin içi değiştirilebilir; yalnızca değişkene yeni bir nesne atanamaz:
+
+```javascript
+const ogrenci = { ad: "Ali" };
+ogrenci.ad  = "Ayşe";        // ✓ çalışır: nesnenin içeriği değişti
+ogrenci.yas = 20;            // ✓ çalışır: yeni özellik eklendi
+// ogrenci = { ad: "Can" };  // ✗ TypeError: Assignment to constant variable.
+
+const notlar = [70, 80];
+notlar.push(90);             // ✓ çalışır → [70, 80, 90]
+```
+
+**`var` ile `let` arasındaki kapsam farkı:** `var` blok tanımaz; döngü içinde tanımlanan `var` değişkeni, döngü bittikten sonra da tek bir ortak değişken olarak yaşar. Aşağıdaki örnekte `setTimeout` içindeki fonksiyonlar döngü bittikten sonra çalışır:
+
+```javascript
+for (var i = 0; i < 3; i++) {
+  setTimeout(() => console.log("var:", i), 0);
+}
+// Çıktı: var: 3   var: 3   var: 3   (üçü de aynı, döngü sonundaki i değerini görür)
+
+for (let j = 0; j < 3; j++) {
+  setTimeout(() => console.log("let:", j), 0);
+}
+// Çıktı: let: 0   let: 1   let: 2   (her tur kendi j kopyasını taşır)
+```
 
 ---
 
 ## 4. Veri Tipleri
 
-JavaScript'te 7 temel veri tipi vardır.
+JavaScript'te yedi ilkel (primitive) veri tipi vardır: `string`, `number`, `bigint`, `boolean`, `undefined`, `null` ve `symbol`. Bunların dışındaki her şey (diziler ve fonksiyonlar dahil) **nesne** (object) tipindedir. Bu bölümde en sık kullanılan tipler ayrıntılı olarak ele alınmakta, `bigint` ve `symbol` ise 4.4'te kısaca tanıtılmaktadır.
 
 ### 4.1 String (Metin)
 
@@ -101,11 +144,14 @@ console.log(mesaj); // Merhaba, Fatma Yılmaz!
 let metin = "Web Teknolojileri";
 
 console.log(metin.length);          // 17
-console.log(metin.toUpperCase());   // WEB TEKNOLOJİLERİ
+console.log(metin.toUpperCase());   // WEB TEKNOLOJILERI   ← "i" harfi noktasız "I" oldu!
+console.log(metin.toLocaleUpperCase("tr-TR")); // WEB TEKNOLOJİLERİ (Türkçe kurala göre)
 console.log(metin.toLowerCase());   // web teknolojileri
 console.log(metin.includes("Web")); // true
 console.log(metin.indexOf("Tek"));  // 4
 ```
+
+> **Türkçe harflere dikkat:** `toUpperCase()` ve `toLowerCase()` İngilizce kurallarını uygular: "i" harfini "I" yapar, "I" harfini "i" yapar. Türkçede ise "i" → "İ" ve "I" → "ı" dönüşümü gerekir. Türkçe metinlerde `toLocaleUpperCase("tr-TR")` ve `toLocaleLowerCase("tr-TR")` kullanılmalıdır. Aynı sorun CSS'teki `text-transform` özelliğinde de görülür; orada çözüm, belgeye `<html lang="tr">` yazmaktır.
 
 ---
 
@@ -154,11 +200,16 @@ console.log(5 === "5");// false (katı eşitlik — değer VE tip)
 
 ---
 
-### 4.4 Null ve Undefined
+### 4.4 Null, Undefined, BigInt ve Symbol
 
 ```javascript
-let tanimlanmamis;         // değer atanmamış → undefined
+let tanimlanmamis;         // bildirilmiş ama değer atanmamış → undefined
 let bosDeger = null;       // kasıtlı olarak boş → null
+// console.log(hicYok);    // bildirilmemiş değişken → ReferenceError
+
+let buyukSayi = 9007199254740993n;  // sonundaki n: BigInt (Number'ın güvenli sınırını aşan tam sayılar)
+let kimlik    = Symbol("id");       // her çağrıda benzersiz bir değer üretir
+console.log(Symbol("id") === Symbol("id")); // false
 ```
 
 ---
@@ -171,6 +222,9 @@ console.log(typeof 42);        // "number"
 console.log(typeof true);      // "boolean"
 console.log(typeof undefined); // "undefined"
 console.log(typeof null);      // "object"  ← JavaScript'in bilinen bir hatası!
+console.log(typeof 10n);       // "bigint"
+console.log(typeof Symbol());  // "symbol"
+console.log(typeof [1, 2]);    // "object"  ← diziler ayrı bir tip değildir
 ```
 
 ---
@@ -264,7 +318,7 @@ document
         └── p
 ```
 
-### Eleman Seçme
+### Öğe Seçme
 
 ```javascript
 const baslik        = document.getElementById("baslik");
@@ -281,6 +335,28 @@ baslik.innerHTML   = "<em>Merhaba</em>"; // HTML dahil
 baslik.style.color    = "crimson";
 baslik.style.fontSize = "2em";
 ```
+
+> **`textContent` mi `innerHTML` mi? — innerHTML ve güvenlik**
+>
+> `textContent` verilen değeri her zaman düz metin olarak yazar; içinde `<` veya `>` olsa bile bunlar ekranda karakter olarak görünür. `innerHTML` ise değeri HTML olarak yorumlar ve içindeki etiketleri gerçekten oluşturur.
+>
+> Bu fark, değer **kullanıcıdan geldiğinde** bir güvenlik açığına dönüşür. Kullanıcının bir giriş alanına aşağıdaki metni yazdığını düşünün:
+>
+> ```html
+> <img src="x" onerror="alert('Bu kod sizin sayfanızda çalıştı!')">
+> ```
+>
+> ```javascript
+> const ad = document.getElementById("adInput").value;
+> sonuc.innerHTML   = "Merhaba " + ad;  // ✗ img oluşturulur, onerror içindeki kod ÇALIŞIR
+> sonuc.textContent = "Merhaba " + ad;  // ✓ metin olduğu gibi gösterilir, hiçbir kod çalışmaz
+> ```
+>
+> Bu saldırı türüne **siteler arası betik çalıştırma** (Cross-Site Scripting - XSS) denir. Saldırgan bu yolla kullanıcının oturum bilgilerini çalabilir veya sayfayı değiştirebilir. Kural basittir:
+>
+> - Kullanıcıdan, formdan, URL'den veya başka bir siteden gelen her değeri `textContent` ile yazın.
+> - Biçimlendirme gerekiyorsa öğeleri `document.createElement()` ile oluşturup metni yine `textContent` ile yerleştirin.
+> - `innerHTML` yalnızca içeriği tamamen sizin yazdığınız, sabit HTML parçaları için kullanılmalıdır.
 
 ---
 
@@ -347,7 +423,7 @@ dugme.addEventListener("click", () => {
 
 | Olay | Ne Zaman Tetiklenir |
 | --- | --- |
-| `click` | Eleman tıklandığında |
+| `click` | Öğe tıklandığında |
 | `dblclick` | Çift tıklandığında |
 | `mouseover` | Fare üzerine geldiğinde |
 | `mouseout` | Fare üzerinden ayrıldığında |
@@ -410,11 +486,11 @@ Kullanıcı                  İnternet              Sunucu
 <body>
     <h1>Bilgi Kartı Oluşturucu</h1>
 
-    <label>Adınız:</label>
+    <label for="adInput">Adınız:</label>
     <input type="text" id="adInput" placeholder="Adınızı girin...">
     <br><br>
 
-    <label>Yaşınız:</label>
+    <label for="yasInput">Yaşınız:</label>
     <input type="number" id="yasInput" placeholder="Yaşınızı girin...">
     <br><br>
 
@@ -427,11 +503,13 @@ Kullanıcı                  İnternet              Sunucu
 
     <script>
         function bilgiKarti() {
-            let ad  = document.getElementById("adInput").value;
-            let yas = Number(document.getElementById("yasInput").value);
+            let ad       = document.getElementById("adInput").value.trim();
+            let yasMetni = document.getElementById("yasInput").value;
+            let yas      = Number(yasMetni);
 
-            if (ad === "" || yas === 0) {
-                alert("Lütfen tüm alanları doldurun!");
+            // Boş metin Number("") ile 0'a dönüşeceği için önce boşluğu ayrıca denetliyoruz
+            if (ad === "" || yasMetni === "" || Number.isNaN(yas) || yas <= 0) {
+                alert("Lütfen tüm alanları geçerli değerlerle doldurun!");
                 return;
             }
 
@@ -439,15 +517,22 @@ Kullanıcı                  İnternet              Sunucu
             const dogumYili = buYil - yas;
             let ogrenciMi   = yas >= 18 && yas <= 30;
 
-            let mesaj = `
-                <strong>Ad:</strong> ${ad}<br>
-                <strong>Yaş:</strong> ${yas}<br>
-                <strong>Tahmini Doğum Yılı:</strong> ${dogumYili}<br>
-                <strong>Öğrenci Olabilir mi?</strong> ${ogrenciMi ? "Evet" : "Hayır"}<br>
-                <strong>Ad Uzunluğu:</strong> ${ad.length} karakter
-            `;
+            const bilgiMetni = document.getElementById("bilgiMetni");
+            bilgiMetni.textContent = "";   // önceki kartı temizle
 
-            document.getElementById("bilgiMetni").innerHTML = mesaj;
+            // Kullanıcı verisi innerHTML ile değil, textContent ile yazılır (XSS'e karşı)
+            function satirEkle(baslik, deger) {
+                const kalin = document.createElement("strong");
+                kalin.textContent = baslik + " ";
+                bilgiMetni.append(kalin, String(deger), document.createElement("br"));
+            }
+
+            satirEkle("Ad:", ad);
+            satirEkle("Yaş:", yas);
+            satirEkle("Tahmini Doğum Yılı:", dogumYili);
+            satirEkle("Öğrenci Olabilir mi?", ogrenciMi ? "Evet" : "Hayır");
+            satirEkle("Ad Uzunluğu:", ad.length + " karakter");
+
             document.getElementById("sonucAlani").style.display = "block";
         }
     </script>
@@ -463,9 +548,9 @@ Kullanıcı                  İnternet              Sunucu
 
 `dom.html` ve `dom.js` dosyaları oluşturun:
 
-- Bir `<h1>` ve bir `<p>` elemanı oluşturun; her ikisine `id` verin
+- Bir `<h1>` ve bir `<p>` öğesi oluşturun; her ikisine `id` verin
 - Bir `<button>` ekleyin; tıklandığında başlığın rengini ve paragrafın metnini değiştiren bir `addEventListener` yazın
-- İkinci bir düğme ekleyin; tıklandığında `display: none` ile bir elemanı gizlesin, tekrar tıklandığında geri getirsin (toggle mantığı)
+- İkinci bir düğme ekleyin; tıklandığında `display: none` ile bir öğeyi gizlesin, tekrar tıklandığında geri getirsin (toggle mantığı)
 
 ### Görev 2 — Form Doğrulama
 
@@ -498,14 +583,14 @@ Kullanıcı                  İnternet              Sunucu
 | Kavram / Metot | Örnek | Açıklama |
 | --- | --- | --- |
 | `let` | `let x = 5;` | Değiştirilebilir değişken |
-| `const` | `const PI = 3.14;` | Sabit değişken |
+| `const` | `const PI = 3.14;` | Yeniden atanamayan değişken |
 | `typeof` | `typeof x` | Değişken tipini öğrenme |
 | `===` | `x === 5` | Katı eşitlik (değer + tip) |
 | Template literal | `` `${x}` `` | String içine değişken gömme |
-| `document.getElementById` | `document.getElementById("id")` | ID ile eleman seçme |
-| `document.querySelector` | `document.querySelector(".cls")` | CSS seçici ile eleman seçme |
+| `document.getElementById` | `document.getElementById("id")` | ID ile öğe seçme |
+| `document.querySelector` | `document.querySelector(".cls")` | CSS seçici ile öğe seçme |
 | `element.textContent` | `el.textContent = "Yeni"` | Metin içeriği değiştirme |
-| `element.innerHTML` | `el.innerHTML = "<b>Yeni</b>"` | HTML içeriği değiştirme |
+| `element.innerHTML` | `el.innerHTML = "<b>Yeni</b>"` | HTML içeriği değiştirme (kullanıcı verisiyle kullanmayın) |
 | `element.style` | `el.style.color = "red"` | Satır içi stil değiştirme |
 | `addEventListener` | `el.addEventListener("click", fn)` | Olay dinleyici ekleme |
 | `removeEventListener` | `el.removeEventListener("click", fn)` | Olay dinleyici kaldırma |

@@ -1,8 +1,8 @@
-# 04 - DOM Manipülasyonu: HTML Elementlerine Erişim ve Değiştirme
+# 04 - DOM Manipülasyonu: HTML Öğelerine Erişim ve Değiştirme
 
 ## 1. DOM Nedir?
 
-**DOM** (Document Object Model), tarayıcının HTML belgesini bir **ağaç yapısında** temsil etmesidir. JavaScript, bu ağaç üzerinden sayfadaki her elementi okuyabilir ve değiştirebilir.
+**DOM** (Document Object Model), tarayıcının HTML belgesini bir **ağaç yapısında** temsil etmesidir. JavaScript, bu ağaç üzerinden sayfadaki her öğeyi okuyabilir ve değiştirebilir.
 
 ```
 document
@@ -21,7 +21,7 @@ document
 
 ---
 
-## 2. Elementi Seçme
+## 2. Öğe Seçme
 
 ### 2.1 ID ile Seçme (En yaygın yöntem)
 
@@ -29,7 +29,7 @@ document
 <p id="mesaj">Merhaba!</p>
 
 <script>
-    // ID'ye göre elementi seç
+    // ID'ye göre öğeyi seç
     let element = document.getElementById("mesaj");
     console.log(element); // <p id="mesaj">Merhaba!</p>
 </script>
@@ -44,20 +44,31 @@ CSS seçicilerini kullanır:
 document.querySelector("#mesaj");       // ID ile
 document.querySelector(".kutu");        // Sınıf (class) ile
 document.querySelector("p");            // Etiket ile
-document.querySelector("div > p");      // Alt element
+document.querySelector("div > p");      // Doğrudan çocuk öğe
 document.querySelector("input[type='text']"); // Özelliğe göre
 
-// Tüm eşleşenleri seçer (dizi döner)
-document.querySelectorAll("p");         // Tüm <p> elementleri
+// Tüm eşleşenleri seçer (NodeList döner)
+document.querySelectorAll("p");         // Tüm <p> öğeleri
 document.querySelectorAll(".kart");     // Tüm .kart sınıflılar
+```
+
+`querySelectorAll` bir dizi (Array) değil, **NodeList** döndürür. NodeList üzerinde `forEach` ve `length` kullanılabilir; ancak `map`, `filter` gibi dizi metotları yoktur. Bu metotlar gerekiyorsa liste önce diziye çevrilir:
+
+```javascript
+const paragraflar = document.querySelectorAll("p");
+paragraflar.forEach(p => p.style.color = "navy");          // ✓ çalışır
+// paragraflar.map(...)                                     // ✗ TypeError: map is not a function
+const metinler = Array.from(paragraflar).map(p => p.textContent); // ✓ önce diziye çevrildi
 ```
 
 ### 2.3 Diğer Seçim Yöntemleri
 
 ```javascript
-document.getElementsByClassName("kutu"); // Sınıfa göre (eski yöntem)
-document.getElementsByTagName("li");     // Etikete göre (eski yöntem)
+document.getElementsByClassName("kutu"); // Sınıfa göre
+document.getElementsByTagName("li");     // Etiket adına göre
 ```
+
+Bu iki metot hâlâ geçerlidir; ancak `querySelectorAll`'dan farklı olarak **canlı** (live) bir `HTMLCollection` döndürür: Sayfaya sonradan aynı sınıfta bir öğe eklenirse koleksiyon kendiliğinden güncellenir. `querySelectorAll` ise çağrıldığı andaki durumun sabit bir kopyasını verir.
 
 ---
 
@@ -77,7 +88,9 @@ baslik.textContent = "Yeni Başlık";          // Düz metin yazar
 baslik.innerHTML = "<strong>Kalın</strong>"; // HTML olarak yazar
 ```
 
-### 3.2 Form Elemanı Değeri
+> **Güvenlik:** Kullanıcıdan gelen metni hiçbir zaman `innerHTML` ile sayfaya yazmayın; `textContent` kullanın. Aksi hâlde kullanıcının yazdığı `<img src=x onerror=...>` gibi bir ifade sayfanızda kod olarak çalışır (XSS). Ayrıntılı açıklama için `01-javascript-temelleri.md` dosyasındaki "innerHTML ve güvenlik" kutusuna bakınız.
+
+### 3.2 Form Öğesinin Değeri
 
 ```javascript
 // Input değerini oku
@@ -103,7 +116,7 @@ kutu.style.display = "none";  // gizle
 kutu.style.display = "block"; // göster
 ```
 
-> **CSS ile JS Farkı:** CSS'de `background-color` → JS'de `backgroundColor` (tire yerine camelCase)
+> **CSS ile JS Farkı:** CSS'te `background-color` → JS'te `backgroundColor` (tire yerine camelCase)
 
 ---
 
@@ -132,10 +145,10 @@ Stilleri doğrudan JS'te yazmak yerine, CSS sınıflarını ekleyip çıkarmak d
 
 ---
 
-## 6. Yeni Element Oluşturma ve Silme
+## 6. Yeni Öğe Oluşturma ve Silme
 
 ```javascript
-// Yeni element oluştur
+// Yeni öğe oluştur
 let yeniParagraf = document.createElement("p");
 yeniParagraf.textContent = "Bu dinamik eklenen paragraf!";
 yeniParagraf.className = "yeni-paragraf";
@@ -143,25 +156,30 @@ yeniParagraf.className = "yeni-paragraf";
 // Sayfaya ekle
 let konteyner = document.getElementById("icerik");
 konteyner.appendChild(yeniParagraf);     // sona ekle
-konteyner.prepend(yeniParagraf);         // başa ekle
 
-// Element sil
+let baslikParagrafi = document.createElement("p");
+baslikParagrafi.textContent = "Bu paragraf en başa eklendi.";
+konteyner.prepend(baslikParagrafi);      // başa ekle
+
+// Öğe sil
 let silinecek = document.getElementById("eski");
-silinecek.remove(); // direkt sil
+silinecek.remove(); // doğrudan sil
 ```
+
+> **Dikkat:** Bir DOM düğümü aynı anda yalnızca bir yerde bulunabilir. Zaten sayfada olan bir düğüm `appendChild` veya `prepend` ile başka bir yere eklenirse **kopyalanmaz, taşınır**. Örneğin `yeniParagraf` önce `appendChild` ile sona, ardından `prepend` ile başa eklenseydi sayfada iki paragraf değil, başa taşınmış tek bir paragraf olurdu. İki ayrı kopya isteniyorsa ikinci bir öğe oluşturulmalı veya `yeniParagraf.cloneNode(true)` kullanılmalıdır.
 
 ---
 
-## 7. Özellik (Attribute) Yönetimi
+## 7. Nitelik (Attribute) Yönetimi
 
 ```javascript
 let resim = document.getElementById("profil");
 
-// Özellik okuma
+// Nitelik okuma
 console.log(resim.getAttribute("src")); // resim kaynağı
 console.log(resim.getAttribute("alt")); // alternatif metin
 
-// Özellik değiştirme
+// Nitelik değiştirme
 resim.setAttribute("src", "yeni-resim.jpg");
 resim.setAttribute("alt", "Yeni açıklama");
 
@@ -172,9 +190,9 @@ resim.alt = "Yeni açıklama";
 
 ---
 
-## 8. Tam Uygulama: Metin Arama (JavaScript Uyg-5.html ve Uyg-7.html'den düzeltilmiş)
+## 8. Tam Uygulama: Metin Arama ve Vurgulama
 
-Mevcut `JavaScript Uyg-5.html` ve `Uyg-7.html` dosyalarında `getElementByld` şeklinde yanlış yazım vardı (`I` yerine `l`). Düzeltilmiş ve geliştirilmiş versiyonu:
+Aşağıdaki uygulama, kullanıcının yazdığı kelimeyi bir paragraf içinde arar ve bulunan yerleri vurgular. Metot adlarının büyük/küçük harfine dikkat edin: `getElementById` yerine `getElementByld` (büyük `I` yerine küçük `l`) yazmak sık yapılan ve `TypeError` hatasına yol açan bir yazım hatasıdır.
 
 ```html
 <!DOCTYPE html>
@@ -220,13 +238,18 @@ Mevcut `JavaScript Uyg-5.html` ve `Uyg-7.html` dosyalarında `getElementByld` ş
     </div>
 
     <script>
-        // Orijinal metni sakla (temizleme için)
-        const orijinalMetin = document.getElementById("icerik").innerHTML;
+        const icerikDiv = document.getElementById("icerik");
+        // Orijinal metni yalnızca düz metin olarak sakla (temizleme için)
+        const orijinalMetin = icerikDiv.textContent;
+
+        // Kullanıcının yazdığı metindeki RegExp özel karakterlerini ( . * + ? ( ) [ ] vb.) kaçırır.
+        // Böylece "(" gibi bir giriş hata vermez, "." ise her karakterle değil yalnızca noktayla eşleşir.
+        function regexKacir(metin) {
+            return metin.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+        }
 
         function araVeVurgula() {
-            // getElementById ile elementi seç (düzeltilmiş - eski kodda getElementByld yazıyordu)
             let aramaKelimesi = document.getElementById("aramaKelime").value;
-            let icerikDiv = document.getElementById("icerik");
             let sonucBilgi = document.getElementById("sonucBilgi");
 
             // Boş arama kontrolü
@@ -236,13 +259,12 @@ Mevcut `JavaScript Uyg-5.html` ve `Uyg-7.html` dosyalarında `getElementByld` ş
                 return;
             }
 
-            // Orijinal metni geri yükle, sonra vurgula
-            icerikDiv.innerHTML = orijinalMetin;
-            let metin = icerikDiv.innerHTML;
+            // Önceki vurguları temizle
+            icerikDiv.textContent = orijinalMetin;
 
-            // Büyük/küçük harf duyarsız arama için RegEx
-            let regEx = new RegExp(aramaKelimesi, "gi"); // g=tümünü bul, i=büyük/küçük duyarsız
-            let eslesmeSayisi = (metin.match(regEx) || []).length;
+            // Büyük/küçük harf duyarsız arama için RegEx (g=tümünü bul, i=büyük/küçük duyarsız)
+            let regEx = new RegExp(regexKacir(aramaKelimesi), "gi");
+            let eslesmeSayisi = (orijinalMetin.match(regEx) || []).length;
 
             if (eslesmeSayisi === 0) {
                 sonucBilgi.textContent = `"${aramaKelimesi}" bulunamadı.`;
@@ -250,11 +272,19 @@ Mevcut `JavaScript Uyg-5.html` ve `Uyg-7.html` dosyalarında `getElementByld` ş
                 return;
             }
 
-            // Bulunan kelimeleri vurgulu span ile değiştir
-            icerikDiv.innerHTML = metin.replace(
-                regEx,
-                match => `<span class="vurgu">${match}</span>`
-            );
+            // Metni parçalara ayırıp eşleşmeleri <span> içine alarak yeniden kur.
+            // innerHTML kullanılmadığı için kullanıcının yazdığı metin hiçbir zaman HTML olarak yorumlanmaz.
+            icerikDiv.textContent = "";
+            let sonIndeks = 0;
+            for (const eslesme of orijinalMetin.matchAll(regEx)) {
+                icerikDiv.append(orijinalMetin.slice(sonIndeks, eslesme.index));
+                const span = document.createElement("span");
+                span.className = "vurgu";
+                span.textContent = eslesme[0];
+                icerikDiv.append(span);
+                sonIndeks = eslesme.index + eslesme[0].length;
+            }
+            icerikDiv.append(orijinalMetin.slice(sonIndeks));
 
             sonucBilgi.textContent = `"${aramaKelimesi}" ${eslesmeSayisi} yerde bulundu.`;
             sonucBilgi.style.color = "#27ae60";
@@ -262,13 +292,14 @@ Mevcut `JavaScript Uyg-5.html` ve `Uyg-7.html` dosyalarında `getElementByld` ş
 
         function temizle() {
             // Orijinal metni geri yükle
-            document.getElementById("icerik").innerHTML = orijinalMetin;
+            icerikDiv.textContent = orijinalMetin;
             document.getElementById("aramaKelime").value = "";
             document.getElementById("sonucBilgi").textContent = "";
         }
 
         // Enter tuşuna basınca arama yap
-        document.getElementById("aramaKelime").addEventListener("keypress", function(e) {
+        // keypress olayı kullanımdan kaldırılmıştır (deprecated); yerine keydown kullanılır
+        document.getElementById("aramaKelime").addEventListener("keydown", function(e) {
             if (e.key === "Enter") araVeVurgula();
         });
     </script>
@@ -282,5 +313,5 @@ Mevcut `JavaScript Uyg-5.html` ve `Uyg-7.html` dosyalarında `getElementByld` ş
 
 1. Bir butona tıklandığında sayfadaki bir paragrafın rengini kırmızıya çevirin.
 2. İki input kutusu oluşturun; kullanıcı yazdıkça altında anlık olarak birleştirilmiş metni gösterin.
-3. "Ekle" butuına tıklandığında yeni bir `<li>` elemanı listeye ekleyen bir uygulama yapın.
+3. "Ekle" düğmesine tıklandığında yeni bir `<li>` öğesi listeye ekleyen bir uygulama yapın.
 4. Renk seçici (`<input type="color">`) kullanarak sayfanın arka plan rengini değiştirin.

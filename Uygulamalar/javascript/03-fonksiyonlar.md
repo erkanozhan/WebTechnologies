@@ -108,8 +108,8 @@ function carp(a, b) {
     return a * b;
 }
 
-// Ok fonksiyonu ile aynısı
-const carp = (a, b) => a * b;
+// Ok fonksiyonu ile aynısı (aynı ad iki kez tanımlanamayacağı için farklı ad verildi)
+const carpOk = (a, b) => a * b;
 
 // Tek parametrede parantez isteğe bağlı
 const karesi = sayi => sayi * sayi;
@@ -121,9 +121,12 @@ const mutlakDeger = sayi => {
 };
 
 console.log(carp(4, 5));       // 20
+console.log(carpOk(4, 5));     // 20
 console.log(karesi(6));        // 36
 console.log(mutlakDeger(-8));  // 8
 ```
+
+> **Dikkat:** Aynı kapsamda `function carp` tanımlandıktan sonra `const carp` yazılırsa tarayıcı `SyntaxError: Identifier 'carp' has already been declared` hatası verir ve **bloğun hiçbir satırı çalışmaz**. Bu nedenle ok fonksiyonuna `carpOk` adı verilmiştir.
 
 ---
 
@@ -139,9 +142,8 @@ Kendi kendini çağıran fonksiyondur. Faktöriyel hesabı en klasik örnektir.
 
 ```javascript
 // Özyinelemeli faktöriyel fonksiyonu
-// (JavaScript_3.html ve JavaScript Uyg-3.html'den alınmış, düzeltilmiş)
 function faktoriyel(n) {
-    // Temel durum: sonsuz döngüyü önler!
+    // Temel durum (base case): sonsuz özyinelemeyi önler!
     if (n === 0 || n === 1) {
         return 1;
     }
@@ -162,6 +164,8 @@ console.log(faktoriyel(5));  // 120
 console.log(faktoriyel(10)); // 3628800
 ```
 
+> **Not:** Bu fonksiyon negatif bir sayıyla çağrılırsa (`faktoriyel(-1)`) temel duruma hiçbir zaman ulaşılmaz; fonksiyon kendini durmaksızın çağırır ve tarayıcı `RangeError: Maximum call stack size exceeded` hatası verir. Gerçek bir uygulamada girişin negatif olmadığı önceden denetlenmelidir.
+
 ---
 
 ## 5. Kapsam (Scope)
@@ -179,14 +183,14 @@ function kapsam() {
 
 kapsam();
 console.log(global); // ✓ Erişilebilir
-// console.log(yerel); // ✗ HATA! yerel fonksiyon dışında tanımsız
+// console.log(yerel); // ✗ ReferenceError: yerel is not defined (fonksiyon dışında erişilemez)
 ```
 
 ---
 
 ## 6. Tam Uygulama: Faktöriyel Tablosu
 
-Bu örnek, `JavaScript_3.html` ve `JavaScript Uyg-3.html` dosyalarının düzeltilmiş ve geliştirilmiş versiyonudur:
+Aşağıdaki örnek, özyinelemeli faktöriyel fonksiyonunu kullanarak bir HTML tablosu üretir:
 
 ```html
 <!DOCTYPE html>
@@ -213,7 +217,7 @@ Bu örnek, `JavaScript_3.html` ve `JavaScript Uyg-3.html` dosyalarının düzelt
 <body>
     <h2>Faktöriyel Tablosu Oluşturucu</h2>
 
-    <label>Kaçıncı faktöriyele kadar hesaplayalım? (1-15)</label>
+    <label for="sinir">Kaçıncı faktöriyele kadar hesaplayalım? (1-15)</label>
     <input type="number" id="sinir" value="10" min="1" max="15">
     <button onclick="tabloOlustur()">Tabloyu Göster</button>
 
@@ -295,7 +299,7 @@ console.log(Math.max(3, 7, 1));  // 7 (en büyük)
 console.log(Math.min(3, 7, 1));  // 1 (en küçük)
 console.log(Math.pow(2, 8));     // 256 (üs)
 console.log(Math.sqrt(16));      // 4 (karekök)
-console.log(Math.random());      // 0-1 arası rastgele sayı
+console.log(Math.random());      // 0 (dahil) ile 1 (hariç) arasında rastgele sayı
 
 // 1-100 arası rastgele tam sayı:
 let rastgele = Math.floor(Math.random() * 100) + 1;

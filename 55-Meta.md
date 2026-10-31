@@ -1,8 +1,8 @@
-# `<meta>` Etiketi, `lang` Niteliği ve `name` Parametreleri
+# `<meta>` Etiketi, `lang` Niteliği ve `name` Değerleri
 
 `<meta>` etiketi, HTML belgesinin **kendisi hakkında bilgi** taşır; sayfada görünmez, yalnızca tarayıcıya ve arama motorlarına veri sağlar. Tüm `<meta>` etiketleri `<head>` bloğu içine yazılır.
 
-Latince *meta* sözcüğü "hakkında, ötesinde" anlamına gelir — meta veri (metadata) tam da budur: verinin verisi.
+Yunanca *meta* (μετά) sözcüğü "ötesinde, sonra, hakkında" anlamına gelir — meta veri (metadata) tam da budur: verinin verisi.
 
 ---
 
@@ -25,13 +25,13 @@ Sık kullanılan dil kodları:
 | `en-US` | Amerikan İngilizcesi |
 | `zh-CN` | Basitleştirilmiş Çince |
 
-Bu bilgi ekran okuyucular (screen reader) için kritiktir; hangi dilde okuyacağını bu etiketten öğrenir. Arama motorları da içeriği doğru dil indeksine yerleştirmek için `lang` değerini kullanır. W3C (World Wide Web Consortium — Dünya Çapında Web Konsorsiyumu) standardına göre her HTML belgesinde bulunması zorunludur.
+Bu bilgi ekran okuyucular (screen reader) için kritiktir; hangi dilde ve hangi telaffuz kurallarıyla okuyacağını bu nitelikten öğrenir. Arama motorları da içeriği doğru dil indeksine yerleştirmek için `lang` değerini kullanır. HTML spesifikasyonu `lang` niteliğini sözdizimi açısından zorunlu tutmaz; belge onsuz da geçerlidir. Ancak W3C (World Wide Web Consortium — Dünya Çapında Web Konsorsiyumu) tarafından yayımlanan erişilebilirlik yönergeleri WCAG (Web Content Accessibility Guidelines — Web İçeriği Erişilebilirlik Yönergeleri) 3.1.1 ölçütü, sayfanın dilinin programatik olarak belirtilmesini en temel (A) düzeyde şart koşar. Bu nedenle her belgede kullanılmalıdır.
 
 ---
 
 ## `charset` — Karakter Kodlaması
 
-Teknik olarak bir `<meta>` parametresidir ve her zaman ilk sıraya yazılır:
+`<meta>` etiketinin bir niteliğidir. Tarayıcı kodlama bildirimini belgenin ilk 1024 baytı içinde aradığından `<head>` içinde ilk sıraya yazılır:
 
 ```html
 <meta charset="UTF-8">
@@ -95,7 +95,7 @@ Sayfa belirtilen saniye sonra kendini yeniler. Yönlendirme (redirect) için `ur
 <meta http-equiv="refresh" content="3; url=https://bm.nku.edu.tr">
 ```
 
-Burada `http-equiv` niteliği, `name` yerine kullanılır çünkü bu etiket bir HTTP (HyperText Transfer Protocol — Köprü Metin Aktarım Protokolü) başlığı davranışı taklit eder. `equiv` sözcüğü Latince *aequivalens*'ten gelir, "eşdeğer" demektir.
+Burada `http-equiv` niteliği, `name` yerine kullanılır çünkü bu etiket bir HTTP (HyperText Transfer Protocol — Hipermetin Aktarım Protokolü) başlığı davranışı taklit eder. `equiv` sözcüğü Latince *aequivalens*'ten gelir, "eşdeğer" demektir.
 
 > Erişilebilirlik (accessibility) açısından uyarı: `refresh` kullanıcıyı uyarmadan sayfayı değiştirir. Yönlendirme için sunucu taraflı HTTP 301 yönlendirmesi ya da JavaScript tercih edilmelidir.
 
@@ -112,7 +112,6 @@ Burada `http-equiv` niteliği, `name` yerine kullanılır çünkü bu etiket bir
     <meta name="description"  content="NKU Bilgisayar Mühendisliği — Veri Yapıları ve Algoritmalar ders notu arşivi.">
     <meta name="keywords"     content="veri yapısı, algoritma, bağlı liste, yığın, kuyruk, ağaç, graf, sıralama, arama">
     <meta name="author"       content="Dr. Öğr. Üyesi Erkan Özhan">
-    <meta http-equiv="refresh" content="60">
     <title>BMB — Veri Yapıları ve Algoritmalar | NKU</title>
 </head>
 <body>

@@ -19,7 +19,6 @@ Tüm bu bilgiler bir "öğrenci" nesnesinde tutulabilir.
 ### 2.1 Nesne Literali (En yaygın yöntem)
 
 ```javascript
-// JavaScript Uyg-10.html'deki nesne örneğinin geliştirilmiş hali
 let ogrenci = {
     ad: "Ahmet",
     soyad: "Yılmaz",
@@ -79,7 +78,8 @@ let ogrenci = {
     },
 
     durumu: function() {
-        return this.ortalama() >= 50 ? "Geçti" : "Kaldı";
+        // Geçme kuralı: ortalama en az 50 ve final en az 50
+        return (this.ortalama() >= 50 && this.final >= 50) ? "Geçti" : "Kaldı";
     }
 };
 
@@ -169,8 +169,11 @@ dizi.join(", ");     // "a, b, c"
 let notlar = [75, 88, 62, 95, 70];
 
 // map: Her elemanı dönüştür (yeni dizi)
-let kareNotlar = notlar.map(not => not * 2);
+let ikiKatNotlar = notlar.map(not => not * 2);
 // [150, 176, 124, 190, 140]
+
+let kareNotlar = notlar.map(not => not * not);
+// [5625, 7744, 3844, 9025, 4900]
 
 // filter: Koşulu sağlayanları al (yeni dizi)
 let yuksekNotlar = notlar.filter(not => not >= 80);
@@ -205,13 +208,13 @@ let ogrenciler = [
 // Tüm öğrencilerin ortalamasını hesapla ve listele
 ogrenciler.forEach(function(ogr) {
     let ort = (ogr.vize * 0.4) + (ogr.final * 0.6);
-    let durum = ort >= 50 ? "✓" : "✗";
+    let durum = (ort >= 50 && ogr.final >= 50) ? "✓" : "✗";
     console.log(`${durum} ${ogr.ad}: ${ort.toFixed(1)}`);
 });
 
 // Sadece geçenleri filtrele
 let gecenler = ogrenciler.filter(ogr => {
-    return (ogr.vize * 0.4 + ogr.final * 0.6) >= 50;
+    return (ogr.vize * 0.4 + ogr.final * 0.6) >= 50 && ogr.final >= 50;
 });
 ```
 
@@ -246,9 +249,10 @@ let gecenler = ogrenciler.filter(ogr => {
     <h2>Öğrenci Not Listesi</h2>
 
     <div class="form-satir">
-        <input type="text" id="adInput" placeholder="Öğrenci adı">
-        <input type="number" id="vizeInput" placeholder="Vize (0-100)" min="0" max="100">
-        <input type="number" id="finalInput" placeholder="Final (0-100)" min="0" max="100">
+        <!-- Görünür alan adı (label) yerine aria-label kullanıldı; ekran okuyucular bu adı okur -->
+        <input type="text" id="adInput" placeholder="Öğrenci adı" aria-label="Öğrenci adı">
+        <input type="number" id="vizeInput" placeholder="Vize (0-100)" min="0" max="100" aria-label="Vize notu">
+        <input type="number" id="finalInput" placeholder="Final (0-100)" min="0" max="100" aria-label="Final notu">
         <button class="ekle-btn" onclick="ogrenciEkle()">Ekle</button>
     </div>
 
@@ -281,24 +285,47 @@ let gecenler = ogrenciler.filter(ogr => {
             return (ogr.vize * 0.4) + (ogr.final * 0.6);
         }
 
+        // Geçme kuralı: ortalama en az 50 ve final en az 50
+        function gectiMi(ogr) {
+            return ortalamaBul(ogr) >= 50 && ogr.final >= 50;
+        }
+
+        // Bir tablo hücresi oluşturur; metni textContent ile yazar (XSS'e karşı güvenli)
+        function hucre(metin, sinif) {
+            let td = document.createElement("td");
+            td.textContent = metin;
+            if (sinif) td.className = sinif;
+            return td;
+        }
+
         function tabloYenile() {
             let govde = document.getElementById("tabloGovde");
             govde.innerHTML = ""; // Tabloyu temizle
 
             ogrenciler.forEach(function(ogr, indeks) {
                 let ort = ortalamaBul(ogr);
-                let gectiMi = ort >= 50;
+                let gecti = gectiMi(ogr);
 
+                // Kullanıcının yazdığı ad innerHTML ile değil, textContent ile yazılır.
+                // Aksi hâlde ad alanına yazılan <img src=x onerror=...> gibi bir ifade kod olarak çalışırdı.
                 let satir = document.createElement("tr");
-                satir.innerHTML = `
-                    <td>${indeks + 1}</td>
-                    <td>${ogr.ad}</td>
-                    <td>${ogr.vize}</td>
-                    <td>${ogr.final}</td>
-                    <td>${ort.toFixed(1)}</td>
-                    <td class="${gectiMi ? 'gecti' : 'kaldi'}">${gectiMi ? "Geçti" : "Kaldı"}</td>
-                    <td><button class="sil-btn" onclick="ogrenciSil(${indeks})">Sil</button></td>
-                `;
+                satir.append(
+                    hucre(indeks + 1),
+                    hucre(ogr.ad),
+                    hucre(ogr.vize),
+                    hucre(ogr.final),
+                    hucre(ort.toFixed(1)),
+                    hucre(gecti ? "Geçti" : "Kaldı", gecti ? "gecti" : "kaldi")
+                );
+
+                let silBtn = document.createElement("button");
+                silBtn.className = "sil-btn";
+                silBtn.textContent = "Sil";
+                silBtn.addEventListener("click", () => ogrenciSil(indeks));
+                let islemHucresi = document.createElement("td");
+                islemHucresi.append(silBtn);
+                satir.append(islemHucresi);
+
                 govde.appendChild(satir);
             });
 
@@ -306,12 +333,16 @@ let gecenler = ogrenciler.filter(ogr => {
         }
 
         function ogrenciEkle() {
-            let ad    = document.getElementById("adInput").value.trim();
-            let vize  = Number(document.getElementById("vizeInput").value);
-            let final = Number(document.getElementById("finalInput").value);
+            let ad         = document.getElementById("adInput").value.trim();
+            let vizeMetni  = document.getElementById("vizeInput").value;
+            let finalMetni = document.getElementById("finalInput").value;
+            let vize  = Number(vizeMetni);
+            let final = Number(finalMetni);
 
-            if (!ad || isNaN(vize) || isNaN(final)) {
-                alert("Tüm alanları doldurun!");
+            // Number("") sonucu 0 olduğundan isNaN boş alanı yakalayamaz; boşluk ayrıca denetlenir
+            if (!ad || vizeMetni === "" || finalMetni === "" ||
+                vize < 0 || vize > 100 || final < 0 || final > 100) {
+                alert("Tüm alanları 0-100 arasında geçerli değerlerle doldurun!");
                 return;
             }
 
@@ -337,7 +368,7 @@ let gecenler = ogrenciler.filter(ogr => {
             let toplam = ogrenciler.length;
             if (toplam === 0) { document.getElementById("ozet").innerHTML = ""; return; }
 
-            let gecenler  = ogrenciler.filter(o => ortalamaBul(o) >= 50).length;
+            let gecenler  = ogrenciler.filter(gectiMi).length;
             let kalanlar  = toplam - gecenler;
             let genelOrt  = ogrenciler.reduce((t, o) => t + ortalamaBul(o), 0) / toplam;
 

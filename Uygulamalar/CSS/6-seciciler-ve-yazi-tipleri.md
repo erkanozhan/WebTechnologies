@@ -3,7 +3,7 @@
 
 HTML bir sayfanın *ne* içerdiğini tanımlar; CSS (Cascading Style Sheets — Basamaklı Stil Sayfaları) ise bu içeriğin *nasıl görüneceğini* belirler. HTML iskelet, CSS ise o iskelete giydirilmiş kıyafettir. Bu ayrım, içerik ile görünümün birbirinden bağımsız yönetilmesini sağlar: bir stilin değişmesi sayfanın içeriğini bozmaz, içeriğin güncellenmesi tasarımı etkilemez.
 
-CSS, Tim Berners-Lee'nin Web'i keşfetmesinin ardından Håkon Wium Lie tarafından 1994'te önerilmiş; W3C (World Wide Web Consortium — Dünya Çapında Web Konsorsiyumu) tarafından 1996'da standart olarak yayımlanmıştır.
+CSS, Tim Berners-Lee'nin Web'i icat etmesinin ardından Håkon Wium Lie tarafından 1994'te önerilmiş; W3C (World Wide Web Consortium — Dünya Çapında Web Konsorsiyumu) tarafından 1996'da standart olarak yayımlanmıştır.
 
 ---
 
@@ -17,7 +17,7 @@ seçici {
 }
 ```
 
-- **Seçici (selector):** Stilin uygulanacağı HTML elemanını belirtir.
+- **Seçici (selector):** Stilin uygulanacağı HTML öğesini belirtir.
 - **Özellik (property):** Değiştirilecek görsel niteliğin adı (`color`, `font-size`, vb.).
 - **Değer (value):** O niteliğe atanan yeni değer.
 
@@ -43,7 +43,7 @@ CSS doğrudan HTML etiketinin `style` niteliğine yazılır:
 <p style="color: red; font-size: 14px;">Bu paragraf kırmızıdır.</p>
 ```
 
-Yalnızca tek bir eleman için geçerlidir. Bakımı zorlaştırır; küçük denemeler dışında tercih edilmemelidir.
+Yalnızca tek bir öğe için geçerlidir. Bakımı zorlaştırır; küçük denemeler dışında tercih edilmemelidir.
 
 ### 2.2 Dahili (Internal / `<style>`)
 
@@ -78,15 +78,15 @@ h1   { color: steelblue; }
 
 En güçlü yöntemdir: tek bir `.css` dosyası yüzlerce HTML sayfasını etkiler; değişiklik tek yerden yapılır.
 
-> **Büyük Resim:** Üç yöntemin önceliği (aynı özellik için) şu sırayla azalır: satır içi → dahili → harici. Bu "basamak" düzeni, CSS'in adındaki *Cascading* (basamaklama) sözcüğünden gelir.
+> **Büyük Resim:** Aynı öğenin aynı özelliği için birden fazla kural yazıldığında hangisinin uygulanacağına basamaklama (cascade) adı verilen bir algoritma karar verir. Satır içi `style` niteliği, `<style>` ve `<link>` ile gelen kurallardan önceliklidir. Dahili (`<style>`) ve harici (`<link>`) stil sayfaları ise aynı önceliğe sahiptir: Seçicilerin özgüllüğü (bkz. Bölüm 3) eşitse, belgede **daha sonra yazılan** kural kazanır. Örneğin `<head>` içinde önce `<style>`, ardından `<link>` yazılırsa harici dosyadaki kural geçerli olur; sıra değiştirilirse dahili kural geçerli olur. CSS'in adındaki *Cascading* (basamaklı, art arda akan) sözcüğü, kuralların bu öncelik sırasıyla birbirinin üzerine akmasını anlatır.
 
 ---
 
 ## 3. Seçiciler (Selectors)
 
-Seçici, stilin hangi elemanlara uygulanacağını belirler.
+Seçici, stilin hangi öğelere uygulanacağını belirler.
 
-### 3.1 Eleman Seçici
+### 3.1 Öğe Seçici
 
 Tüm `<p>`, `<h1>` vb. etiketleri eşler:
 
@@ -97,7 +97,7 @@ h2 { text-align: center; }
 
 ### 3.2 Sınıf Seçici (`.sınıfAdı`)
 
-HTML'de `class` niteliğiyle işaretlenmiş elemanlara uygulanır. Birden fazla eleman aynı sınıfı paylaşabilir:
+HTML'de `class` niteliğiyle işaretlenmiş öğelere uygulanır. Birden fazla öğe aynı sınıfı paylaşabilir:
 
 ```html
 <p class="vurgu">Bu metin vurguludur.</p>
@@ -110,7 +110,7 @@ HTML'de `class` niteliğiyle işaretlenmiş elemanlara uygulanır. Birden fazla 
 
 ### 3.3 Kimlik Seçici (`#kimlikAdı`)
 
-Sayfada yalnızca bir eleman için geçerlidir; `id` niteliğiyle eşleşir:
+Sayfada yalnızca bir öğe için geçerlidir; `id` niteliğiyle eşleşir:
 
 ```html
 <div id="baslik">Site Başlığı</div>
@@ -120,7 +120,7 @@ Sayfada yalnızca bir eleman için geçerlidir; `id` niteliğiyle eşleşir:
 #baslik { background-color: darkblue; color: white; padding: 10px; }
 ```
 
-> **Kural:** `id` bir sayfada tekil olmalıdır — iki elemana aynı `id` verilmez. `class` ise çoğul kullanım içindir.
+> **Kural:** `id` bir sayfada tekil olmalıdır — iki öğeye aynı `id` verilmez. `class` ise çoğul kullanım içindir.
 
 ### Seçici Önceliği (Özgüllük)
 
@@ -131,7 +131,33 @@ Aynı özellik farklı seçicilerle çakıştığında kazanan şu sıraya göre
 | Satır içi `style` niteliği | En yüksek |
 | `#id` seçici | Yüksek |
 | `.class` seçici | Orta |
-| Eleman seçici (`p`, `h1`…) | Düşük |
+| Öğe seçici (`p`, `h1`…) | Düşük |
+
+Tarayıcı bu önceliği her seçici için üç basamaklı bir puanla, **(kimlik, sınıf, öğe)** biçiminde hesaplar. Puanlar soldan sağa karşılaştırılır; soldaki basamağı büyük olan kazanır, eşitlik varsa bir sağdaki basamağa bakılır. Tüm basamaklar eşitse belgede sonra yazılan kural kazanır.
+
+| Seçici | Kimlik | Sınıf | Öğe | Puan |
+|--------|--------|-------|-----|------|
+| `p` | 0 | 0 | 1 | (0, 0, 1) |
+| `ul li` | 0 | 0 | 2 | (0, 0, 2) |
+| `.vurgu` | 0 | 1 | 0 | (0, 1, 0) |
+| `p.vurgu` | 0 | 1 | 1 | (0, 1, 1) |
+| `nav .menu a:hover` | 0 | 2 | 2 | (0, 2, 2) |
+| `#baslik` | 1 | 0 | 0 | (1, 0, 0) |
+
+Sınıf basamağına sözde sınıflar (`:hover`, `:nth-child()`) ve nitelik seçicileri (`[type="text"]`) de dahildir. Bu tabloya göre tek bir `#baslik` seçicisi, kaç tane sınıf içerirse içersin hiçbir sınıf seçicisine yenilmez: (1, 0, 0) her zaman (0, 5, 0) puanından büyüktür.
+
+**Küçük deney:** Aşağıdaki kodda paragraf hangi renkte görünür?
+
+```html
+<style>
+  p.vurgu { color: green; }   /* (0, 1, 1) */
+  .vurgu  { color: red; }     /* (0, 1, 0) — sonra yazılmış olsa da puanı düşük */
+  p       { color: blue; }    /* (0, 0, 1) */
+</style>
+<p class="vurgu">Hangi renkteyim?</p>
+```
+
+Cevap yeşildir; çünkü en yüksek özgüllük puanı `p.vurgu` seçicisindedir. Kaynak sırası yalnızca puanlar eşit olduğunda devreye girer.
 
 `!important` bildirimi her kurala "mutlak öncelik" verir; ancak aşırı kullanımı stil hiyerarşisini karmaşıklaştırır.
 
@@ -143,7 +169,7 @@ p { color: blue !important; }
 
 ## 4. Miras (Inheritance) ve Basamaklama (Cascade)
 
-CSS'te bazı özellikler (özellikle `color`, `font-family`, `font-size`) ebeveyn elemandan çocuğa *miras* kalır; diğerleri (`border`, `margin`, `padding`) kalır maz.
+CSS'te bazı özellikler (özellikle `color`, `font-family`, `font-size`) ebeveyn öğeden çocuğa *miras* kalır; diğerleri (`border`, `margin`, `padding`) kalmaz.
 
 ```html
 <body style="color: navy;">
@@ -151,7 +177,7 @@ CSS'te bazı özellikler (özellikle `color`, `font-family`, `font-size`) ebevey
 </body>
 ```
 
-Miras, tüm etiketlere ayrı ayrı `color` yazmayı gereksiz kılar. Sayfanın temel yazı rengi ya da fontu `body` üzerinde bir kez tanımlanır; alt elemanlar otomatik olarak devralır.
+Miras, tüm etiketlere ayrı ayrı `color` yazmayı gereksiz kılar. Sayfanın temel yazı rengi ya da fontu `body` üzerinde bir kez tanımlanır; alt öğeler otomatik olarak devralır.
 
 ---
 
@@ -165,7 +191,7 @@ Kullanılacak yazı tipini belirtir. Virgülle ayrılmış bir liste yazılır; 
 p { font-family: "Trebuchet MS", Verdana, Arial, sans-serif; }
 ```
 
-Son eleman (`sans-serif`) genel bir aile adıdır — hiçbir özel font bulunmazsa tarayıcının varsayılan sans-serif fontunu kullanır. Bu yedekleme zinciri, yazı tipinin kullanıcının bilgisayarında yüklü olmayabileceği ihtimaline karşı alınan önlemdir.
+Listedeki son değer (`sans-serif`) genel bir aile adıdır — hiçbir özel font bulunmazsa tarayıcının varsayılan sans-serif fontunu kullanır. Bu yedekleme zinciri, yazı tipinin kullanıcının bilgisayarında yüklü olmayabileceği ihtimaline karşı alınan önlemdir.
 
 ### `font-size` — Yazı Boyutu
 
@@ -177,8 +203,8 @@ p  { font-size: 14px; }
 | Birim | Açıklama |
 |-------|----------|
 | `px` | Piksel — sabit boyut |
-| `em` | Ebeveynin font boyutuna göre oransal |
-| `rem` | Kök elemanın (`html`) font boyutuna göre oransal |
+| `em` | `font-size` içinde kullanıldığında ebeveynin, diğer özelliklerde (`padding`, `margin` vb.) öğenin kendi font boyutuna göre oransal |
+| `rem` | Kök öğenin (`html`) font boyutuna göre oransal |
 | `%` | Ebeveynin yüzdesi |
 
 ### `font-weight` — Kalınlık
@@ -232,9 +258,9 @@ p { text-indent: 2em; }
 ### `text-decoration` — Altı/Üstü Çizgi
 
 ```css
-a           { text-decoration: none; }         /* Alt çizgiyi kaldır */
-.ustu-cizgi { text-decoration: overline; }
-.ustu-alti  { text-decoration: line-through; } /* Üstü çizili */
+a             { text-decoration: none; }         /* Alt çizgiyi kaldır */
+.ust-cizgili  { text-decoration: overline; }     /* Metnin üstünde çizgi */
+.ustu-cizili  { text-decoration: line-through; } /* Ortasından geçen çizgi (üstü çizili metin) */
 ```
 
 ### `text-transform` — Büyük/Küçük Harf Dönüşümü
@@ -242,6 +268,16 @@ a           { text-decoration: none; }         /* Alt çizgiyi kaldır */
 ```css
 h2  { text-transform: uppercase; }   /* TÜMÜ BÜYÜK */
 nav { text-transform: capitalize; }  /* Her Sözcük Büyük */
+```
+
+`text-transform` dönüşümü belgenin diline göre yapar. Türkçe metinlerde "i" harfinin "İ" olarak büyütülmesi için `<html lang="tr">` tanımlanmış olmalıdır; aksi hâlde tarayıcı İngilizce kuralını uygulayarak "bilgi" sözcüğünü "BILGI" biçiminde gösterebilir.
+
+### `line-height` — Satır Aralığı
+
+Metin satırlarının taban çizgileri arasındaki mesafeyi belirler. Birimsiz bir sayı yazıldığında değer, öğenin kendi font boyutuyla çarpılır; bu yazım, alt öğelere de doğru oranda aktarıldığı için önerilir:
+
+```css
+p { line-height: 1.5; }   /* font boyutunun 1,5 katı */
 ```
 
 ### `letter-spacing` — Karakter Aralığı
@@ -287,7 +323,7 @@ h1   { color: rgba(0, 0, 128, 0.9); }
 - `<link>` ile CSS dosyasını HTML'e bağlayın
 - `body`: arka plan rengi `#f0ebe1`, yazı tipi ailesi `Georgia, serif`
 - `h1`: ortalanmış, lacivert, büyük harf dönüşümü uygulanmış
-- `p`: 16px, justify hizalaması, 1.5em satır aralığı
+- `p`: 16px, justify hizalaması, `line-height: 1.5` satır aralığı
 - `.vurgu` sınıfı: kırmızı, kalın
 - `#altbilgi` kimliği: küçük (`12px`), gri, sağa hizalı
 
@@ -295,8 +331,8 @@ h1   { color: rgba(0, 0, 128, 0.9); }
 
 `selectors.html` adlı yeni bir dosya oluşturun ve aynı CSS dosyasını kullanarak:
 
-- Eleman seçici, sınıf seçici ve kimlik seçici kullanan en az 8 kural yazın
-- Aynı `<p>` etiketine hem eleman hem sınıf kuralı uygulayın; hangi kuralın kazandığını gözlemleyin
+- Öğe seçici, sınıf seçici ve kimlik seçici kullanan en az 8 kural yazın
+- Aynı `<p>` etiketine hem öğe hem sınıf kuralı uygulayın; hangi kuralın kazandığını gözlemleyin
 - `color: blue !important;` ile önceliği zorla geçersiz kılın ve etkisini inceleyin
 
 ---
@@ -315,5 +351,6 @@ h1   { color: rgba(0, 0, 128, 0.9); }
 | `text-indent` | `2em` | İlk satır girintisi |
 | `text-decoration` | `none`, `underline`, `line-through` | Çizgi süslemeleri |
 | `text-transform` | `uppercase`, `capitalize`, `lowercase` | Büyük/küçük harf |
+| `line-height` | `1.5` | Satır aralığı |
 | `letter-spacing` | `0.05em` | Karakter arası boşluk |
 | `text-shadow` | `2px 2px 4px gray` | Metin gölgesi |

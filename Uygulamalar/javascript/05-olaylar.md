@@ -40,13 +40,15 @@ buton.addEventListener("click", function() {
     alert("Merhaba!");
 });
 
-// Ok fonksiyonu ile daha kısa yazım
-buton.addEventListener("click", () => alert("Merhaba!"));
+// Aynı işin ok fonksiyonu ile daha kısa yazımı (alternatiftir; yukarıdakiyle birlikte yazılmaz):
+// buton.addEventListener("click", () => alert("Merhaba!"));
 </script>
 ```
 
+> **Dikkat:** `addEventListener` önceki dinleyicinin yerine geçmez, ona **eklenir**. Yukarıdaki iki satırın ikisi de etkin olsaydı her tıklamada iki ayrı dinleyici çalışır ve uyarı penceresi art arda iki kez açılırdı. Bu özellik, aynı olaya bilerek birden fazla iş bağlamak istendiğinde yararlıdır; ancak farkında olmadan aynı dinleyiciyi tekrar tekrar eklemek sık yapılan bir hatadır.
+
 > **Neden `addEventListener` kullanmalıyız?**
-> - Aynı elemente birden fazla olay eklenebilir
+> - Aynı öğenin aynı olayına birden fazla dinleyici eklenebilir
 > - HTML ve JavaScript birbirinden ayrı kalır
 > - Olayı daha sonra kaldırabilirsiniz
 
@@ -55,8 +57,6 @@ buton.addEventListener("click", () => alert("Merhaba!"));
 ## 3. Fare Olayları
 
 ### 3.1 click, mouseover, mouseout
-
-Bu örnek `JavaScript-17.html` dosyasından alınmış ve düzeltilmiştir:
 
 ```html
 <!DOCTYPE html>
@@ -107,6 +107,8 @@ Bu örnek `JavaScript-17.html` dosyasından alınmış ve düzeltilmiştir:
 </body>
 </html>
 ```
+
+> **`mouseover` mı `mouseenter` mı?** `mouseover` ve `mouseout` olayları kabarcıklanır (bubbling): Kutunun içinde başka öğeler varsa, fare bu iç öğelerin üzerinde gezinirken olaylar tekrar tekrar tetiklenir. Yalnızca kutuya ilk girişte ve kutudan son çıkışta bir kez çalışması istenen işlemler için `mouseenter` ve `mouseleave` olayları tercih edilir. Bu örnekteki kutunun içinde yalnızca metin bulunduğu için iki yaklaşım aynı sonucu verir.
 
 ### 3.2 Tıklama Sayacı
 
@@ -170,7 +172,7 @@ Olay fonksiyonuna otomatik gelen `event` parametresi, olayla ilgili bilgiler iç
 ```javascript
 document.addEventListener("click", function(event) {
     console.log(event.type);        // "click"
-    console.log(event.target);      // Tıklanan element
+    console.log(event.target);      // Tıklanan öğe
     console.log(event.clientX);     // Fare X koordinatı
     console.log(event.clientY);     // Fare Y koordinatı
     console.log(event.key);         // Basılan tuş (klavye olaylarında)
@@ -195,9 +197,9 @@ document.querySelector("form").addEventListener("submit", function(event) {
 
 ---
 
-## 6. Tam Uygulama: Renk Değiştirici (JavaScript Uyg-9.html'den geliştirilmiş)
+## 6. Tam Uygulama: Renk Değiştirici
 
-Mevcut `JavaScript Uyg-9.html` dosyasındaki renk değiştirme örneği, geliştirilmiş haliyle:
+Aşağıdaki uygulama tıklama, çift tıklama ve fare olaylarını tek bir sayfada bir araya getirir; gerçekleşen her olayı bir kayıt alanına yazar:
 
 ```html
 <!DOCTYPE html>
@@ -260,7 +262,10 @@ Mevcut `JavaScript Uyg-9.html` dosyasındaki renk değiştirme örneği, gelişt
         function olayKaydet(mesaj) {
             olaySayisi++;
             let zaman = new Date().toLocaleTimeString("tr-TR");
-            log.innerHTML = `[${zaman}] ${olaySayisi}. ${mesaj}<br>` + log.innerHTML;
+            if (olaySayisi === 1) log.textContent = "";   // "Henüz olay yok..." yazısını kaldır
+            let satir = document.createElement("div");
+            satir.textContent = `[${zaman}] ${olaySayisi}. ${mesaj}`;
+            log.prepend(satir);   // en yeni kayıt en üstte
         }
 
         function rengiDegistir(renk, isim) {
@@ -297,20 +302,20 @@ Mevcut `JavaScript Uyg-9.html` dosyasındaki renk değiştirme örneği, gelişt
 
 | Olay | Açıklama | Kullanım Yeri |
 |------|----------|---------------|
-| `click` | Tıklama | Buton, link, element |
-| `dblclick` | Çift tıklama | Element |
-| `mouseover` | Fare üzerine gelme | Element |
-| `mouseout` | Fare ayrılma | Element |
-| `mousemove` | Fare hareketi | Belge, element |
+| `click` | Tıklama | Düğme, bağlantı, herhangi bir öğe |
+| `dblclick` | Çift tıklama | Herhangi bir öğe |
+| `mouseover` | Fare üzerine gelme | Herhangi bir öğe |
+| `mouseout` | Fare ayrılma | Herhangi bir öğe |
+| `mousemove` | Fare hareketi | Belge, öğe |
 | `keydown` | Tuşa basma | Input, belge |
 | `keyup` | Tuşu bırakma | Input, belge |
 | `input` | Değer değişimi | Input, textarea |
 | `change` | Değer onaylanma | Select, checkbox |
 | `submit` | Form gönderme | Form |
-| `focus` | Elemente odaklanma | Input |
-| `blur` | Elementin odak kaybı | Input |
+| `focus` | Öğeye odaklanma | Input |
+| `blur` | Öğenin odağı kaybetmesi | Input |
 | `load` | Sayfa yüklenme | Window |
-| `scroll` | Kaydırma | Window, element |
+| `scroll` | Kaydırma | Window, öğe |
 
 ---
 

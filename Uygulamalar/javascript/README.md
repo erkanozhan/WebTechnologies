@@ -9,19 +9,20 @@ Bu klasör, Web Teknolojileri dersi kapsamında JavaScript konularını öğrenc
 | [01-javascript-temelleri.md](01-javascript-temelleri.md) | Temel Kavramlar | Değişkenler, veri tipleri, operatörler |
 | [02-kontrol-yapilari.md](02-kontrol-yapilari.md) | Kontrol Yapıları | if/else, switch, döngüler |
 | [03-fonksiyonlar.md](03-fonksiyonlar.md) | Fonksiyonlar | Fonksiyon tanımlama, parametreler, özyineleme |
-| [04-dom-manipulasyonu.md](04-dom-manipulasyonu.md) | DOM Manipülasyonu | HTML elementlerine erişim ve değiştirme |
+| [04-dom-manipulasyonu.md](04-dom-manipulasyonu.md) | DOM Manipülasyonu | HTML öğelerine erişim ve değiştirme |
 | [05-olaylar.md](05-olaylar.md) | Olaylar (Events) | Fare, klavye ve form olayları |
 | [06-tarih-zaman.md](06-tarih-zaman.md) | Tarih ve Zaman | Date nesnesi, saat uygulaması |
 | [07-nesneler.md](07-nesneler.md) | Nesneler (Objects) | Nesne oluşturma ve kullanma |
 | [08-form-islemleri.md](08-form-islemleri.md) | Form İşlemleri | Form verisi alma, doğrulama, hesaplama |
 | [09-tarayici-nesneleri.md](09-tarayici-nesneleri.md) | Tarayıcı Nesneleri | window, navigator, location nesneleri |
+| [JavaScript_Uygulamalar.md](JavaScript_Uygulamalar.md) | Ek Uygulamalar | Önceki konuları birleştiren kısa örnek sayfalar; her örnekte güncel olmayan yöntemler not olarak belirtilmiştir |
 
 ## Nasıl Kullanılır?
 
-1. Konuları sırasıyla inceleyin (01'den başlayın)
-2. Her konudaki **Teori** bölümünü okuyun
-3. **Kod Örneklerini** inceleyin ve çalıştırın
-4. **Alıştırmaları** yaparak pekiştirin
+1. Konuları sırasıyla inceleyin (01'den başlayın).
+2. Her dosyadaki açıklamaları okuyun.
+3. Kod örneklerini bir `.html` dosyasına kopyalayıp tarayıcıda çalıştırın; F12 ile açılan Geliştirici Araçları'nın **Console** sekmesinden çıktıları izleyin.
+4. Dosya sonundaki **Uygulama Görevleri** ve **Alıştırmalar** bölümlerini yaparak konuyu pekiştirin.
 
 ## JavaScript Nedir?
 
@@ -33,8 +34,9 @@ JavaScript, web sayfalarını dinamik ve etkileşimli hale getiren programlama d
 
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
+    <meta charset="UTF-8">
     <title>İlk JavaScript Programım</title>
 </head>
 <body>

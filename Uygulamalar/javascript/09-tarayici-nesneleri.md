@@ -78,14 +78,13 @@ console.log(screen.height); // Tam ekran yüksekliği
 
 Tarayıcı ve sistem hakkında bilgi verir.
 
-Bu örnek, mevcut `JavaScript-15.html` ve `Untitled-1.html` dosyalarının düzeltilmiş halidir:
-
 ```javascript
 // Tarayıcı adı ve versiyonu
 console.log(navigator.userAgent);
 // Örn: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0..."
 
-// Platform (işletim sistemi)
+// Platform (işletim sistemi) — kullanımdan kaldırılmış (deprecated) bir özelliktir;
+// tarayıcılar gizlilik gerekçesiyle giderek daha az bilgi döndürmektedir
 console.log(navigator.platform);   // "Win32", "MacIntel", "Linux x86_64"
 
 // Dil ayarı
@@ -95,19 +94,23 @@ console.log(navigator.language);   // "tr-TR", "en-US"
 console.log(navigator.onLine);     // true / false
 
 // Tarayıcı adını çıkarmak için yardımcı fonksiyon
+// Sıra önemlidir: Edge ve Opera'nın kimlik dizesinde "Chrome", Chrome'unkinde ise "Safari" sözcüğü de geçer.
+// Bu nedenle en özel olandan en genel olana doğru kontrol edilir.
 function tarayiciBul() {
     let ua = navigator.userAgent;
 
-    if (ua.indexOf("Chrome") > -1 && ua.indexOf("Edg") === -1) return "Google Chrome";
-    if (ua.indexOf("Firefox") > -1)  return "Mozilla Firefox";
-    if (ua.indexOf("Safari") > -1 && ua.indexOf("Chrome") === -1) return "Apple Safari";
-    if (ua.indexOf("Edg") > -1)       return "Microsoft Edge";
-    if (ua.indexOf("OPR") > -1)       return "Opera";
+    if (ua.includes("Edg/"))     return "Microsoft Edge";
+    if (ua.includes("OPR/"))     return "Opera";
+    if (ua.includes("Firefox/")) return "Mozilla Firefox";
+    if (ua.includes("Chrome/"))  return "Google Chrome";
+    if (ua.includes("Safari/"))  return "Apple Safari";
     return "Bilinmeyen Tarayıcı";
 }
 
 console.log(`Tarayıcınız: ${tarayiciBul()}`);
 ```
+
+> **Not:** Kullanıcı aracısı (user agent) dizesine bakarak tarayıcı tespit etmek güvenilir bir yöntem değildir. Örneğin Opera'nın kimlik dizesi `... Chrome/120.0.0.0 Safari/537.36 OPR/106.0.0.0` biçimindedir; `Chrome` kontrolü önce yapılsaydı Opera, Google Chrome olarak algılanırdı. Tarayıcılar bu dizeyi giderek sadeleştirmekte, kullanıcılar da değiştirebilmektedir. Bir özelliğin desteklenip desteklenmediğini öğrenmek için tarayıcı adına değil, doğrudan özelliğin varlığına bakmak (özellik tespiti — feature detection) önerilir: `if ("geolocation" in navigator) { ... }`
 
 ---
 
@@ -117,7 +120,7 @@ Sayfanın URL'sini okur ve yönetir.
 
 ```javascript
 // Mevcut URL bilgileri
-console.log(location.href);     // Tam URL: "https://www.ornek.com/sayfa?id=5"
+console.log(location.href);     // Tam URL: "https://www.ornek.com/sayfa?id=5#bolum"
 console.log(location.protocol); // "https:"
 console.log(location.hostname); // "www.ornek.com"
 console.log(location.pathname); // "/sayfa"
@@ -136,7 +139,7 @@ location.replace("https://www.google.com");
 
 ### Sayfa Yönlendirme (setTimeout ile)
 
-Bu örnek `JavaScript Uyg-1.html` dosyasından alınmış ve düzeltilmiştir:
+Aşağıdaki kod, 5'ten geriye sayan bir sayaç gösterir ve sayaç bitince sayfayı yönlendirir:
 
 ```javascript
 let sayac = 5;
@@ -170,7 +173,7 @@ history.go(1);     // 1 sayfa ileri git
 
 ## 6. Tam Uygulama: Tarayıcı Bilgi Paneli
 
-Bu örnek, mevcut `JavaScript-15.html` ve `Untitled-1.html` dosyalarının birleştirilmiş ve geliştirilmiş halidir:
+Aşağıdaki uygulama, bu bölümde görülen `navigator`, `screen`, `window`, `location` ve `history` nesnelerini tek bir bilgi panelinde bir araya getirir:
 
 ```html
 <!DOCTYPE html>
@@ -244,12 +247,13 @@ Bu örnek, mevcut `JavaScript-15.html` ve `Untitled-1.html` dosyalarının birle
             `;
         }
 
+        // En özelden en genele: Edge ve Opera, Chrome'dan önce kontrol edilmelidir
         function tarayiciBul(ua) {
-            if (ua.includes("Edg"))    return "Microsoft Edge";
-            if (ua.includes("Chrome")) return "Google Chrome";
-            if (ua.includes("Firefox")) return "Mozilla Firefox";
-            if (ua.includes("Safari")) return "Apple Safari";
-            if (ua.includes("OPR"))    return "Opera";
+            if (ua.includes("Edg/"))     return "Microsoft Edge";
+            if (ua.includes("OPR/"))     return "Opera";
+            if (ua.includes("Firefox/")) return "Mozilla Firefox";
+            if (ua.includes("Chrome/"))  return "Google Chrome";
+            if (ua.includes("Safari/"))  return "Apple Safari";
             return "Bilinmeyen";
         }
 

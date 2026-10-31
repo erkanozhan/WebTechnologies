@@ -10,10 +10,12 @@ Bir HTML tablosu iç içe geçmiş üç temel etiketten oluşur:
 |---|---|---|
 | `<table>` | Table (Tablo) | Tablonun dış çerçevesidir; tüm satır ve hücreleri sarar. |
 | `<tr>` | Table Row (Tablo Satırı) | Bir yatay satırı tanımlar. |
-| `<th>` | Table Header (Tablo Başlığı) | Sütun başlıklarını tanımlar. Tarayıcı bu hücreleri varsayılan olarak **kalın** ve **ortalanmış** gösterir. |
+| `<th>` | Table Header (Tablo Başlığı) | Başlık hücresini tanımlar (genellikle sütun, gerektiğinde satır başlığı). Tarayıcı bu hücreleri varsayılan olarak **kalın** ve **ortalanmış** gösterir. |
 | `<td>` | Table Data (Tablo Verisi) | Normal veri hücreleridir. |
 
 Bu etiketlerin birbiriyle ilişkisini bir yapı olarak düşünmek faydalı olur. `<table>` bir dolap, `<tr>` o dolabın rafları, `<th>` ve `<td>` ise raflara yerleştirilen kutulardır. Dolabın dışında raf olmaz; rafın dışında kutu olmaz. Yani `<td>` veya `<th>` doğrudan `<table>` içine yazılamaz — mutlaka bir `<tr>` içinde yer almalıdır.
+
+> **Tarayıcı kodunuzu nasıl görür?** HTML kaynağında `<tr>` satırlarını doğrudan `<table>` içine yazsanız bile tarayıcı, belgeyi ayrıştırırken (parse) bu satırları kendiliğinden bir `<tbody>` öğesinin içine yerleştirir. Bunu, sayfayı açıp F12 ile Geliştirici Araçları'nın **Elements** sekmesine bakarak görebilirsiniz: Kaynakta olmayan bir `<tbody>` DOM ağacında belirir. Bu ayrıntı, ilerleyen JavaScript derslerinde önem kazanır; örneğin `tablo.children[0]` ifadesi beklenen ilk `<tr>` satırını değil, `<tbody>` öğesini döndürür. Satırlara güvenli biçimde ulaşmak için `tablo.rows` koleksiyonu kullanılır.
 
 ## İlk Tablo
 
@@ -46,7 +48,7 @@ Tarayıcıda bu kod şu tabloyu üretir:
 | Kalem | 114 | 50 |
 | Defter | 89 | 19 |
 
-Dikkat edilecek nokta: ilk `<tr>` elemanı `<th>` etiketleriyle doldurulmuş, diğer satırlar `<td>` ile. Bu ayrım yalnızca görsel bir tercih değildir; ekran okuyucular (screen readers) ve arama motorları `<th>` etiketine bakarak "bu sütunun ne anlama geldiğini" kavrar. Yani anlamsal (semantic) olarak doğru etiket seçimi, erişilebilirliği (accessibility) doğrudan etkiler.
+Dikkat edilecek nokta: ilk `<tr>` öğesi `<th>` etiketleriyle doldurulmuş, diğer satırlar `<td>` ile. Bu ayrım yalnızca görsel bir tercih değildir; ekran okuyucular (screen readers) ve arama motorları `<th>` etiketine bakarak "bu sütunun ne anlama geldiğini" kavrar. Yani anlamsal (semantic) olarak doğru etiket seçimi, erişilebilirliği (accessibility) doğrudan etkiler.
 
 ## Tablonun Yapısal Bölümleri
 
@@ -89,7 +91,17 @@ Büyük tabloları daha okunur ve yönetilebilir kılmak için HTML, tablonun g�
 </table>
 ```
 
-Bu bölümleme olmadan da tablo çalışır ama özellikle CSS ile stil verirken `thead` ve `tbody`'ye farklı arka plan renkleri atamak çok kolaylaşır. Ayrıca çok uzun tablolarda tarayıcı `<thead>` kısmını sayfa kaydırılırken sabit tutabilir — tıpkı Excel'deki satır dondurma özelliği gibi.
+Bu bölümleme olmadan da tablo çalışır ama özellikle CSS ile stil verirken `thead` ve `tbody`'ye farklı arka plan renkleri atamak çok kolaylaşır. Ayrıca çok sayfalı bir tablo yazdırıldığında tarayıcı `<thead>` ve `<tfoot>` satırlarını her sayfada yeniden basar.
+
+Ekranda ise tarayıcı `<thead>` kısmını kendiliğinden sabit tutmaz; sayfa kaydırıldığında başlık satırı da yukarı kayıp gözden çıkar. Excel'deki "satırları dondur" davranışını elde etmek için başlık hücrelerine CSS ile yapışkan konum (sticky positioning) verilir:
+
+```css
+thead th {
+    position: sticky;   /* kaydırma sırasında yapışır */
+    top: 0;             /* görüntü alanının en üstüne */
+    background: #fff;   /* altından geçen satırlar görünmesin */
+}
+```
 
 ## Hücre Birleştirme (Cell Merging)
 
@@ -98,7 +110,7 @@ Bazı tablolarda bir hücrenin birden fazla sütuna ya da satıra yayılması ge
 - **`colspan`** (Column Span — Sütun Yayılımı): Hücreyi yatayda, yani birden fazla sütun boyunca genişletir.
 - **`rowspan`** (Row Span — Satır Yayılımı): Hücreyi dikeyde, yani birden fazla satır boyunca uzatır.
 
-*span* kelimesi İngilizce'de "bir uçtan diğerine uzanan mesafe" anlamına gelir. Bir köprünün iki ayağı arasındaki açıklık da *span* olarak adlandırılır. Aynı mantıkla `colspan="3"` demek, "bu hücre üç sütun genişliğinde bir köprü kursun" demektir.
+*span* kelimesi İngilizcede "bir uçtan diğerine uzanan mesafe" anlamına gelir. Bir köprünün iki ayağı arasındaki açıklık da *span* olarak adlandırılır. Aynı mantıkla `colspan="3"` demek, "bu hücre üç sütun genişliğinde bir köprü kursun" demektir.
 
 ### `colspan` Kullanımı
 
@@ -188,7 +200,7 @@ Tablonun neyi gösterdiğini belirten bir başlık eklemek için `<caption>` (Ba
 
 ## Eski HTML Nitelikleriyle Görünüm Ayarlama
 
-Gençler, tabloların ilk çıktığı yıllarda CSS bugünkü kadar gelişmiş değildi. Bu yüzden tablonun görsel düzenini ayarlamak için `<table>` etiketinin kendi nitelikleri kullanılırdı. `border`, `cellpadding` ve `cellspacing` bu dönemin en yaygın kullanılan nitelikleridir. Günümüzde bu işlevler CSS ile daha esnek bir şekilde yönetilse de, eski kodlarda veya hızlı prototiplerde karşınıza çıkabilirler. Bu yüzden ne işe yaradıklarını bilmek önemlidir.
+Tabloların ilk ortaya çıktığı yıllarda CSS bugünkü kadar gelişmiş değildi. Bu yüzden tablonun görsel düzenini ayarlamak için `<table>` etiketinin kendi nitelikleri kullanılırdı. `border`, `cellpadding` ve `cellspacing` bu dönemin en yaygın kullanılan nitelikleridir. Günümüzde bu işlevler CSS ile daha esnek bir şekilde yönetilse de, eski kodlarda veya hızlı prototiplerde karşınıza çıkabilirler. Bu yüzden ne işe yaradıklarını bilmek önemlidir.
 
 ### `border` (Kenarlık)
 
@@ -204,7 +216,7 @@ CSS yazmadan tabloya hızlıca bir kenarlık eklemek için kullanılır. Değeri
 
 Bu iki kavramı bir benzetme ile daha iyi anlayabiliriz. Bir apartmandaki daireleri düşünün. Her daire bir `<td>` hücresidir.
 
-`cellpadding` (Hücre İçi Dolgu), dairenin içindeki eşyalar (içerik) ile dairenin duvarları (hücre kenarlığı) arasındaki boşluktur. `padding` değerini artırdığınızda, eşyaları duvarlardan uzaklaştırarak dairenin içinde daha ferah bir alan yaratmış olursunuz. Hücrenin kendisi genişler.
+`cellpadding` (Hücre İçi Boşluk), dairenin içindeki eşyalar (içerik) ile dairenin duvarları (hücre kenarlığı) arasındaki boşluktur. `padding` değerini artırdığınızda, eşyaları duvarlardan uzaklaştırarak dairenin içinde daha ferah bir alan yaratmış olursunuz. Hücrenin kendisi genişler.
 
 `cellspacing` (Hücreler Arası Boşluk) ise komşu daireler arasındaki boşluktur; yani iki dairenin duvarları arasındaki mesafedir. `spacing` değerini artırdığınızda, daireleri birbirinden uzaklaştırmış olursunuz.
 
@@ -224,7 +236,7 @@ Aşağıdaki şema bu iki boşluk türü arasındaki temel farkı görselleştir
 
 Bu nitelikler geliştirme aşamasında hızlı önizleme için işe yarasa da, üretim (production) kodunda stil kontrolü tamamen CSS'e bırakılmalıdır. HTML yapıyı, CSS görünümü yönetir — bu görev ayrımına **kaygıların ayrılması** (Separation of Concerns) denir ve web geliştirmenin temel ilkelerinden biridir. Günümüz web geliştirme pratiğinde bu niteliklerin yerini CSS almıştır. `cellpadding`'in görevini hücrelere (`<th>`, `<td>`) uygulanan `padding` özelliği, `cellspacing`'in görevini ise `<table>` etiketine uygulanan `border-spacing` özelliği üstlenmiştir. Hatta `border-collapse: collapse;` kuralı kullanıldığında `border-spacing` tamamen etkisiz hale gelir ve hücreler arasındaki boşluk sıfırlanır. Bu nedenle modern ve standartlara uygun bir tasarım için bu ayarları CSS ile yapmak esastır.
 
-## CSS ile Tablo Stilllendirme
+## CSS ile Tablo Stillendirme
 
 Varsayılan haliyle HTML tabloları kenarlıksız (borderless) gelir. Hücrelerin arasında boşluklar vardır ve görsel olarak çıplaktır. CSS ile tabloyu okunabilir hale getirmek birkaç satır sürer.
 
@@ -260,7 +272,7 @@ tbody tr:nth-child(even) {
 }
 ```
 
-`nth-child(even)` seçicisi (selector), "sıra numarası çift olan her çocuk eleman" demektir. `odd` yazılırsa tek satırlar seçilir.
+`nth-child(even)` seçicisi (selector), "sıra numarası çift olan her çocuk öğe" demektir. `odd` yazılırsa tek satırlar seçilir.
 
 ### Fare ile Üzerine Gelme Etkisi
 
@@ -282,7 +294,7 @@ Aşağıdaki diyagram, bir tablonun etiket hiyerarşisini göstermektedir:
 
 HTML tabloları **yalnızca tablo biçiminde veri** sunmak içindir. 1990'ların sonlarında ve 2000'lerin başında web geliştiriciler sayfanın genel yerleşimini (layout) oluşturmak için tabloları bir iskelet olarak kullanırdı — sol menü bir sütunda, ana içerik diğer sütunda, alt bilgi (footer) en altta. Bu yaklaşım bugün kesinlikle terk edilmiştir. Sayfa düzeni için CSS Flexbox ve CSS Grid kullanılır; tablo ise sınav sonuçları, fiyat listeleri, ders programları gibi gerçek tablosal verilere ayrılır.
 
-Kuralı şöyle özetleyebiliriz: eğer verinin satır-sütun ilişkisi anlam taşıyorsa tablo doğru seçimdir. Eğer sadece ögeleri yan yana dizmek istiyorsanız tablo yerine CSS düzen araçlarını tercih edin.
+Kuralı şöyle özetleyebiliriz: eğer verinin satır-sütun ilişkisi anlam taşıyorsa tablo doğru seçimdir. Eğer sadece öğeleri yan yana dizmek istiyorsanız tablo yerine CSS düzen araçlarını tercih edin.
 
 ## Özet Tablosu
 

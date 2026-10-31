@@ -6,10 +6,15 @@ JavaScript, HTML formlarındaki verileri okuyabilir ve işleyebilir.
 
 ```html
 <form id="kayitFormu">
-    <input type="text"   id="adInput"    placeholder="Adınız">
-    <input type="email"  id="emailInput" placeholder="E-postanız">
-    <input type="number" id="yasInput"   placeholder="Yaşınız">
-    <input type="password" id="sifreInput" placeholder="Şifreniz">
+    <label for="adInput">Adınız:</label>
+    <input type="text"     id="adInput">
+    <label for="emailInput">E-posta:</label>
+    <input type="email"    id="emailInput">
+    <label for="yasInput">Yaşınız:</label>
+    <input type="number"   id="yasInput">
+    <label for="sifreInput">Parola:</label>
+    <input type="password" id="sifreInput">
+    <label for="bolumSelect">Bölüm:</label>
     <select id="bolumSelect">
         <option value="">Bölüm Seçin</option>
         <option value="BM">Bilgisayar Müh.</option>
@@ -19,22 +24,31 @@ JavaScript, HTML formlarındaki verileri okuyabilir ve işleyebilir.
 </form>
 
 <script>
-    // Değerleri okuma
-    let ad    = document.getElementById("adInput").value;
-    let email = document.getElementById("emailInput").value;
-    let yas   = Number(document.getElementById("yasInput").value);
-    let bolum = document.getElementById("bolumSelect").value;
+    // Değerler, kullanıcı formu gönderdiği anda okunur
+    document.getElementById("kayitFormu").addEventListener("submit", function(event) {
+        event.preventDefault();   // sayfanın yenilenmesini engelle
+
+        let ad    = document.getElementById("adInput").value;
+        let email = document.getElementById("emailInput").value;
+        let yas   = Number(document.getElementById("yasInput").value);
+        let bolum = document.getElementById("bolumSelect").value;
+
+        console.log(ad, email, yas, bolum);
+    });
 </script>
 ```
 
+> **Dikkat:** Değerleri okuyan satırlar bir olay dinleyicisinin içine değil de doğrudan `<script>` içine yazılsaydı, sayfa yüklendiği anda **bir kez** çalışırdı. O anda kullanıcı henüz hiçbir şey yazmadığı için tüm değişkenler boş kalırdı. Form değerleri her zaman bir olay (gönderme, tıklama, yazma) gerçekleştiğinde okunmalıdır.
+
 ---
 
-## 2. Farklı Form Elemanları
+## 2. Farklı Form Öğeleri
 
 ### 2.1 Checkbox
 
 ```html
-<input type="checkbox" id="sozlesme"> Kullanım şartlarını kabul ediyorum
+<input type="checkbox" id="sozlesme">
+<label for="sozlesme">Kullanım şartlarını kabul ediyorum</label>
 
 <script>
     let sozlesme = document.getElementById("sozlesme");
@@ -46,14 +60,17 @@ JavaScript, HTML formlarındaki verileri okuyabilir ve işleyebilir.
 ### 2.2 Radio Button
 
 ```html
-<input type="radio" name="cinsiyet" value="erkek"> Erkek
-<input type="radio" name="cinsiyet" value="kadin"> Kadın
+<fieldset>
+    <legend>Öğrenim türü</legend>
+    <label><input type="radio" name="ogrenim" value="orgun"> Örgün öğretim</label>
+    <label><input type="radio" name="ogrenim" value="ikinci"> İkinci öğretim</label>
+</fieldset>
 
 <script>
     // Seçili radio'yu bul
-    let secili = document.querySelector('input[name="cinsiyet"]:checked');
+    let secili = document.querySelector('input[name="ogrenim"]:checked');
     if (secili) {
-        console.log(secili.value); // "erkek" veya "kadin"
+        console.log(secili.value); // "orgun" veya "ikinci"
     }
 </script>
 ```
@@ -83,7 +100,9 @@ JavaScript, HTML formlarındaki verileri okuyabilir ve işleyebilir.
 
 ## 3. Form Doğrulama (Validation)
 
-Kullanıcı verilerini kabul etmeden önce kontrol etmek güvenlik ve kullanılabilirlik açısından kritiktir.
+Kullanıcı verilerini kabul etmeden önce kontrol etmek, kullanıcıya hatasını anında gösterdiği için kullanılabilirlik açısından önemlidir.
+
+> **Güvenlik uyarısı:** Tarayıcıda (istemci tarafında) yapılan doğrulama **güvenlik sağlamaz**. Kullanıcı JavaScript'i kapatabilir, Geliştirici Araçları ile kodu değiştirebilir veya isteği tarayıcı kullanmadan doğrudan sunucuya gönderebilir. İstemci tarafı doğrulama yalnızca kullanıcıya kolaylık içindir; aynı kontrollerin **sunucu tarafında mutlaka yeniden yapılması** gerekir.
 
 ```javascript
 function formuDogrula() {
@@ -129,7 +148,8 @@ Kullanıcı yazarken hataları göster:
 
 ```html
 <div class="alan">
-    <input type="text" id="sifre" placeholder="Şifre girin">
+    <label for="sifre">Parola:</label>
+    <input type="password" id="sifre">
     <span id="sifreHata" class="hata"></span>
 </div>
 
@@ -143,7 +163,7 @@ Kullanıcı yazarken hataları göster:
         } else if (sifre.length < 8) {
             hataSpan.textContent = "✗ Şifre en az 8 karakter olmalı";
             hataSpan.style.color = "red";
-        } else if (!/[A-Z]/.test(sifre)) {
+        } else if (!/[A-ZÇĞİÖŞÜ]/.test(sifre)) {   // Türkçe büyük harfler de kabul edilir
             hataSpan.textContent = "✗ En az bir büyük harf içermeli";
             hataSpan.style.color = "red";
         } else {
@@ -182,7 +202,7 @@ Kullanıcı yazarken hataları göster:
 
 ## 6. Tam Uygulama: Sıcaklık Dönüştürücü
 
-Bu örnek, mevcut `JavaScript16.html` (Fahrenheit → Celsius dönüştürücü) dosyasının geliştirilmiş versiyonudur:
+Aşağıdaki uygulama, bir sayıyı ve birimini alarak Celsius, Fahrenheit ve Kelvin arasında dönüşüm yapar:
 
 ```html
 <!DOCTYPE html>
@@ -232,10 +252,10 @@ Bu örnek, mevcut `JavaScript16.html` (Fahrenheit → Celsius dönüştürücü)
     <h2>Sıcaklık Dönüştürücü</h2>
 
     <div class="form-grup">
-        <label>Sıcaklık Değeri:</label>
+        <label for="sicaklikInput">Sıcaklık Değeri:</label>
         <div class="giris-grup">
             <input type="number" id="sicaklikInput" placeholder="Değer girin" step="0.1">
-            <select id="birimSelect">
+            <select id="birimSelect" aria-label="Birim">
                 <option value="C">°C (Celsius)</option>
                 <option value="F">°F (Fahrenheit)</option>
                 <option value="K">K (Kelvin)</option>
@@ -326,7 +346,8 @@ Bu örnek, mevcut `JavaScript16.html` (Fahrenheit → Celsius dönüştürücü)
         }
 
         // Enter tuşuyla dönüştür
-        document.getElementById("sicaklikInput").addEventListener("keypress", function(e) {
+        // keypress olayı kullanımdan kaldırılmıştır (deprecated); yerine keydown kullanılır
+        document.getElementById("sicaklikInput").addEventListener("keydown", function(e) {
             if (e.key === "Enter") donustur();
         });
     </script>

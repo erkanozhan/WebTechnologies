@@ -18,7 +18,7 @@ Bu yapı sayesinde, sistem kaynakları daha verimli kullanılır ve güvenlik, �
 - Kodlar doğrudan kullanıcının tarayıcısında çalışır.
 - İşlemler istemcinin bilgisayarında gerçekleştiği için hızlı yanıt süreleri sağlar.
 - Güvenlik açısından sınırlı yetkilere sahiptir; kritik işlemler için uygun değildir.
-- Yaygın olarak kullanılan diller: **JavaScript**, HTML, CSS.
+- İstemci tarafında çalışan programlama dili **JavaScript**'tir. HTML (yapı) ve CSS (görünüm) de tarayıcıda işlenir; ancak bunlar betik veya programlama dili değil, sırasıyla işaretleme ve stil dilleridir.
 
 ### Sunucu Tarafı Betikleme (Server-side Scripting)
 
@@ -26,13 +26,13 @@ Bu yapı sayesinde, sistem kaynakları daha verimli kullanılır ve güvenlik, �
 - Veri tabanı işlemleri, kullanıcı doğrulama gibi güvenlik gerektiren işlemler burada gerçekleştirilir.
 - Her işlemde istemciden sunucuya istek gönderilir ve sunucudan yanıt alınır.
 - Güvenlik açısından daha uygundur.
-- Yaygın olarak kullanılan diller: **PHP**, Python, Node.js, ASP.NET.
+- Yaygın olarak kullanılan diller: **PHP**, Python, Java, C# ve JavaScript. JavaScript sunucuda Node.js çalışma ortamı (runtime) ile, C# ise ASP.NET çatısı (framework) ile kullanılır; Node.js ve ASP.NET birer dil değildir.
 
 ---
 
 ## 3. JavaScript Nedir?
 
-JavaScript, web tarayıcılarında çalışan, dinamik ve etkileşimli web sayfaları oluşturmak için kullanılan bir **istemci taraflı (client-side) betik dilidir**. HTML ve CSS ile birlikte kullanılarak web sayfalarına hareketlilik ve kullanıcı etkileşimi kazandırır. JavaScript, derlenmeye ihtiyaç duymadan, tarayıcı tarafından doğrudan yorumlanarak çalışır. Modern JavaScript, sunucu tarafında da (ör. Node.js ile) kullanılabilmektedir.
+JavaScript, web tarayıcılarında çalışan, dinamik ve etkileşimli web sayfaları oluşturmak için kullanılan bir **istemci taraflı (client-side) betik dilidir**. HTML ve CSS ile birlikte kullanılarak web sayfalarına hareketlilik ve kullanıcı etkileşimi kazandırır. JavaScript kodu, geliştirici tarafından önceden derlenmez; tarayıcıdaki JavaScript motoru betiği yükledikten sonra önce bütünüyle ayrıştırır (parse), ardından yorumlayarak ve sık çalışan bölümleri anında derleyerek (Just-In-Time - JIT) çalıştırır. Modern JavaScript, sunucu tarafında da (ör. Node.js ile) kullanılabilmektedir.
 
 ---
 
@@ -42,14 +42,15 @@ JavaScript kodları web sayfalarına üç farklı yöntemle entegre edilebilir:
 
 - **HTML içinde `<script>` etiketiyle:** JavaScript kodları doğrudan HTML dosyasının içerisine yazılır.
 - **Harici `.js` dosyası ile:** JavaScript kodları ayrı bir dosyada tutulur ve HTML dosyasına `<script src="dosya.js"></script>` etiketiyle dahil edilir.
-- **HTML öğelerine doğrudan olay (event) atanarak:** HTML etiketlerine doğrudan olay özellikleri (ör. `onclick`) eklenerek JavaScript fonksiyonları tetiklenir.
+- **HTML öğelerine doğrudan olay (event) atanarak:** HTML etiketlerine doğrudan olay nitelikleri (ör. `onclick`) eklenerek JavaScript fonksiyonları tetiklenir.
 
 ### Örnek:
 
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
+  <meta charset="UTF-8">
   <title>JavaScript’e Giriş</title>
 </head>
 <body>
@@ -67,9 +68,9 @@ JavaScript kodları web sayfalarına üç farklı yöntemle entegre edilebilir:
 
 JavaScript’te değişkenler, veri saklamak amacıyla kullanılır. Değişken tanımlamak için üç ana anahtar kelime kullanılır:
 
-- `let`: Değeri değiştirilebilir değişken tanımlar.
-- `const`: Sabit, değeri değiştirilemeyen değişken tanımlar.
-- `var`: Eski tip değişken tanımıdır, günümüzde önerilmez.
+- `let`: Sonradan yeniden değer atanabilen, blok kapsamlı değişken tanımlar.
+- `const`: Yeniden değer atanamayan, blok kapsamlı değişken tanımlar. Değişken bir nesne veya dizi tutuyorsa, nesnenin içeriği yine de değiştirilebilir; engellenen yalnızca değişkene yeni bir değer atanmasıdır.
+- `var`: Fonksiyon kapsamlı eski tip değişken tanımıdır, günümüzde önerilmez.
 
 ```javascript
 let isim = "Ayşe";
@@ -80,15 +81,16 @@ const yas = 30;
 
 ## 6. Veri Türleri
 
-JavaScript’te temel veri türleri aşağıdaki gibidir:
+JavaScript’te yedi ilkel (primitive) veri türü ve bir de nesne (object) türü bulunur:
 
 - **String:** Metinsel ifadeler. Örnek: `"merhaba"`
 - **Number:** Sayısal değerler. Örnek: `42`, `3.14`
+- **BigInt:** Number türünün güvenle gösteremeyeceği çok büyük tam sayılar. Örnek: `12345678901234567890n`
 - **Boolean:** Mantıksal değerler. Örnek: `true`, `false`
-- **Array:** Sıralı veri koleksiyonları. Örnek: `[1, 2, 3]`
-- **Object:** Anahtar-değer çiftlerinden oluşan yapılar. Örnek: `{ad: "Ali", yas: 25}`
 - **null:** Bilinçli olarak boş bırakılmış değer.
-- **undefined:** Tanımlanmamış değişkenlerin varsayılan değeri.
+- **undefined:** Bildirilmiş ancak henüz değer atanmamış değişkenlerin değeri. Hiç bildirilmemiş bir değişkene erişmek ise `ReferenceError` hatası verir.
+- **Symbol:** Benzersiz ve değiştirilemez tanımlayıcılar. Örnek: `Symbol("id")`
+- **Object:** Anahtar-değer çiftlerinden oluşan yapılar. Örnek: `{ad: "Ali", yas: 25}`. Diziler (Array) ayrı bir tür değil, özel bir nesne türüdür: `typeof [1, 2, 3]` ifadesi `"object"` döndürür.
 
 ---
 
@@ -99,7 +101,7 @@ JavaScript’te çeşitli işlemler için farklı operatörler kullanılır:
 | Tür           | Operatörler                           |
 |---------------|---------------------------------------|
 | Aritmetik     | `+`, `-`, `*`, `/`, `%`               |
-| Karşılaştırma | `==`, `===`, `!=`, `!==`, `<`, `>`    |
+| Karşılaştırma | `==`, `===`, `!=`, `!==`, `<`, `>`, `<=`, `>=` |
 | Mantıksal     | `&&`, `||`, `!`                       |
 
 ---
@@ -180,7 +182,7 @@ function selamla() {
 
 ## 12. Belge Nesne Modeli (DOM - Document Object Model)
 
-DOM, HTML ve XML belgelerinin programatik olarak erişilmesini ve değiştirilmesini sağlayan bir modeldir. JavaScript ile DOM üzerinden HTML elemanlarına erişebilir ve bu elemanların özelliklerini değiştirebilirsiniz.
+DOM, HTML ve XML belgelerinin programatik olarak erişilmesini ve değiştirilmesini sağlayan bir modeldir. JavaScript ile DOM üzerinden HTML öğelerine erişebilir ve bu öğelerin özelliklerini değiştirebilirsiniz.
 
 ### Örnek:
 
@@ -310,11 +312,11 @@ Aşağıda, bir öğrencinin vize ve final notlarını alarak ağırlıklı orta
 </head>
 <body>
   <label for="vize">Vize Notu (%40):</label>
-  <!-- Kullanıcıdan vize notunu almak için bir etiket oluşturur ve ilgili input ile ilişkilendirir. -->
+  <!-- Vize notu alanı için bir alan adı (label) oluşturur; for="vize" ile aynı id'ye sahip input'a bağlar. -->
   <input type="number" id="vize" /><br>
   <!-- Vize notu için sayısal bir giriş alanı sağlar ve satır sonu ekler. -->
   <label for="final">Final Notu (%60):</label>
-  <!-- Kullanıcıdan final notunu almak için bir etiket oluşturur ve ilgili input ile ilişkilendirir. -->
+  <!-- Final notu alanı için bir alan adı (label) oluşturur; for="final" ile aynı id'ye sahip input'a bağlar. -->
   <input type="number" id="final" /><br>
   <!-- Final notu için sayısal bir giriş alanı sağlar ve satır sonu ekler. -->
   <button onclick="notHesapla()">Sonucu Göster</button>
@@ -330,7 +332,7 @@ Aşağıda, bir öğrencinin vize ve final notlarını alarak ağırlıklı orta
       let final = parseFloat(document.getElementById("final").value);
       // 'final' inputundan alınan değeri ondalıklı sayıya çevirir ve 'final' değişkenine atar.
       let sonucText = document.getElementById("notSonucu");
-      // Sonucun yazdırılacağı paragraf elemanını seçer ve 'sonucText' değişkenine atar.
+      // Sonucun yazdırılacağı paragraf öğesini seçer ve 'sonucText' değişkenine atar.
 
       // Girişlerin geçerliliğini kontrol et
       if (isNaN(vize) || isNaN(final) || vize < 0 || vize > 100 || final < 0 || final > 100) {
@@ -343,8 +345,8 @@ Aşağıda, bir öğrencinin vize ve final notlarını alarak ağırlıklı orta
       // Ortalama ve başarı durumu hesapla
       let ortalama = (vize * 0.4) + (final * 0.6);
       // Vize notunun %40'ı ve final notunun %60'ı alınarak ağırlıklı ortalama hesaplanır.
-      let durum = (ortalama >= 60 && final >= 50) ? "Geçtiniz" : "Kaldınız";
-      // Ortalama en az 60 ve final en az 50 ise "Geçtiniz", aksi halde "Kaldınız" sonucu atanır.
+      let durum = (ortalama >= 50 && final >= 50) ? "Geçtiniz" : "Kaldınız";
+      // Ortalama en az 50 ve final en az 50 ise "Geçtiniz", aksi halde "Kaldınız" sonucu atanır.
 
       // Sonucu ekrana yazdır
       sonucText.textContent = `Ortalama: ${ortalama.toFixed(2)} / ${durum}`;
@@ -360,10 +362,10 @@ Aşağıda, bir öğrencinin vize ve final notlarını alarak ağırlıklı orta
 
 Bu örnek uygulama, kullanıcıdan alınan vize ve final notlarını kullanarak ağırlıklı ortalamayı hesaplamakta ve öğrencinin başarı durumunu belirlemektedir. Kodun işleyişi şu şekildedir:
 
-1. **Veri Girişi ve Dönüştürme:** Kullanıcıdan alınan vize ve final notları, `parseFloat()` fonksiyonu ile ondalıklı sayıya dönüştürülür. HTML’deki `input` elemanlarından alınan değerler varsayılan olarak metin (string) tipindedir.
+1. **Veri Girişi ve Dönüştürme:** Kullanıcıdan alınan vize ve final notları, `parseFloat()` fonksiyonu ile ondalıklı sayıya dönüştürülür. HTML’deki `input` öğelerinden alınan değerler varsayılan olarak metin (string) tipindedir.
 2. **Geçerlilik Kontrolü:** `isNaN()` fonksiyonu ile girilen değerlerin sayı olup olmadığı, ayrıca 0 ile 100 arasında olup olmadığı kontrol edilir. Geçersiz girişlerde kullanıcıya uyarı mesajı gösterilir ve fonksiyon sonlandırılır.
 3. **Ortalama Hesaplama:** Vize notunun %40’ı ve final notunun %60’ı alınarak ağırlıklı ortalama hesaplanır.
-4. **Başarı Durumu:** Ortalama en az 60 ve final notu en az 50 ise öğrenci “Geçtiniz”, aksi halde “Kaldınız” olarak değerlendirilir. Bu işlem, kısa koşul ifadesi (ternary operator) ile gerçekleştirilir.
+4. **Başarı Durumu:** Ortalama en az 50 ve final notu en az 50 ise (bu derslerdeki tüm not örneklerinde aynı geçme kuralı kullanılmıştır; gerçek kural üniversitenin yönetmeliğine göre değişir) öğrenci “Geçtiniz”, aksi halde “Kaldınız” olarak değerlendirilir. Bu işlem, kısa koşul ifadesi (ternary operator) ile gerçekleştirilir.
 5. **Sonucun Gösterilmesi:** Sonuç, iki ondalık basamak hassasiyetinde kullanıcıya sunulur.
 
 ---
@@ -373,21 +375,22 @@ Bu örnek uygulama, kullanıcıdan alınan vize ve final notlarını kullanarak 
 #### `parseFloat()`
 
 - String türündeki veriyi ondalıklı sayıya dönüştürür.
-- HTML `input` elemanlarından alınan değerler varsayılan olarak string tipindedir.
+- HTML `input` öğelerinden alınan değerler varsayılan olarak string tipindedir.
 - Örnek: `"85.6"` → `85.6`
 
 #### `document.getElementById()`
 
-- HTML belgesindeki belirli bir `id` değerine sahip elemana erişmek için kullanılır.
+- HTML belgesindeki belirli bir `id` değerine sahip öğeye erişmek için kullanılır.
 
 #### `isNaN()`
 
-- Bir değerin sayı olup olmadığını kontrol eder.
+- Verilen değeri önce sayıya dönüştürür, sonucun `NaN` olup olmadığını kontrol eder.
 - `NaN` (Not a Number): Geçersiz sayı anlamına gelir.
+- Dikkat: Dönüştürme nedeniyle `isNaN("")` ve `isNaN(" ")` ifadeleri `false` döndürür; çünkü boş metin `0` sayısına dönüşür. Bu örnekte değer önce `parseFloat()` ile çevrildiği için (`parseFloat("")` sonucu `NaN`) sorun oluşmaz. Dönüştürme yapmadan yalnızca `NaN` değerini yakalamak için `Number.isNaN()` tercih edilir.
 
 #### `textContent`
 
-- Bir HTML elemanının metin içeriğini değiştirmek için kullanılır.
+- Bir HTML öğesinin metin içeriğini değiştirmek için kullanılır.
 
 ---
 
@@ -409,9 +412,9 @@ Burada, `vize` ya 0’dan küçük ya da 100’den büyükse koşul sağlanır.
 - Örnek:
 
 ```javascript
-if (ortalama >= 60 && final >= 50)
+if (ortalama >= 50 && final >= 50)
 ```
-Hem ortalama 60 veya üzeri **ve** final 50 veya üzeri ise öğrenci geçer.
+Hem ortalama 50 veya üzeri **ve** final 50 veya üzeri ise öğrenci geçer.
 
 ---
 
@@ -440,7 +443,7 @@ let ortalama = (vize * 0.4) + (final * 0.6);
 ## Durum Değerlendirmesi
 
 ```javascript
-let durum = (ortalama >= 60 && final >= 50) ? "Geçtiniz" : "Kaldınız";
+let durum = (ortalama >= 50 && final >= 50) ? "Geçtiniz" : "Kaldınız";
 ```
 
 - Koşul doğruysa `"Geçtiniz"`
@@ -456,6 +459,6 @@ sonucText.textContent = `Ortalama: ${ortalama.toFixed(2)} / ${durum}`;
 ```
 
 - Sonuç, kullanıcıya iki ondalık basamak hassasiyetinde gösterilir.
-- `toFixed(2)` fonksiyonu, sayıyı virgülden sonra iki basamakla sınırlar.
+- `toFixed(2)` metodu, sayıyı ondalık ayırıcıdan sonra iki basamağa yuvarlar ve sonucu metin (string) olarak döndürür. Ayırıcı olarak nokta kullanılır; Türkçe biçim için `toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })` kullanılabilir.
 
 ---

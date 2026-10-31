@@ -18,7 +18,7 @@ if (koşul) {
 
 ### Örnek: Not Hesaplama
 
-Bu örnek, mevcut `JavaScript14.html` dosyasındaki not hesaplama uygulamasının düzeltilmiş halidir:
+Aşağıdaki örnek, 100'lük notu harf notuna çevirir. Koşullar yukarıdan aşağıya denenir; ilk doğru koşulun bloğu çalışır ve zincirin geri kalanı atlanır:
 
 ```javascript
 let not = 75;
@@ -117,7 +117,7 @@ for (let i = 1; i <= 5; i++) {
 // 5. tekrar
 ```
 
-**Faktöriyel Hesaplama (JavaScript_3.html örneğinden):**
+**Faktöriyel Hesaplama:**
 
 ```javascript
 // 5! = 5 × 4 × 3 × 2 × 1 = 120
@@ -134,11 +134,11 @@ console.log(`${sayi}! = ${faktoriyel}`); // 5! = 120
 **Çarpım Tablosu:**
 
 ```javascript
-let sayi = 7;
-console.log(`--- ${sayi} Çarpım Tablosu ---`);
+let carpan = 7;
+console.log(`--- ${carpan} Çarpım Tablosu ---`);
 
 for (let i = 1; i <= 10; i++) {
-    console.log(`${sayi} x ${i} = ${sayi * i}`);
+    console.log(`${carpan} x ${i} = ${carpan * i}`);
 }
 ```
 
@@ -166,15 +166,22 @@ console.log(`1'den 10'a kadar toplam: ${toplam}`); // 55
 Koşul yanlış olsa bile en az bir kez çalışır.
 
 ```javascript
-let cevap;
+let girdi, yas;
 
 do {
-    cevap = prompt("Kaç yaşındasınız? (18-99 arası girin)");
-    cevap = Number(cevap);
-} while (cevap < 18 || cevap > 99);
+    girdi = prompt("Kaç yaşındasınız? (18-99 arası girin)");
+    if (girdi === null) break;      // İptal'e basıldı: döngüden çık
+    yas = Number(girdi);
+} while (girdi.trim() === "" || Number.isNaN(yas) || yas < 18 || yas > 99);
 
-console.log(`Geçerli yaş girildi: ${cevap}`);
+if (girdi === null) {
+    console.log("Kullanıcı girişi iptal etti.");
+} else {
+    console.log(`Geçerli yaş girildi: ${yas}`);
+}
 ```
+
+> **Neden bu kadar koşul?** `prompt` her zaman metin döndürür; kullanıcı İptal'e basarsa `null` döndürür. `Number("abc")` sonucu `NaN` olur ve `NaN` ile yapılan her karşılaştırma (`NaN < 18`, `NaN > 99`) `false` verir. Bu nedenle yalnızca `yas < 18 || yas > 99` yazılsaydı "abc" girişi geçerli sayılır ve ekrana `NaN` yazılırdı. `Number(null)` ve `Number("")` ise `0` sonucunu verir; İptal ayrıca ele alınmasaydı kullanıcı döngüden hiç çıkamazdı.
 
 ### 3.4 Döngü Kontrolü: break ve continue
 
@@ -221,7 +228,7 @@ ogrenciler.forEach(function(ogrenci, indeks) {
 
 ## 5. Tam Uygulama: Not Hesaplama Sistemi
 
-Bu örnek, mevcut `JavaScript14.html` dosyasının düzeltilmiş ve geliştirilmiş versiyonudur:
+Aşağıdaki örnek, `if / else if` zincirini bir web sayfasında kullanır. Geçme kuralı, bu derslerdeki diğer not örnekleriyle aynıdır: ağırlıklı ortalama en az 50 ve final notu en az 50 olmalıdır.
 
 ```html
 <!DOCTYPE html>
@@ -248,12 +255,12 @@ Bu örnek, mevcut `JavaScript14.html` dosyasının düzeltilmiş ve geliştirilm
     <h2>Not Hesaplama Sistemi</h2>
 
     <div class="form-group">
-        <label>Vize Notu (Ağırlık: %40):</label>
+        <label for="vize">Vize Notu (Ağırlık: %40):</label>
         <input type="number" id="vize" min="0" max="100" placeholder="0-100 arası">
     </div>
 
     <div class="form-group">
-        <label>Final Notu (Ağırlık: %60):</label>
+        <label for="final">Final Notu (Ağırlık: %60):</label>
         <input type="number" id="final" min="0" max="100" placeholder="0-100 arası">
     </div>
 
@@ -264,12 +271,15 @@ Bu örnek, mevcut `JavaScript14.html` dosyasının düzeltilmiş ve geliştirilm
     <script>
         function notHesapla() {
             // Girilen değerleri al
-            let vize = Number(document.getElementById("vize").value);
-            let final = Number(document.getElementById("final").value);
+            let vizeMetni  = document.getElementById("vize").value;
+            let finalMetni = document.getElementById("final").value;
+            let vize  = Number(vizeMetni);
+            let final = Number(finalMetni);
             let sonucDiv = document.getElementById("sonuc");
 
-            // Geçerlilik kontrolü
-            if (vize < 0 || vize > 100 || final < 0 || final > 100) {
+            // Geçerlilik kontrolü: Number("") sonucu 0 olduğu için boş alanı ayrıca denetliyoruz
+            if (vizeMetni === "" || finalMetni === "" ||
+                vize < 0 || vize > 100 || final < 0 || final > 100) {
                 alert("Lütfen 0-100 arasında not girin!");
                 return;
             }
@@ -290,7 +300,7 @@ Bu örnek, mevcut `JavaScript14.html` dosyasının düzeltilmiş ve geliştirilm
             else                     harfNotu = "FF";
 
             // Geçti mi kaldı mı?
-            let gectiMi = ortalama >= 50;
+            let gectiMi = ortalama >= 50 && final >= 50;
 
             // Sonucu göster
             sonucDiv.className = "sonuc " + (gectiMi ? "gecti" : "kaldi");
@@ -312,7 +322,7 @@ Bu örnek, mevcut `JavaScript14.html` dosyasının düzeltilmiş ve geliştirilm
 
 ## Alıştırmalar
 
-1. 1'den 100'e kadar olan tüm **3 ve 5'e bölünebilen** sayıları ekrana yazdırın.
+1. 1'den 100'e kadar olan sayılardan **hem 3'e hem 5'e bölünebilenleri** (yani 15'in katlarını) ekrana yazdırın.
 2. Kullanıcıdan bir sayı alın ve o sayının kaç basamaklı olduğunu bulun.
 3. Haftanın gününü soran ve o güne göre farklı mesaj gösteren bir `switch` yapısı oluşturun.
 4. Dizideki notların ortalamasını hesaplayın: `[75, 88, 62, 95, 70, 84]`

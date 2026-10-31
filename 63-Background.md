@@ -28,6 +28,26 @@ proje/
 
 CSS dosyası `proje/` kökünde durduğunda `images/` klasörüne bu şekilde göreli yol (relative path) ile erişilir.
 
+> **Dikkat — Yol neye göre çözülür?** Harici bir CSS dosyasındaki `url()` yolu, HTML dosyasının konumuna göre değil, **CSS dosyasının kendi konumuna göre** çözülür. Arka plan resminin görünmemesinin en sık nedeni budur. Stil dosyası bir alt klasöre taşındığında yolun başına bir üst dizine çıkmayı sağlayan `../` eklenmelidir:
+>
+> ```
+> proje/
+> ├── index.html
+> ├── css/
+> │   └── style.css      ← url("../images/arkaplan.jpg")
+> └── images/
+>     └── arkaplan.jpg
+> ```
+>
+> ```css
+> /* css/style.css içinde */
+> body {
+>     background-image: url("../images/arkaplan.jpg");
+> }
+> ```
+>
+> Aynı kural HTML içindeki `<style>` bloğunda veya `style` niteliğinde yazıldığında ise yol, HTML dosyasının konumuna göre çözülür.
+
 ---
 
 ## Resim Tekrarı — `background-repeat`
@@ -79,7 +99,7 @@ background-position: 100px 200px;
 
 ## Boyutlandırma — `background-size`
 
-Gençler, bu özellik özellikle duyarlı (responsive) tasarımlarda kritik hale gelir.
+Bu özellik, özellikle duyarlı (responsive) tasarımlarda kritik hale gelir.
 
 ```css
 body {
@@ -115,7 +135,7 @@ body {
 |---|---|
 | `scroll` | Sayfa ile birlikte kayar (varsayılan) |
 | `fixed` | Görüntü alanına (viewport) göre sabit kalır |
-| `local` | Elemanın içeriğiyle birlikte kayar |
+| `local` | Öğenin içeriğiyle birlikte kayar |
 
 `fixed` değeri, özellikle uzun sayfalarda görsel derinlik hissi yaratan **parallax** efektinin temelidir.
 
@@ -147,7 +167,7 @@ background-image: radial-gradient(circle, #ffffff, #cccccc);
 
 ## Çok Katmanlı Arka Planlar (Multiple Backgrounds)
 
-CSS3 ile birlikte aynı elemana birden fazla arka plan katmanı atanabilir hale geldi. Değerler virgülle ayrılır; liste sırasında ilk yazılan en üstte yer alır.
+CSS3 ile birlikte aynı öğeye birden fazla arka plan katmanı atanabilir hale geldi. Değerler virgülle ayrılır; liste sırasında ilk yazılan en üstte yer alır.
 
 ```css
 body {
@@ -174,13 +194,13 @@ body {
 }
 ```
 
-Sıralama önemlidir. Genel şema şöyledir:
+Kısaltma özelliğinde değerlerin sırası büyük ölçüde serbesttir; tarayıcı her değerin türünü (renk mi, resim mi, tekrar biçimi mi) kendisi tanır. Okunabilirlik için yaygın olarak kullanılan sıra şöyledir:
 
 ```
-background: [color] [image] [repeat] [attachment] [position] / [size];
+background: [color] [image] [repeat] [position] / [size] [attachment];
 ```
 
-`/` işaretinden önce `position`, sonra `size` yazılır — bu köşe çizgisi sözdizimsel bir ayraçtır, çünkü bazı değerler birbirine karışabilir.
+Tek katı kural, `size` değerinin yalnızca `position` değerinden hemen sonra ve aralarına bir eğik çizgi (`/`, slash) konularak yazılabilmesidir. Bu ayraç gereklidir; çünkü hem konum hem boyut piksel veya yüzde değeri alabildiğinden, eğik çizgi olmadan `center 50%` gibi bir ifadenin hangi özelliğe ait olduğu anlaşılamaz.
 
 ---
 

@@ -7,12 +7,14 @@ JavaScript'in yerleşik `Date` nesnesi, tarih ve saat bilgisiyle çalışmamız�
 ```javascript
 // Şu anki tarih ve saat
 let simdi = new Date();
-console.log(simdi); // Örn: Tue May 20 2026 14:35:22 GMT+0300
+console.log(simdi); // Örn: Wed May 20 2026 14:35:22 GMT+0300
 
 // Belirli bir tarih
 let belirliTarih = new Date(2026, 0, 1);    // 1 Ocak 2026 (ay 0'dan başlar!)
 let stringTarih = new Date("2026-05-20");    // ISO formatı
 ```
+
+> **Saat dilimi farkı:** `new Date(2026, 0, 1)` biçimindeki tarih yerel saate (Türkiye için UTC+3) göre gece 00:00 olarak oluşturulur. Yalnızca tarih içeren ISO metni (`"2026-05-20"`) ise UTC'ye göre 00:00 olarak yorumlanır; Türkiye'de bu, yerel saatle 03:00'e karşılık gelir. İki yöntem karıştırıldığında saat hesaplarında beklenmedik farklar oluşabilir.
 
 > **Dikkat:** Aylarda Ocak = 0, Şubat = 1, ..., Aralık = 11 şeklinde numaralandırılır!
 
@@ -59,7 +61,7 @@ let yil    = simdi.getFullYear();
 let gunAdi = gunler[simdi.getDay()];   // Gün adını diziden al
 
 console.log(`${gunAdi}, ${gun} ${ay} ${yil}`);
-// Çıktı: Salı, 20 Mayıs 2026
+// Çıktı (20 Mayıs 2026 için): Çarşamba, 20 Mayıs 2026
 ```
 
 ---
@@ -75,7 +77,7 @@ function sifirDoldur(sayi) {
 }
 
 let simdi = new Date();
-let saat    = sifirDoldur(simdi.getHours());   // "09" değil "9" değil
+let saat    = sifirDoldur(simdi.getHours());   // "9" yerine "09"
 let dakika  = sifirDoldur(simdi.getMinutes()); // "05" formatında
 let saniye  = sifirDoldur(simdi.getSeconds());
 
@@ -92,7 +94,7 @@ let saat2 = String(simdi.getHours()).padStart(2, "0");
 `setInterval`, belirli aralıklarla bir fonksiyonu tekrar çalıştırır.
 
 ```javascript
-// Her 1000ms (1 saniye) de bir güncelle
+// Her 1000 ms'de (1 saniyede) bir güncelle
 setInterval(function() {
     let simdi = new Date();
     let saat = simdi.getHours().toString().padStart(2, "0");
@@ -116,7 +118,6 @@ setTimeout(function() {
 }, 3000);
 
 // 5 saniye sonra sayfayı yönlendir
-// (JavaScript Uyg-1.html örneğinden - sayfa yönlendirme)
 setTimeout(function() {
     window.location.href = "https://www.google.com";
 }, 5000);
@@ -138,26 +139,29 @@ console.log(`Aralarında ${farkGun} gün var.`); // 139 gün
 
 // Doğum gününe kaç gün kaldı?
 function dogumGununeKacGun(gun, ay) {
-    let buYil = new Date().getFullYear();
-    let dogum = new Date(buYil, ay - 1, gun); // ay 1'den başlayınca -1 yap
     let simdi = new Date();
+    // Bugünü saatsiz (gece 00:00) olarak al; böylece yalnızca günler karşılaştırılır
+    let bugun = new Date(simdi.getFullYear(), simdi.getMonth(), simdi.getDate());
+    let dogum = new Date(bugun.getFullYear(), ay - 1, gun); // ay 1'den başladığı için -1
 
-    if (dogum < simdi) {
-        dogum.setFullYear(buYil + 1); // bu yıl geçtiyse gelecek yıl
+    if (dogum < bugun) {
+        dogum.setFullYear(bugun.getFullYear() + 1); // bu yılki doğum günü geçtiyse gelecek yıl
     }
 
-    let farkMs  = dogum - simdi;
-    return Math.ceil(farkMs / (1000 * 60 * 60 * 24));
+    let farkMs = dogum - bugun;
+    return Math.round(farkMs / (1000 * 60 * 60 * 24)); // bugün doğum günüyse 0
 }
 
 console.log(`Doğum gününüze ${dogumGununeKacGun(15, 8)} gün kaldı.`);
 ```
 
+> **Neden saatsiz karşılaştırma?** `new Date(yil, ay, gun)` her zaman o günün 00:00'ını üretir; `new Date()` ise şu anki saati içerir. Doğum günü bugünse, 00:00 şu andan önce kaldığı için `dogum < simdi` koşulu doğru olur ve fonksiyon yanlışlıkla bir sonraki yılı hesaplayarak yaklaşık 365 gün gösterirdi. Her iki tarih de 00:00'a çekilince bugün için sonuç 0 olur. `Math.round` ise yaz saati uygulanan ülkelerde bir saatlik farkın sonucu bozmasını önler.
+
 ---
 
 ## 8. Tam Uygulama: Dijital Saat + Tarih Göstergesi
 
-Bu örnek, mevcut `JavaScript Uyg-2.html` dosyasının geliştirilmiş ve güzelleştirilmiş halidir:
+Aşağıdaki uygulama, `setInterval` ile her saniye güncellenen bir dijital saat ve Türkçe tarih göstergesi oluşturur:
 
 ```html
 <!DOCTYPE html>
@@ -184,7 +188,6 @@ Bu örnek, mevcut `JavaScript Uyg-2.html` dosyasının geliştirilmiş ve güzel
         }
         .saat-gosterge {
             font-size: 80px;
-            color: #0f3460;
             color: #e94560;
             letter-spacing: 8px;
             text-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
@@ -202,7 +205,6 @@ Bu örnek, mevcut `JavaScript Uyg-2.html` dosyasının geliştirilmiş ve güzel
             text-transform: uppercase;
             letter-spacing: 4px;
         }
-        .ikinci-cizgi { color: #e94560; opacity: 0.5; }
     </style>
 </head>
 <body>
@@ -266,10 +268,14 @@ tarih.toLocaleTimeString("tr-TR")  // "14:35:22"
 tarih.toLocaleString("tr-TR")      // "20.05.2026 14:35:22"
 tarih.toISOString()      // "2026-05-20T11:35:22.000Z"
 
-// Yazma metotları (genellikle pek kullanılmaz)
+// Yazma metotları (tarih üzerinde ileri-geri hesap yaparken kullanılır)
 tarih.setFullYear(2027);
 tarih.setMonth(5);
 tarih.setDate(15);
+
+// Örnek: bugünden 30 gün sonrası (ay ve yıl geçişlerini setDate kendisi düzenler)
+let otuzGunSonra = new Date();
+otuzGunSonra.setDate(otuzGunSonra.getDate() + 30);
 ```
 
 ---
@@ -279,4 +285,4 @@ tarih.setDate(15);
 1. Kullanıcıdan doğum yılını alın ve kaç yaşında olduğunu hesaplayın.
 2. Şu andan itibaren 100 gün sonrasının tarihini bulun ve gösterin.
 3. Geri sayım saati yapın: 2 dakika (120 saniye) geri sayan ve bitince "Süre Doldu!" yazan uygulama.
-4. `date.html` örneğini geliştirerek hem tarih hem saat gösterecek şekilde yeniden yazın.
+4. Bölüm 8'deki dijital saat uygulamasını, saat 12'den önce "Günaydın", sonra "İyi günler" yazan bir selamlama satırı ekleyerek geliştirin.

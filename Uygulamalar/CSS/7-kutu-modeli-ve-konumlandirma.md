@@ -1,7 +1,7 @@
 
 # 7. Uygulama: CSS Tasarım — Arka Plan, Kutu Modeli ve Konumlandırma
 
-Önceki uygulamada yazı rengi, boyutu ve hizalaması gibi *metin* özelliklerini ele aldık. Bu uygulamada ise sayfadaki her elemanı çevreleyen görünmez çerçeveyi — **kutu modelini (box model)** — ve elemanların sayfa üzerinde nerede duracağını belirleyen konumlandırma kurallarını inceliyoruz.
+Önceki uygulamada yazı rengi, boyutu ve hizalaması gibi *metin* özelliklerini ele aldık. Bu uygulamada ise sayfadaki her öğeyi çevreleyen görünmez çerçeveyi — **kutu modelini (box model)** — ve öğelerin sayfa üzerinde nerede duracağını belirleyen konumlandırma kurallarını inceliyoruz.
 
 ---
 
@@ -71,7 +71,7 @@ body {
 img { opacity: 0.5; }   /* %50 saydam */
 ```
 
-`opacity` 0.0 (tamamen şeffaf) ile 1.0 (tamamen opak) arasında bir değer alır. Hem elemana hem tüm alt içeriğine uygulanır. Yalnızca arka plan rengini saydam yapmak için `rgba()` tercih edilir.
+`opacity` 0.0 (tamamen şeffaf) ile 1.0 (tamamen opak) arasında bir değer alır. Hem öğeye hem tüm alt içeriğine uygulanır. Yalnızca arka plan rengini saydam yapmak için `rgba()` tercih edilir.
 
 ---
 
@@ -112,7 +112,7 @@ div    { border-radius: 50%; }  /* Daire */
 
 ## 4. Kutu Modeli (Box Model)
 
-CSS'te her HTML elemanı, dıştan içe dört katmandan oluşan bir kutu içinde yaşar:
+CSS'te her HTML öğesi, dıştan içe dört katmandan oluşan bir kutu içinde yaşar:
 
 ```
 ┌─────────────────────────────────┐
@@ -129,10 +129,10 @@ CSS'te her HTML elemanı, dıştan içe dört katmandan oluşan bir kutu içinde
 └─────────────────────────────────┘
 ```
 
-- **Content (İçerik):** Metin, görsel ya da iç içe elemanlar.
-- **Padding (İç Boşluk):** İçerik ile kenarlık arasındaki mesafe; elemanın arka rengi buraya da yansır.
+- **Content (İçerik):** Metin, görsel ya da iç içe öğeler.
+- **Padding (İç Boşluk):** İçerik ile kenarlık arasındaki mesafe; öğenin arka plan rengi buraya da yansır.
 - **Border (Kenarlık):** Padding'i çevreleyen çerçeve.
-- **Margin (Dış Boşluk):** Kenarlık ile komşu elemanlar arasındaki mesafe; şeffaftır.
+- **Margin (Dış Boşluk):** Kenarlık ile komşu öğeler arasındaki mesafe; şeffaftır.
 
 ```css
 div {
@@ -174,20 +174,20 @@ margin-right: 20px;
 
 ## 5. `display` — Görüntülenme Türü
 
-`display` özelliği, bir elemanın sayfa akışındaki davranışını belirler.
+`display` özelliği, bir öğenin sayfa akışındaki davranışını belirler.
 
 | Değer | Davranış | Örnek Etiketler |
 |-------|----------|-----------------|
 | `block` | Tüm satırı kaplar; üst ve altta yeni satır açar | `<div>`, `<p>`, `<h1>` |
 | `inline` | Yalnızca içeriği kadar yer kaplar; satır içinde akar | `<span>`, `<a>`, `<strong>` |
 | `inline-block` | Satır içinde akar ama `width`/`height` verilebilir | — |
-| `none` | Eleman hem görünmez hem de yer kaplamaz | — |
+| `none` | Öğe hem görünmez hem de yer kaplamaz | — |
 
 ```css
 li     { display: inline; }        /* Liste öğelerini yatay dizer */
 span   { display: block; }         /* Span'ı blok gibi davrandırır */
 button { display: inline-block; }  /* Satır içi ama boyutlandırılabilir */
-.gizli { display: none; }          /* Eleman yok sayılır */
+.gizli { display: none; }          /* Öğe yok sayılır */
 ```
 
 ### `overflow` — Taşma Kontrolü
@@ -213,11 +213,11 @@ div {
 
 ## 6. `position` — Konumlandırma
 
-`position` özelliği, bir elemanın sayfadaki yerinin nasıl hesaplanacağını belirler.
+`position` özelliği, bir öğenin sayfadaki yerinin nasıl hesaplanacağını belirler.
 
 ### `static` (Varsayılan)
 
-Elemanlar normal akışta ardışık dizilir. `top`, `left` gibi koordinatlar etkisizdir.
+Öğeler normal akışta ardışık dizilir. `top`, `left` gibi koordinatlar etkisizdir.
 
 ```css
 p { position: static; }  /* Varsayılan; yazmaya gerek yok */
@@ -225,7 +225,7 @@ p { position: static; }  /* Varsayılan; yazmaya gerek yok */
 
 ### `relative` — Göreceli
 
-Eleman normal konumuna göre kaydırılır; ancak boşluğu kaybolmaz:
+Öğe normal konumuna göre kaydırılır; ancak boşluğu kaybolmaz:
 
 ```css
 span {
@@ -237,7 +237,7 @@ span {
 
 ### `absolute` — Mutlak
 
-Eleman normal akıştan çıkar; konumu, `position: relative/absolute/fixed` olan en yakın ata elemana göre hesaplanır:
+Öğe normal akıştan çıkar; konumu, `position` değeri `static` dışında bir değer (`relative`, `absolute`, `fixed` veya `sticky`) olan en yakın ata öğeye göre hesaplanır. Böyle bir ata öğe yoksa konum, başlangıç kapsayıcı bloğuna (initial containing block; pratikte sayfanın ilk görünüm alanı) göre belirlenir:
 
 ```css
 .balon {
@@ -249,7 +249,7 @@ Eleman normal akıştan çıkar; konumu, `position: relative/absolute/fixed` ola
 
 ### `fixed` — Sabit
 
-Eleman, tarayıcı penceresine (viewport) göre sabitlenir; sayfa kaydırılsa bile yerinden oynamaz. Yapışkan üst menüler ve "yukarı çık" düğmeleri için kullanılır:
+Öğe, tarayıcı penceresine (viewport) göre sabitlenir; sayfa kaydırılsa bile yerinden oynamaz. Her zaman görünen üst menüler ve "yukarı çık" düğmeleri için kullanılır:
 
 ```css
 nav {
@@ -260,9 +260,45 @@ nav {
 }
 ```
 
+`fixed` öğe normal akıştan çıktığı için altındaki içerik yukarı kayar ve menünün arkasında kalır. Bunu önlemek için sayfa gövdesine menü yüksekliği kadar üst boşluk verilir (ör. menü 60 piksel ise `body { padding-top: 60px; }`).
+
+### `sticky` — Yapışkan
+
+Öğe, kaydırma belirtilen eşiğe ulaşana kadar normal akışta (`relative` gibi) durur; eşiğe gelince `fixed` gibi o noktaya yapışır. `fixed` değerinden farkı, yalnızca kendi kapsayıcısının sınırları içinde yapışık kalması ve yerinin boş bırakılmamasıdır. Tablo başlıkları ve bölüm başlıkları için uygundur:
+
+```css
+h2 {
+  position: sticky;
+  top: 0;              /* görüntü alanının üstüne yapışır */
+  background: white;
+}
+```
+
 ---
 
-## 7. `div` ve Sınıf Tabanlı Düzen
+## 7. Gölge (`box-shadow`) ve Fareyle Üzerine Gelme (`:hover`)
+
+`box-shadow` özelliği kutuya gölge ekler. Değerler sırasıyla yatay kayma, dikey kayma, bulanıklık yarıçapı ve renktir:
+
+```css
+.kart { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); }
+```
+
+`:hover` bir sözde sınıftır (pseudo-class); kural yalnızca fare imleci öğenin üzerindeyken uygulanır. `transition` özelliği ise değişimin ani değil, belirtilen sürede yumuşak gerçekleşmesini sağlar:
+
+```css
+.kart {
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.kart:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transform: translateY(-3px);   /* kartı 3 piksel yukarı kaldırır */
+}
+```
+
+---
+
+## 8. `div` ve Sınıf Tabanlı Düzen
 
 `<div>` (division — bölüm) etiketi görünürde hiçbir stil taşımayan bir kapsayıcıdır; anlamı ve görünümü CSS sınıflarıyla kazanır:
 
@@ -306,7 +342,7 @@ Bu yaklaşım, sayfayı bağımsız, yeniden kullanılabilir bileşenlere ayır�
 `konum.html` dosyası oluşturun:
 
 - `position: fixed` ile her zaman görünen bir üst menü çubuğu yapın
-- `position: relative` olan bir kapsayıcı içine `position: absolute` bir "rozet" veya "etiket" elemanı yerleştirin
+- `position: relative` olan bir kapsayıcı içine `position: absolute` bir "rozet" (badge) öğesi yerleştirin
 - Sayfayı yeterince uzun yapın; kaydırırken menünün sabit kaldığını, rozetin kapsayıcısıyla hareket ettiğini gözlemleyin
 
 ### Görev 3 — Kart Bileşeni
@@ -337,5 +373,6 @@ Bu yaklaşım, sayfayı bağımsız, yeniden kullanılabilir bileşenlere ayır�
 | `box-sizing` | `content-box`, `border-box` | Boyut hesaplama yöntemi |
 | `overflow` | `hidden`, `auto`, `scroll` | Taşma kontrolü |
 | `display` | `block`, `inline`, `inline-block`, `none` | Görüntülenme türü |
-| `position` | `static`, `relative`, `absolute`, `fixed` | Konumlandırma |
+| `position` | `static`, `relative`, `absolute`, `fixed`, `sticky` | Konumlandırma |
+| `box-shadow` | `0 2px 8px rgba(0,0,0,0.15)` | Kutu gölgesi |
 | `top` / `right` / `bottom` / `left` | `0`, `20px`, `50%` | Konum koordinatları |

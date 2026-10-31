@@ -1,9 +1,9 @@
 
 # 3. Uygulama: HTML ile Tablo Yapısı Oluşturma
 
-Gençler, web sayfalarında verileri düzenli bir şekilde sunmanın en temel yollarından biri tabloları kullanmaktır. Tablolar, sadece sayısal verileri değil, metinleri ve görselleri de satırlar ve sütunlar halinde hizalamak için güçlü bir araçtır. Şimdi bir HTML tablosunun nasıl oluşturulduğunu ve özelleştirildiğini inceleyeceğiz.
+Web sayfalarında satır ve sütun ilişkisi taşıyan verileri düzenli bir şekilde sunmanın temel yolu tabloları kullanmaktır. Tablolar sayısal verilerin yanı sıra metin içeren karşılaştırmalı bilgiler için de uygundur; ancak sayfa yerleşimi (layout) için kullanılmamalıdır, bu iş CSS Flexbox ve Grid ile yapılır (ayrıntı için kök dizindeki `67-74-Tables.md` dosyasına bakınız). Bu uygulamada bir HTML tablosunun nasıl oluşturulduğu ve özelleştirildiği incelenmektedir.
 
-Aşağıdaki örnek, bir şirketin şube satış verilerini gösteren bir tabloyu içermektedir. Kodun her bir satırının üzerine imlecinizi getirerek o satırın ne işe yaradığına dair ipuçları görebilirsiniz. Altında ise daha detaylı açıklamaları bulacaksınız.
+Aşağıdaki örnek, bir şirketin şube satış verilerini gösteren bir tabloyu içermektedir. Kodu `.html` uzantılı bir dosyaya kaydedip tarayıcıda açtığınızda, her öğeye eklenmiş `title` nitelikleri sayesinde imleci bir hücrenin üzerine getirerek o öğenin görevini okuyabilirsiniz. Gerçek projelerde her hücreye `title` yazılmaz; burada yalnızca öğretim amacıyla eklenmiştir. Kodun altında ayrıntılı açıklamalar yer almaktadır.
 
 ---
 
@@ -15,21 +15,6 @@ Aşağıdaki örnek, bir şirketin şube satış verilerini gösteren bir tabloy
 <head>
     <meta charset="UTF-8">
     <title>Uygulama 3: Tablolar</title>
-    <style>
-        /* Bu stil bloğu, kodun çıktısını alırken veya ekranda görüntülerken 
-           kodun arka planının siyah olmasını engeller, daha okunaklı bir 
-           görünüm sağlar. */
-        pre {
-            background-color: #f4f4f4;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            white-space: pre-wrap; /* Uzun kod satırlarının taşmasını engeller */
-        }
-        code {
-            font-family: 'Courier New', Courier, monospace;
-        }
-    </style>
 </head>
 <body>
 
@@ -40,7 +25,7 @@ Aşağıdaki örnek, bir şirketin şube satış verilerini gösteren bir tabloy
         
         <thead title="Tablonun başlık bölümünü gruplar. (Table Head)">
             <tr title="Tablo başlığı için bir satır oluşturur. (Table Row)">
-                <th title="Bu bir başlık hücresidir ve 3 satırlık yer kaplar. (Table Header)">Şube Adı</th>
+                <th title="Bu bir başlık hücresidir. (Table Header)">Şube Adı</th>
                 <th title="Bu bir başlık hücresidir.">Ürün Adı</th>
                 <th title="Bu bir başlık hücresidir.">Stok Miktarı</th>
                 <th title="Bu bir başlık hücresidir.">Satış Miktarı</th>
@@ -80,11 +65,11 @@ Aşağıdaki örnek, bir şirketin şube satış verilerini gösteren bir tabloy
 
 ### Kodun Açıklaması
 
-Bir web sayfasının temel iskeletini kuran `<!DOCTYPE html>`, `<html>`, `<head>` ve `<body>` etiketlerini zaten tanıyoruz. Burada `lang="tr"` ifadesiyle sayfanın dilinin Türkçe olduğunu ve `<meta charset="UTF-8"`> ile de karakter kodlamasının evrensel bir standart olan UTF-8 olduğunu tarayıcıya bildiriyoruz. Bu, Türkçe karakterlerin doğru görüntülenmesi için önemlidir.
+Bir web sayfasının temel iskeletini kuran `<!DOCTYPE html>`, `<html>`, `<head>` ve `<body>` etiketlerini zaten tanıyoruz. Burada `lang="tr"` ifadesiyle sayfanın dilinin Türkçe olduğunu ve `<meta charset="UTF-8">` ile de karakter kodlamasının evrensel bir standart olan UTF-8 olduğunu tarayıcıya bildiriyoruz. Bu, Türkçe karakterlerin doğru görüntülenmesi için önemlidir.
 
 Asıl konumuz olan tabloya odaklanalım:
 
--   `<table border="1">`: Bu etiketle tarayıcıya bir tablo çizmeye başladığımızı söyleriz. `table` kelimesi Latincede "levha, plaka" anlamına gelen *tabula* kelimesinden gelir. `border="1"` ifadesi, tablonun kenarlıklarının 1 piksel kalınlığında olacağını belirtir.
+-   `<table border="1">`: Bu etiketle tarayıcıya bir tablo çizmeye başladığımızı söyleriz. `table` kelimesi Latincede "levha, plaka" anlamına gelen *tabula* kelimesinden gelir. `border="1"` ifadesi, tablonun ve hücrelerin kenarlıklarını görünür kılar. Bu nitelik, aşağıda anlatılan `cellpadding` ve `cellspacing` ile birlikte HTML'in eski sürümlerinden kalmadır; HTML5 standardında kullanımdan kaldırılmış (obsolete) sayılır. Tarayıcılar geriye dönük uyumluluk için hâlâ destekler, ancak yeni projelerde CSS kullanılmalıdır.
 
 -   `<caption>`: Tablonun ne hakkında olduğunu anlatan bir başlık eklemek için kullanılır. Bu başlık, tabloyla ilişkilendirilir ve genellikle tablonun üstünde veya altında ortalanmış olarak görünür.
 
@@ -92,7 +77,7 @@ Asıl konumuz olan tabloya odaklanalım:
     -   `<thead>` (Table Head): Tablonun başlık kısmını içerir.
     -   `<tbody>` (Table Body): Tablonun ana veri içeriğini barındırır.
     -   `<tfoot>` (Table Foot): Tablonun alt bilgi veya özet satırlarını içerir.
-    Bu etiketler, anlamsal olarak kodu daha okunabilir kılar ve tarayıcının tabloyu daha verimli işlemesine yardımcı olur.
+    Bu etiketler kodu anlamsal olarak daha okunabilir kılar; ekran okuyucuların başlık satırlarını tanımasına, CSS ile bölümlere ayrı stil verilmesine ve uzun tablolar yazdırılırken başlık satırının her sayfada tekrarlanmasına imkân tanır.
 
 -   `<tr>`: İngilizce **T**able **R**ow (Tablo Satırı) ifadesinin kısaltmasıdır. Adından da anlaşılacağı gibi tablo içinde yatay bir satır oluşturur. Her bir `<tr>` etiketi yeni bir satırın başlangıcıdır.
 
@@ -104,13 +89,13 @@ Asıl konumuz olan tabloya odaklanalım:
 
 Bazen hücreleri dikey veya yatay olarak birleştirmek isteyebiliriz.
 
--   `rowspan="3"`: **Row Span** (Satır Kaplama) anlamına gelir. Bu özelliğin kullanıldığı hücre, bulunduğu yerden başlayarak aşağıya doğru belirtilen sayı kadar (örneğimizde 3) satırı kaplar. "İstanbul Şubesi" hücresinin üç farklı ürün satırına ait olduğunu bu şekilde belirttik.
+-   `rowspan="3"`: **Row Span** (Satır Kaplama) anlamına gelir. Bu niteliğin kullanıldığı hücre, bulunduğu yerden başlayarak aşağıya doğru belirtilen sayı kadar (örneğimizde 3) satırı kaplar. "İstanbul Şubesi" hücresinin üç farklı ürün satırına ait olduğunu bu şekilde belirttik.
 
--   `colspan="3"`: **Column Span** (Sütun Kaplama) anlamına gelir. Bu özellik ise hücrenin sağa doğru belirtilen sayı kadar (örneğimizde 3) sütunu kaplamasını sağlar. "Toplam Satış:" metninin üç sütunluk bir alana yayılmasını bu şekilde başardık.
+-   `colspan="3"`: **Column Span** (Sütun Kaplama) anlamına gelir. Bu nitelik ise hücrenin sağa doğru belirtilen sayı kadar (örneğimizde 3) sütunu kaplamasını sağlar. "Toplam Satış:" metninin üç sütunluk bir alana yayılmasını bu şekilde başardık.
 
 #### Boşluk Ayarlamaları: `cellpadding` ve `cellspacing`
 
-Bu iki özellik, tablonun içindeki boşlukları kontrol eder. Günümüzde bu tür görsel ayarlamalar genellikle CSS ile yapılsa da, temel HTML bilgisi olarak bilinmesi faydalıdır.
+Bu iki nitelik, tablonun içindeki boşlukları kontrol eder. HTML5 ile kullanımdan kaldırılmışlardır; yalnızca eski kodları okuyabilmek için bilinmeleri faydalıdır. Güncel karşılıkları, hücrelere uygulanan CSS `padding` özelliği ile tabloya uygulanan `border-spacing` özelliğidir.
 
 -   `cellpadding`: Hücre duvarı ile hücre içindeki içerik (metin, resim vb.) arasındaki boşluğu ayarlar. Değeri ne kadar büyük olursa içerik, hücre kenarlarından o kadar içeride durur.
 

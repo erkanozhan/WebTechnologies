@@ -1,6 +1,6 @@
 # HTML Bağlantıları: `<a>` Etiketi, href Niteliği ve Yönlendirme Mimarisi
 
-Gençler, web sayfalarının sadece okunabilir durağan metinler olmaktan çıkıp, birbirine bağlı devasa bir ağ (web) oluşturmasını sağlayan temel yapıyı inceleyeceğiz. Bir HTML belgesinde başka bir sayfaya, görsele veya sunucuya geçiş yapmak istediğimizde `<a>` etiketi ve onun ayrılmaz bir parçası olan `href` niteliğini (attribute) kullanırız.
+Bu bölümde, web sayfalarının yalnızca okunabilir durağan metinler olmaktan çıkıp birbirine bağlı devasa bir ağ (web) oluşturmasını sağlayan temel yapı incelenmektedir. Bir HTML belgesinde başka bir sayfaya, görsele veya sunucuya geçiş yapmak istediğimizde `<a>` etiketi ve onun ayrılmaz bir parçası olan `href` niteliğini (attribute) kullanırız.
 
 ```html
 <a href="https://www.nku.edu.tr">Namık Kemal Üniversitesi</a>
@@ -14,12 +14,12 @@ Etiketin ismi olan `a` harfinin nereden geldiğini bilmek, bu mimarinin mantığ
 
 Bağlantıların hedef noktalarını belirlerken, kaynakların bulunduğu konuma göre iki farklı adresleme stratejisi uygularız.
 
-1. **Mutlak Adresleme (Absolute URL - Mutlak Tekdüze Kaynak Bulucu):** Hedef belgenin internet ağındaki tam ve bağımsız konumudur. Genellikle dış kaynaklara veya farklı alan adlarına (domain) bağlantı verirken kullanılır. İletişim kuralı olan protokol (`http` veya `https`) ile başlamak zorundadır.
+1. **Mutlak Adresleme (Absolute URL - Mutlak Tekdüzen Kaynak Bulucu):** Hedef belgenin internet ağındaki tam ve bağımsız konumudur. Genellikle dış kaynaklara veya farklı alan adlarına (domain) bağlantı verirken kullanılır. İletişim kuralı olan protokol (`http` veya `https`) ile başlamak zorundadır.
    ```html
    <a href="https://www.google.com/search?q=html">Google'da HTML Ara</a>
    ```
 
-2. **Göreli Adresleme (Relative URL - Göreli Tekdüze Kaynak Bulucu):** Bağlantı verilen hedef dosya ile mevcut dosyanız aynı proje dizini (directory) içindeyse kullanılır. Bu yöntemde tam adresi yazmak yerine, bulunduğunuz klasöre göre bir yol (path) çizersiniz. Bu yöntem, projeyi yerel bilgisayarınızdan çıkarıp başka bir sunucuya taşıdığınızda bağlantıların kopmamasını sağlar.
+2. **Göreli Adresleme (Relative URL - Göreli Tekdüzen Kaynak Bulucu):** Bağlantı verilen hedef dosya ile mevcut dosyanız aynı proje dizini (directory) içindeyse kullanılır. Bu yöntemde tam adresi yazmak yerine, bulunduğunuz klasöre göre bir yol (path) çizersiniz. Bu yöntem, projeyi yerel bilgisayarınızdan çıkarıp başka bir sunucuya taşıdığınızda bağlantıların kopmamasını sağlar.
    ```html
    <!-- Aynı klasördeki bir dosyaya bağlantı -->
    <a href="iletisim.html">İletişim Sayfası</a>
@@ -30,7 +30,7 @@ Bağlantıların hedef noktalarını belirlerken, kaynakların bulunduğu konuma
 
 ## Sayfa İçi Yönlendirmeler (Fragment Identifiers)
 
-Anchor etiketi her zaman fiziksel olarak farklı bir belgeye gitmek zorunda değildir. Çok uzun bir metin okuyorsanız, sayfanın en üstüne veya belirli bir başlığa doğrudan sıçramak isteyebilirsiniz. Bunun için HTML elemanlarının `id` (Kimlik - Identifier) niteliği kullanılır. `href` değerinin başına kare `#` sembolü (hash) konularak sayfa içindeki belirli bir referansa çapa atılır.
+Anchor etiketi her zaman fiziksel olarak farklı bir belgeye gitmek zorunda değildir. Çok uzun bir metin okuyorsanız, sayfanın en üstüne veya belirli bir başlığa doğrudan sıçramak isteyebilirsiniz. Bunun için HTML öğelerinin `id` (Kimlik - Identifier) niteliği kullanılır. `href` değerinin başına kare `#` sembolü (hash) konularak sayfa içindeki belirli bir referansa çapa atılır.
 
 ```html
 <!-- Sayfanın alt kısımlarında bir başlık -->
@@ -45,12 +45,20 @@ Anchor etiketi her zaman fiziksel olarak farklı bir belgeye gitmek zorunda değ
 Kullanıcı bir bağlantıya tıkladığında tarayıcının yeni belgeyi nasıl açacağını `target` (Hedef) niteliği ile kontrol ederiz. Varsayılan (default) davranış `_self` değeridir; yani sayfa mevcut sekmede açılır. Ancak kullanıcıyı mevcut sayfadan koparmamak için bağlantının yeni bir sekmede açılması istenebilir. Bunun için `_blank` değeri kullanılır.
 
 ```html
-<a href="belge.pdf" target="_blank">Ders Notunu İndir</a>
+<a href="belge.pdf" target="_blank">Ders Notunu Yeni Sekmede Aç</a>
 ```
 
-Bu noktada web güvenliği (web security) açısından önemli bir ayrıntıya değinmemiz gerekir. Bir bağlantıyı `target="_blank"` ile yeni bir sekmede açtığınızda, açılan yeni sayfa, kendisini açan kaynak sayfanın tarayıcı nesne modeline (Document Object Model - DOM) ait belirli özelliklere erişebilir. Özellikle JavaScript tarafındaki `window.opener` nesnesi aracılığıyla, yeni açılan kötü niyetli bir sayfa, kaynak sayfanın adresini değiştirerek kullanıcıyı sahte bir giriş ekranına yönlendirebilir. Bu güvenlik zafiyetine literatürde **Tabnabbing** (Sekme avlama) denir.
+`target="_blank"` dosyayı yalnızca yeni bir sekmede açar; tarayıcı PDF'i görüntüleyebiliyorsa dosya indirilmez. Bağlantının dosyayı doğrudan indirmesi isteniyorsa `download` niteliği kullanılır. Bu nitelik yalnızca aynı kaynaktan (aynı alan adından) sunulan dosyalarda dikkate alınır:
 
-Bu riski ortadan kaldırmak için, kullanıcıdan bağımsız dış bağlantılara `target="_blank"` eklendiğinde, `rel` (Relationship - İlişki) niteliğine mutlaka `noopener` ve `noreferrer` değerleri eklenmelidir. Bu işlem, açılan yeni sayfanın kaynak sayfa ile olan bağını (`window.opener` erişimini) tamamen keser.
+```html
+<a href="belge.pdf" download>Ders Notunu İndir</a>
+```
+
+Bu noktada web güvenliği (web security) açısından önemli bir ayrıntıya değinmemiz gerekir. Bir bağlantıyı `target="_blank"` ile yeni bir sekmede açtığınızda, açılan yeni sayfa JavaScript'teki `window.opener` nesnesi üzerinden kendisini açan sayfaya bir başvuru (referans) elde edebilir. Bu, tarayıcı nesne modelinin (Browser Object Model - BOM) bir parçasıdır; sayfanın içeriğini temsil eden Belge Nesne Modeli (Document Object Model - DOM) ile karıştırılmamalıdır. Bu başvuru aracılığıyla yeni açılan kötü niyetli bir sayfa, kaynak sayfanın adresini değiştirerek kullanıcıyı sahte bir giriş ekranına yönlendirebilir. Bu güvenlik zafiyetine literatürde **ters sekme avlama** (reverse tabnabbing) denir.
+
+Bu riski ortadan kaldırmak için, kontrolünüz dışındaki dış sitelere verilen ve `target="_blank"` içeren bağlantılarda `rel` (Relationship - İlişki) niteliğine `noopener` değeri eklenir. Bu değer, açılan yeni sayfanın `window.opener` erişimini tamamen keser. `noreferrer` değeri ise ek olarak tarayıcının hedef siteye "hangi sayfadan gelindiği" bilgisini (Referer başlığı) göndermesini engeller ve `noopener` etkisini de içerir.
+
+> **Güncel durum:** 2021'den bu yana Chrome, Firefox, Safari ve Edge, `target="_blank"` içeren bağlantılara `rel="noopener"` yazılmamış olsa bile bu davranışı varsayılan olarak uygulamaktadır. Yine de eski tarayıcılarla uyumluluk ve kodun niyetini açıkça belirtmek için `rel="noopener noreferrer"` yazılması iyi bir uygulama olarak kabul edilir.
 
 ```html
 <a href="https://guvenilmeyen-site.com" target="_blank" rel="noopener noreferrer">Dış Bağlantı</a>

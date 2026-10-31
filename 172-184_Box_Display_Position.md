@@ -1,15 +1,15 @@
-# HTML'de Box, Display ve Position Özellikleri
+# CSS'te Kutu Modeli (Box Model), display ve position Özellikleri
 
 ## 1. Box Model
 
-HTML ve CSS ile web sayfası tasarlarken, her öğe bir kutu (box) olarak değerlendirilir. Bu kutu modeli (Box Model), web sayfalarının düzenini ve öğeler arasındaki mesafeleri anlamak için temel bir kavramdır. Özellikle bilgisayar mühendisliği öğrencileri için, kutu modelinin detaylarını bilmek; responsive (duyarlı) tasarımlar, kullanıcı arayüzü geliştirme ve hata ayıklama süreçlerinde büyük kolaylık sağlar.
+HTML ile oluşturulan her öğe, CSS tarafından ekranda bir kutu (box) olarak yerleştirilir. Bu kutu modeli (Box Model), web sayfalarının düzenini ve öğeler arasındaki mesafeleri anlamak için temel bir kavramdır. Kutu modelinin ayrıntılarını bilmek; duyarlı (responsive) tasarımlar, kullanıcı arayüzü geliştirme ve hata ayıklama süreçlerinde büyük kolaylık sağlar.
 
 ### Box Model'in Temel Bileşenleri
 
 Her HTML öğesi aşağıdaki dört ana bölümden oluşur:
 
 - **Content (İçerik):** Kutunun asıl içeriği (örneğin metin, resim veya başka bir HTML öğesi).
-- **Padding (İç Dolgu):** İçerik ile kenarlık (border) arasındaki boşluktur. Padding, kutunun içini genişletir ve arayüzde öğelerin birbirine çok yakın görünmesini engeller.
+- **Padding (İç Boşluk):** İçerik ile kenarlık (border) arasındaki boşluktur. Padding, kutunun içini genişletir ve arayüzde öğelerin birbirine çok yakın görünmesini engeller.
 - **Border (Kenarlık):** Kutunun etrafını saran çizgidir. Renk, kalınlık ve stil verilebilir.
 - **Margin (Dış Boşluk):** Kutunun dışındaki boşluktur. Diğer kutularla arasındaki mesafeyi belirler.
 
@@ -32,11 +32,13 @@ Aşağıdaki görsel, kutu modelinin yapısını özetler:
 
 ### Box Model'de Genişlik ve Yükseklik Hesaplama
 
-Varsayılan olarak, bir öğeye `width` ve `height` verdiğinizde, bu değerler sadece içerik (content) alanını kapsar. Toplam kutu boyutu ise şöyle hesaplanır:
+Varsayılan olarak, bir öğeye `width` ve `height` verdiğinizde, bu değerler sadece içerik (content) alanını kapsar. Kutunun ekranda görünen boyutu (kenarlık dahil) ve sayfada kapladığı toplam alan (margin dahil) şöyle hesaplanır:
 
 ```
-Toplam Genişlik = width + padding-left + padding-right + border-left + border-right + margin-left + margin-right
-Toplam Yükseklik = height + padding-top + padding-bottom + border-top + border-bottom + margin-top + margin-bottom
+Görünen Genişlik  = width + padding-left + padding-right + border-left + border-right
+Kaplanan Genişlik = Görünen Genişlik + margin-left + margin-right
+Görünen Yükseklik  = height + padding-top + padding-bottom + border-top + border-bottom
+Kaplanan Yükseklik = Görünen Yükseklik + margin-top + margin-bottom
 ```
 
 #### `box-sizing` Özelliği
@@ -63,9 +65,9 @@ Modern web geliştirmede, `box-sizing: border-box;` kullanmak yaygındır. Bu ö
 - **Border:** Her tarafta 2px (toplamda 4px eklenir)
 - **Margin:** Her tarafta 20px (kutunun dışındaki boşluk)
 
-Toplam kutu genişliği (varsayılan `box-sizing` ile):  
+Görünen genişlik (varsayılan `box-sizing: content-box` ile):  
 `200px (content) + 20px (padding) + 4px (border) = 224px`  
-Dışarıdan dışarıya toplam genişlik:  
+Margin dahil kaplanan genişlik:  
 `224px + 40px (margin) = 264px`
 
 ### Kutu Modeli ile İlgili Sık Karşılaşılan Sorunlar
@@ -116,8 +118,8 @@ Kutu modeli, HTML ve CSS ile profesyonel arayüzler geliştirmenin temel taşıd
 
 - **static**: Varsayılan konumlandırmadır. Öğeler belge akışına göre yerleşir.
 - **relative**: Öğeyi normal konumuna göre kaydırmak için kullanılır.
-- **absolute**: Konum, en yakın `relative` veya `absolute` öğeye göre belirlenir.
-- **fixed**: Görüntüde sabit kalır, kaydırmadan etkilenmez.
+- **absolute**: Öğe normal akıştan çıkar. Konumu, `position` değeri `static` dışında olan (`relative`, `absolute`, `fixed` veya `sticky`) en yakın ata öğeye göre belirlenir; böyle bir ata yoksa başlangıç kapsayıcı bloğuna (initial containing block) göre hesaplanır.
+- **fixed**: Görüntü alanına (viewport) göre sabitlenir, sayfa kaydırmasından etkilenmez.
 - **sticky**: Kaydırma sırasında belli bir noktaya yapışır ve sabitlenir.
 
 ### Örnek:
@@ -138,30 +140,30 @@ Gri kutu `relative`, kırmızı kutu `absolute` olarak tanımlanmıştır. Kırm
 
 ### Position Özelliğinin Display Üzerindeki Etkisi
 
-Bir öğeye `position: absolute` veya `position: fixed` uygulandığında, öğenin `display` özelliği otomatik olarak `block` gibi davranır. Bu, öğenin genişlik ve yükseklik özelliklerinin ayarlanabilir olduğu ve etrafındaki diğer öğelerle etkileşiminin blok seviyesinde gerçekleştiği anlamına gelir. Ancak, `display: none` olarak ayarlanmış bir öğe, `position` değeri ne olursa olsun ekranda görünmez.
+Bir öğeye `position: absolute` veya `position: fixed` uygulandığında tarayıcı, öğenin `display` değerini kendiliğinden blok düzeyine dönüştürür (blockification): `inline` ve `inline-block` değerleri `block`, `inline-flex` değeri ise `flex` olarak hesaplanır. Bu nedenle `<span>` gibi normalde satır içi olan bir öğeye bile, ayrıca `display: block` yazmadan genişlik ve yükseklik verilebilir. Ancak, `display: none` olarak ayarlanmış bir öğe, `position` değeri ne olursa olsun ekranda görünmez.
 
 ### Örnek:
 
-Aşağıdaki örnekte, bir `div` içinde konumlandırılmış başka bir `div` bulunmaktadır. İçteki `div`, dıştaki `div`'in sağ üst köşesine yerleştirilmiştir.
+Aşağıdaki örnekte, bir `div` içinde mutlak konumlandırılmış bir `span` bulunmaktadır. İçteki `span`, dıştaki `div`'in sağ üst köşesine yerleştirilmiştir.
 
 ```html
 <div style="position: relative; width: 300px; height: 200px; border: 1px solid black;">
     Dış Kutunun İçeriği
-    <div style="position: absolute; top: 10px; right: 10px; display: block; width: 100px; height: 50px; background-color: lightblue;">
+    <span style="position: absolute; top: 10px; right: 10px; width: 100px; height: 50px; background-color: lightblue;">
         Sağ Üst Köşe
-    </div>
+    </span>
 </div>
 ```
 
 Bu kodda:
 
 - Dıştaki `div` `position: relative` olarak ayarlanmıştır. Bu, içteki `div` için bir referans noktası oluşturur.
-- İçteki `div` `position: absolute` ile konumlandırılmıştır. `top` ve `right` özellikleri, bu öğenin dış kutunun sağ üst köşesine göre konumunu belirler.
-- `display: block` özelliği, içteki `div`'in blok seviyesinde bir öğe gibi davranmasını sağlar, böylece genişlik ve yükseklik ayarları uygulanabilir.
+- İçteki `span` `position: absolute` ile konumlandırılmıştır. `top` ve `right` özellikleri, bu öğenin dış kutunun sağ üst köşesine göre konumunu belirler.
+- `span` normalde satır içi (`inline`) bir öğe olduğu için `width` ve `height` değerlerini dikkate almaz. Ancak `position: absolute` verildiği anda tarayıcı onu blok düzeyine dönüştürür; bu yüzden `display: block` yazmaya gerek kalmadan 100 × 50 piksellik kutu oluşur.
 
 ### Display: None Durumu
 
-Eğer içteki `div`'in `display` özelliği `none` olarak ayarlanırsa, bu öğe tamamen gizlenir ve sayfada yer kaplamaz. Bu durumda, `position` özelliği bir etkiye sahip olmaz çünkü öğe zaten görüntülenmemektedir.
+Eğer içteki öğenin `display` özelliği `none` olarak ayarlanırsa, bu öğe tamamen gizlenir ve sayfada yer kaplamaz. Bu durumda, `position` özelliği bir etkiye sahip olmaz çünkü öğe zaten görüntülenmemektedir.
 
 ```html
 <div style="position: relative; width: 300px; height: 200px; border: 1px solid black;">
@@ -172,7 +174,7 @@ Eğer içteki `div`'in `display` özelliği `none` olarak ayarlanırsa, bu öğe
 </div>
 ```
 
-Özetle, `position` ve `display` özellikleri birlikte kullanıldığında, öğelerin hem konumunu hem de sayfa düzenindeki davranışını kontrol etmek mümkündür. Özellikle `position: absolute` veya `position: fixed` kullanıldığında, `display` özelliğinin `block` veya `inline-block` gibi değerlerle ayarlanması, öğenin boyutlandırılabilir ve konumlandırılabilir olmasını sağlar. Ancak, `display: none` kullanıldığında, öğe tamamen gizlenir ve `position` özelliği etkisiz hale gelir.
+Özetle, `position` ve `display` özellikleri birlikte kullanıldığında, öğelerin hem konumunu hem de sayfa düzenindeki davranışını kontrol etmek mümkündür. `position: absolute` veya `position: fixed` kullanıldığında öğe kendiliğinden blok düzeyine dönüştürüldüğü için ayrıca `display: block` yazmak gerekmez; öğe doğrudan boyutlandırılabilir ve konumlandırılabilir. Ancak, `display: none` kullanıldığında, öğe tamamen gizlenir ve `position` özelliği etkisiz hale gelir.
 
 ---
 
@@ -180,8 +182,6 @@ Eğer içteki `div`'in `display` özelliği `none` olarak ayarlanırsa, bu öğe
 
 - `display: none` → Öğeyi tamamen gizler, sayfada hiç yer kaplamaz.
 - `visibility: hidden` → Öğeyi görünmez yapar ama sayfada kapladığı alan korunur.
-
-### Örnek:
 
 ### Örnek:
 

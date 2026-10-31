@@ -3,13 +3,13 @@
 
 Web'in ilk dönemlerinde sayfalar yalnızca bilgi sunar, kullanıcı ise okurdu. Kullanıcının veri gönderebilmesi — bir kullanıcı adı yazması, bir tercih seçmesi, bir dosya yüklemesi — ancak form (İng. *form*, Lat. *forma*: biçim, kalıp) yapısıyla mümkün oldu. Bugün giriş ekranlarından sipariş formlarına, anketlerden yorum kutularına kadar her etkileşimli bileşenin arkasında bir HTML formu yatar.
 
-Bu uygulamada hem temel form elemanlarını hem de radyo düğmeleri, onay kutuları ve HTML5 ile standart hale gelen `<video>` elemanını inceleyeceğiz.
+Bu uygulamada hem temel form öğelerini hem de radyo düğmeleri, onay kutuları ve HTML5 ile standart hale gelen `<video>` öğesini inceleyeceğiz.
 
 ---
 
 ## 1. `<form>` Etiketi
 
-`<form>` etiketi, kullanıcıdan veri toplamak amacıyla bir grup giriş elemanını sarar; bu verilerin nereye ve nasıl gönderileceğini tanımlar.
+`<form>` etiketi, kullanıcıdan veri toplamak amacıyla bir grup giriş öğesini sarar; bu verilerin nereye ve nasıl gönderileceğini tanımlar.
 
 ```html
 <form action="/mailinglist.php" method="post">
@@ -25,14 +25,14 @@ Formun gönderildiği anda verinin iletileceği URL'yi (Uniform Resource Locator
 
 ### `method`
 
-Verinin HTTP (HyperText Transfer Protocol — Hiper Metin Aktarım Protokolü) üzerinden nasıl taşınacağını tanımlar:
+Verinin HTTP (HyperText Transfer Protocol — Hipermetin Aktarım Protokolü) üzerinden nasıl taşınacağını tanımlar:
 
 | Method | Davranış | Ne Zaman Tercih Edilir |
 |--------|----------|------------------------|
 | `get`  | Veri URL'nin sonuna `?anahtar=değer` biçiminde eklenir; adres çubuğunda görünür | Arama kutuları, filtreleme formları |
-| `post` | Veri HTTP isteğinin gövdesinde gizli olarak taşınır | Parola, kişisel bilgi, dosya yükleme |
+| `post` | Veri HTTP isteğinin gövdesinde taşınır; adres çubuğunda görünmez ama şifrelenmez | Parola, kişisel bilgi, dosya yükleme (yalnızca HTTPS ile birlikte) |
 
-Bir açık kartpostal ile mühürlü zarf arasındaki fark bu ikisini iyi özetler: `get` herkesin okuyabileceği kartpostal, `post` ise mühürlü zarftır.
+Bir açık kartpostal ile zarf arasındaki fark bu ikisini iyi özetler: `get` herkesin okuyabileceği kartpostal, `post` ise kapalı ama mühürsüz bir zarftır. Zarfın içi ilk bakışta görünmez; ancak yoldaki herhangi biri zarfı açıp okuyabilir. Verinin yol boyunca okunamaz hâle gelmesini, yani gerçek anlamda mühürlenmesini sağlayan `post` değil, HTTPS (HTTP Secure — Güvenli HTTP) bağlantısıdır.
 
 ---
 
@@ -53,16 +53,16 @@ Bu yapı yalnızca görsel değil, işlevsel bir fayda da sağlar: ekran okuyucu
 
 ## 3. `<label>` ve Bağlama Mekanizması
 
-`<label>` (etiket) etiketi, form alanının yanında görünen tanımlayıcı metni taşır. Yalnızca görsel bir metin değildir; `for` niteliğiyle ilgili `<input>`a bağlanır.
+`<label>` (alan adı) etiketi, form alanının yanında görünen tanımlayıcı metni taşır. Yalnızca görsel bir metin değildir; `for` niteliğiyle ilgili `<input>`a bağlanır.
 
 ```html
 <label for="adsoyad">Adınız ve Soyadınız:</label>
-<input type="text" name="username" id="adsoyad" maxlength="20">
+<input type="text" name="adsoyad" id="adsoyad" maxlength="20">
 ```
 
-`label`ın `for` değeri ile `input`ın `id` değeri eşleştiğinde ikisi birbirine kilitlenir. Bunun pratik etkisi şudur: kullanıcı etikete tıkladığında odak (focus) doğrudan o alana geçer. Özellikle onay kutuları ve radyo düğmeleri gibi tıklama alanı dar olan elemanlarda bu bağlantı büyük bir kolaylık sağlar.
+`label`ın `for` değeri ile `input`ın `id` değeri eşleştiğinde ikisi birbirine kilitlenir. Bunun pratik etkisi şudur: kullanıcı alan adına tıkladığında odak (focus) doğrudan o alana geçer. Özellikle onay kutuları ve radyo düğmeleri gibi tıklama alanı dar olan öğelerde bu bağlantı büyük bir kolaylık sağlar.
 
-> **`name` niteliği:** Giriş alanlarında `name` değeri, formun gönderildiğinde sunucuya ulaşan veri paketindeki anahtar sözcüktür. `name="username"` diyorsa sunucu `username=Erkan` gibi bir çift alır. `id` ise yalnızca sayfa içi bağlantı ve CSS/JavaScript için kullanılır; sunucuyla ilgisi yoktur.
+> **`name` niteliği:** Giriş alanlarında `name` değeri, form gönderildiğinde sunucuya ulaşan veri paketindeki anahtar sözcüktür. `name="adsoyad"` yazılmışsa sunucu `adsoyad=Erkan+Özhan` gibi bir anahtar-değer çifti alır. `id` ise yalnızca sayfa içi bağlantı ve CSS/JavaScript için kullanılır; sunucuyla ilgisi yoktur.
 
 ---
 
@@ -75,14 +75,18 @@ Bu yapı yalnızca görsel değil, işlevsel bir fayda da sağlar: ekran okuyucu
 Serbest metin girişi için kullanılır. `maxlength` ile karakter sayısı sınırlanabilir.
 
 ```html
-<input type="text" name="username" id="adsoyad" maxlength="20">
+<input type="text" name="adsoyad" id="adsoyad" maxlength="20">
 ```
 
 ### `type="email"` — E-posta
 
 Görünüş olarak `text`ten farksızdır; ancak tarayıcı, form gönderilmeden önce değerin `@` içerip içermediğini denetler. Mobil cihazlarda `@` tuşunu öne çıkaran özel bir klavye düzeni açar.
 
-> **Not:** Uygulamadaki örnekte e-posta alanı için `type="text"` kullanılmış. Daha doğru yazım `type="email"` olurdu; tarayıcının yerleşik doğrulamasını devreye sokar.
+> **Not:** E-posta alanı için `type="text"` de çalışır; ancak `type="email"` tarayıcının yerleşik doğrulamasını ve mobil klavye düzenini devreye soktuğu için daha doğru bir tercihtir.
+
+```html
+<input type="email" name="eposta" id="eposta">
+```
 
 ### `type="date"` — Tarih Seçici
 
@@ -130,7 +134,7 @@ Bir yorum, biyografi ya da mesaj gibi uzun metinler için tek satırlık `<input
 - **`cols`**: Görünür karakter genişliğini belirtir.
 - **`placeholder`**: Alan boşken görünen ipucu metni; kullanıcı yazmaya başlayınca kaybolur.
 
-`<input>` self-closing (kendi kendini kapatan) bir etiket olduğu için kapanış etiketi almaz. `<textarea>` ise aksine açılış ve kapanış etiketi ister; ikisi arasına yazılacak içerik, alan yüklendiğinde önceden dolu gelir.
+`<input>` bir boş öğedir (void element): içerik barındıramaz ve kapanış etiketi almaz. XHTML alışkanlığıyla bazen `<input />` biçiminde yazıldığı görülür; HTML'de bu eğik çizgi isteğe bağlıdır ve bir anlam taşımaz. `<textarea>` ise aksine açılış ve kapanış etiketi ister; ikisi arasına yazılacak içerik, alan yüklendiğinde önceden dolu gelir.
 
 ---
 
@@ -142,7 +146,7 @@ Bir yorum, biyografi ya da mesaj gibi uzun metinler için tek satırlık `<input
 ```
 
 - **`submit`**: Form verilerini `action`da belirtilen adrese gönderir.
-- **`reset`**: Formdaki tüm alanları başlangıç değerlerine döndürür. Kullanıcının dolduduğu her şey silinir; tasarım açısından dikkatli konumlandırmak gerekir.
+- **`reset`**: Formdaki tüm alanları başlangıç değerlerine döndürür. Kullanıcının doldurduğu her şey silinir; tasarım açısından dikkatli konumlandırmak gerekir.
 
 `value` niteliği düğme üzerindeki metni belirler.
 
@@ -162,9 +166,9 @@ YouTube video gömme ya da Google Maps entegrasyonu gibi yaygın kullanım biçi
 
 ## Form Yapısı
 
-Aşağıdaki diyagram, bu uygulamadaki elemanların birbirleriyle nasıl iç içe yerleştiğini göstermektedir:
+Aşağıdaki diyagram, bu uygulamadaki öğelerin birbirleriyle nasıl iç içe yerleştiğini göstermektedir:
 
-![Form Elemanları Hiyerarşisi](images/form-yapisi.svg)
+![Form Öğeleri Hiyerarşisi](images/form-yapisi.svg)
 
 ---
 
@@ -173,13 +177,18 @@ Aşağıdaki diyagram, bu uygulamadaki elemanların birbirleriyle nasıl iç iç
 Radyo düğmeleri (radio buttons — `type="radio"`), birbirini dışlayan seçenekler sunmak için kullanılır; kullanıcı yalnızca bir tanesini seçebilir. Adını eski radyo alıcılarından alır: o cihazlarda bir istasyon tuşuna basınca önceki tuş otomatik olarak çıkardı.
 
 ```html
-<ol>
-  <li><input type="radio" name="age" value="under25" checked> 25 altı</li>
-  <li><input type="radio" name="age" value="25-34"> 25 - 34</li>
-  <li><input type="radio" name="age" value="35-44"> 35 - 44</li>
-  <li><input type="radio" name="age" value="over45"> 45+</li>
-</ol>
+<fieldset>
+  <legend>Yaş grubunuz</legend>
+  <label><input type="radio" name="yas" value="25-alti" checked> 25 altı</label><br>
+  <label><input type="radio" name="yas" value="25-34"> 25 - 34</label><br>
+  <label><input type="radio" name="yas" value="35-44"> 35 - 44</label><br>
+  <label><input type="radio" name="yas" value="45-ustu"> 45 ve üstü</label>
+</fieldset>
 ```
+
+Burada her düğme, metniyle birlikte bir `<label>` içine alınmıştır. Bu yazımda `for`/`id` eşleştirmesine gerek kalmaz; kullanıcı küçük daireyi tutturmak zorunda kalmadan metnin üzerine tıklayarak da seçim yapabilir. Grubun tamamı ise `<fieldset>` içine alınıp `<legend>` ile adlandırılmıştır.
+
+> **Ekran okuyucu bu grubu nasıl seslendirir?** Bir ekran okuyucu (ör. NVDA) gruptaki ilk düğmeye geldiğinde önce grubun adını, ardından seçeneği okur: "Yaş grubunuz, gruplama; 25 altı, radyo düğmesi, seçili, 1 / 4". `<fieldset>` ve `<legend>` kullanılmasaydı kullanıcı yalnızca "25 - 34, radyo düğmesi" sesini duyar ve bu sayıların neyi ifade ettiğini anlayamazdı. `<label>` kullanılmasaydı ise düğmenin adı hiç okunmazdı.
 
 Aynı gruptaki radyo düğmeleri **aynı `name` değerini** paylaşır. Bu, onları tek bir seçim grubuna bağlar. `value` niteliği, o seçenek işaretlendiğinde sunucuya gönderilecek değeri taşır. `checked` niteliği, sayfa ilk yüklendiğinde o düğmeyi önceden seçili gösterir.
 
@@ -192,12 +201,13 @@ Aynı gruptaki radyo düğmeleri **aynı `name` değerini** paylaşır. Bu, onla
 Onay kutuları (checkboxes — `type="checkbox"`), birbirinden bağımsız seçenekler için kullanılır; kullanıcı hiçbirini, birini ya da tamamını işaretleyebilir.
 
 ```html
-<ul>
-  <li><input type="checkbox" name="genre" value="halk" checked> Halk</li>
-  <li><input type="checkbox" name="genre" value="Pop"  checked> Pop</li>
-  <li><input type="checkbox" name="genre" value="Rock"> Rock</li>
-  <li><input type="checkbox" name="genre" value="Jazz"> Jazz</li>
-</ul>
+<fieldset>
+  <legend>Sevdiğiniz müzik türleri</legend>
+  <label><input type="checkbox" name="tur" value="halk" checked> Halk</label><br>
+  <label><input type="checkbox" name="tur" value="pop" checked> Pop</label><br>
+  <label><input type="checkbox" name="tur" value="rock"> Rock</label><br>
+  <label><input type="checkbox" name="tur" value="caz"> Caz</label>
+</fieldset>
 ```
 
 Radyo düğmelerinden farklı olarak, aynı `name` değerine sahip birden fazla onay kutusu seçilebilir. Sunucu bu durumda aynı alan adı altında birden fazla değer alır.
@@ -217,7 +227,7 @@ Bir alışveriş listesini düşünün: aynı anda birden fazla kalemi listeye e
 HTML5 öncesinde video oynatmak için Flash gibi harici eklentiler (plug-in — tarayıcı eklentisi) gerekliydi. HTML5 ile `<video>` etiketi bu bağımlılığı ortadan kaldırdı.
 
 ```html
-<video src="video.m4v" width="640" height="480" poster="kapak.jpg" controls autoplay>
+<video src="video.m4v" width="640" height="480" poster="kapak.jpg" controls autoplay muted>
 </video>
 ```
 
@@ -227,16 +237,17 @@ HTML5 öncesinde video oynatmak için Flash gibi harici eklentiler (plug-in — 
 | `width` / `height` | Videonun piksel cinsinden boyutları |
 | `poster` | Video başlamadan önce gösterilecek kapak görseli |
 | `controls` | Oynat/durdur, ilerleme çubuğu, ses ve tam ekran kontrollerini gösterir |
-| `autoplay` | Sayfa yüklendiğinde videoyu otomatik başlatır |
+| `autoplay` | Sayfa yüklendiğinde videoyu otomatik başlatır (tarayıcılar genellikle yalnızca `muted` ile birlikte izin verir) |
+| `muted` | Video sessiz başlar; kullanıcı `controls` ile sesi açabilir |
 
-Uygulamadaki üç `<video>` etiketi davranış açısından şöyle ayrışır:
+Aşağıdaki üç `<video>` etiketi davranış açısından şöyle ayrışır:
 
 ```html
-<!-- 1. Hem kontroller var hem otomatik başlar -->
-<video src="..." controls autoplay></video>
+<!-- 1. Hem kontroller var hem sessiz olarak otomatik başlar -->
+<video src="..." controls autoplay muted></video>
 
-<!-- 2. Yalnızca otomatik başlar, kontrol yok -->
-<video src="..." autoplay></video>
+<!-- 2. Yalnızca sessiz olarak otomatik başlar, kontrol yok (ör. dekoratif arka plan videosu) -->
+<video src="..." autoplay muted loop></video>
 
 <!-- 3. Yalnızca kontroller var, otomatik başlamaz -->
 <video src="..." controls></video>
@@ -246,7 +257,7 @@ Uygulamadaki üç `<video>` etiketi davranış açısından şöyle ayrışır:
 >
 > 1. Modern tarayıcılar, ses açık olan `autoplay` videolarını çoğunlukla engeller. Bunu aşmak için `muted` niteliği eklenmesi gerekir: `<video src="..." autoplay muted>`.
 >
-> 2. Uygulamadaki son `<video>` etiketi kapanış etiketiyle kapatılmamış. Bu, tarayıcının sonraki içeriği video elemanının içine dahil etmesi gibi beklenmedik görüntüleme sorunlarına yol açabilir.
+> 2. `<video>` etiketi her zaman `</video>` ile kapatılmalıdır. Kapanış etiketi unutulursa tarayıcı, sonraki içeriği video öğesinin içine dahil eder ve bu içerik sayfada hiç görünmez.
 
 ---
 
@@ -271,10 +282,10 @@ Uygulamadaki üç `<video>` etiketi davranış açısından şöyle ayrışır:
 
 ### Görev 2 — Genişletilmiş Form ve Video
 
-`form2.html` adlı yeni bir dosya oluşturun. Görev 1'deki form elemanlarına ek olarak:
+`form2.html` adlı yeni bir dosya oluşturun. Görev 1'deki form öğelerine ek olarak:
 
-- Yaş grubu için radyo düğmeleri (en az 4 seçenek; biri `checked`)
-- Müzik türü tercihi için onay kutuları (en az 4 seçenek; biri ya da ikisi `checked`)
+- Yaş grubu için radyo düğmeleri (en az 4 seçenek; biri `checked`; her seçenek bir `<label>` içinde, grup `<fieldset>` + `<legend>` ile adlandırılmış)
+- Müzik türü tercihi için onay kutuları (en az 4 seçenek; biri ya da ikisi `checked`; yine `<label>` ve `<fieldset>` ile)
 - Sayfanın altına üç ayrı `<video>` etiketi:
   - Biri yalnızca `controls`
   - Biri yalnızca `autoplay muted`
@@ -284,12 +295,12 @@ Uygulamadaki üç `<video>` etiketi davranış açısından şöyle ayrışır:
 
 ## Hızlı Başvuru
 
-| Eleman | Amaç | Kritik Nitelikler |
+| Öğe | Amaç | Kritik Nitelikler |
 |--------|------|-------------------|
 | `<form>` | Form kapsayıcısı | `action`, `method` |
 | `<fieldset>` | Alan gruplama | — |
 | `<legend>` | Grup başlığı | — |
-| `<label>` | Alan etiketi | `for` |
+| `<label>` | Alan adı | `for` |
 | `<input type="text">` | Tek satırlı metin | `name`, `id`, `maxlength` |
 | `<input type="email">` | E-posta girişi | `name`, `id` |
 | `<input type="date">` | Tarih seçici | `name` |

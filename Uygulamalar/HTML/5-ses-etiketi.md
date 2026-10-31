@@ -25,7 +25,7 @@ Bu satır tarayıcıya şunu söyler: "Şu dosyayı al, kullanıcının kontrol 
 | `loop` | Ses bittiğinde başa döner, sonsuza kadar çalar |
 | `muted` | Ses sessiz modda başlar |
 
-Modern tarayıcılar, ses açık olan `autoplay` isteklerini çoğunlukla engeller. Arka plan müziği gibi durumlarda `autoplay muted` birleşiminin kullanılması gerekir; kullanıcı daha sonra sesi kendisi açabilir.
+Modern tarayıcılar, ses açık olan `autoplay` isteklerini çoğunlukla engeller; yalnızca `muted` ile birlikte verilen otomatik oynatmaya izin verir. Ancak `<audio>` öğesinin görüntü alanı olmadığından, `controls` yazılmadan sessiz başlatılan bir ses oynatıcısı sayfada hiç görünmez ve kullanıcı sesi açamaz. Bu nedenle otomatik başlatma gerekiyorsa `controls autoplay muted` üçlüsü birlikte kullanılır. Genel kural olarak sesin, kullanıcının kendi isteğiyle başlatılması tercih edilir.
 
 ---
 
@@ -79,8 +79,8 @@ MIME (Multipurpose Internet Mail Extensions — Çok Amaçlı İnternet Posta Uz
 <!-- 1. Yalnızca kontroller — kullanıcı oynatır -->
 <audio src="muzik.mp3" controls></audio>
 
-<!-- 2. Sessiz otomatik oynatma — arka plan müziği için -->
-<audio src="muzik.mp3" autoplay muted></audio>
+<!-- 2. Sessiz otomatik oynatma — kullanıcı oynatıcıdan sesi açabilir -->
+<audio src="muzik.mp3" controls autoplay muted></audio>
 
 <!-- 3. Döngülü ve kontrollü — sürekli çalan, kullanıcı durdurabilir -->
 <audio src="muzik.mp3" controls loop></audio>
@@ -112,14 +112,14 @@ MIME (Multipurpose Internet Mail Extensions — Çok Amaçlı İnternet Posta Uz
 
 - `<source>` kullanarak aynı sesi en az iki farklı formatta (MP3 + OGG) sunun
 - `<audio>` içine uyarı metni (geri dönüş içeriği) ekleyin; eski tarayıcılarda bu metin görünsün
-- `autoplay muted` kullanarak otomatik başlayan, sessiz bir arka plan müziği oynatıcısı ekleyin
+- `controls autoplay muted` kullanarak sessiz olarak otomatik başlayan ve kullanıcının sesini açabileceği bir oynatıcı ekleyin; aynı oynatıcıdan `controls` niteliğini silerek ne değiştiğini gözlemleyin
 - Sayfanın sonuna, `<video>` ile `<audio>` farkını açıklayan kısa bir karşılaştırma tablosu (`<table>`) koyun
 
 ---
 
 ## Hızlı Başvuru
 
-| Eleman / Nitelik | Amaç |
+| Öğe / Nitelik | Amaç |
 |-----------------|------|
 | `<audio>` | Ses dosyasını sayfaya gömer |
 | `src` | Ses dosyasının yolu veya URL'si |
