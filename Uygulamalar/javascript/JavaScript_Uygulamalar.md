@@ -338,7 +338,7 @@ gerekli final = (geçme notu − vize × vizeOranı − ödev × ödevOranı) / 
                 <label><input type="radio" name="odevVar" value="0"> Yok</label>
             </fieldset>
 
-            <label>Geçme notu: <input type="number" name="gecme" value="50" min="0" max="100"></label><br>
+            <label>Geçme notu: <input type="number" name="gecme" value="60" min="0" max="100"></label><br>
             <label>Vize notunuz: <input type="number" name="vize" min="0" max="100"></label><br>
             <label>Vize oranı (%): <input type="number" name="vizeOrani" value="40" min="0" max="100"></label><br>
             <label>Final oranı (%): <input type="number" name="finalOrani" value="60" min="0" max="100"></label><br>

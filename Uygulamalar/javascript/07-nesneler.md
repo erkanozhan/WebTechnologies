@@ -78,8 +78,8 @@ let ogrenci = {
     },
 
     durumu: function() {
-        // Geçme kuralı: ortalama en az 50 ve final en az 50
-        return (this.ortalama() >= 50 && this.final >= 50) ? "Geçti" : "Kaldı";
+        // Geçme kuralı: ortalama en az 60 ve final en az 50
+        return (this.ortalama() >= 60 && this.final >= 50) ? "Geçti" : "Kaldı";
     }
 };
 
@@ -208,13 +208,13 @@ let ogrenciler = [
 // Tüm öğrencilerin ortalamasını hesapla ve listele
 ogrenciler.forEach(function(ogr) {
     let ort = (ogr.vize * 0.4) + (ogr.final * 0.6);
-    let durum = (ort >= 50 && ogr.final >= 50) ? "✓" : "✗";
+    let durum = (ort >= 60 && ogr.final >= 50) ? "✓" : "✗";
     console.log(`${durum} ${ogr.ad}: ${ort.toFixed(1)}`);
 });
 
 // Sadece geçenleri filtrele
 let gecenler = ogrenciler.filter(ogr => {
-    return (ogr.vize * 0.4 + ogr.final * 0.6) >= 50 && ogr.final >= 50;
+    return (ogr.vize * 0.4 + ogr.final * 0.6) >= 60 && ogr.final >= 50;
 });
 ```
 
@@ -285,9 +285,9 @@ let gecenler = ogrenciler.filter(ogr => {
             return (ogr.vize * 0.4) + (ogr.final * 0.6);
         }
 
-        // Geçme kuralı: ortalama en az 50 ve final en az 50
+        // Geçme kuralı: ortalama en az 60 ve final en az 50
         function gectiMi(ogr) {
-            return ortalamaBul(ogr) >= 50 && ogr.final >= 50;
+            return ortalamaBul(ogr) >= 60 && ogr.final >= 50;
         }
 
         // Bir tablo hücresi oluşturur; metni textContent ile yazar (XSS'e karşı güvenli)

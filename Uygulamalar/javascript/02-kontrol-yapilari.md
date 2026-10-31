@@ -54,14 +54,14 @@ Basit if/else işlemleri için kısaltma:
 // Normal if/else:
 let puan = 65;
 let sonuc;
-if (puan >= 50) {
+if (puan >= 60) {
     sonuc = "Geçti";
 } else {
     sonuc = "Kaldı";
 }
 
 // Ternary ile aynısı (tek satırda):
-let sonuc2 = puan >= 50 ? "Geçti" : "Kaldı";
+let sonuc2 = puan >= 60 ? "Geçti" : "Kaldı";
 
 console.log(sonuc2); // "Geçti"
 ```
@@ -228,7 +228,7 @@ ogrenciler.forEach(function(ogrenci, indeks) {
 
 ## 5. Tam Uygulama: Not Hesaplama Sistemi
 
-Aşağıdaki örnek, `if / else if` zincirini bir web sayfasında kullanır. Geçme kuralı, bu derslerdeki diğer not örnekleriyle aynıdır: ağırlıklı ortalama en az 50 ve final notu en az 50 olmalıdır.
+Aşağıdaki örnek, `if / else if` zincirini bir web sayfasında kullanır. Geçme kuralı, bu derslerdeki diğer not örnekleriyle aynıdır: ağırlıklı ortalama en az 60 ve final notu en az 50 olmalıdır.
 
 ```html
 <!DOCTYPE html>
@@ -300,7 +300,7 @@ Aşağıdaki örnek, `if / else if` zincirini bir web sayfasında kullanır. Ge�
             else                     harfNotu = "FF";
 
             // Geçti mi kaldı mı?
-            let gectiMi = ortalama >= 50 && final >= 50;
+            let gectiMi = ortalama >= 60 && final >= 50;
 
             // Sonucu göster
             sonucDiv.className = "sonuc " + (gectiMi ? "gecti" : "kaldi");

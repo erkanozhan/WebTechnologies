@@ -345,8 +345,8 @@ Aşağıda, bir öğrencinin vize ve final notlarını alarak ağırlıklı orta
       // Ortalama ve başarı durumu hesapla
       let ortalama = (vize * 0.4) + (final * 0.6);
       // Vize notunun %40'ı ve final notunun %60'ı alınarak ağırlıklı ortalama hesaplanır.
-      let durum = (ortalama >= 50 && final >= 50) ? "Geçtiniz" : "Kaldınız";
-      // Ortalama en az 50 ve final en az 50 ise "Geçtiniz", aksi halde "Kaldınız" sonucu atanır.
+      let durum = (ortalama >= 60 && final >= 50) ? "Geçtiniz" : "Kaldınız";
+      // Ortalama en az 60 ve final en az 50 ise "Geçtiniz", aksi halde "Kaldınız" sonucu atanır.
 
       // Sonucu ekrana yazdır
       sonucText.textContent = `Ortalama: ${ortalama.toFixed(2)} / ${durum}`;
@@ -365,7 +365,7 @@ Bu örnek uygulama, kullanıcıdan alınan vize ve final notlarını kullanarak 
 1. **Veri Girişi ve Dönüştürme:** Kullanıcıdan alınan vize ve final notları, `parseFloat()` fonksiyonu ile ondalıklı sayıya dönüştürülür. HTML’deki `input` öğelerinden alınan değerler varsayılan olarak metin (string) tipindedir.
 2. **Geçerlilik Kontrolü:** `isNaN()` fonksiyonu ile girilen değerlerin sayı olup olmadığı, ayrıca 0 ile 100 arasında olup olmadığı kontrol edilir. Geçersiz girişlerde kullanıcıya uyarı mesajı gösterilir ve fonksiyon sonlandırılır.
 3. **Ortalama Hesaplama:** Vize notunun %40’ı ve final notunun %60’ı alınarak ağırlıklı ortalama hesaplanır.
-4. **Başarı Durumu:** Ortalama en az 50 ve final notu en az 50 ise (bu derslerdeki tüm not örneklerinde aynı geçme kuralı kullanılmıştır; gerçek kural üniversitenin yönetmeliğine göre değişir) öğrenci “Geçtiniz”, aksi halde “Kaldınız” olarak değerlendirilir. Bu işlem, kısa koşul ifadesi (ternary operator) ile gerçekleştirilir.
+4. **Başarı Durumu:** Ağırlıklı ortalama en az 60 ve final notu en az 50 ise (bu derslerdeki tüm not örneklerinde aynı geçme kuralı kullanılmıştır) öğrenci “Geçtiniz”, aksi halde “Kaldınız” olarak değerlendirilir. Bu işlem, kısa koşul ifadesi (ternary operator) ile gerçekleştirilir.
 5. **Sonucun Gösterilmesi:** Sonuç, iki ondalık basamak hassasiyetinde kullanıcıya sunulur.
 
 ---
@@ -412,7 +412,7 @@ Burada, `vize` ya 0’dan küçük ya da 100’den büyükse koşul sağlanır.
 - Örnek:
 
 ```javascript
-if (ortalama >= 50 && final >= 50)
+if (ortalama >= 60 && final >= 50)
 ```
 Hem ortalama 50 veya üzeri **ve** final 50 veya üzeri ise öğrenci geçer.
 
@@ -443,7 +443,7 @@ let ortalama = (vize * 0.4) + (final * 0.6);
 ## Durum Değerlendirmesi
 
 ```javascript
-let durum = (ortalama >= 50 && final >= 50) ? "Geçtiniz" : "Kaldınız";
+let durum = (ortalama >= 60 && final >= 50) ? "Geçtiniz" : "Kaldınız";
 ```
 
 - Koşul doğruysa `"Geçtiniz"`
