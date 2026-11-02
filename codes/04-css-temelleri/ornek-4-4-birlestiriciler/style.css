@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  padding: 8px 24px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #24292f;
+}
+
+h1 {
+  font-size: 1.4rem;
+}
+
+.bilgi {
+  color: #57606a;
+}
+
+.panolar {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.pano {
+  padding: 4px 16px 8px;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+}
+
+.pano h2 {
+  font-size: 1rem;
+  color: #1f6feb;
+}
+
+.pano h3,
+.pano h4,
+.pano p {
+  margin: 6px 0;
+}
+
+/* Seçilen öğelerin ortak görünümü */
+.torun li em,
+.cocuk p > em,
+.bitisik h3 + p,
+.genel h3 ~ h4 {
+  background-color: #fff8c5;
+  outline: 2px solid #bf8700;
+}

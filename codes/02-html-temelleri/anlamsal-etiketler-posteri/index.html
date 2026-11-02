@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TNKÜ Çorlu Mühendislik Fakültesi Bilgisayar Mühendisliği — BMB112 HTML5 anlamsal yapı ders posteri">
+  <meta name="author" content="Dr. Öğr. Üyesi Erkan Özhan">
+  <title>BMB112 — HTML5 Anlamsal Yapı Posteri</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sayfa">
+
+    <!-- Kurum bandı: anlamsal bir bölge değil, yalnızca görsel bir şerit -->
+    <div class="ust-bant">
+      <p>
+        <span class="kurum">Tekirdağ Namık Kemal Üniversitesi · Çorlu Mühendislik Fakültesi</span>
+        <span class="bolum">Bilgisayar Mühendisliği Bölümü</span>
+      </p>
+      <span class="ders-rozeti">BMB112 — Web Teknolojileri</span>
+    </div>
+
+    <header class="p-header">
+      <span class="etiket">&lt;header&gt;</span>
+      <h1>HTML5 Anlamsal Yapı Rehberi</h1>
+      <p class="alt">Dr. Öğr. Üyesi Erkan Özhan · Bahar Dönemi</p>
+    </header>
+
+    <nav class="p-nav" aria-label="Ana menü">
+      <span class="etiket">&lt;nav&gt;</span>
+      <ul>
+        <li><a href="#">Ana Sayfa</a></li>
+        <li><a href="#">Ders Notları</a></li>
+        <li><a href="#">Ödevler</a></li>
+        <li><a href="#">Kaynaklar</a></li>
+        <li><a href="#">İletişim</a></li>
+      </ul>
+    </nav>
+
+    <div class="govde">
+      <main class="p-main">
+        <span class="etiket">&lt;main&gt;</span>
+
+        <section class="p-section">
+          <span class="etiket">&lt;section&gt;</span>
+          <h2>Anlamsal etiketler neden önemlidir?</h2>
+          <p>Anlam taşıyan (semantic) etiketler belgenin yapısını hem tarayıcıya hem de
+          geliştiriciye açıkça iletir. Erişilebilirlik (accessibility) bu yapıdan doğrudan,
+          arama motoru optimizasyonu (SEO) ise dolaylı olarak yararlanır.</p>
+
+          <article class="p-article">
+            <span class="etiket">&lt;article&gt;</span>
+            <h3>DOM ağacı ve anlamsal hiyerarşi</h3>
+            <p>DOM (Document Object Model — Belge Nesne Modeli) sayfayı bir ağaç veri
+            yapısı olarak tutar. Anlamsal etiketler bu ağaca bir anlam katmanı ekler;
+            düğümler (node) yalnızca içerik değil, bağlam da taşır.</p>
+          </article>
+
+          <article class="p-article">
+            <span class="etiket">&lt;article&gt;</span>
+            <h3>Erişilebilirlik ve yer imleri</h3>
+            <p>Ekran okuyucular (screen reader) <code>header</code>, <code>nav</code>,
+            <code>main</code> ve <code>footer</code> öğelerini sayfa bölgeleri (landmark)
+            olarak tanır; kullanıcı bu bölgeler arasında tek tuşla geçebilir.</p>
+          </article>
+        </section>
+
+        <section class="p-section">
+          <span class="etiket">&lt;section&gt;</span>
+          <h2>Etiket–işlev eşleşmesi</h2>
+          <p>Her anlamsal etiketin belirli bir sorumluluğu vardır. <code>&lt;header&gt;</code>
+          giriş bilgisini, <code>&lt;main&gt;</code> birincil içeriği, <code>&lt;footer&gt;</code>
+          ise kapanış bilgisini tanımlar. <code>&lt;div&gt;</code> anlam taşımaz; yalnızca
+          düzen (layout) amacıyla kullanılır.</p>
+
+          <article class="p-article">
+            <span class="etiket">&lt;article&gt;</span>
+            <h3>Algoritma karmaşıklığı ile bir benzetme</h3>
+            <p>Anlamsız <code>&lt;div&gt;</code> katmanları eklemek, gereksiz iç içe döngü
+            yazmak gibidir: çalışır görünür, ancak bakımı (maintenance) zorlaştırır ve
+            okunabilirliği (readability) düşürür.</p>
+          </article>
+        </section>
+      </main>
+
+      <aside class="p-aside">
+        <span class="etiket">&lt;aside&gt;</span>
+        <h2>ANLAMSAL ETİKETLER</h2>
+        <ul>
+          <li>header</li>
+          <li>nav</li>
+          <li>main</li>
+          <li>section</li>
+          <li>article</li>
+          <li>aside</li>
+          <li>footer</li>
+          <li>figure / figcaption</li>
+          <li>time</li>
+          <li>mark</li>
+          <li>details / summary</li>
+        </ul>
+
+        <div class="not-kutusu">
+          <h3>NOT — SEO ETKİSİ</h3>
+          <p>Google, anlamsal etiketlerin kendi başına doğrudan bir sıralama etkeni
+          olmadığını belirtir. Katkıları dolaylıdır: ana içeriğin gezinme ve yan
+          içerikten ayırt edilmesini kolaylaştırır, erişilebilirliği artırır.</p>
+        </div>
+
+        <div class="karsilastirma">
+          <h3>KARŞILAŞTIRMA</h3>
+          <dl>
+            <dt>&lt;div&gt;</dt><dd>Anlamsız, genel kap</dd>
+            <dt>&lt;section&gt;</dt><dd>Tematik grup</dd>
+            <dt>&lt;article&gt;</dt><dd>Bağımsız içerik</dd>
+            <dt>&lt;aside&gt;</dt><dd>Yardımcı bilgi</dd>
+          </dl>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="p-footer">
+      <div class="sutun">
+        <span class="etiket">&lt;footer&gt;</span>
+        <h2>Bölüm</h2>
+        <p>Bilgisayar Mühendisliği</p>
+        <p>Çorlu Mühendislik Fakültesi</p>
+        <p>TNKÜ — Tekirdağ</p>
+      </div>
+      <div class="sutun">
+        <h2>Ders</h2>
+        <a href="#">BMB112 Web Teknolojileri</a>
+        <a href="#">Ders Planı</a>
+        <a href="#">Ödev Takvimi</a>
+      </div>
+      <div class="sutun">
+        <h2>Standartlar</h2>
+        <p>HTML Living Standard (WHATWG)</p>
+        <p>WCAG 2.2 (W3C)</p>
+        <p>WAI-ARIA 1.2 (W3C)</p>
+      </div>
+      <div class="sutun">
+        <h2>İletişim</h2>
+        <a href="mailto:eozhan@nku.edu.tr">eozhan@nku.edu.tr</a>
+      </div>
+      <p class="alt-satir">&lt;/footer&gt; — BMB112 · Bahar Dönemi · Dr. Öğr. Üyesi Erkan Özhan</p>
+    </footer>
+
+    <ul class="lejant" aria-label="Renk açıklaması">
+      <li class="l-mavi">&lt;header&gt; / &lt;main&gt;</li>
+      <li class="l-lavanta">&lt;nav&gt; / &lt;aside&gt;</li>
+      <li class="l-nane">&lt;section&gt; / &lt;article&gt;</li>
+      <li class="l-sari">&lt;footer&gt;</li>
+    </ul>
+
+  </div>
+</body>
+</html>

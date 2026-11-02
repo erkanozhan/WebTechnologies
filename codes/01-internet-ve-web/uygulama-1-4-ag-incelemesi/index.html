@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ağ İncelemesi: İstekler ve Durum Kodları</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <img src="logo.svg" alt="Ağ incelemesi logosu" width="64" height="64">
+    <h1>İstekler ve Durum Kodları</h1>
+  </header>
+
+  <main>
+    <p id="uyari" class="uyari" hidden></p>
+
+    <p>Bu sayfa açılırken tarayıcı birden çok istek gönderir: HTML belgesi, <code>style.css</code>, <code>script.js</code> ve <code>logo.svg</code>. Aşağıdaki düğmeler iki ek istek daha gönderir: biri var olan bir dosyaya, diğeri var olmayan bir dosyaya.</p>
+
+    <div class="dugmeler">
+      <button type="button" data-adres="ek-bilgi.html">Var olan dosyayı iste</button>
+      <button type="button" data-adres="olmayan-sayfa.html">Var olmayan dosyayı iste</button>
+    </div>
+
+    <table>
+      <caption>Gönderilen ek istekler</caption>
+      <thead>
+        <tr>
+          <th scope="col">İstenen adres</th>
+          <th scope="col">Durum kodu</th>
+          <th scope="col">Anlamı</th>
+        </tr>
+      </thead>
+      <tbody id="kayitlar"></tbody>
+    </table>
+
+    <p class="ipucu">F12 ile Geliştirici Araçları'nı açıp <strong>Network</strong> sekmesinde aynı istekleri ve durum kodlarını inceleyiniz.</p>
+  </main>
+</body>
+</html>

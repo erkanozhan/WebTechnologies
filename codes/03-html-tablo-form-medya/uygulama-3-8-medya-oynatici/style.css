@@ -1,0 +1,44 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 1rem;
+  color: #24292f;
+  background: #ffffff;
+}
+
+main {
+  max-width: 42rem;
+}
+
+h1 {
+  font-size: 1.35rem;
+  margin-top: 0;
+}
+
+.not {
+  color: #57606a;
+  font-style: italic;
+}
+
+figure {
+  margin: 0 0 1.5rem;
+}
+
+/* Video, kapsayıcısından geniş olmaz; en-boy oranı korunur */
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  background: #24292f;
+}
+
+audio {
+  width: 100%;
+  max-width: 28rem;
+}
+
+figcaption {
+  color: #57606a;
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+}

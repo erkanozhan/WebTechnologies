@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f6f8fa;
+  color: #24292f;
+  line-height: 1.5;
+}
+
+main {
+  max-width: 360px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 12px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+.dugmeler {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+button {
+  font: inherit;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background: #1f6feb;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+button.ikincil {
+  background: #57606a;
+}
+
+button:focus-visible {
+  outline: 3px solid #bf8700;
+  outline-offset: 2px;
+}
+
+
+.sayac-karti {
+  text-align: center;
+}
+
+.deger {
+  font-size: 4.5rem;
+  font-weight: 700;
+  margin: 0.5rem 0;
+  color: #1f6feb;
+  font-variant-numeric: tabular-nums;
+}
+
+.deger.hedef {
+  color: #2da44e;
+}
+
+.dugmeler {
+  justify-content: center;
+}
+
+#azalt,
+#artir {
+  font-size: 1.5rem;
+  width: 3.5rem;
+}
+
+button:disabled {
+  background: #d0d7de;
+  cursor: not-allowed;
+}
+
+.ipucu {
+  color: #57606a;
+  font-size: 0.9rem;
+}

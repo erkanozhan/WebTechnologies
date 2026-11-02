@@ -1,0 +1,97 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 1rem;
+  color: #24292f;
+  background: #ffffff;
+}
+
+h1 {
+  font-size: 1.3rem;
+  margin-top: 0;
+}
+
+.kural {
+  color: #57606a;
+  max-width: 48rem;
+}
+
+/* Duyarlı sarmalayıcı: dar ekranda yatay, uzun tabloda dikey kaydırma */
+.tablo-kutusu {
+  max-width: 100%;
+  max-height: 22rem;
+  overflow: auto;
+  border: 1px solid #8c959f;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 40rem;
+}
+
+caption {
+  text-align: left;
+  font-style: italic;
+  color: #57606a;
+  padding: 0.5rem;
+}
+
+th,
+td {
+  padding: 0.45rem 0.75rem;
+  border-bottom: 1px solid #d0d7de;
+  text-align: left;
+}
+
+/* Sayısal sütunlar (Vize, Final, Ortalama) ve başlıkları sağa yaslanır */
+th:nth-child(4),
+th:nth-child(5),
+th:nth-child(6),
+td:nth-child(4),
+td:nth-child(5),
+td:nth-child(6) {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Yapışkan başlık: kaydırma sırasında üstte kalır */
+thead th {
+  position: sticky;
+  top: 0;
+  background: #1f6feb;
+  color: #ffffff;
+}
+
+/* Zebra satırlar */
+tbody tr:nth-child(even) {
+  background: #f6f8fa;
+}
+
+tbody tr:hover {
+  background: #ddf4ff;
+}
+
+tbody th {
+  font-weight: normal;
+}
+
+.gecti {
+  color: #1a7f37;
+  font-weight: 600;
+}
+
+.kaldi {
+  color: #cf222e;
+  font-weight: 600;
+}
+
+tfoot th,
+tfoot td {
+  font-weight: bold;
+  background: #eaeef2;
+}
+
+tfoot th {
+  text-align: right;
+}

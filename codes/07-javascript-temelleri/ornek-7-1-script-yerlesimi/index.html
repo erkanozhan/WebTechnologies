@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Örnek 7.1 – Betiklerin Yerleşimi ve Çalışma Sırası</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // 1) <head> içindeki satır içi betik: HTML'in geri kalanı henüz ayrıştırılmadı
+    const sira = [];
+    function kaydet(mesaj) {
+      sira.push(mesaj);
+      console.log(`${sira.length}. ${mesaj}`);
+    }
+    kaydet(`<head> içindeki satır içi betik — #liste bulundu mu? ${document.querySelector("#liste") !== null}`);
+
+    // Sayfa tamamen yüklendiğinde sırayı listeye yazar (olaylar Bölüm 8'de)
+    window.addEventListener("load", () => {
+      const liste = document.querySelector("#liste");
+      for (const mesaj of sira) {
+        const li = document.createElement("li");
+        li.textContent = mesaj;
+        liste.append(li);
+      }
+    });
+  </script>
+  <script src="ertelenen.js" defer></script>
+  <script src="zaman-uyumsuz.js" async></script>
+</head>
+<body>
+  <main>
+    <h1>Betikler Hangi Sırayla Çalıştı?</h1>
+    <p class="aciklama">Aynı sıra Console'da da görülür. <code>async</code> betiğin yeri, dosyanın ne zaman indiğine göre değişebilir.</p>
+    <ol id="liste"></ol>
+  </main>
+  <script>
+    // 2) </body> öncesindeki satır içi betik: üstteki öğeler artık hazır
+    kaydet(`</body> öncesindeki satır içi betik — #liste bulundu mu? ${document.querySelector("#liste") !== null}`);
+  </script>
+</body>
+</html>

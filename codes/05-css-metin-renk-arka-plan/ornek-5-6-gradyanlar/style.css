@@ -1,0 +1,70 @@
+body {
+  margin: 24px;
+  font-family: system-ui, "Segoe UI", Arial, sans-serif;
+  color: #1f2328;
+  background-color: #ffffff;
+}
+
+h1,
+h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+}
+
+h2 {
+  margin-top: 20px;
+}
+
+.izgara {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  margin-top: 6px;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.75rem;
+}
+
+.kutu {
+  height: 110px;
+  border-radius: 8px;
+  border: 1px solid #d0d7de;
+}
+
+.g1 { background-image: linear-gradient(to bottom, #ffff00, #00ff00); }
+.g2 { background-image: linear-gradient(135deg, #1f6feb, #8250df); }
+.g3 { background-image: linear-gradient(to right, #cf222e 0 33%, #ffffff 33% 66%, #2da44e 66%); }
+.g4 { background-image: radial-gradient(circle at 30% 30%, #ffffff, #1f6feb); }
+
+.g5 {
+  width: 110px;
+  border-radius: 50%;
+  background-image: conic-gradient(#cf222e 0 25%, #bf8700 0 50%, #2da44e 0 75%, #1f6feb 0);
+}
+
+.g6 {
+  background-image: repeating-linear-gradient(45deg, #fff8c5 0 12px, #bf8700 12px 24px);
+}
+
+.katmanli {
+  padding: 32px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 700;
+  /* 1. katman (üstte): koyulaştırıcı gradyan; 2. katman: nokta deseni; en altta renk */
+  background:
+    linear-gradient(to right, rgb(0 0 0 / 0.6), rgb(0 0 0 / 0)),
+    radial-gradient(circle, #ffffff 2px, transparent 3px) 0 0 / 20px 20px,
+    #1f6feb;
+}
+
+.katmanli p {
+  margin: 0;
+}

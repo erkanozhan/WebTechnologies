@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Örnek 3.2 - Tablolarda Boşluk Ayarları</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Tablolarda boşluk ayarları (CSS ile)</h1>
+  <div class="galeri">
+    <section>
+      <h2>a) Varsayılan</h2>
+      <p><code>border-collapse: separate</code></p>
+      <table class="varsayilan">
+        <tr><td>Hücre 1</td><td>Hücre 2</td></tr>
+        <tr><td>Hücre 3</td><td>Hücre 4</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>b) İç dolgu</h2>
+      <p><code>td { padding: 1rem; }</code></p>
+      <table class="dolgu">
+        <tr><td>Hücre 1</td><td>Hücre 2</td></tr>
+        <tr><td>Hücre 3</td><td>Hücre 4</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>c) Hücre aralığı</h2>
+      <p><code>border-spacing: 12px</code></p>
+      <table class="aralik">
+        <tr><td>Hücre 1</td><td>Hücre 2</td></tr>
+        <tr><td>Hücre 3</td><td>Hücre 4</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>d) Birleşik kenarlık</h2>
+      <p><code>border-collapse: collapse</code></p>
+      <table class="birlesik">
+        <tr><td>Hücre 1</td><td>Hücre 2</td></tr>
+        <tr><td>Hücre 3</td><td>Hücre 4</td></tr>
+      </table>
+    </section>
+  </div>
+</body>
+</html>

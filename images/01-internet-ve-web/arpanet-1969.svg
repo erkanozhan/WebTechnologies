@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 380" role="img" aria-labelledby="t d">
+  <title id="t">Aralık 1969'da ARPANET'in ilk dört düğümü</title>
+  <desc id="d">UCLA, SRI, UCSB ve Utah Üniversitesi düğümleri. Her kurumdaki ana bilgisayar (host) bir IMP'ye bağlıdır; IMP'ler kiralık telefon hatlarıyla birbirine bağlanır. UCLA–SRI, UCLA–UCSB, SRI–UCSB ve SRI–Utah hatları vardır.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="360" y="32" font-size="18" font-weight="bold" fill="#24292f" text-anchor="middle">ARPANET, Aralık 1969: dört düğüm</text>
+    <!-- Hatlar -->
+    <g stroke="#bf8700" stroke-width="4">
+      <line x1="220" y1="130" x2="500" y2="130"/>
+      <line x1="170" y1="155" x2="170" y2="255"/>
+      <line x1="205" y1="155" x2="320" y2="255"/>
+      <line x1="220" y1="280" x2="295" y2="280"/>
+    </g>
+    <!-- IMP kutuları -->
+    <g font-size="14" text-anchor="middle">
+      <!-- SRI -->
+      <rect x="120" y="105" width="100" height="50" rx="6" fill="#57606a"/>
+      <text x="170" y="128" fill="#ffffff" font-weight="bold">IMP</text>
+      <text x="170" y="146" fill="#ffffff">SRI</text>
+      <rect x="20" y="60" width="150" height="36" rx="6" fill="#1f6feb"/>
+      <text x="95" y="83" fill="#ffffff">SRI ana bilgisayar</text>
+      <line x1="110" y1="96" x2="140" y2="106" stroke="#1f6feb" stroke-width="2"/>
+      <!-- Utah -->
+      <rect x="500" y="105" width="100" height="50" rx="6" fill="#57606a"/>
+      <text x="550" y="128" fill="#ffffff" font-weight="bold">IMP</text>
+      <text x="550" y="146" fill="#ffffff">Utah</text>
+      <rect x="550" y="60" width="150" height="36" rx="6" fill="#1f6feb"/>
+      <text x="625" y="83" fill="#ffffff">Utah ana bilgisayar</text>
+      <line x1="600" y1="96" x2="575" y2="106" stroke="#1f6feb" stroke-width="2"/>
+      <!-- UCSB -->
+      <rect x="120" y="255" width="100" height="50" rx="6" fill="#57606a"/>
+      <text x="170" y="278" fill="#ffffff" font-weight="bold">IMP</text>
+      <text x="170" y="296" fill="#ffffff">UCSB</text>
+      <rect x="20" y="320" width="150" height="36" rx="6" fill="#1f6feb"/>
+      <text x="95" y="343" fill="#ffffff">UCSB ana bilgisayar</text>
+      <line x1="110" y1="320" x2="140" y2="305" stroke="#1f6feb" stroke-width="2"/>
+      <!-- UCLA -->
+      <rect x="295" y="255" width="100" height="50" rx="6" fill="#57606a"/>
+      <text x="345" y="278" fill="#ffffff" font-weight="bold">IMP</text>
+      <text x="345" y="296" fill="#ffffff">UCLA</text>
+      <rect x="270" y="320" width="150" height="36" rx="6" fill="#1f6feb"/>
+      <text x="345" y="343" fill="#ffffff">UCLA ana bilgisayar</text>
+    </g>
+    <!-- Açıklama -->
+    <g font-size="14" fill="#24292f">
+      <rect x="450" y="230" width="18" height="18" rx="3" fill="#57606a"/>
+      <text x="476" y="244">IMP: bugünkü yönlendiricinin atası</text>
+      <rect x="450" y="262" width="18" height="18" rx="3" fill="#1f6feb"/>
+      <text x="476" y="276">Ana bilgisayar (host)</text>
+      <line x1="450" y1="304" x2="468" y2="304" stroke="#bf8700" stroke-width="4"/>
+      <text x="476" y="309">Kiralık hat (50 kbit/s)</text>
+    </g>
+  </g>
+</svg>

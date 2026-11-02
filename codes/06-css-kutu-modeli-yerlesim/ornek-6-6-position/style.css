@@ -1,0 +1,109 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  color: #24292f;
+}
+
+.yapiskan {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding: 10px 16px;
+  background-color: #24292f;
+  color: #ffffff;
+}
+
+.paneller {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+}
+
+.panel {
+  width: 220px;
+  height: 260px;
+  padding: 8px;
+  border: 2px dashed #57606a;
+}
+
+.panel h2 {
+  font-family: Consolas, monospace;
+  font-size: 1rem;
+  margin: 0 0 8px;
+}
+
+.kutu {
+  width: 150px;
+  height: 52px;
+  margin-bottom: 6px;
+  padding: 4px;
+  background-color: #ddf4ff;
+  border: 2px solid #1f6feb;
+  box-sizing: border-box;
+  font-weight: bold;
+}
+
+.kutu small {
+  font-weight: normal;
+  font-size: 0.7rem;
+}
+
+.static {
+  position: static;
+  top: 20px;
+  left: 30px;
+}
+
+.relative {
+  position: relative;
+  top: 20px;
+  left: 30px;
+  margin-top: -58px; /* hayalet kutunun üzerine bindirmek için */
+  background-color: #fff8c5;
+  border-color: #bf8700;
+}
+
+/* relative öğenin boşaltılan yerini göstermek için */
+.hayalet {
+  width: 150px;
+  height: 52px;
+  margin-bottom: 6px;
+  border: 2px dotted #bf8700;
+  box-sizing: border-box;
+  color: #bf8700;
+  font-size: 0.75rem;
+  padding: 4px;
+}
+
+.kapsayici {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #ffebe9;
+  border-color: #cf222e;
+}
+
+.not {
+  font-size: 0.8rem;
+  color: #57606a;
+}
+
+.uzun {
+  padding: 0 16px;
+  min-height: 900px;
+}
+
+.sabit {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background-color: #2da44e;
+  color: #ffffff;
+  text-decoration: none;
+}

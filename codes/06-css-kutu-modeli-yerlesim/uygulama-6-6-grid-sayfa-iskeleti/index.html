@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uygulama 6.6 – Grid ile Sayfa İskeleti</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="sayfa">
+    <header>
+      <h1>Hava Durumu Portalı</h1>
+    </header>
+
+    <nav aria-label="Ana menü">
+      <ul>
+        <li><a href="#">Bugün</a></li>
+        <li><a href="#">Saatlik</a></li>
+        <li><a href="#">15 günlük</a></li>
+        <li><a href="#">Radar</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <h2>Tekirdağ / Çorlu</h2>
+      <p>Bugün parçalı bulutlu, en yüksek 18 °C, en düşük 9 °C. Öğleden sonra kuzeydoğudan 20 km/sa hızla rüzgâr bekleniyor.</p>
+      <p>Bu alan <code>grid-area: main</code> ile ızgaranın orta hücresine yerleşmiştir.</p>
+    </main>
+
+    <aside>
+      <h2>Uyarılar</h2>
+      <p>Gece saatlerinde sis bekleniyor.</p>
+    </aside>
+
+    <footer>
+      <p>© 2026 Hava Durumu Portalı — örnek sayfa</p>
+    </footer>
+  </div>
+</body>
+</html>

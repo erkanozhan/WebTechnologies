@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Not Hesaplayıcı</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Not Hesaplayıcı</h1>
+    <p class="kural">Ortalama = vize × 0,4 + final × 0,6. Geçmek için ortalama en az 60 olmalıdır.</p>
+
+    <form id="notFormu" novalidate>
+      <div class="alan">
+        <label for="vize">Vize notu (%40)</label>
+        <input type="number" id="vize" name="vize" min="0" max="100" step="0.01" required inputmode="decimal" aria-describedby="vize-hata" value="90">
+        <p id="vize-hata" class="alan-hata" aria-live="polite"></p>
+      </div>
+
+      <div class="alan">
+        <label for="final">Final notu (%60)</label>
+        <input type="number" id="final" name="final" min="0" max="100" step="0.01" required inputmode="decimal" aria-describedby="final-hata" value="45">
+        <p id="final-hata" class="alan-hata" aria-live="polite"></p>
+      </div>
+
+      <div class="alan secenek">
+        <label><input type="checkbox" id="harfGoster" name="harfGoster" checked> Harf notunu da göster</label>
+      </div>
+
+      <button type="submit">Hesapla</button>
+    </form>
+
+    <section class="sonuc" id="sonucKutusu" hidden aria-live="polite">
+      <p>Ağırlıklı ortalama: <output id="ortalama" for="vize final"></output></p>
+      <p id="harfSatiri">Harf notu: <output id="harf" for="vize final"></output></p>
+      <p class="durum">Durum: <output id="durum" for="vize final"></output></p>
+      <p id="aciklama" class="aciklama"></p>
+    </section>
+
+    <p class="not">Bu hesaplama yalnızca bilgilendirme amaçlıdır; resmî not sunucu tarafında, üniversitenin bilgi sisteminde hesaplanır.</p>
+  </main>
+</body>
+</html>

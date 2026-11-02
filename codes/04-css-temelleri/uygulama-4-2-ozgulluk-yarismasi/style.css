@@ -1,0 +1,70 @@
+/* ---------- Sayfa düzeni ---------- */
+body {
+  margin: 0;
+  padding: 8px 24px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f6f8fa;
+}
+
+h1 {
+  font-size: 1.4rem;
+}
+
+.sorular {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.soru {
+  padding: 0 12px 4px;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.soru h2 {
+  margin: 8px 0 4px;
+  font-size: 1rem;
+}
+
+pre {
+  margin: 0;
+  padding: 6px;
+  background-color: #eaeef2;
+  font-size: 0.8rem;
+}
+
+.soru p {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* ---------- YARIŞMA KURALLARI ---------- */
+
+/* Soru 1 — Cevap: mavi. .s1 (0,1,0) iki p (0,0,1) kuralından da özgüldür. */
+p   { color: red; }
+.s1 { color: blue; }
+p   { color: green; }
+
+/* Soru 2 — Cevap: mor. Özgüllükler eşit (0,1,0); sonra yazılan kazanır. */
+.vurgu { color: green; }
+.s2    { color: purple; }
+
+/* Soru 3 — Cevap: turuncu. #s3 (1,0,0) > main p.s3 (0,1,2). */
+#s3       { color: orange; }
+main p.s3 { color: blue; }
+
+/* Soru 4 — Cevap: kırmızı. .kutu p ve p.s4 eşit (0,1,1), p.s4 sonra yazıldı;
+   section p (0,0,2) daha zayıftır. */
+.kutu p   { color: green; }
+p.s4      { color: red; }
+section p { color: blue; }
+
+/* Soru 5 — Cevap: yeşil. Yazarın !important bildirimi satır içi normal stili yener. */
+.s5 { color: green !important; }
+
+/* Soru 6 — Cevap: gri. span'ı doğrudan hedefleyen * kuralı, p'den kalıtılan
+   kırmızıdan üstündür: kalıtılan değer yalnızca hiçbir kural yoksa kullanılır. */
+.s6 { color: red; }
+*   { color: gray; }

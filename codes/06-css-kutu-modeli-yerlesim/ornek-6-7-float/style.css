@@ -1,0 +1,27 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 16px;
+  color: #24292f;
+  line-height: 1.5;
+}
+
+article {
+  max-width: 620px;
+}
+
+h1 {
+  font-size: 1.3rem;
+}
+
+.sola {
+  float: left;
+  margin: 0 14px 8px 0;
+  border: 1px solid #57606a;
+}
+
+.temiz {
+  clear: both;
+  font-size: 1.05rem;
+  padding-top: 8px;
+  border-top: 2px solid #1f6feb;
+}

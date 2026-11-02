@@ -1,0 +1,51 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 16px;
+  color: #24292f;
+}
+
+h2 {
+  font-size: 0.95rem;
+  font-family: Consolas, monospace;
+  margin: 14px 0 4px;
+}
+
+.kap {
+  border: 1px dashed #57606a;
+  padding: 8px;
+  width: 560px;
+}
+
+.blok,
+.satir,
+.satir-blok {
+  background-color: #ddf4ff;
+  border: 2px solid #1f6feb;
+  padding: 4px;
+}
+
+.blok {
+  display: block;
+  margin: 4px 0;
+}
+
+.satir {
+  display: inline;
+  width: 300px; /* inline öğede etkisizdir */
+}
+
+.satir-blok {
+  display: inline-block;
+  width: 120px;
+  height: 50px;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.gizli-yer {
+  visibility: hidden;
+}
+
+.yok {
+  display: none;
+}

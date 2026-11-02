@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uygulama 3.4 - GET ile Sorgu Dizgesi</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Kütüphane Katalog Araması</h1>
+
+    <!-- action="" : form aynı sayfaya gönderilir; method="get" : veriler URL'ye eklenir -->
+    <form action="" method="get">
+      <p>
+        <label for="q">Aranacak ifade</label>
+        <input type="search" id="q" name="q" required>
+      </p>
+      <p>
+        <label for="alan">Arama alanı</label>
+        <select id="alan" name="alan">
+          <option value="baslik">Başlık</option>
+          <option value="yazar">Yazar</option>
+          <option value="konu">Konu</option>
+        </select>
+      </p>
+      <p>
+        <label for="yil">En eski basım yılı</label>
+        <input type="number" id="yil" name="yil" min="1950" max="2026">
+      </p>
+      <p>
+        <label for="eposta">Sonuçları e-postayla al (isteğe bağlı)</label>
+        <input type="email" id="eposta" name="eposta">
+      </p>
+      <p>
+        <button type="submit">Ara</button>
+      </p>
+    </form>
+
+    <section class="sonuc" aria-live="polite">
+      <h2>Adres çubuğundaki sorgu dizgesi</h2>
+      <p><code id="ham">(Henüz form gönderilmedi.)</code></p>
+      <table id="cozum" hidden>
+        <caption>Sunucunun göreceği ad = değer çiftleri (çözülmüş hâli)</caption>
+        <thead>
+          <tr>
+            <th scope="col">name (ad)</th>
+            <th scope="col">value (değer)</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>

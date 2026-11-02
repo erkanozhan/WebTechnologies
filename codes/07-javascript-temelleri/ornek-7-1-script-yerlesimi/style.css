@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f6f8fa;
+  color: #24292f;
+  line-height: 1.5;
+}
+
+main {
+  max-width: 720px;
+  margin: 1.5rem auto;
+  padding: 1.25rem 1.5rem;
+  background: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 12px;
+}
+
+h1 {
+  font-size: 1.4rem;
+  margin-top: 0;
+}
+
+.aciklama {
+  color: #57606a;
+}
+
+.konsol {
+  margin: 0;
+  padding: 1rem;
+  min-height: 3rem;
+  background: #0d1117;
+  color: #e6edf3;
+  border-radius: 8px;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.95rem;
+  white-space: pre-wrap;
+}
+
+.konsol-baslik {
+  margin: 1rem 0 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #57606a;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+
+th,
+td {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #d0d7de;
+  text-align: left;
+}
+
+th {
+  background: #f6f8fa;
+}
+
+code {
+  font-family: Consolas, "Courier New", monospace;
+}

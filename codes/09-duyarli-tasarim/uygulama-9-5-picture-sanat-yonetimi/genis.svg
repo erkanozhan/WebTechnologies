@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500">
+  <rect width="1200" height="500" fill="#ddf4ff"/>
+  <rect y="380" width="1200" height="120" fill="#2da44e"/>
+  <polygon points="0,380 200,200 380,380" fill="#8c959f"/>
+  <polygon points="820,380 1020,180 1200,380" fill="#8c959f"/>
+  <rect x="480" y="220" width="240" height="160" fill="#cf222e"/>
+  <polygon points="460,220 600,120 740,220" fill="#82071e"/>
+  <rect x="570" y="300" width="60" height="80" fill="#ffffff"/>
+  <circle cx="1080" cy="80" r="40" fill="#f2cc60"/>
+  <text x="40" y="60" font-family="Segoe UI, Arial, sans-serif" font-size="36" fill="#0a3069">genis.svg (1200×500, geniş kadraj)</text>
+</svg>

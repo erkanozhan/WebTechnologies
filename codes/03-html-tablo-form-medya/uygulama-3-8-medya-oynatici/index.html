@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uygulama 3.8 - Altyazılı Video ve Ses Oynatıcı</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Altyazılı video ve ses oynatıcı</h1>
+    <p class="not">Altyazı dosyalarının yüklenebilmesi için sayfayı Live Server ile (http://) açınız.</p>
+
+    <figure>
+      <video controls preload="metadata" playsinline
+             width="640" height="360" poster="kapak.svg">
+        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm" type="video/webm">
+        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+        <track kind="subtitles" src="altyazi-tr.vtt" srclang="tr" label="Türkçe" default>
+        <track kind="subtitles" src="altyazi-en.vtt" srclang="en" label="English">
+        <p>Tarayıcınız video öğesini desteklemiyor.
+          <a href="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4">Videoyu indiriniz (MP4)</a>.</p>
+      </video>
+      <figcaption>Video: Açan çiçek, hızlandırılmış çekim (MDN, CC0). Altyazı menüsünden Türkçe/İngilizce seçilebilir.</figcaption>
+    </figure>
+
+    <figure>
+      <audio controls preload="none">
+        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3" type="audio/mpeg">
+        <p>Tarayıcınız ses öğesini desteklemiyor.
+          <a href="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3">Ses dosyasını indiriniz (MP3)</a>.</p>
+      </audio>
+      <figcaption>Ses: T-Rex kükremesi (MDN, CC0).</figcaption>
+    </figure>
+  </main>
+</body>
+</html>

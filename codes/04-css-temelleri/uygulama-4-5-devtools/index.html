@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevTools ile Basamaklamayı İzleme</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Gömülü stil: harici dosyadan SONRA geldiği için eşit özgüllükte onu yener */
+    .kart .sicaklik {
+      color: #1f6feb;
+    }
+
+    .durum {
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Hava Durumu</h1>
+    <div class="kartlar">
+      <article class="kart" id="istanbul">
+        <h2>İstanbul</h2>
+        <p class="sicaklik" style="color: #8250df;">18°C</p>
+        <p class="durum">Parçalı bulutlu</p>
+      </article>
+      <article class="kart" id="tekirdag">
+        <h2>Tekirdağ</h2>
+        <p class="sicaklik">16°C</p>
+        <p class="durum">Hafif yağmurlu</p>
+      </article>
+    </div>
+    <p class="ipucu">F12 tuşuna basınız, bir sıcaklık değerine sağ tıklayıp <strong>İncele (Inspect)</strong> seçiniz ve <strong>Styles</strong> ile <strong>Computed</strong> panellerini karşılaştırınız.</p>
+  </main>
+</body>
+</html>

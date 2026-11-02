@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uygulama 3.5 - HTML5 Giriş Tipleri Vitrini</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>HTML5 giriş (input) tipleri vitrini</h1>
+  <p class="aciklama">Her kart, <code>&lt;input&gt;</code> öğesinin farklı bir <code>type</code> değerini gösterir. Alanlara tıklayarak tarayıcının sunduğu denetimleri inceleyiniz; sayfayı telefonda açarak klavye farklarını gözlemleyiniz.</p>
+
+  <!-- Parola alanı içerdiğinden form POST ile gönderilir (gerçek uygulamada HTTPS üzerinden). -->
+  <form action="#" method="post">
+    <div class="vitrin">
+      <div class="kart">
+        <label for="g-text">Metin (text)</label>
+        <input type="text" id="g-text" name="ad" placeholder="Ad Soyad">
+        <code>type="text"</code>
+      </div>
+      <div class="kart">
+        <label for="g-password">Parola (password)</label>
+        <input type="password" id="g-password" name="parola" value="gizli123">
+        <code>type="password"</code>
+      </div>
+      <div class="kart">
+        <label for="g-email">E-posta (email)</label>
+        <input type="email" id="g-email" name="eposta" value="ogrenci@ornek.edu.tr">
+        <code>type="email"</code>
+      </div>
+      <div class="kart">
+        <label for="g-tel">Telefon (tel)</label>
+        <input type="tel" id="g-tel" name="tel" value="05001234567">
+        <code>type="tel"</code>
+      </div>
+      <div class="kart">
+        <label for="g-url">Web adresi (url)</label>
+        <input type="url" id="g-url" name="site" value="https://www.ornek.edu.tr">
+        <code>type="url"</code>
+      </div>
+      <div class="kart">
+        <label for="g-search">Arama (search)</label>
+        <input type="search" id="g-search" name="q" value="web teknolojileri">
+        <code>type="search"</code>
+      </div>
+      <div class="kart">
+        <label for="g-number">Sayı (number)</label>
+        <input type="number" id="g-number" name="adet" min="1" max="10" value="3">
+        <code>type="number"</code>
+      </div>
+      <div class="kart">
+        <label for="g-range">Aralık (range)</label>
+        <input type="range" id="g-range" name="puan" min="0" max="10" step="1" value="7">
+        <code>type="range"</code>
+      </div>
+      <div class="kart">
+        <label for="g-date">Tarih (date)</label>
+        <input type="date" id="g-date" name="tarih" value="2026-03-16">
+        <code>type="date"</code>
+      </div>
+      <div class="kart">
+        <label for="g-time">Saat (time)</label>
+        <input type="time" id="g-time" name="saat" value="09:30">
+        <code>type="time"</code>
+      </div>
+      <div class="kart">
+        <label for="g-datetime-local">Yerel tarih-saat (datetime-local)</label>
+        <input type="datetime-local" id="g-datetime-local" name="randevu" value="2026-03-16T09:30">
+        <code>type="datetime-local"</code>
+      </div>
+      <div class="kart">
+        <label for="g-month">Ay (month)</label>
+        <input type="month" id="g-month" name="ay" value="2026-03">
+        <code>type="month"</code>
+      </div>
+      <div class="kart">
+        <label for="g-week">Hafta (week)</label>
+        <input type="week" id="g-week" name="hafta" value="2026-W12">
+        <code>type="week"</code>
+      </div>
+      <div class="kart">
+        <label for="g-color">Renk (color)</label>
+        <input type="color" id="g-color" name="renk" value="#1f6feb">
+        <code>type="color"</code>
+      </div>
+      <div class="kart">
+        <label for="g-file">Dosya (file)</label>
+        <input type="file" id="g-file" name="belge" accept=".pdf,.png,.jpg">
+        <code>type="file"</code>
+      </div>
+      <div class="kart">
+        <span class="etiket">Onay kutusu (checkbox)</span>
+        <label class="satir"><input type="checkbox" name="bulten" value="evet" checked> Bültene abone ol</label>
+        <code>type="checkbox"</code>
+      </div>
+      <div class="kart">
+        <span class="etiket">Seçenek düğmesi (radio)</span>
+        <label class="satir"><input type="radio" name="ogretim" value="1" checked> 1. öğretim</label>
+        <label class="satir"><input type="radio" name="ogretim" value="2"> 2. öğretim</label>
+        <code>type="radio"</code>
+      </div>
+      <div class="kart">
+        <span class="etiket">Gizli alan (hidden)</span>
+        <input type="hidden" name="form_kaynagi" value="vitrin">
+        <p class="kucuk">Sayfada görünmez; gönderimde <code>form_kaynagi=vitrin</code> çifti eklenir.</p>
+        <code>type="hidden"</code>
+      </div>
+      <div class="kart">
+        <span class="etiket">Düğmeler (submit, reset, button)</span>
+        <div class="dugmeler">
+          <input type="submit" value="Gönder">
+          <input type="reset" value="Sıfırla">
+          <input type="button" value="Düğme">
+        </div>
+        <code>type="submit | reset | button"</code>
+      </div>
+    </div>
+  </form>
+</body>
+</html>

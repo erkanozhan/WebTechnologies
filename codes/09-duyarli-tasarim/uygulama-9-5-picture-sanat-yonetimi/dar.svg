@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#ddf4ff"/>
+  <rect y="470" width="600" height="130" fill="#2da44e"/>
+  <rect x="120" y="230" width="360" height="240" fill="#cf222e"/>
+  <polygon points="90,230 300,80 510,230" fill="#82071e"/>
+  <rect x="255" y="350" width="90" height="120" fill="#ffffff"/>
+  <text x="300" y="50" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="32" fill="#0a3069">dar.svg (600×600, yakın kadraj)</text>
+</svg>

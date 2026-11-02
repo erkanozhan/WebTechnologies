@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uygulama 6.4 – Rozet ve Yapışkan Menü</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-basligi">
+    <p class="logo">Kampüs Kitabevi</p>
+  </header>
+
+  <nav class="menu" aria-label="Ana menü">
+    <a href="#">Ana sayfa</a>
+    <a href="#">Kitaplar</a>
+    <a href="#">Kırtasiye</a>
+    <a href="#" class="sepet" aria-label="Sepet, 3 ürün">Sepet <span class="sayac" aria-hidden="true">3</span></a>
+  </nav>
+
+  <main>
+    <article class="urun">
+      <span class="rozet">%20 indirim</span>
+      <img src="kitap.svg" alt="Mavi kapaklı Web Teknolojileri kitabı çizimi" width="140" height="180">
+      <h2>Web Teknolojileri</h2>
+      <p><del>400 TL</del> <strong>320 TL</strong></p>
+    </article>
+
+    <p class="aciklama">Sayfayı aşağı kaydırınız: menü, üst kenara ulaşınca yapışır (sticky). Rozet, ürün kartına göre konumlanır (absolute).</p>
+  </main>
+</body>
+</html>

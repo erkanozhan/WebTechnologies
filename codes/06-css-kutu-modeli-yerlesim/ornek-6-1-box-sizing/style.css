@@ -1,0 +1,38 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 20px;
+  color: #24292f;
+}
+
+h1 {
+  font-size: 1.2rem;
+}
+
+.kutu {
+  width: 300px;
+  padding: 20px;
+  border: 5px solid #1f6feb;
+  margin: 0 0 16px 0;
+  background-color: #ddf4ff;
+  font-size: 0.95rem;
+}
+
+.icerik-kutusu {
+  box-sizing: content-box;
+}
+
+.kenarlik-kutusu {
+  box-sizing: border-box;
+  border-color: #2da44e;
+  background-color: #dafbe1;
+}
+
+/* Karşılaştırma için 300 piksellik cetvel */
+.cetvel {
+  width: 300px;
+  border-top: 3px solid #cf222e;
+  padding-top: 4px;
+  color: #cf222e;
+  font-size: 0.85rem;
+  text-align: center;
+}

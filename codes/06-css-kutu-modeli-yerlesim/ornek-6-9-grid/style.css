@@ -1,0 +1,50 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 12px 16px;
+  color: #24292f;
+}
+
+h2 {
+  font-family: Consolas, monospace;
+  font-size: 0.85rem;
+  margin: 12px 0 4px;
+}
+
+.izgara {
+  display: grid;
+  gap: 8px;
+  max-width: 760px;
+  padding: 6px;
+  border: 2px dashed #57606a;
+}
+
+.izgara > div {
+  padding: 10px;
+  text-align: center;
+  background-color: #ddf4ff;
+  border: 2px solid #1f6feb;
+}
+
+.a {
+  grid-template-columns: 200px 1fr 2fr;
+}
+
+.b {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+.b .genis {
+  grid-column: span 2;
+  background-color: #fff8c5;
+  border-color: #bf8700;
+}
+
+.c {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.c > div {
+  background-color: #dafbe1;
+  border-color: #2da44e;
+}

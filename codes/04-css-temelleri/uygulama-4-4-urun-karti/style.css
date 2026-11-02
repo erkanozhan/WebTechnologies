@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #24292f;
+  background-color: #f6f8fa;
+}
+
+main {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 8px 24px 24px;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+.vitrin {
+  display: flex;
+  gap: 16px;
+}
+
+/* Blok: tüm kartlarda ortak görünüm (sınıf seçicisi) */
+.urun-kart {
+  position: relative;
+  flex: 1;
+  padding: 16px;
+  border: 1px solid #d0d7de;
+  border-radius: 12px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+/* Öğeler (BEM: blok__oge) */
+.urun-kart__gorsel {
+  display: block;
+  margin: 0 auto;
+}
+
+.urun-kart__baslik {
+  margin: 8px 0 4px;
+  font-size: 1.1rem;
+}
+
+.urun-kart__fiyat {
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #1a7f37;
+}
+
+/* Değiştirici (BEM: blok__oge--degistirici) */
+.urun-kart__fiyat--indirimli {
+  color: #cf222e;
+}
+
+.urun-kart__fiyat--indirimli del {
+  margin-right: 6px;
+  font-size: 0.9rem;
+  font-weight: normal;
+  color: #8c959f;
+}
+
+.urun-kart__dugme {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background-color: #1f6feb;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.urun-kart__dugme:hover {
+  background-color: #0a3069;
+}
+
+/* Kimlik seçicisi: sayfada tek olan "günün fırsatı" kartı */
+#gunun-firsati {
+  border: 2px solid #bf8700;
+  background-color: #fff8c5;
+}
+
+#gunun-firsati::before {
+  content: "Günün fırsatı";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 2px 10px;
+  border-radius: 10px;
+  background-color: #bf8700;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: bold;
+}

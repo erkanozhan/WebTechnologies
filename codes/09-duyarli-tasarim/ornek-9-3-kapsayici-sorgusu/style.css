@@ -1,0 +1,68 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 16px;
+  color: #24292f;
+}
+
+.duzen {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+}
+
+h2 {
+  font-size: 0.95rem;
+  color: #57606a;
+  margin-top: 0;
+}
+
+/* Bu öğeler kapsayıcı sorgusu için ölçülebilir hâle gelir */
+.kap {
+  container-type: inline-size;
+  padding: 12px;
+  border: 2px dashed #57606a;
+}
+
+/* Bileşenin varsayılanı: dar düzen (görsel üstte) */
+.haber {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #f6f8fa;
+}
+
+.haber img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.haber h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.haber p {
+  margin: 4px 0 0;
+  color: #57606a;
+}
+
+/* Kapsayıcı 400 px'ten genişse: görsel solda, metin sağda */
+@container (width > 400px) {
+  .haber {
+    grid-template-columns: 160px 1fr;
+    align-items: center;
+  }
+
+  .haber h3 {
+    font-size: 1.2rem;
+  }
+}

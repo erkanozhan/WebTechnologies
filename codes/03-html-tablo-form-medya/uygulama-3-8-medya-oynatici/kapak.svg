@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+  <rect width="640" height="360" fill="#ddf4ff"/>
+  <text x="320" y="70" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="28" fill="#24292f">Açan çiçek</text>
+  <circle cx="320" cy="165" r="56" fill="#1f6feb"/>
+  <polygon points="303,134 303,196 351,165" fill="#ffffff"/>
+  <text x="320" y="258" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#57606a">Oynatmak için tıklayınız</text>
+</svg>

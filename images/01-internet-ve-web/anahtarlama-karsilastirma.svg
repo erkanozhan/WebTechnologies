@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 460" role="img" aria-labelledby="t d">
+  <title id="t">Devre anahtarlama ile paket anahtarlamanın karşılaştırılması</title>
+  <desc id="d">Üstte devre anahtarlamada kaynak ile hedef arasında önceden ayrılmış sabit bir hat; altta paket anahtarlamada paketlerin farklı yönlendiricilerden geçerek hedefe ulaşması gösterilir.</desc>
+  <defs>
+    <marker id="ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <!-- Devre anahtarlama -->
+    <rect x="20" y="20" width="760" height="160" rx="10" fill="#f6f8fa" stroke="#57606a" stroke-width="1.5" stroke-dasharray="8 4"/>
+    <text x="400" y="48" font-size="17" font-weight="bold" fill="#24292f" text-anchor="middle">Devre anahtarlama: iletişim boyunca ayrılmış sabit hat</text>
+    <rect x="50" y="85" width="120" height="44" rx="6" fill="#1f6feb"/>
+    <text x="110" y="112" font-size="15" fill="#ffffff" text-anchor="middle">Kaynak</text>
+    <rect x="240" y="85" width="120" height="44" rx="6" fill="#57606a"/>
+    <text x="300" y="112" font-size="15" fill="#ffffff" text-anchor="middle">Santral 1</text>
+    <rect x="430" y="85" width="120" height="44" rx="6" fill="#57606a"/>
+    <text x="490" y="112" font-size="15" fill="#ffffff" text-anchor="middle">Santral 2</text>
+    <rect x="620" y="85" width="120" height="44" rx="6" fill="#2da44e"/>
+    <text x="680" y="112" font-size="15" fill="#ffffff" text-anchor="middle">Hedef</text>
+    <g stroke="#bf8700" stroke-width="6">
+      <line x1="170" y1="107" x2="240" y2="107"/>
+      <line x1="360" y1="107" x2="430" y2="107"/>
+      <line x1="550" y1="107" x2="620" y2="107"/>
+    </g>
+    <text x="400" y="162" font-size="14" fill="#57606a" text-anchor="middle">Hat, veri gönderilmese bile bağlantı kapanana dek başkasına verilmez.</text>
+
+    <!-- Paket anahtarlama -->
+    <rect x="20" y="200" width="760" height="240" rx="10" fill="#f6f8fa" stroke="#57606a" stroke-width="1.5" stroke-dasharray="8 4"/>
+    <text x="400" y="228" font-size="17" font-weight="bold" fill="#24292f" text-anchor="middle">Paket anahtarlama: paylaşılan hatlar, dinamik rota seçimi</text>
+    <rect x="50" y="305" width="120" height="44" rx="6" fill="#1f6feb"/>
+    <text x="110" y="332" font-size="15" fill="#ffffff" text-anchor="middle">Kaynak</text>
+    <rect x="250" y="255" width="140" height="44" rx="6" fill="#57606a"/>
+    <text x="320" y="282" font-size="15" fill="#ffffff" text-anchor="middle">Yönlendirici 1</text>
+    <rect x="250" y="355" width="140" height="44" rx="6" fill="#57606a"/>
+    <text x="320" y="382" font-size="15" fill="#ffffff" text-anchor="middle">Yönlendirici 2</text>
+    <rect x="460" y="305" width="140" height="44" rx="6" fill="#57606a"/>
+    <text x="530" y="332" font-size="15" fill="#ffffff" text-anchor="middle">Yönlendirici 3</text>
+    <rect x="650" y="305" width="110" height="44" rx="6" fill="#2da44e"/>
+    <text x="705" y="332" font-size="15" fill="#ffffff" text-anchor="middle">Hedef</text>
+    <g stroke="#57606a" stroke-width="2" fill="none" marker-end="url(#ok)">
+      <path d="M170 318 L245 285"/>
+      <path d="M170 336 L245 370"/>
+      <path d="M390 285 L455 315"/>
+      <path d="M390 370 L455 340"/>
+      <path d="M600 327 L645 327"/>
+      <path d="M390 262 Q560 230 690 300" stroke-dasharray="6 5"/>
+    </g>
+    <g font-size="13" font-weight="bold" fill="#24292f" text-anchor="middle">
+      <text x="196" y="288">P1, P2</text>
+      <text x="196" y="375">P3</text>
+      <text x="430" y="290">P1</text>
+      <text x="430" y="375">P3</text>
+      <text x="560" y="250">P2</text>
+      <text x="622" y="318">P1, P3</text>
+    </g>
+    <text x="400" y="428" font-size="14" fill="#57606a" text-anchor="middle">Bir hat koparsa yönlendiriciler paketleri başka yoldan gönderebilir.</text>
+  </g>
+</svg>

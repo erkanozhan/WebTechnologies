@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #24292f;
+  background-color: #f6f8fa;
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 8px 24px 16px;
+}
+
+.kartlar {
+  display: flex;
+  gap: 16px;
+}
+
+.kart {
+  flex: 1;
+  padding: 8px 20px;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.kart h2 {
+  margin-bottom: 0;
+}
+
+p {
+  color: #57606a;
+}
+
+/* Bilerek bırakılmış hata: sayı ile birim arasında boşluk var.
+   DevTools bu bildirimi üstü çizili ve uyarı simgesiyle gösterir. */
+.sicaklik {
+  margin: 8px 0;
+  color: #cf222e;
+  font-size: 2.5rem;
+  font-size: 3 em;
+  font-weight: bold;
+}
+
+.durum {
+  color: #bf8700;
+}
+
+#istanbul .durum {
+  color: #2da44e !important;
+}
+
+.ipucu {
+  margin-top: 16px;
+  font-size: 0.9rem;
+}

@@ -1,0 +1,95 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  color: #24292f;
+}
+
+/* Mobil öncelikli: başlık satırı sarılabilir */
+.ust {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background-color: #0a3069;
+}
+
+.logo {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.menu-dugmesi {
+  min-height: 44px;
+  padding: 0 14px;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  background: transparent;
+  color: #ffffff;
+  font: inherit;
+  cursor: pointer;
+}
+
+nav {
+  flex-basis: 100%;            /* dar ekranda alt satırı tamamen kaplar */
+}
+
+.menu {
+  display: none;               /* kapalı başlar */
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+.menu.acik {
+  display: block;
+}
+
+.menu a {
+  display: block;
+  padding: 12px 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+main {
+  padding: 16px;
+}
+
+/* Geniş ekran: düğme gizlenir, menü her zaman yatay görünür */
+@media (width >= 768px) {
+  .menu-dugmesi {
+    display: none;
+  }
+
+  nav {
+    flex-basis: auto;
+  }
+
+  .menu,
+  .menu.acik {
+    display: flex;
+    gap: 4px;
+    margin: 0;
+  }
+
+  .menu a {
+    padding: 10px 14px;
+    border-top: 0;
+    border-radius: 6px;
+  }
+
+  .menu a:hover,
+  .menu a:focus-visible {
+    background-color: #1f6feb;
+  }
+}

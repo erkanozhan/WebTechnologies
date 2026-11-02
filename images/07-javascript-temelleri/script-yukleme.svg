@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400" font-family="Segoe UI, Arial, sans-serif" role="img" aria-labelledby="baslik aciklama">
+  <title id="baslik">Betik yükleme biçimlerinin zaman çizelgesi</title>
+  <desc id="aciklama">Dört satırda HTML ayrıştırma, betik indirme ve betik çalıştırma zamanları karşılaştırılır. Niteliksiz betik head içinde ayrıştırmayı durdurur; body sonunda en son indirilir; defer arka planda indirip ayrıştırma bitince çalışır; async indirildiği anda ayrıştırmayı durdurarak çalışır.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <!-- Gösterge -->
+  <rect x="20" y="16" width="30" height="14" fill="#1f6feb"/>
+  <text x="58" y="28" font-size="14" fill="#24292f">HTML ayrıştırma</text>
+  <rect x="200" y="19" width="30" height="9" fill="#8c959f"/>
+  <text x="238" y="28" font-size="14" fill="#24292f">Betik indirme (ağ)</text>
+  <rect x="400" y="16" width="30" height="14" fill="#bf8700"/>
+  <text x="438" y="28" font-size="14" fill="#24292f">Betik çalıştırma</text>
+  <line x1="580" y1="23" x2="610" y2="23" stroke="#cf222e" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="618" y="28" font-size="14" fill="#24292f">Ayrıştırma bekliyor</text>
+
+  <!-- Satır 1: head içinde niteliksiz -->
+  <text x="20" y="80" font-size="14" font-family="Consolas, monospace" fill="#24292f">&lt;script src&gt;</text>
+  <text x="20" y="98" font-size="13" fill="#57606a">head içinde</text>
+  <rect x="260" y="74" width="100" height="16" fill="#1f6feb"/>
+  <line x1="360" y1="82" x2="500" y2="82" stroke="#cf222e" stroke-width="2" stroke-dasharray="4 3"/>
+  <rect x="360" y="96" width="100" height="9" fill="#8c959f"/>
+  <rect x="460" y="74" width="40" height="16" fill="#bf8700"/>
+  <rect x="500" y="74" width="330" height="16" fill="#1f6feb"/>
+
+  <!-- Satır 2: body sonunda -->
+  <text x="20" y="160" font-size="14" font-family="Consolas, monospace" fill="#24292f">&lt;script src&gt;</text>
+  <text x="20" y="178" font-size="13" fill="#57606a">&lt;/body&gt; öncesinde</text>
+  <rect x="260" y="154" width="430" height="16" fill="#1f6feb"/>
+  <rect x="690" y="176" width="100" height="9" fill="#8c959f"/>
+  <rect x="790" y="154" width="40" height="16" fill="#bf8700"/>
+
+  <!-- Satır 3: defer -->
+  <text x="20" y="240" font-size="14" font-family="Consolas, monospace" fill="#24292f">&lt;script defer&gt;</text>
+  <text x="20" y="258" font-size="13" fill="#57606a">head içinde</text>
+  <rect x="260" y="234" width="430" height="16" fill="#1f6feb"/>
+  <rect x="360" y="256" width="100" height="9" fill="#8c959f"/>
+  <rect x="690" y="234" width="40" height="16" fill="#bf8700"/>
+  <text x="740" y="247" font-size="13" fill="#2da44e">ayrıştırma bitince</text>
+
+  <!-- Satır 4: async -->
+  <text x="20" y="320" font-size="14" font-family="Consolas, monospace" fill="#24292f">&lt;script async&gt;</text>
+  <text x="20" y="338" font-size="13" fill="#57606a">head içinde</text>
+  <rect x="260" y="314" width="200" height="16" fill="#1f6feb"/>
+  <rect x="360" y="336" width="100" height="9" fill="#8c959f"/>
+  <rect x="460" y="314" width="40" height="16" fill="#bf8700"/>
+  <rect x="500" y="314" width="230" height="16" fill="#1f6feb"/>
+  <text x="740" y="327" font-size="13" fill="#bf8700">iner inmez çalışır</text>
+
+  <!-- Zaman ekseni -->
+  <line x1="260" y1="372" x2="870" y2="372" stroke="#57606a" stroke-width="2"/>
+  <path d="M870,372 l-10,-5 l0,10 z" fill="#57606a"/>
+  <text x="860" y="392" font-size="13" text-anchor="end" fill="#57606a">zaman</text>
+</svg>

@@ -1,0 +1,48 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 12px 16px;
+  color: #24292f;
+}
+
+h2 {
+  font-family: Consolas, monospace;
+  font-size: 0.85rem;
+  margin: 8px 0 3px;
+}
+
+.satir {
+  display: flex;
+  width: 420px;
+  padding: 4px;
+  border: 2px dashed #57606a;
+  background-color: #f6f8fa;
+}
+
+.oge {
+  width: 60px;
+  padding: 6px 0;
+  text-align: center;
+  background-color: #1f6feb;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.ikili {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.yuksek {
+  width: 200px;
+  height: 90px;
+  gap: 6px;
+}
+
+.yuksek .oge {
+  background-color: #2da44e;
+}
+
+.uzun {
+  padding: 20px 0;
+}

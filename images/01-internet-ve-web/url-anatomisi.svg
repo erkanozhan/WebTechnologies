@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 300" role="img" aria-labelledby="t d">
+  <title id="t">Bir URL'nin bileşenleri</title>
+  <desc id="d">https://obs.example.edu.tr:443/notlar/donem.html?yil=2026&amp;donem=bahar#vize adresi parçalarına ayrılmıştır: şema https, ana makine adı obs.example.edu.tr, bağlantı noktası 443, yol /notlar/donem.html, sorgu yil=2026&amp;donem=bahar, parça vize. Şema ile yetki bileşeni arasında :// ayırıcısı vardır.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="430" y="32" font-size="18" font-weight="bold" fill="#24292f" text-anchor="middle">URL'nin anatomisi (RFC 3986)</text>
+    <!-- URL metni -->
+    <g font-family="Consolas, 'Courier New', monospace" font-size="19">
+      <text x="30" y="120"><tspan fill="#1f6feb">https</tspan><tspan fill="#57606a">://</tspan><tspan fill="#2da44e">obs.example.edu.tr</tspan><tspan fill="#57606a">:</tspan><tspan fill="#8250df">443</tspan><tspan fill="#bf8700">/notlar/donem.html</tspan><tspan fill="#57606a">?</tspan><tspan fill="#cf222e">yil=2026&amp;donem=bahar</tspan><tspan fill="#57606a">#</tspan><tspan fill="#24292f">vize</tspan></text>
+    </g>
+    <!-- Köşeli parantezler (her karakter ≈ 10.45px) -->
+    <g stroke-width="3" fill="none">
+      <path d="M30 132 v8 h52 v-8" stroke="#1f6feb"/>
+      <path d="M113 132 v8 h186 v-8" stroke="#2da44e"/>
+      <path d="M311 132 v8 h29 v-8" stroke="#8250df"/>
+      <path d="M342 132 v8 h186 v-8" stroke="#bf8700"/>
+      <path d="M540 132 v8 h217 v-8" stroke="#cf222e"/>
+      <path d="M769 132 v8 h41 v-8" stroke="#24292f"/>
+      <path d="M113 92 v-8 h227 v8" stroke="#57606a"/>
+    </g>
+    <text x="226" y="76" font-size="14" fill="#57606a" text-anchor="middle">yetki (authority)</text>
+    <!-- Etiketler -->
+    <g font-size="14" text-anchor="middle">
+      <text x="56" y="170" font-weight="bold" fill="#1f6feb">şema</text>
+      <text x="56" y="188" fill="#57606a">(protokol)</text>
+      <text x="206" y="170" font-weight="bold" fill="#2da44e">ana makine adı</text>
+      <text x="206" y="188" fill="#57606a">(host; DNS ile IP'ye çevrilir)</text>
+      <text x="325" y="220" font-weight="bold" fill="#8250df">port</text>
+      <text x="325" y="238" fill="#57606a">(çoğunlukla yazılmaz)</text>
+      <text x="435" y="170" font-weight="bold" fill="#bf8700">yol (path)</text>
+      <text x="435" y="188" fill="#57606a">(sunucudaki kaynak)</text>
+      <text x="648" y="170" font-weight="bold" fill="#cf222e">sorgu (query)</text>
+      <text x="648" y="188" fill="#57606a">(anahtar=değer çiftleri)</text>
+      <text x="790" y="220" font-weight="bold" fill="#24292f">parça</text>
+      <text x="790" y="238" fill="#57606a">(fragment)</text>
+    </g>
+    <text x="430" y="280" font-size="13" fill="#57606a" text-anchor="middle">Parça (#…) sunucuya gönderilmez; tarayıcı sayfa içindeki ilgili konuma gitmek için kullanır.</text>
+  </g>
+</svg>

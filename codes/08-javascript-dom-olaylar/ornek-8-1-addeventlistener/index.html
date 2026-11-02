@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>addEventListener ve removeEventListener</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>addEventListener ve removeEventListener</h1>
+    <p>“Tıkla Dene” düğmesine dinleyici eklenmiştir. “Dinleyiciyi kaldır” düğmesine basıldıktan sonra ilk düğme artık tepki vermez.</p>
+
+    <div class="dugmeler">
+      <button type="button" id="denemeDugmesi">Tıkla Dene</button>
+      <button type="button" id="kaldirDugmesi" class="ikincil">Dinleyiciyi kaldır</button>
+    </div>
+
+    <p id="demo" class="cikti">Henüz tıklanmadı.</p>
+    <p id="durum" class="durum">Dinleyici durumu: etkin</p>
+  </main>
+</body>
+</html>

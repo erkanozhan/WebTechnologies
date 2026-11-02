@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Uygulama 9.5 – picture ile Sanat Yönetimi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Köy Evleri Fotoğraf Sergisi</h1>
+    <picture>
+      <source media="(min-width: 800px)" srcset="genis.svg" width="1200" height="500">
+      <img src="dar.svg" alt="Yeşil çayır üzerinde kırmızı çatılı küçük bir köy evi" width="600" height="600">
+    </picture>
+    <p>Geniş ekranda manzaranın tamamı, dar ekranda ise evin yakın kadrajı gösterilir. Tarayıcı, <code>media</code> koşulu sağlanan ilk <code>&lt;source&gt;</code> öğesini seçer; hiçbiri sağlanmazsa <code>&lt;img&gt;</code> kullanılır.</p>
+  </main>
+</body>
+</html>

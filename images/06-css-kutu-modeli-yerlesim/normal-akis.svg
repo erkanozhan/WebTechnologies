@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" font-family="Segoe UI, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Normal akışta blok ve satır içi kutular</title>
+  <desc id="d">Solda blok kutular kapsayıcının tüm genişliğini kaplayarak alt alta dizilir. Sağda satır içi kutular metin gibi soldan sağa akar ve satır dolunca alt satıra geçer.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <defs><marker id="m" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#cf222e"/></marker></defs>
+  <text x="20" y="30" font-size="15" font-weight="bold" fill="#24292f">Blok düzeyi (block): yukarıdan aşağıya</text>
+  <rect x="20" y="44" width="330" height="250" fill="none" stroke="#57606a" stroke-dasharray="6 4"/>
+  <g font-size="14" fill="#0a3069">
+    <rect x="30" y="56" width="300" height="40" fill="#ddf4ff" stroke="#1f6feb" stroke-width="2"/><text x="42" y="81">&lt;h1&gt;</text>
+    <rect x="30" y="106" width="300" height="60" fill="#ddf4ff" stroke="#1f6feb" stroke-width="2"/><text x="42" y="131">&lt;p&gt;</text>
+    <rect x="30" y="176" width="300" height="40" fill="#ddf4ff" stroke="#1f6feb" stroke-width="2"/><text x="42" y="201">&lt;div&gt;</text>
+    <rect x="30" y="226" width="300" height="56" fill="#ddf4ff" stroke="#1f6feb" stroke-width="2"/><text x="42" y="251">&lt;ul&gt;</text>
+  </g>
+  <line x1="340" y1="60" x2="340" y2="280" stroke="#cf222e" stroke-width="2" marker-end="url(#m)"/>
+  <text x="20" y="318" font-size="13" fill="#57606a">Her blok yeni satırda başlar; varsayılan genişliği kapsayıcının tamamıdır.</text>
+
+  <text x="400" y="30" font-size="15" font-weight="bold" fill="#24292f">Satır içi (inline): soldan sağa</text>
+  <rect x="400" y="44" width="340" height="250" fill="none" stroke="#57606a" stroke-dasharray="6 4"/>
+  <g font-size="14">
+    <text x="412" y="80" fill="#24292f">Metin</text>
+    <rect x="456" y="64" width="66" height="24" fill="#dafbe1" stroke="#2da44e" stroke-width="2"/><text x="461" y="81" fill="#116329">&lt;strong&gt;</text>
+    <text x="528" y="80" fill="#24292f">akar,</text>
+    <rect x="568" y="64" width="38" height="24" fill="#dafbe1" stroke="#2da44e" stroke-width="2"/><text x="574" y="81" fill="#116329">&lt;a&gt;</text>
+    <text x="612" y="80" fill="#24292f">bağlantı ve</text>
+    <rect x="412" y="104" width="62" height="24" fill="#dafbe1" stroke="#2da44e" stroke-width="2"/><text x="417" y="121" fill="#116329">&lt;span&gt;</text>
+    <text x="480" y="120" fill="#24292f">satıra sığmayınca alt satıra geçer.</text>
+    <rect x="412" y="144" width="80" height="60" fill="#fff8c5" stroke="#bf8700" stroke-width="2"/><text x="426" y="178" fill="#7d4e00">&lt;img&gt;</text>
+    <text x="500" y="200" fill="#24292f">görsel de satır içinde durur.</text>
+  </g>
+  <line x1="412" y1="228" x2="728" y2="228" stroke="#cf222e" stroke-width="2" marker-end="url(#m)"/>
+  <text x="412" y="256" font-size="13" fill="#57606a">width ve height satır içi öğede yok sayılır;</text>
+  <text x="412" y="276" font-size="13" fill="#57606a">dikey margin satır yüksekliğini etkilemez.</text>
+</svg>

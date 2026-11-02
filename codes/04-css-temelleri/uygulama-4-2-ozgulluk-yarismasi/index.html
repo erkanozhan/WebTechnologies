@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Özgüllük Yarışması: Hangi Renk Kazanır?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Özgüllük yarışması: hangi renk kazanır?</h1>
+
+    <div class="sorular">
+      <section class="soru">
+        <h2>Soru 1</h2>
+        <pre>p   { color: red; }
+.s1 { color: blue; }
+p   { color: green; }</pre>
+        <p class="s1">Ben hangi renkteyim?</p>
+      </section>
+
+      <section class="soru">
+        <h2>Soru 2</h2>
+        <pre>.vurgu { color: green; }
+.s2    { color: purple; }</pre>
+        <p class="s2 vurgu">Ben hangi renkteyim?</p>
+      </section>
+
+      <section class="soru">
+        <h2>Soru 3</h2>
+        <pre>#s3       { color: orange; }
+main p.s3 { color: blue; }</pre>
+        <p id="s3" class="s3">Ben hangi renkteyim?</p>
+      </section>
+
+      <section class="soru kutu">
+        <h2>Soru 4</h2>
+        <pre>.kutu p   { color: green; }
+p.s4      { color: red; }
+section p { color: blue; }</pre>
+        <p class="s4">Ben hangi renkteyim?</p>
+      </section>
+
+      <section class="soru">
+        <h2>Soru 5</h2>
+        <pre>.s5 { color: green !important; }
+&lt;p class="s5" style="color: purple"&gt;</pre>
+        <p class="s5" style="color: purple;">Ben hangi renkteyim?</p>
+      </section>
+
+      <section class="soru">
+        <h2>Soru 6</h2>
+        <pre>.s6 { color: red; }
+*   { color: gray; }
+&lt;p class="s6"&gt;&lt;span&gt;…&lt;/span&gt;&lt;/p&gt;</pre>
+        <p class="s6"><span>Ben (span) hangi renkteyim?</span></p>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birleştiriciler (Combinators)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Birleştiriciler: hangi öğe seçildi?</h1>
+  <p class="bilgi">Seçilen öğeler sarı zeminle gösterilmiştir.</p>
+
+  <div class="panolar">
+    <section class="pano torun">
+      <h2><code>li em</code> (torun)</h2>
+      <p>Paragraftaki <em>em</em> seçilmez.</p>
+      <ul>
+        <li>Bir <em>em</em> öğesi</li>
+        <li><strong>Kalın içinde <em>em</em></strong></li>
+      </ul>
+    </section>
+
+    <section class="pano cocuk">
+      <h2><code>p &gt; em</code> (çocuk)</h2>
+      <p>Doğrudan çocuk <em>em</em> seçilir; <strong>araya giren <em>em</em></strong> seçilmez.</p>
+    </section>
+
+    <section class="pano bitisik">
+      <h2><code>h3 + p</code> (bitişik kardeş)</h2>
+      <h3>Başlık</h3>
+      <p>Başlıktan hemen sonraki paragraf.</p>
+      <p>İkinci paragraf.</p>
+      <p>Üçüncü paragraf.</p>
+    </section>
+
+    <section class="pano genel">
+      <h2><code>h3 ~ h4</code> (genel kardeş)</h2>
+      <h4>Önceki h4 (seçilmez)</h4>
+      <h3>Başlık</h3>
+      <p>Araya giren paragraf.</p>
+      <h4>Sonraki h4</h4>
+      <h4>Bir sonraki h4</h4>
+    </section>
+  </div>
+</body>
+</html>

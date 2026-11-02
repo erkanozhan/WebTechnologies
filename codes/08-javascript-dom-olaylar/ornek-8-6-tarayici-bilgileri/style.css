@@ -1,0 +1,97 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f6f8fa;
+  color: #24292f;
+  line-height: 1.5;
+}
+
+main {
+  max-width: 860px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: #ffffff;
+  border: 1px solid #d0d7de;
+  border-radius: 12px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+.dugmeler {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+button {
+  font: inherit;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  background: #1f6feb;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+button.ikincil {
+  background: #57606a;
+}
+
+button:focus-visible {
+  outline: 3px solid #bf8700;
+  outline-offset: 2px;
+}
+
+
+.kartlar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1rem;
+}
+
+.kart {
+  border: 1px solid #d0d7de;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+}
+
+.kart h2 {
+  font-size: 1rem;
+  font-family: Consolas, monospace;
+  color: #1f6feb;
+  margin: 0 0 0.5rem;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.25rem 0.75rem;
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+}
+
+dt {
+  color: #57606a;
+}
+
+dd {
+  margin: 0;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.ozellikler {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.ozellikler .var {
+  color: #2da44e;
+}
+
+.ozellikler .yok {
+  color: #cf222e;
+}

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 345" font-family="Segoe UI, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">CSS pikseli ve cihaz pikseli</title>
+  <desc id="d">Bir CSS pikseli, cihaz piksel oranı 1 olan ekranda 1 fiziksel piksele, 2 olan ekranda 2 çarpı 2 yani 4 fiziksel piksele, 3 olan ekranda 3 çarpı 3 yani 9 fiziksel piksele karşılık gelir.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <text x="20" y="30" font-size="15" font-weight="bold" fill="#24292f">1 CSS pikseli kaç fiziksel (cihaz) pikseline karşılık gelir?</text>
+  <g transform="translate(60,60)">
+    <rect x="30" y="30" width="120" height="120" fill="#1f6feb"/>
+    <text x="90" y="185" font-size="15" text-anchor="middle" fill="#24292f" font-weight="bold">DPR = 1</text>
+    <text x="90" y="207" font-size="13" text-anchor="middle" fill="#57606a">1 × 1 = 1 cihaz pikseli</text>
+    <text x="90" y="227" font-size="13" text-anchor="middle" fill="#57606a">eski masaüstü ekranlar</text>
+  </g>
+  <g transform="translate(300,60)" fill="#2da44e" stroke="#ffffff" stroke-width="3">
+    <rect x="30" y="30" width="60" height="60"/><rect x="90" y="30" width="60" height="60"/>
+    <rect x="30" y="90" width="60" height="60"/><rect x="90" y="90" width="60" height="60"/>
+  </g>
+  <g transform="translate(300,60)">
+    <text x="90" y="185" font-size="15" text-anchor="middle" fill="#24292f" font-weight="bold">DPR = 2</text>
+    <text x="90" y="207" font-size="13" text-anchor="middle" fill="#57606a">2 × 2 = 4 cihaz pikseli</text>
+    <text x="90" y="227" font-size="13" text-anchor="middle" fill="#57606a">çoğu dizüstü ve tablet</text>
+  </g>
+  <g transform="translate(540,60)" fill="#bf8700" stroke="#ffffff" stroke-width="3">
+    <rect x="30" y="30" width="40" height="40"/><rect x="70" y="30" width="40" height="40"/><rect x="110" y="30" width="40" height="40"/>
+    <rect x="30" y="70" width="40" height="40"/><rect x="70" y="70" width="40" height="40"/><rect x="110" y="70" width="40" height="40"/>
+    <rect x="30" y="110" width="40" height="40"/><rect x="70" y="110" width="40" height="40"/><rect x="110" y="110" width="40" height="40"/>
+  </g>
+  <g transform="translate(540,60)">
+    <text x="90" y="185" font-size="15" text-anchor="middle" fill="#24292f" font-weight="bold">DPR = 3</text>
+    <text x="90" y="207" font-size="13" text-anchor="middle" fill="#57606a">3 × 3 = 9 cihaz pikseli</text>
+    <text x="90" y="227" font-size="13" text-anchor="middle" fill="#57606a">üst segment telefonlar</text>
+  </g>
+  <text x="20" y="330" font-size="14" fill="#24292f">Örnek: 1170 cihaz pikseli genişliğindeki bir telefon ekranı DPR 3 ile 390 CSS pikseli genişliğinde bir görünüm alanı sunar.</text>
+</svg>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Örnek 5.2 – em ve rem Karşılaştırması</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>İç içe listelerde <code>em</code> ve <code>rem</code></h1>
+  <div class="sutunlar">
+    <section class="kutu">
+      <h2><code>li { font-size: 1.2em; }</code></h2>
+      <ul class="em-liste">
+        <li>Fakülte (1,2 × 16 = 19,2 px)
+          <ul>
+            <li>Bölüm (1,2 × 19,2 = 23,04 px)
+              <ul>
+                <li>Ders (1,2 × 23,04 ≈ 27,65 px)</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section class="kutu">
+      <h2><code>li { font-size: 1.2rem; }</code></h2>
+      <ul class="rem-liste">
+        <li>Fakülte (1,2 × 16 = 19,2 px)
+          <ul>
+            <li>Bölüm (1,2 × 16 = 19,2 px)
+              <ul>
+                <li>Ders (1,2 × 16 = 19,2 px)</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+  </div>
+  <p class="not">Kök öğenin (<code>html</code>) yazı boyutu tarayıcı varsayılanı olan 16 px kabul edilmiştir.</p>
+</body>
+</html>

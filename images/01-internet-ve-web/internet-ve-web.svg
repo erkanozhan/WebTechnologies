@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" role="img" aria-labelledby="t d">
+  <title id="t">İnternet altyapısı ve üzerinde çalışan hizmetler</title>
+  <desc id="d">Altta kablolar, yönlendiriciler ve TCP/IP protokollerinden oluşan İnternet altyapısı; üstünde Web, e-posta, dosya aktarımı, görüntülü görüşme, çevrim içi oyun ve nesnelerin interneti gibi hizmetler yer alır. Web bu hizmetlerden yalnızca biridir.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="380" y="34" font-size="18" font-weight="bold" fill="#24292f" text-anchor="middle">Web, İnternet üzerinde çalışan hizmetlerden biridir</text>
+    <!-- Hizmetler -->
+    <g font-size="15" text-anchor="middle">
+      <rect x="30" y="70" width="210" height="96" rx="10" fill="#1f6feb"/>
+      <text x="135" y="108" fill="#ffffff" font-weight="bold" font-size="18">World Wide Web</text>
+      <text x="135" y="132" fill="#ffffff">URL · HTTP(S) · HTML</text>
+      <text x="135" y="152" fill="#ffffff" font-size="13">e-Devlet, OBS, e-ticaret</text>
+
+      <rect x="255" y="70" width="150" height="44" rx="8" fill="#ddf4ff" stroke="#1f6feb"/>
+      <text x="330" y="97" fill="#24292f">E-posta (SMTP)</text>
+      <rect x="420" y="70" width="150" height="44" rx="8" fill="#ddf4ff" stroke="#1f6feb"/>
+      <text x="495" y="97" fill="#24292f">Dosya aktarımı (FTP)</text>
+      <rect x="585" y="70" width="150" height="44" rx="8" fill="#ddf4ff" stroke="#1f6feb"/>
+      <text x="660" y="97" fill="#24292f">Uzak erişim (SSH)</text>
+      <rect x="255" y="122" width="150" height="44" rx="8" fill="#ddf4ff" stroke="#1f6feb"/>
+      <text x="330" y="149" fill="#24292f">Görüntülü görüşme</text>
+      <rect x="420" y="122" width="150" height="44" rx="8" fill="#ddf4ff" stroke="#1f6feb"/>
+      <text x="495" y="149" fill="#24292f">Çevrim içi oyun</text>
+      <rect x="585" y="122" width="150" height="44" rx="8" fill="#ddf4ff" stroke="#1f6feb"/>
+      <text x="660" y="149" fill="#24292f">Nesnelerin interneti</text>
+    </g>
+    <text x="30" y="192" font-size="14" fill="#57606a">Uygulamalar ve hizmetler (ne yapılıyor?)</text>
+    <!-- Altyapı -->
+    <rect x="30" y="205" width="705" height="110" rx="12" fill="#f6f8fa" stroke="#57606a" stroke-width="2"/>
+    <text x="382" y="240" font-size="18" font-weight="bold" fill="#24292f" text-anchor="middle">İnternet: ağların ağı (altyapı)</text>
+    <text x="382" y="266" font-size="15" fill="#24292f" text-anchor="middle">TCP/IP protokolleri · IP adresleri · DNS</text>
+    <text x="382" y="292" font-size="15" fill="#57606a" text-anchor="middle">fiber ve bakır kablolar · Wi-Fi · 4G/5G · uydu · yönlendiriciler · deniz altı kabloları</text>
+    <text x="30" y="340" font-size="14" fill="#57606a">Taşıma altyapısı (veri nasıl taşınıyor?)</text>
+  </g>
+</svg>

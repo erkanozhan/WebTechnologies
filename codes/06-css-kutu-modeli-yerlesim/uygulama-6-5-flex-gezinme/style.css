@@ -1,0 +1,63 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  color: #24292f;
+}
+
+.ust-cubuk {
+  display: flex;
+  flex-wrap: wrap;                 /* dar ekranda alt satıra geçebilir */
+  align-items: center;             /* çapraz eksende ortala */
+  justify-content: space-between;  /* ana eksende iki uca yay */
+  gap: 12px;
+  padding: 12px 24px;
+  background-color: #0a3069;
+}
+
+.logo {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.logo span {
+  font-weight: normal;
+  opacity: 0.8;
+}
+
+.menu {
+  display: flex;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu a {
+  display: block;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.menu a:hover,
+.menu a:focus-visible,
+.menu a[aria-current="page"] {
+  background-color: #1f6feb;
+}
+
+.giris {
+  padding: 8px 16px;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  color: #ffffff;
+  text-decoration: none;
+}

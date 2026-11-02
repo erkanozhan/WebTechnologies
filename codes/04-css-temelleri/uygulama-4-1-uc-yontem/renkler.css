@@ -1,0 +1,10 @@
+/* style.css tarafından @import ile içe aktarılır.
+   İçe aktarılan kurallar, style.css'teki kurallardan ÖNCE yazılmış sayılır;
+   bu nedenle .kart kuralını yenebilmek için seçici biraz daha özgül yazılmıştır. */
+.ice-aktarilan h2 {
+  color: #8250df;
+}
+
+.kart.ice-aktarilan {
+  border-top-color: #8250df;
+}

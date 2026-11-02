@@ -1,0 +1,66 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 1rem 1.5rem;
+  color: #24292f;
+  background: #ffffff;
+}
+
+h1 {
+  font-size: 1.3rem;
+}
+
+h2 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+p {
+  margin: 0.3rem 0 0.8rem;
+}
+
+code {
+  font-size: 0.85rem;
+  color: #cf222e;
+}
+
+.galeri {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+table {
+  border: 2px solid #24292f;
+}
+
+td {
+  border: 1px solid #57606a;
+}
+
+/* b) cellpadding karşılığı: hücre içi dolgu */
+.dolgu td {
+  padding: 1rem;
+  background: #fff8c5;
+}
+
+/* c) cellspacing karşılığı: hücreler arası boşluk */
+.aralik {
+  border-spacing: 12px;
+  background: #ddf4ff;
+}
+
+.aralik td {
+  background: #ffffff;
+  padding: 0.5rem;
+}
+
+/* d) komşu kenarlıklar tek çizgide birleşir; border-spacing etkisiz kalır */
+.birlesik {
+  border-collapse: collapse;
+}
+
+.birlesik td {
+  padding: 0.5rem;
+}

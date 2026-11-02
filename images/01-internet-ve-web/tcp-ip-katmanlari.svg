@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" role="img" aria-labelledby="t d">
+  <title id="t">TCP/IP modelinin dört katmanı ve kapsülleme</title>
+  <desc id="d">Uygulama, taşıma, internet ve bağlantı katmanları yukarıdan aşağıya sıralanır. Gönderici tarafta her katman kendi başlığını ekler: HTTP verisine TCP başlığı eklenerek segment, IP başlığı eklenerek paket, Ethernet veya Wi-Fi başlığı ve sonu eklenerek çerçeve oluşur.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="400" y="30" font-size="18" font-weight="bold" fill="#24292f" text-anchor="middle">TCP/IP katmanları: her katman kendi başlığını ekler</text>
+    <!-- Katman adları -->
+    <g font-size="15" fill="#ffffff" font-weight="bold">
+      <rect x="20" y="55" width="200" height="70" rx="8" fill="#1f6feb"/>
+      <text x="35" y="85">4. Uygulama</text>
+      <rect x="20" y="140" width="200" height="70" rx="8" fill="#2da44e"/>
+      <text x="35" y="170">3. Taşıma</text>
+      <rect x="20" y="225" width="200" height="70" rx="8" fill="#bf8700"/>
+      <text x="35" y="255">2. İnternet</text>
+      <rect x="20" y="310" width="200" height="70" rx="8" fill="#57606a"/>
+      <text x="35" y="340">1. Bağlantı</text>
+    </g>
+    <g font-size="13" fill="#ffffff">
+      <text x="35" y="108">HTTP, DNS, SMTP, SSH</text>
+      <text x="35" y="193">TCP, UDP (port no.)</text>
+      <text x="35" y="278">IP (IPv4, IPv6), ICMP</text>
+      <text x="35" y="363">Ethernet, Wi-Fi (MAC)</text>
+    </g>
+    <!-- Kapsülleme -->
+    <g font-size="14" text-anchor="middle">
+      <!-- uygulama -->
+      <rect x="470" y="72" width="240" height="36" fill="#ddf4ff" stroke="#1f6feb" stroke-width="2"/>
+      <text x="590" y="95" fill="#24292f">HTTP isteği (veri)</text>
+      <!-- taşıma -->
+      <rect x="380" y="157" width="90" height="36" fill="#2da44e"/>
+      <text x="425" y="180" fill="#ffffff">TCP başlığı</text>
+      <rect x="470" y="157" width="240" height="36" fill="#ddf4ff" stroke="#1f6feb" stroke-width="2"/>
+      <text x="590" y="180" fill="#24292f">veri</text>
+      <!-- internet -->
+      <rect x="290" y="242" width="90" height="36" fill="#bf8700"/>
+      <text x="335" y="265" fill="#ffffff">IP başlığı</text>
+      <rect x="380" y="242" width="90" height="36" fill="#2da44e"/>
+      <text x="425" y="265" fill="#ffffff">TCP</text>
+      <rect x="470" y="242" width="240" height="36" fill="#ddf4ff" stroke="#1f6feb" stroke-width="2"/>
+      <text x="590" y="265" fill="#24292f">veri</text>
+      <!-- bağlantı -->
+      <rect x="240" y="327" width="50" height="36" fill="#57606a"/>
+      <text x="265" y="350" fill="#ffffff">Eth</text>
+      <rect x="290" y="327" width="90" height="36" fill="#bf8700"/>
+      <text x="335" y="350" fill="#ffffff">IP</text>
+      <rect x="380" y="327" width="90" height="36" fill="#2da44e"/>
+      <text x="425" y="350" fill="#ffffff">TCP</text>
+      <rect x="470" y="327" width="240" height="36" fill="#ddf4ff" stroke="#1f6feb" stroke-width="2"/>
+      <text x="590" y="350" fill="#24292f">veri</text>
+      <rect x="710" y="327" width="50" height="36" fill="#57606a"/>
+      <text x="735" y="350" fill="#ffffff">son</text>
+    </g>
+    <g font-size="14" fill="#57606a" font-style="italic">
+      <text x="720" y="95">ileti</text>
+      <text x="720" y="180">segment</text>
+      <text x="720" y="265">paket</text>
+      <text x="560" y="390">çerçeve (frame)</text>
+    </g>
+    <text x="20" y="428" font-size="13" fill="#57606a">Alıcıda işlem tersine işler: her katman kendi başlığını okuyup çıkarır ve kalanı üst katmana verir.</text>
+  </g>
+</svg>

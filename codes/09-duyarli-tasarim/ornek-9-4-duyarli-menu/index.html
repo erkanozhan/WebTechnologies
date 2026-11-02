@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Örnek 9.4 – Duyarlı Gezinme Menüsü</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="ust">
+    <a class="logo" href="#">Kargo Takip</a>
+    <button class="menu-dugmesi" type="button" aria-expanded="false" aria-controls="ana-menu">
+      <span aria-hidden="true">☰</span> Menü
+    </button>
+    <nav aria-label="Ana menü">
+      <ul id="ana-menu" class="menu">
+        <li><a href="#">Gönderi sorgula</a></li>
+        <li><a href="#">Şubeler</a></li>
+        <li><a href="#">Fiyat hesapla</a></li>
+        <li><a href="#">İletişim</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>Gönderinizi takip edin</h1>
+    <p>Dar ekranda menü bir düğmenin arkasında saklanır; geniş ekranda bağlantılar yan yana görünür.</p>
+  </main>
+</body>
+</html>

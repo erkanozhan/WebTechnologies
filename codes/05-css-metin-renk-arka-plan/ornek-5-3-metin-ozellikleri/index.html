@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Örnek 5.3 – Metin Özellikleri</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Metin özellikleri</h1>
+
+  <div class="izgara">
+    <section>
+      <h2><code>text-indent</code> · <code>justify</code> · <code>line-height</code></h2>
+      <p class="paragraf">Kargo takip sayfasında gönderinin hangi aktarma merkezinde olduğu, tahmini teslim tarihi ve kuryenin adı kısa paragraflarla gösterilir. Satır aralığı ve ilk satır girintisi, bu bilgilerin hızla taranabilmesini sağlar.</p>
+    </section>
+
+    <section>
+      <h2><code>text-decoration</code></h2>
+      <p><span class="alti">underline</span> · <span class="ustu">overline</span> · <span class="cizili">line-through</span></p>
+      <p><span class="dalgali">underline wavy #cf222e</span> · <span class="kesikli">underline dashed</span></p>
+      <p>Eski fiyat: <s class="eski-fiyat">1.299 TL</s> <strong>999 TL</strong></p>
+    </section>
+
+    <section>
+      <h2><code>text-transform: uppercase</code> ve dil</h2>
+      <p class="buyuk" lang="tr">lang="tr": istanbul, izmir, ılgaz</p>
+      <p class="buyuk" lang="en">lang="en": istanbul, izmir, ılgaz</p>
+      <p class="bas-harf" lang="tr">lang="tr", capitalize: iğneada ve ilgaz dağı</p>
+    </section>
+
+    <section>
+      <h2><code>letter-spacing</code> / <code>word-spacing</code></h2>
+      <p class="harf-genis">HARF ARALIĞI 0.2em</p>
+      <p class="harf-dar">Harf aralığı -0.03em</p>
+      <p class="kelime">Kelime aralığı 1em olan cümle</p>
+    </section>
+
+    <section class="genis">
+      <h2><code>white-space: nowrap</code> + <code>text-overflow: ellipsis</code></h2>
+      <p class="kisalt">Ürün adı: Kablosuz gürültü engelleyici kulak üstü kulaklık, 40 saat pil ömrü, katlanabilir tasarım</p>
+    </section>
+  </div>
+</body>
+</html>

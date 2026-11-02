@@ -1,0 +1,116 @@
+/* ---------- Temel stiller: önce en dar ekran (mobil öncelikli) ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  color: #24292f;
+  background-color: #f6f8fa;
+}
+
+.ust {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #0a3069;
+  color: #ffffff;
+}
+
+.ust p {
+  margin: 0;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Hangi kırılma noktasının etkin olduğunu gösteren etiket */
+.genislik::after {
+  content: "Mobil: 1 sütun";
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+h1 {
+  font-size: 1.4rem;
+  margin: 0 0 12px;
+}
+
+.izgara {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.kart {
+  padding: 16px;
+  border-left: 6px solid var(--renk);
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.kart h3 {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+}
+
+.kart p {
+  margin: 0 0 12px;
+  color: #57606a;
+}
+
+/* Dokunmatik ekranda rahat dokunulabilir hedef (en az 44 × 44 px) */
+.kart a {
+  display: inline-block;
+  min-height: 44px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  background-color: var(--renk);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* ---------- 1. kırılma noktası: tablet ---------- */
+@media (min-width: 600px) {
+  .izgara {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .genislik::after {
+    content: "≥ 600 px: 2 sütun";
+  }
+}
+
+/* ---------- 2. kırılma noktası: küçük masaüstü ---------- */
+@media (min-width: 900px) {
+  .izgara {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .genislik::after {
+    content: "≥ 900 px: 3 sütun";
+  }
+}
+
+/* ---------- 3. kırılma noktası: geniş masaüstü ---------- */
+@media (min-width: 1200px) {
+  .izgara {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .genislik::after {
+    content: "≥ 1200 px: 4 sütun";
+  }
+}

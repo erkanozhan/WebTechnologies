@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Örnek 2.2 — Listeler</title>
+  <style>
+    .kare {
+      list-style-type: square;
+    }
+
+    .roma {
+      list-style-type: upper-roman;
+    }
+  </style>
+</head>
+<body>
+  <h1>HTML Listeleri</h1>
+
+  <h2>Sırasız liste (ul)</h2>
+  <ul>
+    <li>Elma</li>
+    <li>Portakal</li>
+    <li>Mandalina</li>
+  </ul>
+
+  <h2>Sıralı liste (ol)</h2>
+  <ol>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+  </ol>
+
+  <h2>type, start ve reversed nitelikleri</h2>
+  <ol type="A" start="3">
+    <li>C şıkkından başlar</li>
+    <li>D</li>
+  </ol>
+  <ol reversed>
+    <li>Üç</li>
+    <li>İki</li>
+    <li>Bir</li>
+  </ol>
+
+  <h2>İç içe liste</h2>
+  <ul>
+    <li>Ön yüz (front-end)
+      <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+      </ul>
+    </li>
+    <li>Arka yüz (back-end)</li>
+  </ul>
+
+  <h2>Tanım listesi (dl)</h2>
+  <dl>
+    <dt>TCP/IP</dt>
+    <dd>Bilgisayarlar arası veri iletimini düzenleyen protokol ailesidir.</dd>
+    <dt>DNS</dt>
+    <dd>Alan adlarını IP adreslerine çeviren sistemdir.</dd>
+  </dl>
+
+  <h2>CSS ile liste stili</h2>
+  <ul class="kare">
+    <li>Kare madde işareti</li>
+    <li>list-style-type: square</li>
+  </ul>
+  <ol class="roma">
+    <li>Büyük Roma rakamı</li>
+    <li>list-style-type: upper-roman</li>
+  </ol>
+</body>
+</html>

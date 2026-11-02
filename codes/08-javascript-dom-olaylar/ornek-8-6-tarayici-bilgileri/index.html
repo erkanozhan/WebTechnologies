@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tarayıcı Bilgi Paneli</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Tarayıcı Bilgi Paneli</h1>
+
+    <div class="kartlar">
+      <section class="kart">
+        <h2>navigator</h2>
+        <dl id="navigatorBilgisi"></dl>
+      </section>
+
+      <section class="kart">
+        <h2>window ve screen</h2>
+        <dl id="pencereBilgisi"></dl>
+      </section>
+
+      <section class="kart">
+        <h2>location ve history</h2>
+        <dl id="konumBilgisi"></dl>
+        <div class="dugmeler">
+          <button type="button" id="geriDugmesi" class="ikincil">Geri git</button>
+          <button type="button" id="yenileDugmesi" class="ikincil">Sayfayı yenile</button>
+        </div>
+      </section>
+
+      <section class="kart">
+        <h2>Özellik tespiti</h2>
+        <ul id="ozellikler" class="ozellikler"></ul>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

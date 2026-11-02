@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 430" font-family="Segoe UI, Arial, sans-serif" role="img" aria-labelledby="baslik aciklama">
+  <title id="baslik">Özgüllük hesabı</title>
+  <desc id="aciklama">Özgüllük üç basamaklı bir sayı gibi hesaplanır: A kimlik seçicilerinin sayısı, B sınıf, nitelik ve sözde sınıf seçicilerinin sayısı, C tür ve sözde öğe seçicilerinin sayısıdır. Örnek seçiciler ve puanları tabloda verilmiştir.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <text x="390" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#24292f">Özgüllük (specificity) = (A, B, C)</text>
+
+  <!-- Sütun başlıkları -->
+  <rect x="330" y="50" width="130" height="66" rx="8" fill="#ffebe9" stroke="#cf222e" stroke-width="2"/>
+  <text x="395" y="74" text-anchor="middle" font-size="16" font-weight="bold" fill="#a40e26">A</text>
+  <text x="395" y="94" text-anchor="middle" font-size="13" fill="#a40e26">kimlik</text>
+  <text x="395" y="109" text-anchor="middle" font-size="13" fill="#a40e26">#id</text>
+
+  <rect x="475" y="50" width="140" height="66" rx="8" fill="#ddf4ff" stroke="#1f6feb" stroke-width="2"/>
+  <text x="545" y="74" text-anchor="middle" font-size="16" font-weight="bold" fill="#0a3069">B</text>
+  <text x="545" y="94" text-anchor="middle" font-size="13" fill="#0a3069">sınıf, nitelik, sözde sınıf</text>
+  <text x="545" y="109" text-anchor="middle" font-size="13" fill="#0a3069">.x  [type]  :hover</text>
+
+  <rect x="630" y="50" width="130" height="66" rx="8" fill="#dafbe1" stroke="#2da44e" stroke-width="2"/>
+  <text x="695" y="74" text-anchor="middle" font-size="16" font-weight="bold" fill="#116329">C</text>
+  <text x="695" y="94" text-anchor="middle" font-size="13" fill="#116329">tür, sözde öğe</text>
+  <text x="695" y="109" text-anchor="middle" font-size="13" fill="#116329">p  li  ::before</text>
+
+  <text x="30" y="80" font-size="14" font-weight="bold" fill="#24292f">Seçici</text>
+  <text x="30" y="100" font-size="13" fill="#57606a">* ve birleştiriciler (boşluk &gt; + ~)</text>
+  <text x="30" y="116" font-size="13" fill="#57606a">puan eklemez.</text>
+
+  <!-- Satırlar -->
+  <g font-size="15">
+    <rect x="20" y="128" width="745" height="30" fill="#f6f8fa"/>
+    <text x="30" y="149" font-family="Consolas, 'Courier New', monospace">p</text>
+    <text x="395" y="149" text-anchor="middle">0</text><text x="545" y="149" text-anchor="middle">0</text><text x="695" y="149" text-anchor="middle">1</text>
+
+    <text x="30" y="179" font-family="Consolas, 'Courier New', monospace">ul li</text>
+    <text x="395" y="179" text-anchor="middle">0</text><text x="545" y="179" text-anchor="middle">0</text><text x="695" y="179" text-anchor="middle">2</text>
+
+    <rect x="20" y="188" width="745" height="30" fill="#f6f8fa"/>
+    <text x="30" y="209" font-family="Consolas, 'Courier New', monospace">.menu</text>
+    <text x="395" y="209" text-anchor="middle">0</text><text x="545" y="209" text-anchor="middle">1</text><text x="695" y="209" text-anchor="middle">0</text>
+
+    <text x="30" y="239" font-family="Consolas, 'Courier New', monospace">li:nth-child(2)</text>
+    <text x="395" y="239" text-anchor="middle">0</text><text x="545" y="239" text-anchor="middle">1</text><text x="695" y="239" text-anchor="middle">1</text>
+
+    <rect x="20" y="248" width="745" height="30" fill="#f6f8fa"/>
+    <text x="30" y="269" font-family="Consolas, 'Courier New', monospace">nav .menu a:hover</text>
+    <text x="395" y="269" text-anchor="middle">0</text><text x="545" y="269" text-anchor="middle">2</text><text x="695" y="269" text-anchor="middle">2</text>
+
+    <text x="30" y="299" font-family="Consolas, 'Courier New', monospace">input[type="email"]</text>
+    <text x="395" y="299" text-anchor="middle">0</text><text x="545" y="299" text-anchor="middle">1</text><text x="695" y="299" text-anchor="middle">1</text>
+
+    <rect x="20" y="308" width="745" height="30" fill="#f6f8fa"/>
+    <text x="30" y="329" font-family="Consolas, 'Courier New', monospace">#duyuru</text>
+    <text x="395" y="329" text-anchor="middle" font-weight="bold" fill="#a40e26">1</text><text x="545" y="329" text-anchor="middle">0</text><text x="695" y="329" text-anchor="middle">0</text>
+
+    <text x="30" y="359" font-family="Consolas, 'Courier New', monospace">#ana-menu .aktif &gt; a</text>
+    <text x="395" y="359" text-anchor="middle" font-weight="bold" fill="#a40e26">1</text><text x="545" y="359" text-anchor="middle">1</text><text x="695" y="359" text-anchor="middle">1</text>
+  </g>
+
+  <!-- Karşılaştırma oku -->
+  <line x1="340" y1="380" x2="740" y2="380" stroke="#57606a" stroke-width="2"/>
+  <polygon points="740,374 754,380 740,386" fill="#57606a"/>
+  <text x="547" y="400" text-anchor="middle" font-size="13" fill="#57606a">Önce A, eşitse B, o da eşitse C karşılaştırılır: (1,0,0) &gt; (0,5,0)</text>
+  <text x="30" y="400" font-size="13" fill="#57606a">Satır içi style niteliği tüm seçicilerden</text>
+  <text x="30" y="416" font-size="13" fill="#57606a">güçlüdür; !important ise ayrı bir aşamadır.</text>
+</svg>

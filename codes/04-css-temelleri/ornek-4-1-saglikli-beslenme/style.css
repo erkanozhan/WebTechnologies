@@ -1,0 +1,49 @@
+/* Aynı HTML, yalnızca sunum katmanı eklenmiştir. */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #24292f;
+  background-color: #f6f8fa;
+  line-height: 1.6;
+}
+
+header {
+  padding: 24px 32px;
+  background-color: #2da44e;
+  color: #ffffff;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+}
+
+.slogan {
+  margin: 4px 0 0;
+  font-style: italic;
+}
+
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 16px 32px;
+}
+
+h2 {
+  color: #1a7f37;
+  border-bottom: 2px solid #2da44e;
+}
+
+em {
+  color: #1a7f37;
+  font-weight: bold;
+}
+
+li {
+  margin-bottom: 4px;
+}
+
+strong {
+  background-color: #fff8c5;
+}

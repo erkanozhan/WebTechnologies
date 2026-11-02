@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 180" width="140" height="180">
+  <rect width="140" height="180" fill="#ffffff"/>
+  <rect x="15" y="10" width="110" height="160" rx="4" fill="#1f6feb"/>
+  <rect x="15" y="10" width="12" height="160" fill="#0a3069"/>
+  <text x="76" y="80" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#ffffff">WEB</text>
+  <text x="76" y="100" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="13" fill="#ffffff">TEKNOLOJİLERİ</text>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 330" font-family="Segoe UI, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">em ve rem karşılaştırması</title>
+  <desc id="d">İç içe üç öğede 1.2em değeri her düzeyde ebeveynle çarpılarak 19,2, 23,04 ve yaklaşık 27,65 piksele büyür; 1.2rem değeri ise her düzeyde 19,2 piksel kalır.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <text x="215" y="32" font-size="18" font-weight="700" text-anchor="middle" fill="#cf222e" font-family="Consolas, monospace">font-size: 1.2em</text>
+  <text x="645" y="32" font-size="18" font-weight="700" text-anchor="middle" fill="#1f6feb" font-family="Consolas, monospace">font-size: 1.2rem</text>
+  <g font-size="14">
+    <rect x="20" y="50" width="390" height="260" rx="10" fill="#fff5f5" stroke="#cf222e" stroke-width="2"/>
+    <text x="36" y="76" fill="#1f2328">html: 16px → 1. düzey: 1,2 × 16 = 19,2px</text>
+    <rect x="45" y="95" width="345" height="195" rx="10" fill="#ffebe9" stroke="#cf222e" stroke-width="2"/>
+    <text x="61" y="122" fill="#1f2328" font-size="15">2. düzey: 1,2 × 19,2 = 23,04px</text>
+    <rect x="70" y="145" width="300" height="125" rx="10" fill="#ffcecb" stroke="#cf222e" stroke-width="2"/>
+    <text x="86" y="178" fill="#1f2328" font-size="17">3. düzey: 1,2 × 23,04</text>
+    <text x="86" y="206" fill="#1f2328" font-size="17">≈ 27,65px</text>
+    <text x="86" y="248" fill="#a40e26" font-weight="700">Bileşik büyüme (compounding)</text>
+    <rect x="450" y="50" width="390" height="260" rx="10" fill="#f1f8ff" stroke="#1f6feb" stroke-width="2"/>
+    <text x="466" y="76" fill="#1f2328">html: 16px → 1. düzey: 1,2 × 16 = 19,2px</text>
+    <rect x="475" y="95" width="345" height="195" rx="10" fill="#ddf4ff" stroke="#1f6feb" stroke-width="2"/>
+    <text x="491" y="122" fill="#1f2328">2. düzey: 1,2 × 16 = 19,2px</text>
+    <rect x="500" y="145" width="300" height="125" rx="10" fill="#b6e3ff" stroke="#1f6feb" stroke-width="2"/>
+    <text x="516" y="178" fill="#1f2328">3. düzey: 1,2 × 16 = 19,2px</text>
+    <text x="516" y="248" fill="#0550ae" font-weight="700">Her düzeyde kök öğeye göre</text>
+  </g>
+</svg>

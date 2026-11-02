@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Örnek 5.4 – Renk Yazımları ve Saydamlık</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Aynı maviyi yazmanın yolları</h1>
+  <div class="paletler">
+    <div class="ornek r1"><code>royalblue</code></div>
+    <div class="ornek r2"><code>#4169e1</code></div>
+    <div class="ornek r3"><code>#46e</code> (yakın)</div>
+    <div class="ornek r4"><code>rgb(65 105 225)</code></div>
+    <div class="ornek r5"><code>hsl(225 73% 57%)</code></div>
+    <div class="ornek r6"><code>#4169e180</code></div>
+    <div class="ornek r7"><code>rgb(65 105 225 / 50%)</code></div>
+    <div class="ornek r8"><code>oklch(57.5% 0.188 267)</code></div>
+  </div>
+
+  <h2><code>opacity</code> ile <code>rgba</code> arasındaki fark</h2>
+  <div class="sahne">
+    <div class="kart saydam-opacity">
+      <strong>opacity: 0.5</strong>
+      <p>Kutu, metin ve rozet birlikte saydamlaşır.</p>
+      <span class="rozet">Yeni</span>
+    </div>
+    <div class="kart saydam-rgba">
+      <strong>background-color: rgb(255 255 255 / 0.5)</strong>
+      <p>Yalnızca arka plan saydamdır; metin ve rozet tam opaktır.</p>
+      <span class="rozet">Yeni</span>
+    </div>
+  </div>
+</body>
+</html>

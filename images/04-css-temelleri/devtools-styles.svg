@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" font-family="Segoe UI, Arial, sans-serif" role="img" aria-labelledby="baslik aciklama">
+  <title id="baslik">Geliştirici araçlarında Styles ve Computed panelleri (temsilî çizim)</title>
+  <desc id="aciklama">Styles panelinde seçili p.sicaklik öğesine uygulanan kurallar öncelik sırasıyla listelenir: element.style en üstte, ardından .kart .sicaklik, .sicaklik, p ve tarayıcı varsayılan stili. Kaybeden color bildirimleri üstü çizilidir; geçersiz font-size: 3 em bildirimi uyarı simgesiyle ve üstü çizili gösterilir. Computed panelinde son değerler color rgb(130, 80, 223) ve font-size 40px olarak görünür.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <rect x="10" y="10" width="780" height="500" rx="8" fill="#ffffff" stroke="#8c959f"/>
+  <rect x="10" y="10" width="780" height="30" rx="8" fill="#f6f8fa" stroke="#8c959f"/>
+  <text x="30" y="30" font-size="13" fill="#1f6feb" font-weight="bold">Elements</text>
+  <text x="110" y="30" font-size="13" fill="#57606a" font-weight="normal">Console</text>
+  <text x="180" y="30" font-size="13" fill="#57606a" font-weight="normal">Network</text>
+  <line x1="520" y1="40" x2="520" y2="510" stroke="#d0d7de"/>
+  <text x="24" y="62" font-size="13" font-weight="bold" fill="#24292f">Styles</text>
+  <text x="536" y="62" font-size="13" font-weight="bold" fill="#24292f">Computed</text>
+  <text x="24" y="86" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#953800">element.style {</text>
+  <text x="44" y="104" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#24292f">color: #8250df;</text>
+  <text x="24" y="122" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#953800">}</text>
+  <text x="24" y="146" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#953800">.kart .sicaklik {</text>
+  <text x="505" y="146" text-anchor="end" font-size="12" fill="#1f6feb" text-decoration="underline">index.html:10</text>
+  <text x="44" y="164" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#8c959f">color: #1f6feb;</text>
+  <line x1="44" y1="160" x2="152.0" y2="160" stroke="#57606a" stroke-width="1.2"/>
+  <text x="24" y="182" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#953800">}</text>
+  <text x="24" y="206" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#953800">.sicaklik {</text>
+  <text x="505" y="206" text-anchor="end" font-size="12" fill="#1f6feb" text-decoration="underline">style.css:37</text>
+  <text x="44" y="224" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#24292f">margin: 8px 0;</text>
+  <text x="44" y="242" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#8c959f">color: #cf222e;</text>
+  <line x1="44" y1="238" x2="152.0" y2="238" stroke="#57606a" stroke-width="1.2"/>
+  <text x="44" y="260" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#24292f">font-size: 2.5rem;</text>
+  <polygon points="30,277 36,267 42,277" fill="#bf8700"/>
+  <text x="44" y="278" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#8c959f">font-size: 3 em;</text>
+  <line x1="44" y1="274" x2="159.2" y2="274" stroke="#57606a" stroke-width="1.2"/>
+  <text x="44" y="296" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#24292f">font-weight: bold;</text>
+  <text x="24" y="314" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#953800">}</text>
+  <text x="24" y="338" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#953800">p {</text>
+  <text x="505" y="338" text-anchor="end" font-size="12" fill="#1f6feb" text-decoration="underline">style.css:31</text>
+  <text x="44" y="356" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#8c959f">color: #57606a;</text>
+  <line x1="44" y1="352" x2="152.0" y2="352" stroke="#57606a" stroke-width="1.2"/>
+  <text x="24" y="374" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#953800">}</text>
+  <text x="24" y="398" font-size="12" fill="#57606a">user agent stylesheet</text>
+  <text x="24" y="416" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#953800">p {</text>
+  <text x="44" y="434" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#8c959f">margin-block-start: 1em;</text>
+  <line x1="44" y1="430" x2="216.8" y2="430" stroke="#57606a" stroke-width="1.2"/>
+  <text x="44" y="452" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#8c959f">margin-block-end: 1em;</text>
+  <line x1="44" y1="448" x2="202.4" y2="448" stroke="#57606a" stroke-width="1.2"/>
+  <text x="24" y="470" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#953800">}</text>
+  <text x="536" y="90" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#953800">color</text>
+  <text x="640" y="90" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#24292f">rgb(130, 80, 223)</text>
+  <text x="536" y="112" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#953800">font-size</text>
+  <text x="640" y="112" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#24292f">40px</text>
+  <text x="536" y="134" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#953800">font-weight</text>
+  <text x="640" y="134" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#24292f">700</text>
+  <text x="536" y="156" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#953800">margin-top</text>
+  <text x="640" y="156" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#24292f">8px</text>
+  <text x="536" y="178" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#953800">margin-bottom</text>
+  <text x="640" y="178" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#24292f">8px</text>
+  <text x="536" y="200" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#953800">display</text>
+  <text x="640" y="200" font-family="Consolas, 'Courier New', monospace" font-size="13" fill="#24292f">block</text>
+  <text x="536" y="242" font-size="12" fill="#57606a">Computed: basamaklama ve kalıtım</text>
+  <text x="536" y="258" font-size="12" fill="#57606a">sonrasında kullanılan son değerler.</text>
+  <text x="536" y="286" font-size="12" fill="#57606a">Styles: üstü çizili bildirim = kaybetti;</text>
+  <text x="536" y="302" font-size="12" fill="#57606a">sarı uyarı = geçersiz değer.</text>
+</svg>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bir bilgisayar mühendisliği öğrencisinin web geliştirme günlüğü.">
+  <title>Kod Defteri — Öğrenci Blogu</title>
+</head>
+<body>
+  <header>
+    <h1>Kod Defteri</h1>
+    <p>Bir bilgisayar mühendisliği öğrencisinin web günlüğü</p>
+    <nav aria-label="Ana menü">
+      <ul>
+        <li><a href="#">Ana Sayfa</a></li>
+        <li><a href="#">Yazılar</a></li>
+        <li><a href="#">Hakkımda</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <article>
+      <header>
+        <h2>İlk HTML Sayfamı Nasıl Yaptım?</h2>
+        <p>Yayın: <time datetime="2026-02-20">20 Şubat 2026</time> · Yazar: Ayşe Yılmaz</p>
+      </header>
+
+      <section>
+        <h3>Ortamı hazırlamak</h3>
+        <p>Önce Visual Studio Code'u kurdum ve <strong>Live Server</strong>
+        eklentisini ekledim. Ardından boş bir klasör açıp <code>index.html</code>
+        dosyasını oluşturdum.</p>
+      </section>
+
+      <section>
+        <h3>Emmet ile iskelet</h3>
+        <p>Dosyada <kbd>!</kbd> yazıp <kbd>Tab</kbd> tuşuna bastığımda belge
+        iskeleti saniyeler içinde oluştu. Tek yapmam gereken <code>lang</code>
+        niteliğini <code>tr</code> yapmaktı.</p>
+        <figure>
+          <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="tr"&gt;
+  ...
+&lt;/html&gt;</code></pre>
+          <figcaption>Kod 1. Emmet'in ürettiği iskeletin ilk satırları.</figcaption>
+        </figure>
+      </section>
+
+      <footer>
+        <p>Etiketler: HTML, VS Code, Emmet</p>
+      </footer>
+    </article>
+
+    <article>
+      <header>
+        <h2>Neden div Yerine Anlamsal Etiket?</h2>
+        <p>Yayın: <time datetime="2026-03-02">2 Mart 2026</time> · Yazar: Ayşe Yılmaz</p>
+      </header>
+      <p>Ekran okuyucular <code>nav</code> ve <code>main</code> gibi öğeleri
+      tanıyarak kullanıcının doğrudan ana içeriğe geçmesini sağlar.
+      <code>div</code> ise yalnızca bir kutudur; anlam taşımaz.</p>
+    </article>
+  </main>
+
+  <aside>
+    <h2>Hakkımda</h2>
+    <p>Bilgisayar mühendisliği 1. sınıf öğrencisiyim; web teknolojilerini öğreniyorum.</p>
+    <h2>Önerilen kaynaklar</h2>
+    <ul>
+      <li><a href="https://developer.mozilla.org/tr/" target="_blank" rel="noopener noreferrer">MDN Web Docs</a></li>
+      <li><a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener noreferrer">HTML Living Standard</a></li>
+    </ul>
+  </aside>
+
+  <footer>
+    <p>&copy; 2026 Kod Defteri · İletişim: <a href="mailto:ayse@example.com">ayse@example.com</a></p>
+  </footer>
+</body>
+</html>

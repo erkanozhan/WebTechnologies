@@ -1,0 +1,98 @@
+/* 1. Tema renkleri tek yerde tanımlanır */
+:root {
+  --zemin: #f6f8fa;
+  --yuzey: #ffffff;
+  --metin: #1f2328;
+  --ikincil-metin: #59636e;
+  --ana-renk: #0969da;
+  --ana-renk-ustu: #ffffff;
+  --kenar: #d0d7de;
+}
+
+/* 2. Koyu tema yalnızca değişkenleri yeniden tanımlar */
+.koyu {
+  --zemin: #0d1117;
+  --yuzey: #161b22;
+  --metin: #e6edf3;
+  --ikincil-metin: #9198a1;
+  --ana-renk: #4493f8;
+  --ana-renk-ustu: #0d1117;
+  --kenar: #30363d;
+}
+
+/* İsteğe bağlı: işletim sistemi koyu moddaysa sayfanın tamamını koyu yap
+@media (prefers-color-scheme: dark) {
+  :root { --zemin: #0d1117; ... }
+}
+*/
+
+body {
+  margin: 0;
+  padding: 24px;
+  font-family: system-ui, "Segoe UI", Arial, sans-serif;
+  background-color: #eaeef2;
+}
+
+.yan-yana {
+  display: flex;
+  gap: 24px;
+}
+
+/* 3. Bileşenler sabit renk değil, değişken kullanır */
+.ekran {
+  flex: 1;
+  padding: 20px;
+  border-radius: 16px;
+  background-color: var(--zemin);
+  color: var(--metin);
+}
+
+.etiket {
+  margin: 0 0 12px;
+  font-size: 0.85rem;
+  color: var(--ikincil-metin);
+}
+
+.kart {
+  padding: 20px;
+  border: 1px solid var(--kenar);
+  border-radius: 12px;
+  background-color: var(--yuzey);
+}
+
+.hesap {
+  margin: 0;
+  color: var(--ikincil-metin);
+}
+
+.bakiye {
+  margin: 4px 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.aciklama {
+  margin: 0 0 16px;
+  font-size: 0.9rem;
+  color: var(--ikincil-metin);
+}
+
+.islemler {
+  display: flex;
+  gap: 10px;
+}
+
+.dugme {
+  padding: 0.5em 1em;
+  border: 2px solid var(--ana-renk);
+  border-radius: 8px;
+  background-color: var(--ana-renk);
+  color: var(--ana-renk-ustu);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.ikincil {
+  background-color: transparent;
+  color: var(--ana-renk);
+}

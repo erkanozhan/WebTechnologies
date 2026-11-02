@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dijital Saat ve Geri Sayım</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <section class="saat-karti" aria-label="Dijital saat">
+      <p id="saat" class="saat">--:--:--</p>
+      <p id="tarih" class="tarih">&nbsp;</p>
+    </section>
+
+    <section class="geri-sayim">
+      <h1>Final Sınavına Kalan Süre</h1>
+      <label for="sinavZamani">Sınav tarihi ve saati</label>
+      <input type="datetime-local" id="sinavZamani" value="2027-06-14T10:00">
+
+      <div class="kutular" id="kutular">
+        <div><span id="gun">0</span><small>gün</small></div>
+        <div><span id="saatKalan">0</span><small>saat</small></div>
+        <div><span id="dakika">0</span><small>dakika</small></div>
+        <div><span id="saniye">0</span><small>saniye</small></div>
+      </div>
+      <p id="mesaj" class="mesaj" aria-live="polite"></p>
+    </section>
+  </main>
+</body>
+</html>

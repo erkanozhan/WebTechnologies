@@ -1,0 +1,40 @@
+/* @import kuralları dosyanın en başında yer almalıdır */
+@import url("renkler.css");
+
+body {
+  margin: 0;
+  padding: 16px 24px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #24292f;
+  background-color: #f6f8fa;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 1.6rem;
+}
+
+.pano {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.kart {
+  padding: 4px 16px;
+  border-top: 6px solid #57606a;
+  border-radius: 6px;
+  background-color: #ffffff;
+}
+
+.kart h2 {
+  font-size: 1.15rem;
+}
+
+.harici h2 {
+  color: #1f6feb;
+}
+
+.harici {
+  border-top-color: #1f6feb;
+}

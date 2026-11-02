@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Örnek 6.1 – content-box ve border-box</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Aynı <code>width: 300px</code>, farklı <code>box-sizing</code></h1>
+
+  <div class="kutu icerik-kutusu">
+    <strong>content-box</strong> (varsayılan)<br>
+    Görünen genişlik: 300 + 2×20 + 2×5 = <strong>350 px</strong>
+  </div>
+
+  <div class="kutu kenarlik-kutusu">
+    <strong>border-box</strong><br>
+    Görünen genişlik: <strong>300 px</strong> (içerik 300 − 40 − 10 = 250 px)
+  </div>
+
+  <div class="cetvel">300 px</div>
+</body>
+</html>

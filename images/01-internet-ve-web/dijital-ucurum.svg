@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" role="img" aria-labelledby="t d">
+  <title id="t">Dünyada İnternet kullanım oranları, 2025</title>
+  <desc id="d">ITU Facts and Figures 2025 verilerine göre İnternet kullanan nüfus oranı: dünya geneli yaklaşık yüzde 74; yüksek gelirli ülkeler yüzde 94, düşük gelirli ülkeler yüzde 23; kentler yüzde 85, kırsal yüzde 58; 15–24 yaş yüzde 82, diğer yaşlar yüzde 72; erkekler yüzde 77, kadınlar yüzde 71.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="20" y="30" font-size="18" font-weight="bold" fill="#24292f">İnternet kullanan nüfus oranı (%), dünya, 2025</text>
+    <text x="20" y="52" font-size="13" fill="#57606a">Kaynak: ITU, Facts and Figures 2025 (Kasım 2025)</text>
+    <!-- ölçek: x=230 → %0, x=700 → %100 ; 4.7 px/% -->
+    <g stroke="#d0d7de" stroke-width="1">
+      <line x1="230" y1="70" x2="230" y2="350"/><line x1="347.5" y1="70" x2="347.5" y2="350"/>
+      <line x1="465" y1="70" x2="465" y2="350"/><line x1="582.5" y1="70" x2="582.5" y2="350"/>
+      <line x1="700" y1="70" x2="700" y2="350"/>
+    </g>
+    <g font-size="13" fill="#57606a" text-anchor="middle">
+      <text x="230" y="370">0</text><text x="347.5" y="370">25</text><text x="465" y="370">50</text><text x="582.5" y="370">75</text><text x="700" y="370">100</text>
+    </g>
+    <!-- Dünya ortalaması çizgisi: 74 → 577.8 -->
+    <line x1="577.8" y1="66" x2="577.8" y2="350" stroke="#24292f" stroke-width="1.5" stroke-dasharray="5 4"/>
+    <text x="577.8" y="388" font-size="13" fill="#24292f" text-anchor="middle">dünya ≈ %74</text>
+    <g font-size="14" fill="#24292f" text-anchor="end">
+      <text x="220" y="94">Yüksek gelirli ülkeler</text>
+      <text x="220" y="124">Düşük gelirli ülkeler</text>
+      <text x="220" y="164">Kentsel</text>
+      <text x="220" y="194">Kırsal</text>
+      <text x="220" y="234">15–24 yaş</text>
+      <text x="220" y="264">Diğer yaşlar</text>
+      <text x="220" y="304">Erkek</text>
+      <text x="220" y="334">Kadın</text>
+    </g>
+    <g fill="#1f6feb">
+      <rect x="230" y="80" width="441.8" height="20" rx="3"/>
+      <rect x="230" y="110" width="108.1" height="20" rx="3"/>
+      <rect x="230" y="150" width="399.5" height="20" rx="3"/>
+      <rect x="230" y="180" width="272.6" height="20" rx="3"/>
+      <rect x="230" y="220" width="385.4" height="20" rx="3"/>
+      <rect x="230" y="250" width="338.4" height="20" rx="3"/>
+      <rect x="230" y="290" width="361.9" height="20" rx="3"/>
+      <rect x="230" y="320" width="333.7" height="20" rx="3"/>
+    </g>
+    <g font-size="14" fill="#24292f">
+      <text x="678" y="95">94</text>
+      <text x="344" y="125">23</text>
+      <text x="636" y="165">85</text>
+      <text x="509" y="195">58</text>
+      <text x="622" y="235">82</text>
+      <text x="562" y="265" fill="#ffffff" text-anchor="end">72</text>
+      <text x="598" y="305">77</text>
+      <text x="557" y="335" fill="#ffffff" text-anchor="end">71</text>
+    </g>
+  </g>
+</svg>

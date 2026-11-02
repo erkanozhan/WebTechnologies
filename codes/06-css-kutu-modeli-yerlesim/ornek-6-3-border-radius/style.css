@@ -1,0 +1,41 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 16px;
+  color: #24292f;
+}
+
+.galeri {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+figure {
+  margin: 0;
+  width: 200px;
+}
+
+figcaption {
+  font-size: 0.8rem;
+  font-family: Consolas, monospace;
+  margin-top: 6px;
+}
+
+.sekil {
+  width: 200px;
+  height: 100px;
+  background-color: #fb8f44;
+}
+
+.kare {
+  width: 100px;
+}
+
+.r1 { border-top-right-radius: 50px; }
+.r2 { border-radius: 1em 2em; }
+.r3 { border-radius: 5px 20px / 40px 60px; }
+.r4 { border-radius: 1em; }
+.r5 { border-radius: 50px; }
+.r6 { border-radius: 36px 40px 60px 20px; }
+.r7 { border-radius: 50%; }
+.r8 { border-radius: 50%; }

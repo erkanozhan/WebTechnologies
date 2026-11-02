@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metin Arama ve Vurgulama</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Metin Arama ve Vurgulama</h1>
+
+    <form id="aramaFormu" class="arama-kutusu">
+      <label for="aramaKelimesi" class="gorunmez">Aranacak kelime</label>
+      <input type="search" id="aramaKelimesi" placeholder="Aranacak kelimeyi yazınız" value="web">
+      <button type="submit">Ara</button>
+      <button type="button" id="temizleDugmesi" class="ikincil">Temizle</button>
+    </form>
+
+    <p id="sonucBilgisi" class="bilgi" aria-live="polite"></p>
+
+    <p id="icerik" class="icerik">Web teknolojileri, internet üzerinde çalışan uygulamaların geliştirilmesinde kullanılan teknolojilerin bütününü ifade eder. HTML, web sayfalarının yapısını oluşturur. CSS, web sayfalarının görünümünü belirler. JavaScript ise web sayfalarına etkileşim katar. Modern web geliştirme, bu üç temel teknolojinin uyum içinde çalışmasına dayanır.</p>
+  </main>
+</body>
+</html>

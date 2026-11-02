@@ -1,0 +1,75 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  color: #24292f;
+}
+
+main {
+  padding: 16px;
+}
+
+h1 {
+  font-size: 1.2rem;
+}
+
+.liste {
+  list-style: none;
+  padding: 0;
+}
+
+.liste li {
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  border-radius: 6px;
+  background-color: #f6f8fa;
+  border-left: 5px solid #1f6feb;
+}
+
+/* Her satırın sonuna, eşleşen koşula göre metin eklenir */
+.genislik::after { content: ": width < 768px"; }
+.yonelim::after  { content: ": portrait (dikey)"; }
+.isaretci::after { content: ": hassas değil (dokunmatik)"; }
+.hareket::after  { content: ": hareket serbest"; }
+.tema::after     { content: ": açık"; }
+
+/* Media Queries Level 4 aralık sözdizimi */
+@media (width >= 768px) {
+  .genislik::after { content: ": width >= 768px"; }
+}
+
+@media (orientation: landscape) {
+  .yonelim::after { content: ": landscape (yatay)"; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .isaretci::after { content: ": fare (hover: hover, pointer: fine)"; }
+}
+
+@media (prefers-color-scheme: dark) {
+  .tema::after { content: ": koyu"; }
+}
+
+/* Hareketli top: kullanıcı azaltılmış hareket istemişse durur */
+.top {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #2da44e;
+  animation: kay 2s ease-in-out infinite alternate;
+}
+
+@keyframes kay {
+  to {
+    transform: translateX(200px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .top {
+    animation: none;
+  }
+
+  .hareket::after {
+    content: ": azaltılmış hareket (reduce)";
+  }
+}

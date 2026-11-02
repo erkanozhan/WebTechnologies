@@ -1,0 +1,57 @@
+body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 8px 24px;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: #24292f;
+}
+
+h2 {
+  font-size: 1.15rem;
+  color: #1f6feb;
+}
+
+/* 1. Yalnızca p için kural: em kalıtır, img görsel olarak etkilenmez */
+p.aciklama {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
+  color: #2da44e;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* 2. border ve padding kalıtılmaz, color kalıtılır */
+.kutu {
+  padding: 12px;
+  border: 3px solid #cf222e;
+  color: #cf222e;
+}
+
+.ic {
+  margin-bottom: 0;
+}
+
+/* 3. inherit, initial, unset, revert */
+.kart {
+  padding: 4px 16px;
+  background-color: #f6f8fa;
+  color: #8250df;
+}
+
+.kart a.inherit {
+  color: inherit;
+}
+
+.kart a.initial {
+  color: initial;
+}
+
+.kart a.unset {
+  color: unset;
+}
+
+.kart a.revert {
+  color: revert;
+}

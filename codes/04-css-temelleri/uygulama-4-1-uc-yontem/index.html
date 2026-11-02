@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kampüs Duyuru Panosu: Üç Stil Yöntemi</title>
+  <!-- 1) Harici stil dosyası (style.css içinde @import da var) -->
+  <link rel="stylesheet" href="style.css">
+  <!-- 2) Gömülü stil -->
+  <style>
+    .gomulu h2 {
+      color: #2da44e;
+    }
+
+    .gomulu {
+      border-top-color: #2da44e;
+    }
+  </style>
+</head>
+<body>
+  <h1>Kampüs Duyuru Panosu</h1>
+  <div class="pano">
+    <article class="kart harici">
+      <h2>Harici dosya</h2>
+      <p>Başlık rengi <code>style.css</code> dosyasından gelir. Sitedeki tüm sayfalar aynı dosyayı paylaşır.</p>
+    </article>
+    <article class="kart ice-aktarilan">
+      <h2>@import</h2>
+      <p>Başlık rengi, <code>style.css</code> tarafından içe aktarılan <code>renkler.css</code> dosyasından gelir.</p>
+    </article>
+    <article class="kart gomulu">
+      <h2>Gömülü stil</h2>
+      <p>Başlık rengi <code>&lt;head&gt;</code> içindeki <code>&lt;style&gt;</code> öğesinden gelir; yalnızca bu sayfayı etkiler.</p>
+    </article>
+    <article class="kart satir-ici" style="border-top-color: #cf222e;">
+      <h2 style="color: #cf222e;">Satır içi stil</h2>
+      <p>Başlık rengi öğenin <code>style</code> niteliğinden gelir; yalnızca bu öğeyi etkiler.</p>
+    </article>
+  </div>
+</body>
+</html>

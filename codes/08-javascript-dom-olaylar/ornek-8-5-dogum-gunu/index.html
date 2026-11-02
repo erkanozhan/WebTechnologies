@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doğum Günü Hesaplayıcı</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Doğum Günü Hesaplayıcı</h1>
+
+    <form id="dogumFormu">
+      <label for="dogumTarihi">Doğum tarihiniz</label>
+      <input type="date" id="dogumTarihi" name="dogumTarihi" required value="2006-08-15">
+      <button type="submit">Hesapla</button>
+    </form>
+
+    <dl class="sonuclar">
+      <dt>Yaşınız</dt>
+      <dd id="yas">—</dd>
+      <dt>Doğduğunuz gün</dt>
+      <dd id="gunAdi">—</dd>
+      <dt>Bir sonraki doğum gününüz</dt>
+      <dd id="sonrakiTarih">—</dd>
+      <dt>Kalan gün</dt>
+      <dd id="kalanGun">—</dd>
+    </dl>
+    <p id="hata" class="hata" role="alert"></p>
+  </main>
+</body>
+</html>

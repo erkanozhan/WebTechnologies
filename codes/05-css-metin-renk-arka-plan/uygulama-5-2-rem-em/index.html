@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>rem ve em ile Ölçeklenen Düğmeler</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Sepet işlemleri</h1>
+    <p>Düğmelerin yazı boyutu <code>rem</code>, iç boşlukları <code>em</code> ile verilmiştir. Yazı büyüdükçe boşluklar da orantılı olarak büyür.</p>
+    <div class="dugmeler">
+      <button class="dugme kucuk" type="button">Favorilere ekle</button>
+      <button class="dugme" type="button">Sepete ekle</button>
+      <button class="dugme buyuk" type="button">Hemen satın al</button>
+    </div>
+
+    <h2>Bileşik büyüme deneyi</h2>
+    <div class="em-kutu">em kutusu (1.25em)
+      <div class="em-kutu">iç içe (1.25em)
+        <div class="em-kutu">daha içte (1.25em)</div>
+      </div>
+    </div>
+    <div class="rem-kutu">rem kutusu (1.25rem)
+      <div class="rem-kutu">iç içe (1.25rem)
+        <div class="rem-kutu">daha içte (1.25rem)</div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

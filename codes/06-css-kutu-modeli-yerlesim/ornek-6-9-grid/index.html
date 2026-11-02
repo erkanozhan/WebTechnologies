@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Örnek 6.9 – CSS Grid temel kavramlar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>grid-template-columns: 200px 1fr 2fr</h2>
+  <div class="izgara a">
+    <div>200px</div><div>1fr</div><div>2fr</div>
+    <div>4</div><div>5</div><div>6</div>
+  </div>
+
+  <h2>grid-template-columns: repeat(4, 1fr); gap: 12px</h2>
+  <div class="izgara b">
+    <div>1</div><div>2</div><div>3</div><div>4</div>
+    <div class="genis">grid-column: span 2</div><div>6</div><div>7</div>
+  </div>
+
+  <h2>grid-template-columns: repeat(auto-fit, minmax(140px, 1fr))</h2>
+  <div class="izgara c">
+    <div>1</div><div>2</div><div>3</div><div>4</div><div>5</div>
+  </div>
+</body>
+</html>

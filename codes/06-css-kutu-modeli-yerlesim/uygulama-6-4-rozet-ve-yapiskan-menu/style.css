@@ -1,0 +1,102 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  color: #24292f;
+  background-color: #f6f8fa;
+}
+
+.site-basligi {
+  padding: 16px;
+  background-color: #ffffff;
+}
+
+.logo {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+/* Kaydırınca üst kenara yapışan menü */
+.menu {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  gap: 4px;
+  padding: 8px 16px;
+  background-color: #24292f;
+}
+
+.menu a {
+  position: relative;        /* sayaç rozeti için referans */
+  padding: 8px 12px;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+.menu a:hover,
+.menu a:focus-visible {
+  background-color: #57606a;
+}
+
+.sayac {
+  position: absolute;
+  top: -2px;
+  right: -8px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 10px;
+  background-color: #cf222e;
+  font-size: 0.75rem;
+  line-height: 20px;
+  text-align: center;
+}
+
+main {
+  padding: 24px 16px;
+  min-height: 1200px;        /* kaydırmayı denemek için */
+}
+
+.urun {
+  position: relative;        /* rozetin kapsayıcı bloğu */
+  width: 220px;
+  padding: 16px;
+  border-radius: 10px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  text-align: center;
+}
+
+.rozet {
+  position: absolute;
+  top: 12px;
+  left: -8px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background-color: #2da44e;
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.urun h2 {
+  font-size: 1.05rem;
+  margin: 8px 0 4px;
+}
+
+.urun p {
+  margin: 0;
+}
+
+.aciklama {
+  max-width: 480px;
+  color: #57606a;
+}

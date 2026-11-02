@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" font-family="Segoe UI, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">DevTools kutu modeli paneli (şematik)</title>
+  <desc id="d">Chrome DevTools Elements paneli Computed sekmesindeki kutu modeli çizimi: dışta margin 24, sonra border 4, padding 16, ortada içerik 260 çarpı 71 piksel.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <text x="20" y="26" font-size="14" fill="#57606a">Elements paneli, Computed sekmesi (şematik çizim)</text>
+  <rect x="40" y="44" width="560" height="290" fill="#f9cc9d" stroke="#57606a" stroke-dasharray="4 3"/>
+  <text x="50" y="62" font-size="13" fill="#24292f">margin</text>
+  <text x="320" y="62" font-size="14" fill="#24292f" text-anchor="middle">24</text>
+  <text x="320" y="326" font-size="14" fill="#24292f" text-anchor="middle">24</text>
+  <text x="60" y="194" font-size="14" fill="#24292f" text-anchor="middle">24</text>
+  <text x="580" y="194" font-size="14" fill="#24292f" text-anchor="middle">24</text>
+  <rect x="80" y="74" width="480" height="230" fill="#fddd9b" stroke="#24292f"/>
+  <text x="90" y="92" font-size="13" fill="#24292f">border</text>
+  <text x="320" y="92" font-size="14" fill="#24292f" text-anchor="middle">4</text>
+  <text x="320" y="296" font-size="14" fill="#24292f" text-anchor="middle">4</text>
+  <text x="100" y="194" font-size="14" fill="#24292f" text-anchor="middle">4</text>
+  <text x="540" y="194" font-size="14" fill="#24292f" text-anchor="middle">4</text>
+  <rect x="120" y="104" width="400" height="170" fill="#c3d08b" stroke="#57606a" stroke-dasharray="4 3"/>
+  <text x="130" y="122" font-size="13" fill="#24292f">padding</text>
+  <text x="320" y="122" font-size="14" fill="#24292f" text-anchor="middle">16</text>
+  <text x="320" y="266" font-size="14" fill="#24292f" text-anchor="middle">16</text>
+  <text x="140" y="194" font-size="14" fill="#24292f" text-anchor="middle">16</text>
+  <text x="500" y="194" font-size="14" fill="#24292f" text-anchor="middle">16</text>
+  <rect x="160" y="134" width="320" height="110" fill="#8cb6c0" stroke="#57606a"/>
+  <text x="320" y="194" font-size="16" fill="#24292f" text-anchor="middle" font-weight="bold">260 × 71</text>
+</svg>

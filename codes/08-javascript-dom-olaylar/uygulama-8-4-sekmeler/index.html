@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sekme Bileşeni</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>BMB112 Web Teknolojileri</h1>
+
+    <div class="sekmeler">
+      <div role="tablist" aria-label="Ders bilgileri" id="sekmeListesi">
+        <button type="button" role="tab" id="sekme-genel" aria-controls="panel-genel" aria-selected="true">Genel</button>
+        <button type="button" role="tab" id="sekme-degerlendirme" aria-controls="panel-degerlendirme" aria-selected="false" tabindex="-1">Değerlendirme</button>
+        <button type="button" role="tab" id="sekme-konular" aria-controls="panel-konular" aria-selected="false" tabindex="-1">Konular</button>
+      </div>
+
+      <section role="tabpanel" id="panel-genel" aria-labelledby="sekme-genel">
+        <p>Ders, istemci tarafı web teknolojilerini (HTML, CSS ve JavaScript) temel alarak erişilebilir ve duyarlı web sayfaları geliştirmeyi amaçlar.</p>
+      </section>
+
+      <section role="tabpanel" id="panel-degerlendirme" aria-labelledby="sekme-degerlendirme" hidden>
+        <p>Ağırlıklı ortalama = vize × 0,4 + final × 0,6. Ortalaması en az 60 olan öğrenci dersi geçer.</p>
+      </section>
+
+      <section role="tabpanel" id="panel-konular" aria-labelledby="sekme-konular" hidden>
+        <ol>
+          <li>HTML belge yapısı ve formlar</li>
+          <li>CSS seçiciler, kutu modeli ve yerleşim</li>
+          <li>JavaScript, DOM ve olaylar</li>
+        </ol>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

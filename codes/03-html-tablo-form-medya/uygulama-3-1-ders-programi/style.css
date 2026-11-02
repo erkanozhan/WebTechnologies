@@ -1,0 +1,64 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 1rem 1.5rem;
+  color: #24292f;
+  background: #ffffff;
+}
+
+h1 {
+  font-size: 1.4rem;
+  margin-top: 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 56rem;
+  table-layout: fixed;
+}
+
+caption {
+  text-align: left;
+  font-style: italic;
+  color: #57606a;
+  padding-bottom: 0.5rem;
+}
+
+th,
+td {
+  border: 1px solid #8c959f;
+  padding: 0.45rem;
+  text-align: center;
+  vertical-align: middle;
+  height: 2.2rem;
+}
+
+thead th {
+  background: #1f6feb;
+  color: #ffffff;
+}
+
+tbody th {
+  background: #eaeef2;
+  width: 4.5rem;
+}
+
+.ders {
+  background: #dafbe1;
+  font-weight: 600;
+}
+
+.web {
+  background: #ddf4ff;
+}
+
+small {
+  font-weight: normal;
+  color: #57606a;
+}
+
+.ara td {
+  background: #fff8c5;
+  font-style: italic;
+}

@@ -1,0 +1,58 @@
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 32px 16px;
+  font-family: "Inter", system-ui, "Segoe UI", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #1f2328;
+  background-color: #f6f8fa;
+}
+
+article {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.ust-baslik {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1f6feb;
+}
+
+h1 {
+  margin: 0.25rem 0 0.75rem;
+  font-family: "Lora", Georgia, "Times New Roman", serif;
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.ozet {
+  font-size: 1.15rem;
+  color: #57606a;
+}
+
+blockquote {
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+  border-left: 4px solid #1f6feb;
+  font-family: "Lora", Georgia, serif;
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+.imza {
+  font-size: 0.875rem;
+  color: #57606a;
+  text-align: right;
+}

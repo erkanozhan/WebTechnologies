@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uygulama 3.3 - Harita ve Video Gömme</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Gömülü içerik: iframe</h1>
+    <p class="not">Harita ve video çerçeveleri için internet bağlantısı gerekir. Sayfayı Live Server ile açınız.</p>
+
+    <section>
+      <h2>1. Yerel duyuru sayfası (sandbox ile)</h2>
+      <iframe src="duyurular.html" title="Bölüm duyuruları" width="560" height="160" sandbox></iframe>
+    </section>
+
+    <section>
+      <h2>2. Harita (OpenStreetMap)</h2>
+      <iframe class="genis"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=27.760%2C41.140%2C27.840%2C41.180&amp;layer=mapnik"
+        title="Çorlu çevresini gösteren OpenStreetMap haritası"
+        loading="lazy"
+        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <p><a href="https://www.openstreetmap.org/#map=14/41.160/27.800">Haritayı büyük görüntüle</a></p>
+    </section>
+
+    <section>
+      <h2>3. Video (YouTube)</h2>
+      <iframe class="genis video"
+        src="https://www.youtube-nocookie.com/embed/aqz-KE-bpKQ"
+        title="Big Buck Bunny - Blender Foundation kısa filmi"
+        loading="lazy"
+        allow="encrypted-media; picture-in-picture; fullscreen"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen></iframe>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 330" font-family="Segoe UI, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">content-box ve border-box karşılaştırması</title>
+  <desc id="d">width 300, padding 20, border 5 değerleriyle content-box'ta görünen genişlik 350 piksel, border-box'ta 300 piksel olur.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <text x="20" y="28" font-size="15" font-weight="bold" fill="#24292f">width: 300px; padding: 20px; border: 5px solid;</text>
+  <!-- content-box -->
+  <text x="20" y="66" font-size="14" font-weight="bold" fill="#1f6feb">content-box (varsayılan)</text>
+  <g transform="translate(20,78)">
+    <rect x="0" y="0" width="350" height="60" fill="#1f6feb"/>
+    <rect x="5" y="0" width="340" height="60" fill="#dafbe1"/>
+    <rect x="25" y="0" width="300" height="60" fill="#ddf4ff"/>
+    <rect x="0" y="0" width="5" height="60" fill="#24292f"/><rect x="345" y="0" width="5" height="60" fill="#24292f"/>
+    <text x="175" y="35" font-size="14" text-anchor="middle" fill="#0a3069">içerik = 300</text>
+    <text x="15" y="80" font-size="13" text-anchor="middle" fill="#116329">20</text>
+    <text x="335" y="80" font-size="13" text-anchor="middle" fill="#116329">20</text>
+    <line x1="0" y1="92" x2="350" y2="92" stroke="#cf222e" stroke-width="2"/>
+    <text x="175" y="110" font-size="14" text-anchor="middle" fill="#cf222e">5 + 20 + 300 + 20 + 5 = 350 px</text>
+  </g>
+  <!-- border-box -->
+  <text x="420" y="66" font-size="14" font-weight="bold" fill="#2da44e">border-box</text>
+  <g transform="translate(420,78)">
+    <rect x="0" y="0" width="300" height="60" fill="#24292f"/>
+    <rect x="5" y="0" width="290" height="60" fill="#dafbe1"/>
+    <rect x="25" y="0" width="250" height="60" fill="#ddf4ff"/>
+    <text x="150" y="35" font-size="14" text-anchor="middle" fill="#0a3069">içerik = 250</text>
+    <text x="15" y="80" font-size="13" text-anchor="middle" fill="#116329">20</text>
+    <text x="285" y="80" font-size="13" text-anchor="middle" fill="#116329">20</text>
+    <line x1="0" y1="92" x2="300" y2="92" stroke="#cf222e" stroke-width="2"/>
+    <text x="150" y="110" font-size="14" text-anchor="middle" fill="#cf222e">görünen genişlik = 300 px</text>
+  </g>
+  <text x="20" y="232" font-size="14" fill="#24292f">content-box: width yalnızca içeriği ölçer; dolgu ve kenarlık dışarıya eklenir.</text>
+  <text x="20" y="256" font-size="14" fill="#24292f">border-box: width kenarlık dahil tüm kutuyu ölçer; içerik alanı kendiliğinden küçülür.</text>
+  <text x="20" y="280" font-size="14" fill="#24292f">Her iki durumda da margin hesaba katılmaz; kaplanan alan = görünen genişlik + sol ve sağ margin.</text>
+  <rect x="20" y="296" width="14" height="14" fill="#24292f"/><text x="40" y="308" font-size="13" fill="#57606a">kenarlık</text>
+  <rect x="110" y="296" width="14" height="14" fill="#dafbe1" stroke="#2da44e"/><text x="130" y="308" font-size="13" fill="#57606a">dolgu</text>
+  <rect x="190" y="296" width="14" height="14" fill="#ddf4ff" stroke="#1f6feb"/><text x="210" y="308" font-size="13" fill="#57606a">içerik</text>
+</svg>

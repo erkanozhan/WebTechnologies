@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  padding: 24px;
+  font-family: system-ui, "Segoe UI", Arial, sans-serif;
+  background-color: #ffffff;
+}
+
+.izgara {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+section {
+  padding: 20px 16px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+p {
+  margin: 12px 0 0;
+  font-size: 0.7rem;
+}
+
+code {
+  font-family: Consolas, "Courier New", monospace;
+}
+
+.acik {
+  background-color: #f6f8fa;
+  color: #1f2328;
+}
+
+.leylak {
+  background-color: thistle;
+  color: #3d2a5c;
+}
+
+.koyu {
+  background-color: #0d1117;
+  color: #c9d1d9;
+}
+
+.basit {
+  text-shadow: 2px 2px 4px rgb(0 0 0 / 0.4);
+}
+
+.coklu {
+  color: #6e40c9;
+  text-shadow: -0.07em -0.05em 0.02em silver, 0.02em 0.02em 0.01em gray;
+}
+
+.parilti {
+  text-shadow: 0 0 0.4em #8250df;
+}
+
+.kabartma {
+  color: #ba9eba;
+  text-shadow: -0.05em -0.05em 0.05em #ffffff, 0.03em 0.03em 0.05em #6e40c9;
+}
+
+.gomme {
+  color: #ba9eba;
+  text-shadow: -0.05em -0.05em 0.05em #6e40c9, 0.03em 0.03em 0.05em #ffffff;
+}
+
+.neon {
+  color: #ffffff;
+  text-shadow: 0 0 4px #ffffff, 0 0 12px #1f6feb, 0 0 24px #1f6feb;
+}

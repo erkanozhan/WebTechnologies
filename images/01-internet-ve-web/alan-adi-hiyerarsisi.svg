@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-labelledby="t d">
+  <title id="t">Alan adı sisteminin ağaç yapısı</title>
+  <desc id="d">En üstte kök (nokta). Altında üst düzey alan adları: com, org, tr, de. tr altında edu.tr, com.tr, gov.tr. edu.tr altında nku.edu.tr; onun altında www.nku.edu.tr ve obs.nku.edu.tr ana makine adları. Bir alan adı sağdan sola, kökten yaprağa doğru okunur.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="400" y="30" font-size="18" font-weight="bold" fill="#24292f" text-anchor="middle">DNS ad alanı: kökten yapraklara</text>
+    <g stroke="#8c959f" stroke-width="2">
+      <line x1="400" y1="78" x2="140" y2="128"/><line x1="400" y1="78" x2="290" y2="128"/>
+      <line x1="400" y1="78" x2="470" y2="128"/><line x1="400" y1="78" x2="640" y2="128"/>
+      <line x1="470" y1="152" x2="330" y2="208"/><line x1="470" y1="152" x2="470" y2="208"/><line x1="470" y1="152" x2="610" y2="208"/>
+      <line x1="330" y1="232" x2="330" y2="278"/>
+      <line x1="330" y1="302" x2="240" y2="340"/><line x1="330" y1="302" x2="420" y2="340"/>
+    </g>
+    <g font-size="15" text-anchor="middle">
+      <rect x="360" y="50" width="80" height="30" rx="15" fill="#24292f"/>
+      <text x="400" y="70" fill="#ffffff" font-weight="bold">kök ( . )</text>
+
+      <rect x="105" y="125" width="70" height="28" rx="6" fill="#1f6feb"/><text x="140" y="144" fill="#ffffff">com</text>
+      <rect x="255" y="125" width="70" height="28" rx="6" fill="#1f6feb"/><text x="290" y="144" fill="#ffffff">org</text>
+      <rect x="435" y="125" width="70" height="28" rx="6" fill="#1f6feb"/><text x="470" y="144" fill="#ffffff">tr</text>
+      <rect x="605" y="125" width="70" height="28" rx="6" fill="#1f6feb"/><text x="640" y="144" fill="#ffffff">de</text>
+
+      <rect x="285" y="205" width="90" height="28" rx="6" fill="#2da44e"/><text x="330" y="224" fill="#ffffff">edu.tr</text>
+      <rect x="425" y="205" width="90" height="28" rx="6" fill="#2da44e"/><text x="470" y="224" fill="#ffffff">com.tr</text>
+      <rect x="565" y="205" width="90" height="28" rx="6" fill="#2da44e"/><text x="610" y="224" fill="#ffffff">gov.tr</text>
+
+      <rect x="265" y="275" width="130" height="28" rx="6" fill="#bf8700"/><text x="330" y="294" fill="#ffffff">nku.edu.tr</text>
+
+      <rect x="160" y="337" width="160" height="28" rx="6" fill="#f6f8fa" stroke="#57606a"/><text x="240" y="356" fill="#24292f">www.nku.edu.tr</text>
+      <rect x="340" y="337" width="160" height="28" rx="6" fill="#f6f8fa" stroke="#57606a"/><text x="420" y="356" fill="#24292f">obs.nku.edu.tr</text>
+    </g>
+    <g font-size="14" fill="#57606a">
+      <text x="690" y="70">kök sunucular</text>
+      <text x="690" y="144">TLD (üst düzey)</text>
+      <text x="670" y="224">ikinci düzey</text>
+      <text x="410" y="294">kurumun alanı</text>
+      <text x="520" y="356">ana makine adları</text>
+    </g>
+    <text x="400" y="392" font-size="13" fill="#57606a" text-anchor="middle">www.nku.edu.tr adı sağdan sola okunur: kök → tr → edu.tr → nku.edu.tr → www</text>
+  </g>
+</svg>

@@ -1,0 +1,60 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* min, tercih edilen (akışkan), max */
+  --boyut-govde: clamp(1rem, 0.9rem + 0.4vw, 1.2rem);
+  --boyut-ozet: clamp(1.1rem, 0.95rem + 0.8vw, 1.5rem);
+  --boyut-h1: clamp(1.6rem, 1rem + 3vw, 3.2rem);
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: var(--boyut-govde);
+  line-height: 1.6;
+  margin: 0;
+  color: #24292f;
+}
+
+main {
+  max-width: 70ch;            /* okunabilir satır uzunluğu */
+  margin: 0 auto;
+  padding: clamp(16px, 4vw, 48px);
+}
+
+.ust-baslik {
+  margin: 0;
+  color: #cf222e;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85em;
+}
+
+h1 {
+  font-size: var(--boyut-h1);
+  line-height: 1.15;
+  margin: 0.3em 0;
+}
+
+.ozet {
+  font-size: var(--boyut-ozet);
+  color: #57606a;
+}
+
+/* Hangi boyutların hesaplandığını gösteren not */
+.olcu {
+  margin-top: 2em;
+  padding: 8px 12px;
+  border-left: 4px solid #1f6feb;
+  background-color: #ddf4ff;
+  font-size: 0.85rem;
+}
+
+.olcu::after {
+  content: "h1 = clamp(1.6rem, 1rem + 3vw, 3.2rem)";
+  font-family: Consolas, monospace;
+}

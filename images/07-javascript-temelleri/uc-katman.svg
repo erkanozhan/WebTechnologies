@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 320" font-family="Segoe UI, Arial, sans-serif" role="img" aria-labelledby="baslik aciklama">
+  <title id="baslik">Web sayfasının üç katmanı</title>
+  <desc id="aciklama">HTML içeriği, CSS sunumu, JavaScript davranışı belirler; her katman bir "Sepete ekle" düğmesi örneğiyle gösterilmiştir.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <!-- HTML katmanı -->
+  <rect x="20" y="20" width="230" height="84" rx="10" fill="#1f6feb"/>
+  <text x="40" y="54" font-size="22" font-weight="700" fill="#ffffff">HTML</text>
+  <text x="40" y="80" font-size="14" fill="#ffffff">İçerik ve yapı:</text>
+  <text x="40" y="97" font-size="14" fill="#ffffff">neyin var olduğu</text>
+  <rect x="265" y="20" width="495" height="84" rx="10" fill="#f6f8fa" stroke="#d0d7de"/>
+  <text x="285" y="54" font-size="14" font-family="Consolas, monospace" fill="#24292f">&lt;button&gt;Sepete ekle&lt;/button&gt;</text>
+  <text x="285" y="82" font-size="13" fill="#57606a">Tarayıcı varsayılan görünümüyle bir düğme</text>
+  <rect x="610" y="42" width="110" height="30" rx="2" fill="#efefef" stroke="#767676"/>
+  <text x="665" y="62" font-size="14" text-anchor="middle" fill="#000000">Sepete ekle</text>
+
+  <!-- CSS katmanı -->
+  <rect x="20" y="118" width="230" height="84" rx="10" fill="#2da44e"/>
+  <text x="40" y="152" font-size="22" font-weight="700" fill="#ffffff">CSS</text>
+  <text x="40" y="178" font-size="14" fill="#ffffff">Sunum:</text>
+  <text x="40" y="195" font-size="14" fill="#ffffff">nasıl göründüğü</text>
+  <rect x="265" y="118" width="495" height="84" rx="10" fill="#f6f8fa" stroke="#d0d7de"/>
+  <text x="285" y="148" font-size="14" font-family="Consolas, monospace" fill="#24292f">button { background: #1f6feb;</text>
+  <text x="354" y="167" font-size="14" font-family="Consolas, monospace" fill="#24292f">border-radius: 8px; }</text>
+  <text x="285" y="190" font-size="13" fill="#57606a">Renk, köşe, yazı tipi, yerleşim</text>
+  <rect x="600" y="140" width="130" height="36" rx="8" fill="#1f6feb"/>
+  <text x="665" y="163" font-size="14" font-weight="600" text-anchor="middle" fill="#ffffff">Sepete ekle</text>
+
+  <!-- JavaScript katmanı -->
+  <rect x="20" y="216" width="230" height="84" rx="10" fill="#bf8700"/>
+  <text x="40" y="250" font-size="22" font-weight="700" fill="#ffffff">JavaScript</text>
+  <text x="40" y="276" font-size="14" fill="#ffffff">Davranış:</text>
+  <text x="40" y="293" font-size="14" fill="#ffffff">nasıl tepki verdiği</text>
+  <rect x="265" y="216" width="495" height="84" rx="10" fill="#f6f8fa" stroke="#d0d7de"/>
+  <text x="285" y="246" font-size="14" font-family="Consolas, monospace" fill="#24292f">adet = adet + 1;</text>
+  <text x="285" y="265" font-size="14" font-family="Consolas, monospace" fill="#24292f">toplam = adet * fiyat;</text>
+  <text x="285" y="288" font-size="13" fill="#57606a">Tıklanınca sayaç ve tutar güncellenir</text>
+  <rect x="600" y="238" width="130" height="36" rx="8" fill="#2da44e"/>
+  <text x="665" y="261" font-size="14" font-weight="600" text-anchor="middle" fill="#ffffff">Sepette (3)</text>
+  <circle cx="728" cy="238" r="12" fill="#cf222e"/>
+  <text x="728" y="243" font-size="13" font-weight="700" text-anchor="middle" fill="#ffffff">3</text>
+</svg>

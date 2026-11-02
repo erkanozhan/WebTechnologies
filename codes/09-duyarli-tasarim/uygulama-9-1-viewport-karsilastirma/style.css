@@ -1,0 +1,41 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  color: #24292f;
+}
+
+header {
+  padding: 16px;
+  background-color: #0a3069;
+  color: #ffffff;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.etiket {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+main {
+  max-width: 720px;
+  padding: 16px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

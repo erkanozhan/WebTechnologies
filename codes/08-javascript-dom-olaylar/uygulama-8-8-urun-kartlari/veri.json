@@ -1,0 +1,8 @@
+[
+  { "id": 1, "ad": "Kablosuz Kulaklık", "kategori": "Elektronik", "fiyat": 1249.9, "stok": 12 },
+  { "id": 2, "ad": "USB-C Şarj Kablosu", "kategori": "Elektronik", "fiyat": 189.5, "stok": 0 },
+  { "id": 3, "ad": "Spiralli Defter (A4)", "kategori": "Kırtasiye", "fiyat": 74.0, "stok": 40 },
+  { "id": 4, "ad": "Web Tasarım Kitabı", "kategori": "Kitap", "fiyat": 420.0, "stok": 5 },
+  { "id": 5, "ad": "Mekanik Klavye", "kategori": "Elektronik", "fiyat": 2899.0, "stok": 3 },
+  { "id": 6, "ad": "Tükenmez Kalem Seti", "kategori": "Kırtasiye", "fiyat": 95.75, "stok": 25 }
+]

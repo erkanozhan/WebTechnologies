@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 340" role="img" aria-labelledby="baslik aciklama" font-family="Segoe UI, Arial, sans-serif">
+  <title id="baslik">innerHTML ve textContent ile kullanıcı verisi yazmanın farkı</title>
+  <desc id="aciklama">Kullanıcının yorum alanına yazdığı ve HTML etiketi içeren metin innerHTML ile sayfaya yazılırsa tarayıcı onu HTML olarak ayrıştırır, img öğesi oluşur ve onerror niteliğindeki saldırgan kodu çalışır. Aynı metin textContent ile yazılırsa yalnızca düz metin olarak görünür ve hiçbir kod çalışmaz.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <defs>
+    <marker id="ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+
+  <!-- Kullanıcı girdisi -->
+  <rect x="16" y="120" width="230" height="100" rx="10" fill="#f6f8fa" stroke="#57606a" stroke-width="1.5"/>
+  <text x="131" y="146" font-size="14" font-weight="600" text-anchor="middle" fill="#24292f">Kullanıcının yorumu</text>
+  <text x="131" y="174" font-size="13" font-family="Consolas, monospace" text-anchor="middle" fill="#cf222e">&lt;img src="x"</text>
+  <text x="131" y="194" font-size="13" font-family="Consolas, monospace" text-anchor="middle" fill="#cf222e">onerror="saldiri()"&gt;</text>
+
+  <!-- Oklar -->
+  <path d="M246,150 C290,150 290,75 330,75" fill="none" stroke="#57606a" stroke-width="1.6" marker-end="url(#ok)"/>
+  <path d="M246,190 C290,190 290,265 330,265" fill="none" stroke="#57606a" stroke-width="1.6" marker-end="url(#ok)"/>
+
+  <!-- Üst şerit: innerHTML -->
+  <rect x="332" y="50" width="190" height="50" rx="8" fill="#ffebe9" stroke="#cf222e" stroke-width="1.6"/>
+  <text x="427" y="81" font-size="13" font-family="Consolas, monospace" text-anchor="middle" fill="#24292f">kutu.innerHTML = yorum</text>
+  <line x1="522" y1="75" x2="556" y2="75" stroke="#57606a" stroke-width="1.6" marker-end="url(#ok)"/>
+  <rect x="558" y="50" width="160" height="50" rx="8" fill="#ffffff" stroke="#cf222e" stroke-width="1.6"/>
+  <text x="638" y="71" font-size="13" text-anchor="middle" fill="#24292f">HTML olarak ayrıştırılır;</text>
+  <text x="638" y="89" font-size="13" text-anchor="middle" fill="#24292f">&lt;img&gt; öğesi oluşur</text>
+  <line x1="718" y1="75" x2="752" y2="75" stroke="#57606a" stroke-width="1.6" marker-end="url(#ok)"/>
+  <rect x="754" y="44" width="170" height="62" rx="8" fill="#cf222e"/>
+  <text x="839" y="69" font-size="14" font-weight="600" text-anchor="middle" fill="#ffffff">Görsel yüklenemez,</text>
+  <text x="839" y="89" font-size="14" font-weight="600" text-anchor="middle" fill="#ffffff">saldırgan kodu ÇALIŞIR</text>
+  <text x="332" y="130" font-size="13" fill="#cf222e">Sonuç: oturum bilgisi çalınabilir, sayfa içeriği değiştirilebilir (XSS).</text>
+
+  <!-- Alt şerit: textContent -->
+  <rect x="332" y="240" width="190" height="50" rx="8" fill="#dafbe1" stroke="#2da44e" stroke-width="1.6"/>
+  <text x="427" y="271" font-size="13" font-family="Consolas, monospace" text-anchor="middle" fill="#24292f">kutu.textContent = yorum</text>
+  <line x1="522" y1="265" x2="556" y2="265" stroke="#57606a" stroke-width="1.6" marker-end="url(#ok)"/>
+  <rect x="558" y="240" width="160" height="50" rx="8" fill="#ffffff" stroke="#2da44e" stroke-width="1.6"/>
+  <text x="638" y="261" font-size="13" text-anchor="middle" fill="#24292f">Tek bir metin düğümü</text>
+  <text x="638" y="279" font-size="13" text-anchor="middle" fill="#24292f">oluşur</text>
+  <line x1="718" y1="265" x2="752" y2="265" stroke="#57606a" stroke-width="1.6" marker-end="url(#ok)"/>
+  <rect x="754" y="234" width="170" height="62" rx="8" fill="#2da44e"/>
+  <text x="839" y="259" font-size="14" font-weight="600" text-anchor="middle" fill="#ffffff">Metin olduğu gibi</text>
+  <text x="839" y="279" font-size="14" font-weight="600" text-anchor="middle" fill="#ffffff">görünür, kod çalışmaz</text>
+  <text x="332" y="322" font-size="13" fill="#1a7f37">Ekranda görünen: &lt;img src="x" onerror="saldiri()"&gt;  (zararsız düz metin)</text>
+</svg>

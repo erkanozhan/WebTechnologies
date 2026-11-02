@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uygulama 3.7 - Ders Değerlendirme Anketi</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Ders Değerlendirme Anketi</h1>
+
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Kaçıncı sınıftasınız?</legend>
+        <label><input type="radio" name="sinif" value="1" required> 1. sınıf</label>
+        <label><input type="radio" name="sinif" value="2"> 2. sınıf</label>
+        <label><input type="radio" name="sinif" value="3"> 3. sınıf</label>
+        <label><input type="radio" name="sinif" value="4"> 4. sınıf</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>En faydalı bulduğunuz konular (birden çok seçilebilir)</legend>
+        <label><input type="checkbox" name="konu" value="html" checked> HTML</label>
+        <label><input type="checkbox" name="konu" value="css"> CSS</label>
+        <label><input type="checkbox" name="konu" value="js"> JavaScript</label>
+        <label><input type="checkbox" name="konu" value="duyarli"> Duyarlı tasarım</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Genel bilgiler</legend>
+
+        <label class="blok" for="bolum">Bölümünüz</label>
+        <select id="bolum" name="bolum" required>
+          <option value="">Seçiniz</option>
+          <optgroup label="Mühendislik Fakültesi">
+            <option value="bilgisayar" selected>Bilgisayar Mühendisliği</option>
+            <option value="elektronik">Elektronik ve Haberleşme Mühendisliği</option>
+            <option value="makine">Makine Mühendisliği</option>
+          </optgroup>
+          <optgroup label="Fen-Edebiyat Fakültesi">
+            <option value="matematik">Matematik</option>
+            <option value="fizik">Fizik</option>
+          </optgroup>
+        </select>
+
+        <label class="blok" for="sehir">Memleketiniz</label>
+        <input type="text" id="sehir" name="sehir" list="sehirler" autocomplete="off">
+        <datalist id="sehirler">
+          <option value="Tekirdağ"></option>
+          <option value="İstanbul"></option>
+          <option value="Edirne"></option>
+          <option value="Kırklareli"></option>
+          <option value="Bursa"></option>
+        </datalist>
+
+        <label class="blok" for="puan">Dersten genel memnuniyet (0-10)</label>
+        <input type="range" id="puan" name="puan" min="0" max="10" step="1" value="8">
+        <div class="olcek" aria-hidden="true"><span>0</span><span>5</span><span>10</span></div>
+
+        <label class="blok" for="oneri">Önerileriniz</label>
+        <textarea id="oneri" name="oneri" rows="3" maxlength="300"></textarea>
+      </fieldset>
+
+      <button type="submit">Anketi gönder</button>
+    </form>
+
+    <section class="sonuc" hidden>
+      <h2>Sunucuya gidecek istek gövdesi</h2>
+      <p>Bu örnekte sunucu olmadığından veri gönderilmemiş, yalnızca kodlanmış hâli gösterilmiştir:</p>
+      <code id="govde"></code>
+    </section>
+  </main>
+</body>
+</html>

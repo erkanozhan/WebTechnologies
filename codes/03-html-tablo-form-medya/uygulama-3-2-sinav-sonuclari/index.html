@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Uygulama 3.2 - Sınav Sonuç Tablosu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>BMB112 Web Teknolojileri - Sınav Sonuçları</h1>
+    <p class="kural">Ortalama = vize &times; 0,4 + final &times; 0,6. Ortalaması en az 60 olan öğrenci geçer, diğerleri kalır.</p>
+
+    <div class="tablo-kutusu" tabindex="0" role="region" aria-labelledby="tablo-basligi">
+      <table>
+        <caption id="tablo-basligi">2025-2026 bahar dönemi sınav sonuçları (örnek veriler)</caption>
+        <thead>
+          <tr>
+            <th scope="col">Sıra</th>
+            <th scope="col">Öğrenci No</th>
+            <th scope="col">Ad Soyad</th>
+            <th scope="col">Vize</th>
+            <th scope="col">Final</th>
+            <th scope="col">Ortalama</th>
+            <th scope="col">Durum</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>2025101001</td>
+            <th scope="row">Ayşe Yılmaz</th>
+            <td>85</td>
+            <td>90</td>
+            <td>88,0</td>
+            <td class="gecti">Geçti</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>2025101002</td>
+            <th scope="row">Mehmet Kaya</th>
+            <td>90</td>
+            <td>45</td>
+            <td>63,0</td>
+            <td class="gecti">Geçti</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>2025101003</td>
+            <th scope="row">Zeynep Demir</th>
+            <td>55</td>
+            <td>65</td>
+            <td>61,0</td>
+            <td class="gecti">Geçti</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>2025101004</td>
+            <th scope="row">Can Öztürk</th>
+            <td>40</td>
+            <td>70</td>
+            <td>58,0</td>
+            <td class="kaldi">Kaldı</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>2025101005</td>
+            <th scope="row">Elif Şahin</th>
+            <td>75</td>
+            <td>80</td>
+            <td>78,0</td>
+            <td class="gecti">Geçti</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>2025101006</td>
+            <th scope="row">Emre Çelik</th>
+            <td>70</td>
+            <td>50</td>
+            <td>58,0</td>
+            <td class="kaldi">Kaldı</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>2025101007</td>
+            <th scope="row">Selin Arslan</th>
+            <td>100</td>
+            <td>50</td>
+            <td>70,0</td>
+            <td class="gecti">Geçti</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>2025101008</td>
+            <th scope="row">Burak Doğan</th>
+            <td>60</td>
+            <td>55</td>
+            <td>57,0</td>
+            <td class="kaldi">Kaldı</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>2025101009</td>
+            <th scope="row">Deniz Koç</th>
+            <td>65</td>
+            <td>62</td>
+            <td>63,2</td>
+            <td class="gecti">Geçti</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>2025101010</td>
+            <th scope="row">Gizem Aydın</th>
+            <td>50</td>
+            <td>30</td>
+            <td>38,0</td>
+            <td class="kaldi">Kaldı</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>2025101011</td>
+            <th scope="row">Kerem Yıldız</th>
+            <td>95</td>
+            <td>85</td>
+            <td>89,0</td>
+            <td class="gecti">Geçti</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>2025101012</td>
+            <th scope="row">İrem Polat</th>
+            <td>30</td>
+            <td>60</td>
+            <td>48,0</td>
+            <td class="kaldi">Kaldı</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>2025101013</td>
+            <th scope="row">Onur Erdem</th>
+            <td>30</td>
+            <td>80</td>
+            <td>60,0</td>
+            <td class="gecti">Geçti</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>2025101014</td>
+            <th scope="row">Merve Kurt</th>
+            <td>45</td>
+            <td>72</td>
+            <td>61,2</td>
+            <td class="gecti">Geçti</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>2025101015</td>
+            <th scope="row">Hakan Güneş</th>
+            <td>68</td>
+            <td>58</td>
+            <td>62,0</td>
+            <td class="gecti">Geçti</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row" colspan="5">Sınıf ortalaması</th>
+            <td>63,6</td>
+            <td>10 / 15 geçti</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </main>
+</body>
+</html>

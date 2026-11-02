@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="270" viewBox="0 0 480 270">
+  <rect width="480" height="270" fill="#dbeafe"/>
+  <circle cx="400" cy="60" r="28" fill="#fbbf24"/>
+  <rect y="210" width="480" height="60" fill="#86efac"/>
+  <rect x="110" y="90" width="260" height="120" fill="#e5e7eb" stroke="#57606a" stroke-width="2"/>
+  <polygon points="100,90 240,40 380,90" fill="#cf222e"/>
+  <rect x="215" y="150" width="50" height="60" fill="#57606a"/>
+  <g fill="#1f6feb">
+    <rect x="130" y="110" width="35" height="28"/>
+    <rect x="180" y="110" width="35" height="28"/>
+    <rect x="265" y="110" width="35" height="28"/>
+    <rect x="315" y="110" width="35" height="28"/>
+    <rect x="130" y="160" width="35" height="28"/>
+    <rect x="315" y="160" width="35" height="28"/>
+  </g>
+  <text x="240" y="78" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#ffffff">ÇMF</text>
+</svg>

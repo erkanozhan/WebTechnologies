@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olay Yayılımı: Yakalama ve Kabarma</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Olay Yayılımı</h1>
+    <p>İçteki düğmeye tıklayınız. Her kutu hem yakalama (capture) hem kabarma (bubble) aşamasında dinlenmektedir.</p>
+
+    <div class="kutu dis" id="dis">dış &lt;div&gt;
+      <div class="kutu orta" id="orta">orta &lt;div&gt;
+        <button type="button" id="ic">iç &lt;button&gt;</button>
+      </div>
+    </div>
+
+    <p>
+      <label><input type="checkbox" id="durdur"> Orta kutu, kabarma aşamasında <code>stopPropagation()</code> çağırsın</label>
+    </p>
+
+    <div class="kayit-baslik">
+      <h2>Olay kaydı</h2>
+      <button type="button" id="temizle" class="ikincil">Kaydı temizle</button>
+    </div>
+    <ol id="kayit" class="kayit"></ol>
+  </main>
+</body>
+</html>

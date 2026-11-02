@@ -1,0 +1,42 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 16px;
+  color: #24292f;
+}
+
+h2 {
+  font-size: 1rem;
+  font-family: Consolas, monospace;
+  margin: 0 0 6px;
+}
+
+.izgara {
+  display: grid;
+  grid-template-columns: repeat(4, 170px);
+  gap: 24px;
+  margin-bottom: 70px;
+}
+
+.kutu {
+  width: 150px;
+  height: 80px;
+  padding: 6px;
+  border: 2px solid #1f6feb;
+  background-color: #ddf4ff;
+  font-size: 0.85rem;
+}
+
+.visible { overflow: visible; }
+.hidden  { overflow: hidden; }
+.scroll  { overflow: scroll; }
+.auto    { overflow: auto; }
+
+/* Tek satıra sığmayan metni üç noktayla kesme */
+.tek-satir {
+  width: 360px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border: 1px solid #57606a;
+  padding: 6px;
+}

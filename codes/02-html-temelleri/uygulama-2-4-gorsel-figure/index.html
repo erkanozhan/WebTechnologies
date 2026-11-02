@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Görsel ve Figure Uygulaması</title>
+</head>
+<body>
+  <h1>Fakültemizden Görüntüler</h1>
+
+  <figure>
+    <img src="images/kampus.svg" alt="Kırmızı çatılı, mavi pencereli iki katlı fakülte binasının çizimi"
+         width="480" height="270">
+    <figcaption>Şekil 1. Çorlu Mühendislik Fakültesi binası (temsilî çizim).</figcaption>
+  </figure>
+
+  <!-- Süs amaçlı görsel: alt metni boş bırakılır, ekran okuyucu atlar -->
+  <img src="images/ayrac.svg" alt="" width="480" height="12">
+
+  <p>Aşağıdaki görsel sayfanın alt kısmında yer aldığı için tembel yükleme
+  (<code>loading="lazy"</code>) ile istenir; kullanıcı o noktaya yaklaşınca indirilir.</p>
+
+  <figure>
+    <img src="images/kampus.svg" alt="Fakülte binasının küçük boyutlu çizimi"
+         width="240" height="135" loading="lazy">
+    <figcaption>Şekil 2. Aynı görselin <code>width</code> ve <code>height</code>
+    nitelikleriyle küçültülmüş hâli.</figcaption>
+  </figure>
+
+  <p>Bozuk yol örneği (alt metin görünür):</p>
+  <img src="images/olmayan-dosya.png" alt="Bu görsel bulunamadı: kütüphane fotoğrafı"
+       width="240" height="60">
+</body>
+</html>

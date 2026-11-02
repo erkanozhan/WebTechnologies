@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 430" role="img" aria-labelledby="t d">
+  <title id="t">div tabanlı düzen ile anlamsal HTML5 düzeninin karşılaştırılması</title>
+  <desc id="d">Solda tüm bölgeler div id="header", div id="nav", div id="content", div id="sidebar", div id="footer" ile işaretlenmiştir. Sağda aynı düzen header, nav, main içinde article ve section, aside ve footer öğeleriyle işaretlenmiştir.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="215" y="30" font-size="16" font-weight="700" text-anchor="middle" fill="#1f2328">Eski yaklaşım: “div çorbası”</text>
+    <text x="695" y="30" font-size="16" font-weight="700" text-anchor="middle" fill="#1f2328">HTML5 anlamsal düzen</text>
+
+    <!-- Sol: div -->
+    <g font-family="Consolas, Courier New, monospace" font-size="14" fill="#57606a" text-anchor="middle">
+      <rect x="20" y="45" width="390" height="50" fill="#f6f8fa" stroke="#8c959f"/>
+      <text x="215" y="75">&lt;div id="header"&gt;</text>
+      <rect x="20" y="100" width="390" height="34" fill="#f6f8fa" stroke="#8c959f"/>
+      <text x="215" y="122">&lt;div id="nav"&gt;</text>
+      <rect x="20" y="139" width="260" height="210" fill="#f6f8fa" stroke="#8c959f"/>
+      <text x="150" y="162">&lt;div id="content"&gt;</text>
+      <rect x="35" y="175" width="230" height="160" fill="#ffffff" stroke="#8c959f" stroke-dasharray="4 3"/>
+      <text x="150" y="200">&lt;div class="post"&gt;</text>
+      <rect x="50" y="215" width="200" height="50" fill="#f6f8fa" stroke="#8c959f" stroke-dasharray="4 3"/>
+      <text x="150" y="245">&lt;div class="bolum"&gt;</text>
+      <rect x="50" y="272" width="200" height="50" fill="#f6f8fa" stroke="#8c959f" stroke-dasharray="4 3"/>
+      <text x="150" y="302">&lt;div class="bolum"&gt;</text>
+      <rect x="285" y="139" width="125" height="210" fill="#f6f8fa" stroke="#8c959f"/>
+      <text x="347" y="235">&lt;div</text>
+      <text x="347" y="255">id="sidebar"&gt;</text>
+      <rect x="20" y="354" width="390" height="40" fill="#f6f8fa" stroke="#8c959f"/>
+      <text x="215" y="379">&lt;div id="footer"&gt;</text>
+    </g>
+
+    <!-- Sağ: anlamsal -->
+    <g font-family="Consolas, Courier New, monospace" font-size="15" font-weight="700" fill="#1f2328" text-anchor="middle">
+      <rect x="500" y="45" width="390" height="50" fill="#ddf4ff" stroke="#1f6feb" stroke-width="2"/>
+      <text x="695" y="75">&lt;header&gt;</text>
+      <rect x="500" y="100" width="390" height="34" fill="#ede7fb" stroke="#8250df" stroke-width="2"/>
+      <text x="695" y="122">&lt;nav&gt;</text>
+      <rect x="500" y="139" width="260" height="210" fill="#ffffff" stroke="#1f6feb" stroke-width="2"/>
+      <text x="630" y="162">&lt;main&gt;</text>
+      <rect x="515" y="175" width="230" height="160" fill="#dafbe1" stroke="#2da44e" stroke-width="2"/>
+      <text x="630" y="200">&lt;article&gt;</text>
+      <rect x="530" y="215" width="200" height="50" fill="#ffffff" stroke="#2da44e"/>
+      <text x="630" y="245">&lt;section&gt;</text>
+      <rect x="530" y="272" width="200" height="50" fill="#ffffff" stroke="#2da44e"/>
+      <text x="630" y="302">&lt;section&gt;</text>
+      <rect x="765" y="139" width="125" height="210" fill="#ede7fb" stroke="#8250df" stroke-width="2"/>
+      <text x="827" y="245">&lt;aside&gt;</text>
+      <rect x="500" y="354" width="390" height="40" fill="#fff8c5" stroke="#bf8700" stroke-width="2"/>
+      <text x="695" y="379">&lt;footer&gt;</text>
+    </g>
+
+    <text x="455" y="225" font-size="26" fill="#57606a" text-anchor="middle">→</text>
+    <text x="215" y="418" font-size="13" text-anchor="middle" fill="#57606a">Tarayıcı ve ekran okuyucu bölgelerin görevini bilemez.</text>
+    <text x="695" y="418" font-size="13" text-anchor="middle" fill="#57606a">Bölgeler adından tanınır; ekran okuyucu doğrudan main'e atlayabilir.</text>
+  </g>
+</svg>

@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 360" role="img" aria-labelledby="baslik aciklama" font-family="Segoe UI, Arial, sans-serif">
+  <title id="baslik">window nesnesi, BOM ve DOM ilişkisi</title>
+  <desc id="aciklama">En üstte küresel window nesnesi bulunur. Altında document, navigator, location, history, screen ve localStorage nesneleri yer alır. document ve altındaki öğe ağacı DOM'u, diğer tarayıcı nesneleri BOM'u oluşturur.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <!-- Bölge çerçeveleri -->
+  <rect x="14" y="118" width="160" height="226" rx="12" fill="#dafbe1" fill-opacity="0.45" stroke="#2da44e" stroke-width="1.6" stroke-dasharray="6 4"/>
+  <text x="94" y="336" font-size="14" font-weight="600" fill="#1a7f37" text-anchor="middle">DOM</text>
+  <rect x="186" y="118" width="700" height="150" rx="12" fill="#ddf4ff" fill-opacity="0.45" stroke="#1f6feb" stroke-width="1.6" stroke-dasharray="6 4"/>
+  <text x="536" y="258" font-size="14" font-weight="600" fill="#0969da" text-anchor="middle">BOM (tarayıcı nesneleri)</text>
+
+  <!-- window -->
+  <rect x="330" y="16" width="240" height="40" rx="10" fill="#24292f"/>
+  <text x="450" y="42" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle">window (küresel nesne)</text>
+  <text x="584" y="34" font-size="13" fill="#57606a">yöntemleri: alert(), setTimeout(),</text>
+  <text x="584" y="52" font-size="13" fill="#57606a">setInterval(), fetch() …</text>
+
+  <!-- Bağlantılar -->
+  <g stroke="#57606a" stroke-width="1.5">
+    <line x1="450" y1="56" x2="450" y2="100"/>
+    <line x1="94" y1="100" x2="816" y2="100"/>
+    <line x1="94" y1="100" x2="94" y2="134"/>
+    <line x1="258" y1="100" x2="258" y2="134"/>
+    <line x1="370" y1="100" x2="370" y2="134"/>
+    <line x1="482" y1="100" x2="482" y2="134"/>
+    <line x1="594" y1="100" x2="594" y2="134"/>
+    <line x1="706" y1="100" x2="706" y2="134"/>
+    <line x1="816" y1="100" x2="816" y2="134"/>
+    <line x1="94" y1="168" x2="94" y2="206"/>
+    <line x1="94" y1="240" x2="60" y2="276"/>
+    <line x1="94" y1="240" x2="128" y2="276"/>
+  </g>
+
+  <!-- DOM tarafı -->
+  <g font-size="14" text-anchor="middle" font-weight="600">
+    <rect x="34" y="134" width="120" height="34" rx="8" fill="#2da44e"/>
+    <text x="94" y="156" fill="#ffffff">document</text>
+    <rect x="59" y="206" width="70" height="34" rx="8" fill="#1f6feb"/>
+    <text x="94" y="228" fill="#ffffff">html</text>
+    <rect x="28" y="276" width="64" height="30" rx="7" fill="#1f6feb"/>
+    <text x="60" y="296" fill="#ffffff">head</text>
+    <rect x="98" y="276" width="64" height="30" rx="7" fill="#1f6feb"/>
+    <text x="130" y="296" fill="#ffffff">body</text>
+  </g>
+
+  <!-- BOM tarafı -->
+  <g font-size="14" text-anchor="middle">
+    <rect x="203" y="134" width="110" height="34" rx="8" fill="#ffffff" stroke="#1f6feb" stroke-width="1.6"/>
+    <text x="258" y="156" font-weight="600" fill="#24292f">navigator</text>
+    <text x="258" y="188" font-size="13" fill="#57606a">dil, bağlantı,</text>
+    <text x="258" y="205" font-size="13" fill="#57606a">konum izni</text>
+
+    <rect x="320" y="134" width="100" height="34" rx="8" fill="#ffffff" stroke="#1f6feb" stroke-width="1.6"/>
+    <text x="370" y="156" font-weight="600" fill="#24292f">location</text>
+    <text x="370" y="188" font-size="13" fill="#57606a">sayfanın</text>
+    <text x="370" y="205" font-size="13" fill="#57606a">adresi (URL)</text>
+
+    <rect x="432" y="134" width="100" height="34" rx="8" fill="#ffffff" stroke="#1f6feb" stroke-width="1.6"/>
+    <text x="482" y="156" font-weight="600" fill="#24292f">history</text>
+    <text x="482" y="188" font-size="13" fill="#57606a">gezinme</text>
+    <text x="482" y="205" font-size="13" fill="#57606a">geçmişi</text>
+
+    <rect x="544" y="134" width="100" height="34" rx="8" fill="#ffffff" stroke="#1f6feb" stroke-width="1.6"/>
+    <text x="594" y="156" font-weight="600" fill="#24292f">screen</text>
+    <text x="594" y="188" font-size="13" fill="#57606a">ekran</text>
+    <text x="594" y="205" font-size="13" fill="#57606a">boyutları</text>
+
+    <rect x="654" y="134" width="104" height="34" rx="8" fill="#ffffff" stroke="#1f6feb" stroke-width="1.6"/>
+    <text x="706" y="156" font-weight="600" fill="#24292f">localStorage</text>
+    <text x="706" y="188" font-size="13" fill="#57606a">kalıcı</text>
+    <text x="706" y="205" font-size="13" fill="#57606a">anahtar–değer</text>
+
+    <rect x="764" y="134" width="104" height="34" rx="8" fill="#ffffff" stroke="#1f6feb" stroke-width="1.6"/>
+    <text x="816" y="156" font-weight="600" fill="#24292f">console</text>
+    <text x="816" y="188" font-size="13" fill="#57606a">geliştirici</text>
+    <text x="816" y="205" font-size="13" fill="#57606a">konsolu</text>
+  </g>
+
+  <!-- Not -->
+  <text x="200" y="300" font-size="13" fill="#57606a">window.document ≡ document, window.alert() ≡ alert(): küresel nesnenin üyeleri önek olmadan da yazılabilir.</text>
+  <text x="200" y="322" font-size="13" fill="#57606a">DOM: WHATWG DOM standardı · BOM nesneleri: büyük ölçüde WHATWG HTML standardı</text>
+</svg>

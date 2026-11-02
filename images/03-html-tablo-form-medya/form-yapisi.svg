@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 360" font-family="Segoe UI, Arial, sans-serif" font-size="14">
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <!-- bağlantı çizgileri -->
+  <g stroke="#8c959f" stroke-width="1.5" fill="none">
+    <path d="M390,66 V92 H230 V112"/>
+    <path d="M390,92 H640 V112"/>
+    <path d="M230,152 V176 H70 V196"/>
+    <path d="M230,176 H520 V196"/>
+    <path d="M190,176 V196"/>
+    <path d="M310,176 V196"/>
+    <path d="M410,176 V196"/>
+    <path d="M630,176 H700 V196" />
+    <path d="M630,176 V196"/>
+    <path d="M410,236 V262"/>
+    <path d="M520,236 V262"/>
+  </g>
+  <path d="M520,176 H630" stroke="#8c959f" stroke-width="1.5" fill="none"/>
+
+  <!-- form -->
+  <rect x="275" y="20" width="230" height="46" rx="6" fill="#24292f"/>
+  <text x="390" y="40" text-anchor="middle" fill="#ffffff" font-family="Consolas, monospace" font-size="15">&lt;form&gt;</text>
+  <text x="390" y="58" text-anchor="middle" fill="#d0d7de" font-size="13">action · method · enctype</text>
+
+  <!-- fieldset & button -->
+  <rect x="150" y="112" width="160" height="40" rx="6" fill="#1f6feb"/>
+  <text x="230" y="137" text-anchor="middle" fill="#ffffff" font-family="Consolas, monospace" font-size="15">&lt;fieldset&gt;</text>
+  <rect x="560" y="112" width="160" height="40" rx="6" fill="#2da44e"/>
+  <text x="640" y="131" text-anchor="middle" fill="#ffffff" font-family="Consolas, monospace" font-size="15">&lt;button&gt;</text>
+  <text x="640" y="147" text-anchor="middle" fill="#ffffff" font-size="13">type="submit"</text>
+
+  <!-- fieldset çocukları -->
+  <rect x="20" y="196" width="100" height="40" rx="6" fill="#bf8700"/>
+  <text x="70" y="221" text-anchor="middle" fill="#ffffff" font-family="Consolas, monospace">&lt;legend&gt;</text>
+  <rect x="140" y="196" width="100" height="40" rx="6" fill="#8250df"/>
+  <text x="190" y="221" text-anchor="middle" fill="#ffffff" font-family="Consolas, monospace">&lt;label&gt;</text>
+  <rect x="260" y="196" width="100" height="40" rx="6" fill="#8250df"/>
+  <text x="310" y="221" text-anchor="middle" fill="#ffffff" font-family="Consolas, monospace">&lt;input&gt;</text>
+  <rect x="370" y="196" width="80" height="40" rx="6" fill="#57606a"/>
+  <text x="410" y="221" text-anchor="middle" fill="#ffffff" font-family="Consolas, monospace">&lt;select&gt;</text>
+  <rect x="470" y="196" width="100" height="40" rx="6" fill="#57606a"/>
+  <text x="520" y="221" text-anchor="middle" fill="#ffffff" font-family="Consolas, monospace">&lt;input&gt;</text>
+  <rect x="585" y="196" width="90" height="40" rx="6" fill="#57606a"/>
+  <text x="630" y="221" text-anchor="middle" fill="#ffffff" font-family="Consolas, monospace">&lt;textarea&gt;</text>
+  <rect x="690" y="196" width="80" height="40" rx="6" fill="#57606a"/>
+  <text x="730" y="221" text-anchor="middle" fill="#ffffff" font-family="Consolas, monospace">…</text>
+
+  <!-- alt düzey -->
+  <rect x="365" y="262" width="90" height="36" rx="6" fill="#eaeef2" stroke="#57606a"/>
+  <text x="410" y="285" text-anchor="middle" font-family="Consolas, monospace">&lt;option&gt;</text>
+  <rect x="470" y="262" width="100" height="36" rx="6" fill="#eaeef2" stroke="#57606a"/>
+  <text x="520" y="285" text-anchor="middle" font-family="Consolas, monospace">&lt;datalist&gt;</text>
+  <text x="520" y="316" text-anchor="middle" fill="#57606a" font-size="13">list niteliğiyle bağlı</text>
+
+  <!-- label-input bağı -->
+  <path d="M190,238 C190,290 310,290 310,238" stroke="#cf222e" stroke-width="2" stroke-dasharray="5,4" fill="none"/>
+  <text x="250" y="304" text-anchor="middle" fill="#cf222e">for = id</text>
+  <text x="250" y="322" text-anchor="middle" fill="#57606a" font-size="13">etiket ile alanı bağlar</text>
+
+  <!-- not -->
+  <text x="20" y="350" fill="#57606a" font-size="13">Sunucuya giden her alanın bir name niteliği vardır; legend ve label gönderilmez.</text>
+</svg>

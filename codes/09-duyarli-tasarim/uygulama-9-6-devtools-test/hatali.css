@@ -1,0 +1,42 @@
+/* Bu dosya bilerek hatalar içerir: DevTools ile bulunuz. */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  color: #24292f;
+}
+
+.kapsayici {
+  width: 960px;                /* HATA 1: sabit genişlik */
+  margin: 0 auto;
+  padding: 16px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  font-size: 11px;             /* HATA 2: küçük dokunma hedefi */
+  margin-left: 4px;
+}
+
+img {
+  width: 800px;                /* HATA 3: görsel kapsayıcıdan taşabilir */
+}
+
+table {
+  border-collapse: collapse;
+  white-space: nowrap;         /* HATA 4: tablo dar ekranda sayfayı genişletir */
+}
+
+th,
+td {
+  border: 1px solid #d0d7de;
+  padding: 6px 10px;
+}
+
+.dugme {
+  font-size: 12px;
+}

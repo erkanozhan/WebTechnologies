@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalıtım Örneği</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Kalıtım (inheritance)</h1>
+
+  <section>
+    <h2>1. Metin özellikleri çocuklara geçer</h2>
+    <p class="aciklama">Bu paragrafa yalnızca <code>p</code> için kural yazıldı. Yine de <em>vurgulu sözcük</em> aynı rengi ve yazı tipini kalıtır. Paragrafın içindeki görsel <img src="tabak.svg" alt="Tabak simgesi" width="32" height="32"> ise metin içermediği için bu özelliklerden görsel olarak etkilenmez.</p>
+  </section>
+
+  <section>
+    <h2>2. Kenarlık ve boşluk kalıtılmaz</h2>
+    <div class="kutu">
+      Dış kutunun kenarlığı ve dolgusu var.
+      <p class="ic">İç paragrafın kenarlığı yok; yalnızca rengi dış kutudan geldi.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>3. Genel anahtar sözcükler</h2>
+    <div class="kart">
+      <p>Kartın metin rengi <code>#8250df</code> (mor) olarak tanımlandı.</p>
+      <ul>
+        <li><a href="#">Bağlantı</a> — <code>color</code> belirtilmedi (tarayıcı varsayılanı)</li>
+        <li><a class="inherit" href="#">Bağlantı</a> — <code>color: inherit</code></li>
+        <li><a class="initial" href="#">Bağlantı</a> — <code>color: initial</code></li>
+        <li><a class="unset" href="#">Bağlantı</a> — <code>color: unset</code></li>
+        <li><a class="revert" href="#">Bağlantı</a> — <code>color: revert</code></li>
+      </ul>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basamaklama Örnekleri</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Basamaklama (cascade): kazanan kim?</h1>
+
+  <p class="sira">1. Kaynak sırası: aynı seçici üç kez yazıldı, en son yazılan (yeşil) kazandı.</p>
+
+  <p class="ayni-blok">2. Aynı blokta aynı özellik üç kez yazıldı, en son bildirim (yeşil) kazandı.</p>
+
+  <p id="duyuru" class="not vurgu">3. Özgüllük: <code>#duyuru</code> (1,0,0), <code>p.not.vurgu</code> (0,2,1) seçicisini yendi (mavi).</p>
+
+  <p class="not" style="color: #8250df;">4. Satır içi stil: <code>style</code> niteliği sınıf kuralını yendi (mor).</p>
+
+  <p class="onemli" style="color: #8250df;">5. <code>!important</code>: yazarın önemli bildirimi satır içi normal stili de yendi (turuncu).</p>
+
+  <p class="katman">6. <code>@layer</code>: katmansız <code>p</code> kuralı, katman içindeki <code>p.katman</code> kuralını yendi (kırmızı).</p>
+</body>
+</html>

@@ -1,0 +1,32 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 16px 10%;
+  color: #24292f;
+}
+
+/* Kesikli çerçeveli kapsayıcı: dış boşluğu görünür kılar */
+.dis {
+  border: 2px dashed #1f6feb;
+  margin-bottom: 12px;
+}
+
+p {
+  border: 1px solid #cf222e;
+  background-color: #fff8c5;
+  padding: 0.5em;
+}
+
+#a {
+  margin: 2em;
+}
+
+#b {
+  margin: 1em 120px 1em 4em;
+}
+
+blockquote {
+  margin: 1em 0;
+  padding: 1em 3em;
+  background-color: #e8d5f5;
+  border-left: 6px solid #8250df;
+}

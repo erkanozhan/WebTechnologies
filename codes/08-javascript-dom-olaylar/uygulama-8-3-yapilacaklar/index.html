@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yapılacaklar Listesi</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Yapılacaklar Listesi</h1>
+
+    <form id="ekleFormu" class="ekle-formu">
+      <label for="yeniIs" class="gorunmez">Yeni iş</label>
+      <input type="text" id="yeniIs" name="yeniIs" placeholder="Örn. Bölüm 8 sorularını çöz" required maxlength="80" autocomplete="off">
+      <button type="submit">Ekle</button>
+    </form>
+
+    <ul id="liste" class="liste"></ul>
+    <p id="bosMesaj" class="bos" hidden>Listede iş yok. Yukarıdan yeni bir iş ekleyiniz.</p>
+    <p id="ozet" class="ozet" aria-live="polite"></p>
+  </main>
+
+  <!-- Her liste satırı için kalıp; sayfada görünmez, JavaScript ile kopyalanır -->
+  <template id="satirKalibi">
+    <li class="is">
+      <label>
+        <input type="checkbox" data-islem="tamamla">
+        <span class="metin"></span>
+      </label>
+      <button type="button" class="sil" data-islem="sil">Sil</button>
+    </li>
+  </template>
+</body>
+</html>

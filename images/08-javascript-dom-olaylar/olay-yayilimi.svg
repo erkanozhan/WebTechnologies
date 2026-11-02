@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 470" role="img" aria-labelledby="baslik aciklama" font-family="Segoe UI, Arial, sans-serif">
+  <title id="baslik">Olay yayılımının üç aşaması</title>
+  <desc id="aciklama">Bir liste maddesine tıklandığında olay önce window nesnesinden başlayarak document, html, body ve ul üzerinden hedefe doğru iner (yakalama aşaması), sonra hedef olan li öğesinde işlenir (hedef aşaması), ardından aynı yoldan geri window nesnesine doğru yükselir (kabarma aşaması).</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <defs>
+    <marker id="okMavi" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1f6feb"/>
+    </marker>
+    <marker id="okYesil" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2da44e"/>
+    </marker>
+  </defs>
+
+  <!-- Düğümler -->
+  <g font-size="15" text-anchor="middle" font-family="Consolas, monospace">
+    <rect x="300" y="30" width="220" height="40" rx="8" fill="#eaeef2" stroke="#57606a"/>
+    <text x="410" y="56" fill="#24292f">window</text>
+    <rect x="300" y="90" width="220" height="40" rx="8" fill="#eaeef2" stroke="#57606a"/>
+    <text x="410" y="116" fill="#24292f">document</text>
+    <rect x="300" y="150" width="220" height="40" rx="8" fill="#ffffff" stroke="#1f6feb" stroke-width="1.5"/>
+    <text x="410" y="176" fill="#24292f">&lt;html&gt;</text>
+    <rect x="300" y="210" width="220" height="40" rx="8" fill="#ffffff" stroke="#1f6feb" stroke-width="1.5"/>
+    <text x="410" y="236" fill="#24292f">&lt;body&gt;</text>
+    <rect x="300" y="270" width="220" height="40" rx="8" fill="#ffffff" stroke="#1f6feb" stroke-width="1.5"/>
+    <text x="410" y="296" fill="#24292f">&lt;ul id="liste"&gt;</text>
+    <rect x="300" y="330" width="220" height="46" rx="8" fill="#fff8c5" stroke="#bf8700" stroke-width="2.5"/>
+    <text x="410" y="359" fill="#24292f" font-weight="700">&lt;li&gt; (tıklanan)</text>
+  </g>
+
+  <!-- Yakalama: aşağı ok -->
+  <line x1="260" y1="40" x2="260" y2="346" stroke="#1f6feb" stroke-width="4" marker-end="url(#okMavi)"/>
+  <text x="246" y="150" font-size="16" font-weight="700" fill="#1f6feb" text-anchor="end">1. Yakalama</text>
+  <text x="246" y="172" font-size="14" fill="#1f6feb" text-anchor="end">(capture phase)</text>
+  <text x="246" y="200" font-size="13" fill="#57606a" text-anchor="end">dinleyici:</text>
+  <text x="246" y="218" font-size="13" fill="#57606a" text-anchor="end" font-family="Consolas, monospace">{ capture: true }</text>
+
+  <!-- Kabarma: yukarı ok -->
+  <line x1="560" y1="346" x2="560" y2="40" stroke="#2da44e" stroke-width="4" marker-end="url(#okYesil)"/>
+  <text x="574" y="150" font-size="16" font-weight="700" fill="#2da44e">3. Kabarma</text>
+  <text x="574" y="172" font-size="14" fill="#2da44e">(bubble phase)</text>
+  <text x="574" y="200" font-size="13" fill="#57606a">varsayılan dinleyici:</text>
+  <text x="574" y="218" font-size="13" fill="#57606a" font-family="Consolas, monospace">{ capture: false }</text>
+
+  <!-- Hedef -->
+  <text x="410" y="404" font-size="16" font-weight="700" fill="#bf8700" text-anchor="middle">2. Hedef aşaması (event.target)</text>
+  <text x="410" y="428" font-size="13" fill="#57606a" text-anchor="middle">event.stopPropagation() çağrılırsa olay bir sonraki düğüme iletilmez.</text>
+  <text x="410" y="450" font-size="13" fill="#57606a" text-anchor="middle">focus, blur, load gibi bazı olaylar kabarmaz (bubbles = false).</text>
+</svg>

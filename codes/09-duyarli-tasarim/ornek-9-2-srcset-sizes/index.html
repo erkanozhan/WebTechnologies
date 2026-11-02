@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Örnek 9.2 – srcset ve sizes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Tarayıcı hangi dosyayı seçti?</h1>
+    <img
+      src="manzara-800.svg"
+      srcset="manzara-400.svg 400w, manzara-800.svg 800w, manzara-1600.svg 1600w"
+      sizes="(min-width: 900px) 50vw, 100vw"
+      alt="Lacivert zemin üzerinde seçilen görsel dosyasının adını gösteren tabela"
+      width="800" height="450">
+    <p>Görselde yazan dosya adı, tarayıcının <code>sizes</code> ve cihazın piksel oranına (DPR) göre seçtiği adaydır. DevTools'ta Network panelinde hangi dosyanın indirildiği de görülebilir.</p>
+  </main>
+</body>
+</html>

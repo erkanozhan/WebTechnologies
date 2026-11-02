@@ -1,0 +1,41 @@
+body {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 8px 24px;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+p {
+  padding: 8px 12px;
+  border-left: 6px solid currentColor;
+  background-color: #f6f8fa;
+  font-weight: 600;
+}
+
+/* 1. Kaynak sırası */
+p.sira { color: #cf222e; }
+p.sira { color: #1f6feb; }
+p.sira { color: #2da44e; }
+
+/* 2. Aynı blok içinde son bildirim */
+p.ayni-blok {
+  color: #cf222e;
+  color: #1f6feb;
+  color: #2da44e;
+}
+
+/* 3. Özgüllük: (1,0,0) > (0,2,1) */
+#duyuru { color: #1f6feb; }
+p.not.vurgu { color: #cf222e; }
+
+/* 4. Satır içi stil sınıf kuralından güçlüdür */
+.not { color: #57606a; }
+
+/* 5. !important */
+.onemli { color: #bc4c00 !important; }
+
+/* 6. Katmanlar: katmansız kurallar katmanlı kuralları yener */
+@layer temel {
+  p.katman { color: #1f6feb; }
+}
+p { color: #cf222e; }

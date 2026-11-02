@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Örnek 6.5 – display değerleri</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>block</h2>
+  <div class="kap">
+    <span class="blok">span (block)</span>
+    <span class="blok">span (block)</span>
+  </div>
+
+  <h2>inline</h2>
+  <div class="kap">
+    Metin akışı içinde <span class="satir">span (inline, width yok sayılır)</span> ve
+    <span class="satir">ikinci span</span> aynı satırda akar.
+  </div>
+
+  <h2>inline-block</h2>
+  <div class="kap">
+    <span class="satir-blok">120×50</span>
+    <span class="satir-blok">120×50</span>
+    <span class="satir-blok">120×50</span> satır içinde ama boyutlu.
+  </div>
+
+  <h2>display: none ve visibility: hidden</h2>
+  <div class="kap">
+    <span class="satir-blok">1</span>
+    <span class="satir-blok gizli-yer">2 (visibility: hidden)</span>
+    <span class="satir-blok">3</span>
+    <span class="satir-blok yok">4 (display: none)</span>
+    <span class="satir-blok">5</span>
+  </div>
+</body>
+</html>

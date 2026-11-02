@@ -1,0 +1,76 @@
+/* Renkler CSS özel özellikleriyle tanımlanır; tema yalnızca bu değerleri değiştirir. */
+:root {
+  --zemin: #f6f8fa;
+  --yuzey: #ffffff;
+  --metin: #24292f;
+  --ikincil-metin: #57606a;
+  --kenar: #d0d7de;
+  --vurgu: #1f6feb;
+}
+
+:root.koyu {
+  --zemin: #0d1117;
+  --yuzey: #161b22;
+  --metin: #e6edf3;
+  --ikincil-metin: #9198a1;
+  --kenar: #30363d;
+  --vurgu: #4493f8;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  line-height: 1.5;
+  background: var(--zemin);
+  color: var(--metin);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.ust-bant {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  background: var(--yuzey);
+  border-bottom: 1px solid var(--kenar);
+}
+
+main {
+  max-width: 640px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+.duyuru {
+  background: var(--yuzey);
+  border: 1px solid var(--kenar);
+  border-left: 5px solid var(--vurgu);
+  border-radius: 10px;
+  padding: 0.25rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.duyuru h1,
+.duyuru h2 {
+  font-size: 1.2rem;
+}
+
+.bilgi {
+  color: var(--ikincil-metin);
+  font-size: 0.9rem;
+}
+
+button {
+  font: inherit;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--vurgu);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--vurgu);
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 3px solid #bf8700;
+  outline-offset: 2px;
+}

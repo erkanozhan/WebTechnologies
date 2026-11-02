@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Örnek 2.3 — Karakter Referansları ve Renkler</title>
+  <!-- Belgenin tamamına uygulanan gömülü stil (ayrıntı Bölüm 4) -->
+  <style>
+    h1 {
+      color: red;
+    }
+
+    p {
+      color: blue;
+    }
+
+    .ornek {
+      color: #333333;
+      font-family: Consolas, monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Karakter Referansları</h1>
+  <p class="ornek">&lt;p&gt; etiketi paragraf oluşturur.</p>
+  <p class="ornek">Ar&amp;Ge · 25&nbsp;°C · &copy; 2026 ÇMF · Marka&trade; · Tescil&reg;</p>
+  <p class="ornek">Sayısal yazım: &#169; &#8364; &#x20BA; (telif, avro, Türk lirası)</p>
+
+  <hr style="height: 3px; width: 85%; background-color: red; border: none;">
+
+  <h2>Rengin üç yazımı</h2>
+  <p style="color: navy;">Ad ile: navy</p>
+  <p style="color: #ff8800;">Onaltılık (hex) ile: #ff8800</p>
+  <p style="color: rgb(0, 128, 0);">rgb() ile: rgb(0, 128, 0)</p>
+
+  <h2>Temel 16 renk adı</h2>
+  <p>
+    <span style="background-color: aqua;">aqua</span>
+    <span style="background-color: black; color: white;">black</span>
+    <span style="background-color: blue; color: white;">blue</span>
+    <span style="background-color: fuchsia;">fuchsia</span>
+    <span style="background-color: gray; color: white;">gray</span>
+    <span style="background-color: green; color: white;">green</span>
+    <span style="background-color: lime;">lime</span>
+    <span style="background-color: maroon; color: white;">maroon</span>
+    <span style="background-color: navy; color: white;">navy</span>
+    <span style="background-color: olive; color: white;">olive</span>
+    <span style="background-color: purple; color: white;">purple</span>
+    <span style="background-color: red; color: white;">red</span>
+    <span style="background-color: silver;">silver</span>
+    <span style="background-color: teal; color: white;">teal</span>
+    <span style="background-color: white; border: 1px solid gray;">white</span>
+    <span style="background-color: yellow;">yellow</span>
+  </p>
+</body>
+</html>

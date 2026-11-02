@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="Segoe UI, Arial, sans-serif" role="img" aria-labelledby="baslik aciklama">
+  <title id="baslik">Üç katmanlı (n katmanlı) istemci–sunucu sistemi</title>
+  <desc id="aciklama">İstemci katmanı (web tarayıcısı), işlem katmanı (uygulama sunucusu) ve veri depolama katmanı (veritabanı) çift yönlü oklarla bağlıdır. İşlem ve veri depolama katmanları aynı bilgisayarda olabilir.</desc>
+  <defs>
+    <marker id="ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <!-- Ayraç: aynı bilgisayar olabilir -->
+  <path d="M385,62 Q385,48 400,48 L605,48 Q620,48 620,36 Q620,48 635,48 L835,48 Q850,48 850,62" fill="none" stroke="#24292f" stroke-width="2"/>
+  <text x="620" y="26" font-size="14" text-anchor="middle" fill="#24292f">Aynı bilgisayarda olabilir</text>
+
+  <!-- İstemci katmanı -->
+  <rect x="30" y="100" width="170" height="110" rx="8" fill="#24292f"/>
+  <rect x="40" y="110" width="150" height="90" fill="#f6f8fa"/>
+  <rect x="40" y="110" width="150" height="14" fill="#d0d7de"/>
+  <rect x="50" y="134" width="80" height="9" fill="#1f6feb"/>
+  <rect x="50" y="150" width="125" height="6" fill="#8c959f"/>
+  <rect x="50" y="162" width="105" height="6" fill="#8c959f"/>
+  <rect x="50" y="176" width="50" height="16" rx="4" fill="#2da44e"/>
+  <path d="M12,210 L218,210 L204,226 L26,226 z" fill="#57606a"/>
+  <text x="115" y="88" font-size="16" font-weight="700" text-anchor="middle" fill="#1f6feb">İstemci katmanı</text>
+
+  <!-- İşlem katmanı -->
+  <rect x="420" y="80" width="140" height="150" rx="6" fill="#24292f"/>
+  <g fill="#57606a">
+    <rect x="432" y="94" width="116" height="24" rx="3"/>
+    <rect x="432" y="126" width="116" height="24" rx="3"/>
+    <rect x="432" y="158" width="116" height="24" rx="3"/>
+    <rect x="432" y="190" width="116" height="24" rx="3"/>
+  </g>
+  <g fill="#2da44e">
+    <circle cx="444" cy="106" r="4"/><circle cx="444" cy="138" r="4"/><circle cx="444" cy="170" r="4"/><circle cx="444" cy="202" r="4"/>
+  </g>
+  <text x="490" y="72" font-size="16" font-weight="700" text-anchor="middle" fill="#bf8700">İşlem (orta) katmanı</text>
+
+  <!-- Veri depolama katmanı -->
+  <g fill="#2da44e" stroke="#1a7f37" stroke-width="2">
+    <path d="M680,100 L680,210 A70,18 0 0 0 820,210 L820,100"/>
+    <ellipse cx="750" cy="100" rx="70" ry="18"/>
+  </g>
+  <path d="M680,137 A70,18 0 0 0 820,137 M680,174 A70,18 0 0 0 820,174" fill="none" stroke="#1a7f37" stroke-width="2"/>
+  <text x="750" y="72" font-size="16" font-weight="700" text-anchor="middle" fill="#2da44e">Veri depolama katmanı</text>
+
+  <!-- Oklar -->
+  <line x1="236" y1="140" x2="400" y2="140" stroke="#57606a" stroke-width="4" marker-start="url(#ok)" marker-end="url(#ok)"/>
+  <text x="318" y="128" font-size="13" text-anchor="middle" fill="#57606a">HTTP istek / yanıt</text>
+  <line x1="578" y1="155" x2="662" y2="155" stroke="#57606a" stroke-width="4" marker-start="url(#ok)" marker-end="url(#ok)"/>
+  <text x="620" y="143" font-size="13" text-anchor="middle" fill="#57606a">sorgu</text>
+
+  <!-- Açıklamalar -->
+  <g font-size="14" fill="#24292f">
+    <text x="115" y="262" text-anchor="middle">Kullanıcı arayüzünü</text>
+    <text x="115" y="281" text-anchor="middle">(web tarayıcısı) işler,</text>
+    <text x="115" y="300" text-anchor="middle">istekleri işlem</text>
+    <text x="115" y="319" text-anchor="middle">katmanına gönderir.</text>
+    <text x="490" y="262" text-anchor="middle">Tarayıcı ile veri depolama</text>
+    <text x="490" y="281" text-anchor="middle">katmanı arasındaki etkileşimi</text>
+    <text x="490" y="300" text-anchor="middle">yönetir; hesaplama ve iş</text>
+    <text x="490" y="319" text-anchor="middle">kurallarını uygular.</text>
+    <text x="750" y="262" text-anchor="middle">Verileri veritabanında</text>
+    <text x="750" y="281" text-anchor="middle">saklar; işlem katmanının</text>
+    <text x="750" y="300" text-anchor="middle">isteklerine yanıt döndürür.</text>
+  </g>
+  <g font-size="13" fill="#57606a" font-style="italic">
+    <text x="115" y="352" text-anchor="middle">HTML, CSS, JavaScript</text>
+    <text x="490" y="352" text-anchor="middle">PHP, Python, Node.js,</text>
+    <text x="490" y="370" text-anchor="middle">C#/ASP.NET, Java, Ruby</text>
+    <text x="750" y="352" text-anchor="middle">MySQL, PostgreSQL,</text>
+    <text x="750" y="370" text-anchor="middle">SQL Server, MongoDB</text>
+  </g>
+  <line x1="20" y1="392" x2="880" y2="392" stroke="#d0d7de"/>
+  <text x="450" y="410" font-size="13" text-anchor="middle" fill="#57606a">İşlem yalnızca orta katmanda yapılmaz: tarayıcı sayfayı işler, veritabanı da sorguları işler.</text>
+</svg>

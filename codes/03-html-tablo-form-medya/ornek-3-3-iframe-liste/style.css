@@ -1,0 +1,21 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 1rem 1.5rem;
+  color: #24292f;
+  background: #eaeef2;
+  max-width: 40rem;
+}
+
+h1 {
+  font-size: 1.3rem;
+}
+
+code {
+  color: #cf222e;
+}
+
+iframe {
+  border: 2px solid #57606a;
+  background: #ffffff;
+}

@@ -1,0 +1,51 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 1.5rem;
+  color: #24292f;
+  background: #ffffff;
+}
+
+table {
+  border-collapse: collapse;
+  min-width: 22rem;
+}
+
+caption {
+  caption-side: top;
+  text-align: left;
+  font-style: italic;
+  padding-bottom: 0.5rem;
+  color: #57606a;
+}
+
+th,
+td {
+  border: 1px solid #8c959f;
+  padding: 0.5rem 0.9rem;
+}
+
+thead th {
+  background: #1f6feb;
+  color: #ffffff;
+}
+
+tbody th,
+tfoot th {
+  text-align: left;
+}
+
+/* Sayısal sütunlar sağa yaslanır, rakamlar eşit genişlikte gösterilir */
+td {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+tfoot {
+  font-weight: bold;
+  background: #eaeef2;
+}
+
+.urun {
+  background: #f6f8fa;
+}

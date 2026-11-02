@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>URL Parçalayıcı</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>URL Parçalayıcı</h1>
+    <p>Bir web adresi yazınız ve <strong>Parçala</strong> düğmesine basınız. Adres, tarayıcının yerleşik <code>URL</code> nesnesiyle bileşenlerine ayrılır.</p>
+
+    <form id="url-formu">
+      <label for="url-girdisi">URL</label>
+      <div class="satir">
+        <input id="url-girdisi" type="text" value="https://obs.example.edu.tr:443/notlar/donem.html?yil=2026&amp;donem=bahar#vize" spellcheck="false" autocomplete="off">
+        <button type="submit">Parçala</button>
+      </div>
+    </form>
+
+    <p id="hata" class="hata" role="alert"></p>
+
+    <table>
+      <caption>URL bileşenleri</caption>
+      <thead>
+        <tr>
+          <th scope="col">Bileşen</th>
+          <th scope="col">Değer</th>
+          <th scope="col">Açıklama</th>
+        </tr>
+      </thead>
+      <tbody id="sonuclar"></tbody>
+    </table>
+
+    <h2>Sorgu parametreleri</h2>
+    <ul id="parametreler"></ul>
+  </main>
+</body>
+</html>

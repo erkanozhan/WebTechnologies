@@ -1,0 +1,4 @@
+BMB112 Web Teknolojileri - Ders Plani (ornek dosya)
+1. Hafta: Internet ve Web
+2. Hafta: HTML5 Temelleri
+3. Hafta: Tablolar, Formlar, Medya

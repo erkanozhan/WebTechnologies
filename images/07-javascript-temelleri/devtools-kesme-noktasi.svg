@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 440" font-family="Segoe UI, Arial, sans-serif" role="img" aria-labelledby="baslik aciklama">
+  <title id="baslik">Geliştirici Araçları Sources paneli ve kesme noktası (şematik)</title>
+  <desc id="aciklama">Sources panelinde solda dosya ağacı, ortada hatali.js kodu, 16. satırda kesme noktası ve duraklatılmış satır; sağda devam ve adım düğmeleri ile Scope bölümünde i değeri 3, toplam değeri "15590" metni görünür.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+
+  <!-- Pencere ve sekmeler -->
+  <rect x="10" y="10" width="880" height="380" rx="6" fill="#ffffff" stroke="#8c959f"/>
+  <rect x="10" y="10" width="880" height="32" rx="6" fill="#f6f8fa" stroke="#8c959f"/>
+  <g font-size="14" fill="#57606a">
+    <text x="28" y="31">Elements</text>
+    <text x="108" y="31">Console</text>
+    <text x="268" y="31">Network</text>
+    <text x="345" y="31">Application</text>
+  </g>
+  <text x="186" y="31" font-size="14" font-weight="700" fill="#1f6feb">Sources</text>
+  <line x1="182" y1="40" x2="250" y2="40" stroke="#1f6feb" stroke-width="3"/>
+
+  <!-- Duraklatıldı şeridi -->
+  <rect x="11" y="43" width="878" height="24" fill="#fff8c5"/>
+  <text x="24" y="60" font-size="13" fill="#24292f">Paused on breakpoint (kesme noktasında duraklatıldı)</text>
+
+  <!-- Dosya ağacı -->
+  <rect x="11" y="68" width="150" height="321" fill="#f6f8fa"/>
+  <g font-size="13" fill="#24292f">
+    <text x="22" y="90" font-weight="600">Page</text>
+    <text x="30" y="112">▾ uygulama-7-8…</text>
+    <text x="46" y="134">hatali.html</text>
+    <text x="46" y="178">style.css</text>
+  </g>
+  <rect x="38" y="142" width="118" height="20" fill="#ddf4ff"/>
+  <text x="46" y="156" font-size="13" font-weight="600" fill="#1f6feb">hatali.js</text>
+
+  <!-- Kod düzenleyici -->
+  <line x1="161" y1="68" x2="161" y2="389" stroke="#d0d7de"/>
+  <line x1="600" y1="68" x2="600" y2="389" stroke="#d0d7de"/>
+  <g font-size="13" font-family="Consolas, monospace">
+    <g fill="#8c959f" text-anchor="end">
+      <text x="196" y="100">13</text><text x="196" y="124">14</text><text x="196" y="148">15</text>
+      <text x="196" y="196">17</text><text x="196" y="220">18</text><text x="196" y="244">19</text>
+      <text x="196" y="268">20</text><text x="196" y="292">21</text><text x="196" y="316">22</text>
+    </g>
+    <rect x="162" y="156" width="437" height="22" fill="#dafbe1"/>
+    <path d="M170,158 L196,158 L204,167 L196,176 L170,176 z" fill="#1f6feb"/>
+    <text x="194" y="172" fill="#ffffff" text-anchor="end">16</text>
+    <g fill="#24292f">
+      <text x="214" y="100">function ortalamaBul(dizi) {</text>
+      <text x="228" y="124">let toplam = 0;</text>
+      <text x="228" y="148">for (let i = 0; i &lt;= dizi.length; i++) {</text>
+      <text x="242" y="172">toplam = toplam + dizi[i];</text>
+      <text x="228" y="196">}</text>
+      <text x="228" y="220">return toplam / dizi.length;</text>
+      <text x="214" y="244">}</text>
+      <text x="214" y="292">const ortalama = ortalamaBul(notlar);</text>
+      <text x="214" y="316">yaz(`Ortalama: ${ortalama}`);</text>
+    </g>
+  </g>
+
+  <!-- Hata ayıklayıcı -->
+  <g>
+    <rect x="612" y="78" width="30" height="26" rx="4" fill="#ddf4ff" stroke="#1f6feb"/>
+    <path d="M622,84 L634,91 L622,98 z" fill="#1f6feb"/>
+    <rect x="650" y="78" width="30" height="26" rx="4" fill="#f6f8fa" stroke="#8c959f"/>
+    <path d="M656,96 Q665,80 674,96" fill="none" stroke="#24292f" stroke-width="2"/>
+    <circle cx="665" cy="99" r="2.5" fill="#24292f"/>
+    <rect x="688" y="78" width="30" height="26" rx="4" fill="#f6f8fa" stroke="#8c959f"/>
+    <path d="M703,82 L703,96 M698,91 L703,96 L708,91" fill="none" stroke="#24292f" stroke-width="2"/>
+    <circle cx="703" cy="100" r="2.5" fill="#24292f"/>
+    <text x="726" y="96" font-size="12" fill="#57606a">Devam · Atla · İçine gir</text>
+  </g>
+  <g font-size="13" fill="#24292f">
+    <text x="612" y="130" font-weight="700">▾ Breakpoints</text>
+    <text x="626" y="150">☑ hatali.js:16</text>
+    <text x="612" y="178" font-weight="700">▾ Scope</text>
+    <text x="626" y="198" font-weight="600">Local</text>
+  </g>
+  <g font-size="13" font-family="Consolas, monospace" fill="#24292f">
+    <text x="640" y="220">dizi: (4) [70, 85, '90', 60]</text>
+    <text x="640" y="242">i: 3</text>
+    <rect x="636" y="250" width="160" height="22" fill="#ffebe9" stroke="#cf222e"/>
+    <text x="640" y="266">toplam: "15590"</text>
+  </g>
+  <g font-size="13" fill="#24292f">
+    <text x="612" y="300" font-weight="700">▾ Call Stack</text>
+    <text x="626" y="320">ortalamaBul</text><text x="740" y="320" fill="#57606a">hatali.js:16</text>
+    <text x="626" y="340">(anonim)</text><text x="740" y="340" fill="#57606a">hatali.js:21</text>
+  </g>
+
+  <!-- Açıklama balonları -->
+  <g font-size="13" fill="#cf222e" font-weight="600">
+    <circle cx="30" cy="412" r="10" fill="#cf222e"/><text x="30" y="417" fill="#ffffff" text-anchor="middle">1</text>
+    <text x="46" y="417">Satır numarasına tıklayarak kesme noktası koyunuz</text>
+    <circle cx="390" cy="412" r="10" fill="#cf222e"/><text x="390" y="417" fill="#ffffff" text-anchor="middle">2</text>
+    <text x="406" y="417">Adım adım ilerleyiniz</text>
+    <circle cx="570" cy="412" r="10" fill="#cf222e"/><text x="570" y="417" fill="#ffffff" text-anchor="middle">3</text>
+    <text x="586" y="417">toplam bir metne dönüşmüş!</text>
+  </g>
+</svg>

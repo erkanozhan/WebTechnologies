@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canlı Karakter Sayacı</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main>
+    <h1>Ders Değerlendirme Yorumu</h1>
+    <label for="yorum">Yorumunuz (en fazla 280 karakter)</label>
+    <textarea id="yorum" maxlength="280" rows="5" aria-describedby="sayac">Bu hafta DOM ve olaylar konusunu işledik. Uygulamalar sayesinde addEventListener ile düğmelere davranış eklemeyi öğrendim.</textarea>
+    <div class="alt-satir">
+      <p id="sayac" class="sayac" aria-live="polite">0 / 280</p>
+      <p id="kelime" class="kelime">0 kelime</p>
+    </div>
+  </main>
+</body>
+</html>

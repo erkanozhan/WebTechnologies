@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 520" font-family="Segoe UI, Arial, sans-serif" role="img" aria-labelledby="baslik aciklama">
+  <title id="baslik">Birleştiricilerin belge ağacında seçtiği öğeler</title>
+  <desc id="aciklama">Dört panel: li em seçicisi liste öğelerinin içindeki tüm em öğelerini; p &gt; em yalnızca p öğesinin doğrudan çocuğu olan em öğelerini; h1 + p yalnızca h1 öğesinden hemen sonra gelen ilk p kardeşini; h1 ~ h2 ise h1 öğesinden sonra gelen tüm h2 kardeşlerini seçer. Seçilen öğeler turuncu dolguyla gösterilmiştir.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <rect x="10" y="10" width="395" height="235" rx="10" fill="none" stroke="#d0d7de" stroke-width="1.5"/>
+  <text x="26" y="36" font-size="16" font-weight="bold" font-family="Consolas, 'Courier New', monospace" fill="#0a3069">li em</text>
+  <text x="26" y="56" font-size="13" fill="#57606a">Torun: li içindeki her derinlikte em</text>
+  <line x1="207" y1="92" x2="85" y2="113" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="207" y1="92" x2="207" y2="113" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="207" y1="92" x2="330" y2="113" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="85" y1="137" x2="55" y2="158" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="85" y1="137" x2="115" y2="158" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="207" y1="137" x2="162" y2="158" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="207" y1="137" x2="207" y2="158" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="207" y1="137" x2="252" y2="158" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="330" y1="137" x2="330" y2="158" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="207" y1="182" x2="207" y2="203" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="252" y1="182" x2="252" y2="203" stroke="#8c959f" stroke-width="1.5"/>
+  <rect x="181.0" y="68" width="52" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="207" y="85" text-anchor="middle" font-size="14" fill="#24292f">body</text>
+  <rect x="72.5" y="113" width="25" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="85" y="130" text-anchor="middle" font-size="14" fill="#24292f">p</text>
+  <rect x="190.0" y="113" width="34" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="207" y="130" text-anchor="middle" font-size="14" fill="#24292f">ul</text>
+  <rect x="313.0" y="113" width="34" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="330" y="130" text-anchor="middle" font-size="14" fill="#24292f">h2</text>
+  <rect x="35.0" y="158" width="40" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="55" y="175" text-anchor="middle" font-size="14" fill="#24292f">em</text>
+  <rect x="95.0" y="158" width="40" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="115" y="175" text-anchor="middle" font-size="14" fill="#24292f">em</text>
+  <rect x="142.0" y="158" width="40" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="162" y="175" text-anchor="middle" font-size="14" fill="#24292f">li</text>
+  <rect x="187.0" y="158" width="40" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="207" y="175" text-anchor="middle" font-size="14" fill="#24292f">li</text>
+  <rect x="232.0" y="158" width="40" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="252" y="175" text-anchor="middle" font-size="14" fill="#24292f">li</text>
+  <rect x="310.0" y="158" width="40" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="330" y="175" text-anchor="middle" font-size="14" fill="#24292f">em</text>
+  <rect x="187.0" y="203" width="40" height="24" rx="4" fill="#ffd8b5" stroke="#bc4c00" stroke-width="2.5"/>
+  <text x="207" y="220" text-anchor="middle" font-size="14" fill="#24292f">em</text>
+  <rect x="232.0" y="203" width="40" height="24" rx="4" fill="#ffd8b5" stroke="#bc4c00" stroke-width="2.5"/>
+  <text x="252" y="220" text-anchor="middle" font-size="14" fill="#24292f">em</text>
+  <rect x="415" y="10" width="395" height="235" rx="10" fill="none" stroke="#d0d7de" stroke-width="1.5"/>
+  <text x="431" y="36" font-size="16" font-weight="bold" font-family="Consolas, 'Courier New', monospace" fill="#0a3069">p > em</text>
+  <text x="431" y="56" font-size="13" fill="#57606a">Çocuk: yalnızca p öğesinin doğrudan çocuğu</text>
+  <line x1="612" y1="102" x2="527" y2="133" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="612" y1="102" x2="612" y2="133" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="612" y1="102" x2="697" y2="133" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="612" y1="157" x2="612" y2="188" stroke="#8c959f" stroke-width="1.5"/>
+  <rect x="599.5" y="78" width="25" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="612" y="95" text-anchor="middle" font-size="14" fill="#24292f">p</text>
+  <rect x="510.0" y="133" width="34" height="24" rx="4" fill="#ffd8b5" stroke="#bc4c00" stroke-width="2.5"/>
+  <text x="527" y="150" text-anchor="middle" font-size="14" fill="#24292f">em</text>
+  <rect x="577.0" y="133" width="70" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="612" y="150" text-anchor="middle" font-size="14" fill="#24292f">strong</text>
+  <rect x="680.0" y="133" width="34" height="24" rx="4" fill="#ffd8b5" stroke="#bc4c00" stroke-width="2.5"/>
+  <text x="697" y="150" text-anchor="middle" font-size="14" fill="#24292f">em</text>
+  <rect x="595.0" y="188" width="34" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="612" y="205" text-anchor="middle" font-size="14" fill="#24292f">em</text>
+  <text x="660" y="205" font-size="13" fill="#57606a">araya strong girdi</text>
+  <rect x="10" y="260" width="395" height="200" rx="10" fill="none" stroke="#d0d7de" stroke-width="1.5"/>
+  <text x="26" y="286" font-size="16" font-weight="bold" font-family="Consolas, 'Courier New', monospace" fill="#0a3069">h1 + p</text>
+  <text x="26" y="306" font-size="13" fill="#57606a">Bitişik kardeş: h1'den hemen sonraki ilk p</text>
+  <line x1="207" y1="342" x2="75" y2="383" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="207" y1="342" x2="140" y2="383" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="207" y1="342" x2="205" y2="383" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="207" y1="342" x2="270" y2="383" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="207" y1="342" x2="335" y2="383" stroke="#8c959f" stroke-width="1.5"/>
+  <rect x="181.0" y="318" width="52" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="207" y="335" text-anchor="middle" font-size="14" fill="#24292f">body</text>
+  <rect x="53.0" y="383" width="44" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="75" y="400" text-anchor="middle" font-size="14" fill="#24292f">h1</text>
+  <rect x="118.0" y="383" width="44" height="24" rx="4" fill="#ffd8b5" stroke="#bc4c00" stroke-width="2.5"/>
+  <text x="140" y="400" text-anchor="middle" font-size="14" fill="#24292f">p</text>
+  <rect x="183.0" y="383" width="44" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="205" y="400" text-anchor="middle" font-size="14" fill="#24292f">p</text>
+  <rect x="248.0" y="383" width="44" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="270" y="400" text-anchor="middle" font-size="14" fill="#24292f">p</text>
+  <rect x="313.0" y="383" width="44" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="335" y="400" text-anchor="middle" font-size="14" fill="#24292f">p</text>
+  <text x="207" y="440" text-anchor="middle" font-size="13" fill="#57606a">kardeşler aynı ebeveyni paylaşır, soldan sağa belge sırası</text>
+  <rect x="415" y="260" width="395" height="200" rx="10" fill="none" stroke="#d0d7de" stroke-width="1.5"/>
+  <text x="431" y="286" font-size="16" font-weight="bold" font-family="Consolas, 'Courier New', monospace" fill="#0a3069">h1 ~ h2</text>
+  <text x="431" y="306" font-size="13" fill="#57606a">Genel kardeş: h1'den sonra gelen tüm h2'ler</text>
+  <line x1="612" y1="342" x2="482" y2="383" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="612" y1="342" x2="547" y2="383" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="612" y1="342" x2="612" y2="383" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="612" y1="342" x2="677" y2="383" stroke="#8c959f" stroke-width="1.5"/>
+  <line x1="612" y1="342" x2="742" y2="383" stroke="#8c959f" stroke-width="1.5"/>
+  <rect x="586.0" y="318" width="52" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="612" y="335" text-anchor="middle" font-size="14" fill="#24292f">body</text>
+  <rect x="460.0" y="383" width="44" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="482" y="400" text-anchor="middle" font-size="14" fill="#24292f">h2</text>
+  <rect x="525.0" y="383" width="44" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="547" y="400" text-anchor="middle" font-size="14" fill="#24292f">h1</text>
+  <rect x="590.0" y="383" width="44" height="24" rx="4" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="612" y="400" text-anchor="middle" font-size="14" fill="#24292f">p</text>
+  <rect x="655.0" y="383" width="44" height="24" rx="4" fill="#ffd8b5" stroke="#bc4c00" stroke-width="2.5"/>
+  <text x="677" y="400" text-anchor="middle" font-size="14" fill="#24292f">h2</text>
+  <rect x="720.0" y="383" width="44" height="24" rx="4" fill="#ffd8b5" stroke="#bc4c00" stroke-width="2.5"/>
+  <text x="742" y="400" text-anchor="middle" font-size="14" fill="#24292f">h2</text>
+  <text x="612" y="440" text-anchor="middle" font-size="13" fill="#57606a">h1'den önceki h2 seçilmez; araya öğe girebilir</text>
+  <rect x="20" y="480" width="26" height="18" rx="3" fill="#ffd8b5" stroke="#bc4c00" stroke-width="2.5"/>
+  <text x="56" y="494" font-size="14" fill="#24292f">Seçicinin eşleştiği (stilin uygulandığı) öğe</text>
+  <rect x="420" y="480" width="26" height="18" rx="3" fill="#ffffff" stroke="#57606a" stroke-width="1.5"/>
+  <text x="456" y="494" font-size="14" fill="#24292f">Eşleşmeyen öğe</text>
+</svg>

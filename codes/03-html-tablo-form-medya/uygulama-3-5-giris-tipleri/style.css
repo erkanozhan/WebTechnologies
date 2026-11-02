@@ -1,0 +1,70 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 1rem;
+  color: #24292f;
+  background: #ffffff;
+}
+
+h1 {
+  font-size: 1.35rem;
+  margin-top: 0;
+}
+
+.aciklama {
+  color: #57606a;
+  max-width: 60rem;
+}
+
+/* Kartlar ekran genişliğine göre kendiliğinden sütunlara dizilir */
+.vitrin {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 0.8rem;
+}
+
+.kart {
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  padding: 0.6rem 0.7rem;
+  background: #f6f8fa;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.kart > label,
+.etiket {
+  font-weight: 600;
+}
+
+.satir {
+  font-weight: normal;
+}
+
+.kart input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="reset"]):not([type="button"]) {
+  font: inherit;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+code {
+  font-size: 0.85rem;
+  color: #cf222e;
+}
+
+.kart > code {
+  margin-top: auto;
+}
+
+.kucuk {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #57606a;
+}
+
+.dugmeler {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}

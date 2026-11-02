@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 330" font-family="Segoe UI, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Flexbox ana eksen ve çapraz eksen</title>
+  <desc id="d">flex-direction row iken ana eksen soldan sağa yataydır ve justify-content bu eksende hizalar. Çapraz eksen yukarıdan aşağıya dikeydir ve align-items bu eksende hizalar.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <defs>
+    <marker id="r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#cf222e"/></marker>
+    <marker id="g" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#2da44e"/></marker>
+  </defs>
+  <text x="20" y="28" font-size="15" font-weight="bold" fill="#24292f">.kapsayici { display: flex; flex-direction: row; gap: 10px; }</text>
+  <rect x="80" y="60" width="520" height="190" fill="#f6f8fa" stroke="#57606a" stroke-width="2" stroke-dasharray="7 4"/>
+  <text x="90" y="80" font-size="13" fill="#57606a">esnek kapsayıcı (flex container)</text>
+  <g font-size="15" fill="#ffffff" font-weight="bold" text-anchor="middle">
+    <rect x="100" y="100" width="110" height="110" fill="#1f6feb"/><text x="155" y="160">öğe 1</text>
+    <rect x="220" y="100" width="110" height="80" fill="#1f6feb"/><text x="275" y="145">öğe 2</text>
+    <rect x="340" y="100" width="110" height="130" fill="#1f6feb"/><text x="395" y="170">öğe 3</text>
+  </g>
+  <text x="155" y="96" font-size="12" fill="#57606a" text-anchor="middle">esnek öğe (flex item)</text>
+  <text x="470" y="125" font-size="13" fill="#57606a">gap: öğeler arası</text>
+  <text x="470" y="143" font-size="13" fill="#57606a">boşluk</text>
+  <line x1="80" y1="272" x2="600" y2="272" stroke="#cf222e" stroke-width="3" marker-end="url(#r)"/>
+  <text x="340" y="296" font-size="15" fill="#cf222e" text-anchor="middle" font-weight="bold">ana eksen (main axis): justify-content</text>
+  <text x="80" y="318" font-size="13" fill="#cf222e">main-start</text>
+  <text x="600" y="318" font-size="13" fill="#cf222e" text-anchor="end">main-end</text>
+  <line x1="625" y1="60" x2="625" y2="250" stroke="#2da44e" stroke-width="3" marker-end="url(#g)"/>
+  <text x="640" y="74" font-size="13" fill="#2da44e">cross-start</text>
+  <text x="640" y="140" font-size="15" fill="#2da44e" font-weight="bold">çapraz eksen</text>
+  <text x="640" y="160" font-size="15" fill="#2da44e" font-weight="bold">(cross axis):</text>
+  <text x="640" y="180" font-size="15" fill="#2da44e" font-weight="bold">align-items</text>
+  <text x="640" y="250" font-size="13" fill="#2da44e">cross-end</text>
+</svg>

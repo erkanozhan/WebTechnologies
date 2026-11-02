@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Örnek 3.1 - Kırtasiye Stok Tablosu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Kırtasiye Stok Raporu</h1>
+
+    <table>
+      <caption>Tablo: Mart ayı stok ve satış miktarları (adet)</caption>
+      <colgroup>
+        <col class="urun">
+        <col span="2" class="sayi">
+      </colgroup>
+      <thead>
+        <tr>
+          <th scope="col">Ürün Adı</th>
+          <th scope="col">Stok Miktarı</th>
+          <th scope="col">Satış Miktarı</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Kalem</th>
+          <td>114</td>
+          <td>50</td>
+        </tr>
+        <tr>
+          <th scope="row">Defter</th>
+          <td>89</td>
+          <td>19</td>
+        </tr>
+        <tr>
+          <th scope="row">Silgi</th>
+          <td>210</td>
+          <td>98</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="row">Toplam</th>
+          <td>413</td>
+          <td>167</td>
+        </tr>
+      </tfoot>
+    </table>
+  </main>
+</body>
+</html>

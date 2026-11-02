@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 440" font-family="Segoe UI, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">CSS kutu modeli</title>
+  <desc id="d">İç içe dört katman: en içte içerik, onu saran dolgu, kenarlık ve en dışta kenar boşluğu. Genişlik ve yükseklik oklarla gösterilmiştir.</desc>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <!-- margin -->
+  <rect x="40" y="40" width="560" height="340" fill="#fff8c5" stroke="#bf8700" stroke-width="2" stroke-dasharray="8 5"/>
+  <text x="52" y="64" font-size="15" fill="#7d4e00" font-weight="bold">kenar boşluğu (margin)</text>
+  <text x="52" y="82" font-size="13" fill="#7d4e00">saydam; komşu kutularla arayı açar</text>
+  <!-- border -->
+  <rect x="100" y="100" width="440" height="220" fill="#24292f"/>
+  <text x="112" y="119" font-size="14" fill="#ffffff" font-weight="bold">kenarlık (border)</text>
+  <!-- padding -->
+  <rect x="114" y="126" width="412" height="180" fill="#dafbe1"/>
+  <text x="126" y="148" font-size="15" fill="#116329" font-weight="bold">dolgu (padding)</text>
+  <text x="126" y="166" font-size="13" fill="#116329">öğenin arka planını taşır</text>
+  <!-- content -->
+  <rect x="190" y="180" width="260" height="90" fill="#ddf4ff" stroke="#1f6feb" stroke-width="2"/>
+  <text x="320" y="216" font-size="16" fill="#0a3069" text-anchor="middle" font-weight="bold">içerik (content)</text>
+  <text x="320" y="238" font-size="13" fill="#0a3069" text-anchor="middle">metin, görsel, alt öğeler</text>
+  <!-- width arrow -->
+  <line x1="192" y1="285" x2="448" y2="285" stroke="#cf222e" stroke-width="2" marker-start="url(#o)" marker-end="url(#o)"/>
+  <text x="320" y="300" font-size="13" fill="#cf222e" text-anchor="middle">width (content-box)</text>
+  <!-- height arrow -->
+  <line x1="465" y1="182" x2="465" y2="268" stroke="#cf222e" stroke-width="2" marker-start="url(#o)" marker-end="url(#o)"/>
+  <text x="472" y="230" font-size="13" fill="#cf222e">height</text>
+  <defs>
+    <marker id="o" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 z" fill="#cf222e"/>
+    </marker>
+  </defs>
+  <!-- legend -->
+  <g font-size="13" fill="#24292f">
+    <text x="620" y="60" font-weight="bold">Dıştan içe</text>
+    <rect x="620" y="74" width="16" height="16" fill="#fff8c5" stroke="#bf8700" stroke-dasharray="4 2"/><text x="642" y="87">margin</text>
+    <rect x="620" y="100" width="16" height="16" fill="#24292f"/><text x="642" y="113">border</text>
+    <rect x="620" y="126" width="16" height="16" fill="#dafbe1" stroke="#2da44e"/><text x="642" y="139">padding</text>
+    <rect x="620" y="152" width="16" height="16" fill="#ddf4ff" stroke="#1f6feb"/><text x="642" y="165">content</text>
+  </g>
+  <text x="40" y="415" font-size="13" fill="#57606a">Kenarlığın dış çizgisi "dış kenar" (border edge), içeriğin sınırı "iç kenar" (content edge) olarak adlandırılır.</text>
+</svg>

@@ -1,0 +1,79 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 16px;
+  color: #24292f;
+}
+
+h1 {
+  font-size: 1.2rem;
+  margin-top: 0;
+}
+
+.galeri {
+  display: grid;
+  grid-template-columns: repeat(3, 150px);
+  gap: 18px;
+  padding: 18px;
+  background-color: #d8e4cf;
+  width: max-content;
+}
+
+.kutu {
+  height: 90px;
+  padding: 8px;
+  background-color: #fff8c5;
+  border-width: 6px;
+  border-color: #a0a0a0;
+  text-align: center;
+}
+
+.kutu span {
+  display: block;
+  font-size: 0.8rem;
+  color: #57606a;
+}
+
+.none   { border-style: none; }
+.dotted { border-style: dotted; border-color: #24292f; }
+.dashed { border-style: dashed; border-color: #24292f; }
+.solid  { border-style: solid; border-color: #24292f; }
+.double { border-style: double; border-color: #24292f; }
+.groove { border-style: groove; }
+.ridge  { border-style: ridge; }
+.inset  { border-style: inset; }
+.outset { border-style: outset; }
+
+.ozel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.ozel div {
+  width: 220px;
+  height: 90px;
+  padding: 10px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+/* Her kenar için ayrı stil */
+#dort-stil {
+  border-top-style: solid;
+  border-right-style: dashed;
+  border-bottom-style: double;
+  border-left-style: dotted;
+  border-width: 5px;
+}
+
+/* Saat yönünde: üst, sağ, alt, sol */
+#dort-kalinlik {
+  border-style: solid;
+  border-width: thin medium thick 12px;
+}
+
+#dort-renk {
+  border: 8px solid;
+  border-color: #1f6feb #2da44e #bf8700 #cf222e;
+}
