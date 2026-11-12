@@ -21,7 +21,7 @@
 
 Tablo, veriyi satır ve sütunlardan oluşan bir ızgarada sunar; her hücrenin anlamı, satırının ve sütununun başlığından gelir. Spor müsabakalarının puan durumu, borsa verileri, ulaşım tarifeleri, ders programları ve sınav sonuçları bu tür verilere örnektir [1, ss. 126–127]. Bir içeriğin tablosal olup olmadığını anlamak için "Bir hücredeki değeri anlamak için hem satır hem sütun başlığına bakmak gerekiyor mu?" sorusu sorulabilir.
 
-Tablolar sayfa yerleşimi (layout) için kullanılmamalıdır. HTML Living Standard, yerleşim amaçlı tabloların özellikle ekran okuyucu (screen reader) kullanıcıları için ciddi sorunlar yarattığını belirtir [2]: Ekran okuyucu "tablo, 3 sütun, 5 satır" bilgisini verir ve hücreleri başlıklarıyla birlikte seslendirir; menüsü ve içeriği tablo hücrelerine yerleştirilmiş bir sayfada bu bilgiler yanıltıcıdır. Yerleşim için CSS Flexbox ve Grid kullanılır ([Bölüm 6](06-css-kutu-modeli-yerlesim.md)).
+Tablolar sayfa yerleşimi (layout) için kullanılmamalıdır. HTML Living Standard, yerleşim amaçlı tabloların özellikle ekran okuyucu (screen reader) kullanıcıları için ciddi sorunlar yarattığını belirtir [2]: Ekran okuyucu "tablo, 3 sütun, 5 satır" bilgisini verir ve hücreleri başlıklarıyla birlikte seslendirir; menüsü ve içeriği tablo hücrelerine yerleştirilmiş bir sayfada bu bilgiler kullanıcıyı yanlış yönlendirir. Yerleşim için CSS Flexbox ve Grid kullanılır ([Bölüm 6](06-css-kutu-modeli-yerlesim.md)).
 
 > [!NOTE]
 > **Tarihsel not:** 1990'ların sonu ile 2000'lerin başında CSS desteği yetersiz olduğundan sayfaların iskeleti iç içe tablolarla kurulurdu. Bu yöntem kodun bakımını ve erişilebilirliği zorlaştırdığından terk edilmiştir [3, s. 134].
@@ -101,7 +101,7 @@ Başlığın hangi hücreleri nitelediği `scope` niteliğiyle belirtilir: `scop
 
 ### 3.2.4 Hücre birleştirme: `colspan` ve `rowspan`
 
-Sunumda "etiket" olarak geçen `colspan` ve `rowspan` aslında `th`/`td` öğelerine yazılan **nitelik**lerdir. İngilizcedeki *span*, bir köprünün iki ayağı arasındaki açıklık gibi "uzanım" anlamına gelir:
+Hücre birleştirme, `th` ve `td` öğelerine yazılan `colspan` ve `rowspan` **nitelik**leriyle yapılır. İngilizcedeki *span*, bir köprünün iki ayağı arasındaki açıklık gibi "uzanım" anlamına gelir:
 
 - **`colspan`** (sütun yayılımı) hücreyi sağa doğru belirtilen sayıda sütuna yayar.
 - **`rowspan`** (satır yayılımı) hücreyi aşağı doğru belirtilen sayıda satıra yayar.
@@ -158,7 +158,7 @@ W3C Web Erişilebilirliği Girişimi'nin (WAI) tablo öğreticisi temel kurallar
 
 ### 3.3.1 Kenarlık, iç dolgu ve hücre aralığı
 
-Tablolar varsayılan olarak kenarlıksızdır; kenarlık ve boşluklar CSS ile verilir [1, ss. 337–340]. Sunumdaki stil örneği bu yaklaşımın doğru bir başlangıcıdır (Kod 3.4).
+Tablolar varsayılan olarak kenarlıksızdır; kenarlık ve boşluklar CSS ile verilir [1, ss. 337–340]. Kod 3.4, tabloya ve hücrelere kenarlık ile iç dolgu veren temel kuralları göstermektedir.
 
 *Kod 3.4. Tablo ve hücrelere kenarlık veren temel CSS.*
 
@@ -225,14 +225,14 @@ tbody tr:nth-child(even) {
 Sarmalayıcıdaki `tabindex="0"` klavye kullanıcılarının alana odaklanıp ok tuşlarıyla kaydırabilmesini, `role="region"` ve `aria-labelledby` ise ekran okuyucuların bölgeyi adlandırmasını sağlar.
 
 > [!NOTE]
-> **Tarihsel not:** CSS yaygınlaşmadan önce tablo görünümü öğelere yazılan sunum nitelikleriyle ayarlanırdı [1, s. 137]. Sunumdaki şu satır bu dönemin tipik örneğidir:
+> **Tarihsel not:** CSS yaygınlaşmadan önce tablo görünümü öğelere yazılan sunum nitelikleriyle ayarlanırdı [1, s. 137]. Eski sayfalarda bu nitelikler bir tablo başlangıç etiketinde çoğunlukla bir arada yazılırdı:
 >
 > ```html
 > <table border="1" cellpadding="20" style="width:300px" bgcolor="#CCCCCC"
 >        bordercolor="#CC0000" height="400" hspace="80" border:"1px">
 > ```
 >
-> Bu niteliklerin hiçbiri güncel standarda uygun değildir [2]; `bordercolor` ve tablo için `hspace` ise hiç standart olmamış, belirli tarayıcılara özgü eklentilerdir. Sondaki `border:"1px"` ise geçerli bir sözdizimi değildir: HTML niteliği `ad="değer"` biçiminde yazılır, `ad: değer` biçimi CSS'e aittir; tarayıcı bu ifadeyi anlamsız bir nitelik adı olarak yok sayar. Karşılıklar Tablo 3.1'de verilmiştir.
+> Bu niteliklerin hiçbiri güncel standarda uygun değildir [2]; `bordercolor` ve tablo için `hspace` ise hiç standart olmamış, belirli tarayıcılara özgü eklentilerdir. Sondaki `border:"1px"` ise HTML ile CSS sözdiziminin karıştırılmasından doğan, sık yapılan bir yazım hatasıdır: HTML niteliği `ad="değer"` biçiminde yazılır, `ad: değer` biçimi CSS'e aittir; tarayıcı bu ifadeyi anlamsız bir nitelik adı olarak yok sayar. Karşılıklar Tablo 3.1'de verilmiştir.
 
 *Tablo 3.1. Eskimiş tablo nitelikleri ve CSS karşılıkları.*
 
@@ -278,7 +278,7 @@ Sarmalayıcıdaki `tabindex="0"` klavye kullanıcılarının alana odaklanıp ok
 
 ### 3.4.1 Sayfa içinde sayfa
 
-`iframe` (inline frame, satır içi çerçeve), bir sayfanın içinde başka bir HTML belgesini kendi penceresi olan bir alanda gösterir; Duckett bu öğeyi sayfaya açılmış küçük bir pencereye benzetir [1, s. 189]. Gömülü belge bağımsız olarak yüklenir, kendi CSS'i ve betikleri vardır, sığmayan içerik için kendi kaydırma çubuğunu gösterir. Sunumdaki örnek `liste.html` belgesini 400 × 250 piksellik bir alanda gösterir [3, s. 131]; Kod 3.6'da bu örneğe bir `title` eklenmiştir. Ekran okuyucular çerçeveye gelindiğinde bu adı okur; `title` yoksa kullanıcı yalnızca "çerçeve" duyar [6].
+`iframe` (inline frame, satır içi çerçeve), bir sayfanın içinde başka bir HTML belgesini kendi penceresi olan bir alanda gösterir; Duckett bu öğeyi sayfaya açılmış küçük bir pencereye benzetir [1, s. 189]. Gömülü belge bağımsız olarak yüklenir, kendi CSS'i ve betikleri vardır, sığmayan içerik için kendi kaydırma çubuğunu gösterir. Kod 3.6'daki çerçeve, aynı klasördeki `liste.html` belgesini 400 × 250 piksellik bir alanda gösterir [3, s. 131] ve `title` niteliğiyle bir ad taşır. Ekran okuyucular çerçeveye gelindiğinde bu adı okur; `title` yoksa kullanıcı yalnızca "çerçeve" duyar [6].
 
 *Kod 3.6. Aynı klasördeki bir belgenin gömülmesi (tam örnek: [codes/03-html-tablo-form-medya/ornek-3-3-iframe-liste/](../codes/03-html-tablo-form-medya/ornek-3-3-iframe-liste/index.html)).*
 
@@ -392,7 +392,7 @@ Form, kullanıcıdan bilgi toplamak için hazırlanmış bir şablondur. HTML, b
 1. **İstemci tarafı (arayüz):** Tarayıcıda görünen, HTML ile yazılmış kısım.
 2. **Sunucu tarafı (işleyici):** Gönderilen veriyi alan, işleyen (kaydetme, e-posta gönderme, arama) ve yanıt sayfası üreten program. PHP, Python, Java, C#, Node.js gibi teknolojilerle yazılır; HTML'in görevi değildir.
 
-Tarayıcı form gönderildiğinde her denetimin adını ve değerini `ad=değer` çiftleri hâlinde paketleyip formun `action` adresine bir HTTP isteğiyle iletir; sunucunun yanıtı yeni bir sayfa olarak görüntülenir [1, ss. 149–150]. Şekil 3.11, sunumdaki e-bülten kayıt örneği üzerinden bu akışı göstermektedir.
+Tarayıcı form gönderildiğinde her denetimin adını ve değerini `ad=değer` çiftleri hâlinde paketleyip formun `action` adresine bir HTTP isteğiyle iletir; sunucunun yanıtı yeni bir sayfa olarak görüntülenir [1, ss. 149–150]. Şekil 3.11, bir e-bülten kayıt formu üzerinden bu akışı göstermektedir.
 
 ```mermaid
 sequenceDiagram
@@ -416,7 +416,7 @@ Bu bölümde yalnızca istemci tarafı ele alınmakta, örneklerde gerçek bir s
 Tüm form denetimleri bir `form` öğesinin içinde yer alır. Bir sayfada birden çok form bulunabilir, ancak formlar iç içe yazılamaz: Bir form kapatılmadan diğeri başlatılmamalıdır [2]. `form` öğesinin üç temel niteliği vardır:
 
 - **`action`**: Verinin gönderileceği sunucu programının adresi. Boş bırakılırsa veri formun bulunduğu sayfanın kendi adresine gönderilir [3, s. 150].
-- **`method`**: `get` veya `post`; belirtilmezse `get`. Sunumda "action özniteliğinin GET ve POST özelliği" olarak anılan bu ayar ayrı bir niteliktir.
+- **`method`**: Verinin hangi HTTP yöntemiyle gönderileceğini belirleyen, `action`'dan bağımsız niteliktir; `get` veya `post` değerini alır, belirtilmezse `get` kullanılır.
 - **`enctype`**: POST verisinin kodlama biçimi. Varsayılan `application/x-www-form-urlencoded`'dır; dosya yükleyen formlarda `multipart/form-data` zorunludur.
 
 *Kod 3.9. E-bülten kayıt formunun iskeleti.*
@@ -428,7 +428,7 @@ Tüm form denetimleri bir `form` öğesinin içinde yer alır. Bir sayfada birde
 ```
 
 > [!TIP]
-> **Güncel hayattan:** `action` adresindeki program sitenin sunucusunda çalışır. GitHub Pages gibi statik barındırma hizmetleri sunucu programı çalıştırmaz; bu sitelerde formlar ayrı bir arka uç (back-end) uygulamasına veya form verisi kabul eden hizmetlere yönlendirilir. Sunumdaki "hosting seçimine dikkat" uyarısı bu nedenledir [3, s. 150].
+> **Güncel hayattan:** `action` adresindeki program sitenin sunucusunda çalışır. GitHub Pages gibi statik barındırma hizmetleri sunucu programı çalıştırmaz; bu sitelerde formlar ayrı bir arka uç (back-end) uygulamasına veya form verisi kabul eden hizmetlere yönlendirilir. Bu nedenle form içeren bir site için barındırma (hosting) hizmeti seçilirken sunucu tarafı programların çalıştırılıp çalıştırılamadığına dikkat edilmelidir [3, s. 150].
 
 ### 3.5.3 `GET` ve `POST` yöntemleri
 
@@ -438,14 +438,14 @@ Tüm form denetimleri bir `form` öğesinin içinde yer alır. Bir sayfada birde
 
 *Şekil 3.12. GET ile gönderilen bir formun oluşturduğu adres ve karakter kodlaması.*
 
-Form verisinin varsayılan kodlaması olan `application/x-www-form-urlencoded` biçiminde harf, rakam ve `* - . _` karakterleri olduğu gibi kalır; boşluk `+` işaretine, diğer karakterler UTF-8 baytlarının yüzde kodlamasına (percent-encoding) dönüşür [9]: `/` → `%2F`, `@` → `%40`, iki baytlık `Ö` → `%C3%96`. Sunumdaki "boşluk → `%20`" gösterimi URL'lerin genel yüzde kodlamasına aittir [10]; form gönderiminde tarayıcılar boşluğu `+` yazar, sunucu kütüphaneleri ise her ikisini aynı karaktere çözer. Kodlamayı tarayıcı kendiliğinden yapar.
+Form verisinin varsayılan kodlaması olan `application/x-www-form-urlencoded` biçiminde harf, rakam ve `* - . _` karakterleri olduğu gibi kalır; boşluk `+` işaretine, diğer karakterler UTF-8 baytlarının yüzde kodlamasına (percent-encoding) dönüşür [9]: `/` → `%2F`, `@` → `%40`, iki baytlık `Ö` → `%C3%96`. URL'lerin genel yüzde kodlamasında ise boşluk `%20` olarak yazılır [10]; sunucu kütüphaneleri form verisindeki `+` ile `%20`'yi aynı karaktere, boşluğa çözer. Kodlamayı tarayıcı kendiliğinden yapar.
 
-**POST yönteminde** veri aynı kodlamayla HTTP isteğinin **gövdesinde** (body) taşınır; adres çubuğunda, geçmişte ve yer imlerinde görünmez.
+**POST yönteminde** veri aynı kodlamayla HTTP isteğinin **gövdesinde** (body) taşınır; adres çubuğunda, geçmişte ve yer imlerinde görünmez. Ancak POST veriyi **şifrelemez**: Gövde düz metin olarak iletilir; ağı izleyebilen biri (ör. şifresiz bir halka açık Wi-Fi'da) onu okuyabilir, geliştirici araçlarının **Network** sekmesinde de açıkça görülür. Verinin yol boyunca gizliliğini sağlayan, kullanılan yöntem değil bağlantının **HTTPS** (TLS üzerinden HTTP) olmasıdır [11].
 
 > [!WARNING]
-> Sunumdaki "POST yönteminde veri yalnızca sunucu tarafından görülür, bu nedenle kredi kartı gibi bilgileri göndermek güvenilirdir" ifadesi düzeltilmelidir: **POST veriyi şifrelemez.** Gövde düz metin olarak iletilir; ağı izleyebilen biri (ör. şifresiz bir halka açık Wi-Fi'da) onu okuyabilir, geliştirici araçlarının **Network** sekmesinde de açıkça görülür. Verinin yol boyunca gizliliğini sağlayan, bağlantının **HTTPS** (TLS üzerinden HTTP) olmasıdır [11]. Doğru kural: Parola, kimlik numarası, kart bilgisi gibi hassas veriler **POST ile ve yalnızca HTTPS üzerinden** gönderilir.
+> Parola, kimlik numarası, kart bilgisi gibi hassas veriler **POST ile ve yalnızca HTTPS üzerinden** gönderilir. POST verinin görünürlüğünü azaltır, gizliliğini ise HTTPS sağlar.
 
-GET verisinin görünürlüğü adres çubuğuyla sınırlı değildir: Sorgu dizgesi tarayıcı geçmişine ve yer imlerine kaydedilir, sunucunun erişim günlüklerine (access logs) yazılır ve başvuran (Referer) bilgisiyle başka sitelere sızabilir. Bu nedenle parola, HTTPS olsa bile GET ile gönderilmez. HTTP'de GET bir **güvenli yöntem**dir (safe method): Sunucuda durum değiştirmemesi, yalnızca bilgi istemesi beklenir [12]. Bu sayede arama sonuçları yer imine eklenip paylaşılabilir [3, s. 151]; kayıt, sipariş, mesaj gönderme gibi iz bırakan işlemler ise POST ile yapılır. Sunumda GET için belirtilen "karakter sınırı" HTTP'de tanımlı değildir, ancak tarayıcı ve sunucular URL uzunluğunu pratikte sınırlar; HTTP/1.1 tanımı en az 8000 sekizlik (octet) istek satırının desteklenmesini önerir [13].
+GET verisinin görünürlüğü adres çubuğuyla sınırlı değildir: Sorgu dizgesi tarayıcı geçmişine ve yer imlerine kaydedilir, sunucunun erişim günlüklerine (access logs) yazılır ve başvuran (Referer) bilgisiyle başka sitelere sızabilir. Bu nedenle parola, HTTPS olsa bile GET ile gönderilmez. HTTP'de GET bir **güvenli yöntem**dir (safe method): Sunucuda durum değiştirmemesi, yalnızca bilgi istemesi beklenir [12]. Bu sayede arama sonuçları yer imine eklenip paylaşılabilir [3, s. 151]; kayıt, sipariş, mesaj gönderme gibi iz bırakan işlemler ise POST ile yapılır. HTTP, URL uzunluğu için bir üst sınır tanımlamaz; ancak tarayıcı ve sunucular URL uzunluğunu pratikte sınırladığından GET ile uzun veri gönderilemez. HTTP/1.1 tanımı en az 8000 sekizlik (octet) istek satırının desteklenmesini önerir [13].
 
 *Tablo 3.3. GET ve POST yöntemlerinin karşılaştırılması.*
 
@@ -515,7 +515,7 @@ Bağlantının iki kazancı vardır: Ekran okuyucu alana gelindiğinde etiketi o
 
 ### 3.5.6 Metin girişi: `text`, `password`, `textarea`
 
-Denetimlerin çoğu, görünüm ve davranışı `type` niteliğiyle belirlenen boş (void) bir öğe olan `input` ile oluşturulur. Bu bölüm, sunumdaki sırayı izlemektedir: metin girişi, özel metin tipleri, sayı/tarih/renk, seçim denetimleri, dosya ve gizli alanlar, düğmeler.
+Denetimlerin çoğu, görünüm ve davranışı `type` niteliğiyle belirlenen boş (void) bir öğe olan `input` ile oluşturulur. Bu ve izleyen alt bölümlerde denetimler şu sırayla ele alınmaktadır: metin girişi, özel metin tipleri, sayı/tarih/renk, seçim denetimleri, dosya ve gizli alanlar, düğmeler.
 
 - **`type="text"`** tek satırlık metin alır; `value` başlangıç değerini, `maxlength` en fazla karakter sayısını belirler [1, s. 152].
 - **`type="password"`** karakterleri maskeler. Maskeleme yalnızca ekrana bakan birine karşı korur, veriyi şifrelemez; parola içeren formlar POST ve HTTPS ile gönderilir.
@@ -536,10 +536,10 @@ Denetimlerin çoğu, görünüm ve davranışı `type` niteliğiyle belirlenen b
 
 ### 3.5.7 HTML5 özel metin tipleri: `email`, `tel`, `url`, `search`
 
-Sunumdaki "HTML5, 13 yeni etiket sunmuştur" ifadesi, HTML5'in tanıttığı 13 yeni **giriş tipine** karşılık gelir: `search`, `email`, `tel`, `url`, `number`, `range`, `date`, `time`, `datetime`, `datetime-local`, `month`, `week`, `color` [15, ss. 80–87]. Bunlardan `datetime` sonradan standarttan çıkarılmış, yerini `datetime-local` almıştır. Yeni tipler masaüstünde `text`'e benzer görünür; farkları üç noktadadır [15, s. 81], [4, s. HTML 514]:
+HTML5, `input` öğesine 13 yeni **giriş tipi** (`type` değeri) eklemiştir: `search`, `email`, `tel`, `url`, `number`, `range`, `date`, `time`, `datetime`, `datetime-local`, `month`, `week`, `color` [15, ss. 80–87]. Bunlardan `datetime` sonradan standarttan çıkarılmış, yerini `datetime-local` almıştır. Yeni tipler masaüstünde `text`'e benzer görünür; farkları üç noktadadır [15, s. 81], [4, s. HTML 514]:
 
 1. **Doğrulama:** `email` değerin `ad@alan` biçiminde, `url` ise şemayla (`https://`) başlayan bir adres olup olmadığını denetler.
-2. **Sanal klavye:** Mobilde `email` için `@`, `tel` için sayısal tuş takımı, `url` için `.com` ve `/`, `search` için "Ara" tuşu öne çıkar (sunumdaki iPhone ekran görüntüleri).
+2. **Sanal klavye:** Mobilde `email` için `@`, `tel` için sayısal tuş takımı, `url` için `.com` ve `/`, `search` için "Ara" tuşu öne çıkar.
 3. **Otomatik doldurma:** Tarayıcı alanın türünü bildiğinden kayıtlı e-posta ve telefonları önerebilir.
 
 `tel` tipi, ülkelere göre biçim değiştiği için içeriği doğrulamaz; gerekirse `pattern` kullanılır. Bilinmeyen tipler eski tarayıcılarda `text` olarak gösterildiğinden bu tipler güvenle kullanılabilir.
@@ -560,7 +560,7 @@ Sunumdaki "HTML5, 13 yeni etiket sunmuştur" ifadesi, HTML5'in tanıttığı 13 
 - **`date`, `time`, `datetime-local`, `month`, `week`** yerleşik takvim/saat seçicilerini açar. Ekranda yerel biçim (ör. `16.03.2026`) görünse de gönderilen değer standarttır: `2026-03-16`, `09:30`, `2026-03-16T09:30`, `2026-03`, `2026-W12`. Böylece sunucu tarihi kullanıcının dil ayarından bağımsız yorumlar.
 - **`color`** renk seçici açar; değer `#rrggbb` biçiminde gönderilir.
 
-*Kod 3.13. Sunumdaki misafir sayısı ve memnuniyet örneklerinin Türkçe karşılığı ve tarih/renk alanları.*
+*Kod 3.13. Sayı, kaydırıcı, tarih ve renk alanları.*
 
 ```html
 <label for="misafir">Misafir sayısı</label>
@@ -587,9 +587,9 @@ Sunumdaki "HTML5, 13 yeni etiket sunmuştur" ifadesi, HTML5'in tanıttığı 13 
 
 *Şekil 3.15. Seçenek düğmesi ile onay kutusunun karşılaştırılması.*
 
-Sunumdaki yaş grubu ve müzik türü örneklerinde seçenekler `ol`/`ul` listelerine yazılmış, soru bir `p` paragrafında verilmiştir. Bu yazımda soru ile düğmeler arasında yardımcı teknolojilerin anlayacağı bir bağ yoktur ve metne tıklamak düğmeyi seçmez. Kod 3.14 bu eksiklikleri `fieldset`, `legend` ve `label` ile giderir.
+Seçenek düğmesi ve onay kutusu grupları bir `fieldset` içine alınır; soru `legend` ile, her seçeneğin metni `label` ile verilir. Soru bir `p` paragrafına, seçenekler bir `ol`/`ul` listesine yazıldığında soru ile düğmeler arasında yardımcı teknolojilerin anlayacağı bir bağ kurulmaz ve seçenek metnine tıklamak düğmeyi seçmez. Kod 3.14'te yaş grubu ve müzik türü soruları bu yapıyla yazılmıştır.
 
-*Kod 3.14. Sunumdaki seçenek düğmesi ve onay kutusu örneklerinin erişilebilir yazımı.*
+*Kod 3.14. `fieldset`, `legend` ve `label` ile erişilebilir seçenek düğmesi ve onay kutusu grupları.*
 
 ```html
 <fieldset>
@@ -611,7 +611,7 @@ Sunumdaki yaş grubu ve müzik türü örneklerinde seçenekler `ol`/`ul` listel
 
 **Açılır liste** (`select`) çok sayıda seçeneği az yer kaplayarak sunar. Her seçenek bir `option`'dır: `value` gönderilen değeri, içerik görünen metni belirler; `selected` önceden seçili seçeneği, `optgroup` (`label` nitelikli) seçenek gruplarını tanımlar; `multiple` çoklu seçime, `size` görünen satır sayısına izin verir [4, s. HTML 531]. İlk seçeneğin `value=""` ile "Seçiniz" yazılıp `select`'e `required` verilmesi bilinçli seçimi zorunlu kılar. **Öneri listesi** (`datalist`) ise bir metin alanına `list` niteliği aracılığıyla öneriler bağlar; `select`'ten farkı, kullanıcının listede olmayan bir değer de yazabilmesidir [15, ss. 87–88], [4, s. HTML 553].
 
-*Kod 3.15. `optgroup`'lu açılır liste ve sunumdaki öğrenim düzeyi örneğinin `datalist` ile Türkçe yazımı.*
+*Kod 3.15. `optgroup`'lu açılır liste ve `datalist` ile öğrenim düzeyi önerileri.*
 
 ```html
 <label for="bolum">Bölümünüz</label>
@@ -829,9 +829,9 @@ Web'in ilk yıllarında ses ve video Flash, QuickTime, RealPlayer gibi tarayıc�
 
 ### 3.6.2 `video` öğesi ve nitelikleri
 
-Sunumdaki üç video örneği `controls` ve `autoplay` niteliklerinin birleşimlerini gösterir; ancak hepsinde `height="480 poster=...` biçiminde kapanmamış bir tırnak vardır. Tarayıcı `480 poster=` metnini `height` değerinin parçası sayar ve `poster` niteliği hiç tanınmaz. Ayrıca `muted` olmadan yazılan `autoplay` güncel tarayıcılarda çoğunlukla çalışmaz (bkz. 3.6.3). Düzeltilmiş hâli Kod 3.18'dedir.
+`video` öğesi, `src` ile verilen dosyayı `width`/`height` boyutlarında bir oynatıcıda gösterir; `poster` oynatma öncesindeki kapak görselini belirler. `controls`, `autoplay` ve `muted` niteliklerinin birleşimiyle üç tipik oynatıcı davranışı elde edilir (Kod 3.18). `muted` olmadan yazılan `autoplay` güncel tarayıcılarda çoğunlukla çalışmadığından, otomatik başlaması istenen videolara `muted` de eklenir (bkz. 3.6.3).
 
-*Kod 3.18. Sunumdaki video örneklerinin düzeltilmiş hâli.*
+*Kod 3.18. `controls`, `autoplay` ve `muted` niteliklerinin üç tipik birleşimi.*
 
 ```html
 <!-- 1. Kontroller var, otomatik başlamaz (önerilen kullanım) -->
@@ -845,7 +845,7 @@ Sunumdaki üç video örneği `controls` ve `autoplay` niteliklerinin birleşiml
 <video src="arka-plan.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
 ```
 
-Niteliklerin çoğu **mantıksal (boolean)** niteliktir: Yazılması "açık", yazılmaması "kapalı" demektir; `controls="false"` yazmak kontrolleri kapatmaz.
+Niteliklerin çoğu **mantıksal (boolean)** niteliktir: Yazılması "açık", yazılmaması "kapalı" demektir; `controls="false"` yazmak kontrolleri kapatmaz. Değerli niteliklerde tırnakların eksiksiz kapatılmasına dikkat edilmelidir: `height="480 poster="kapak.jpg"` gibi kapanmamış bir tırnakta tarayıcı `480 poster=` metnini `height` değerinin parçası sayar ve `poster` niteliği hiç tanınmaz.
 
 *Tablo 3.6. `video` ve `audio` öğelerinin başlıca nitelikleri [2], [1, s. 214].*
 
@@ -861,7 +861,7 @@ Niteliklerin çoğu **mantıksal (boolean)** niteliktir: Yazılması "açık", y
 | `width`, `height` | ✓ | — | Görüntü alanı boyutu; yüklenirken yerleşim kaymasını önler. |
 | `playsinline` | ✓ | — | iPhone'larda tam ekrana geçmeden sayfa içinde oynatma. |
 
-`width`/`height` videonun en-boy oranıyla uyumlu olmalıdır: Günümüz videolarının çoğu 16:9'dur (ör. 640 × 360); sunumdaki 640 × 480 eski 4:3 oranıdır ve 16:9 bir videoda siyah bantlar oluşturur. `video { max-width: 100%; height: auto; }` kuralı videonun kapsayıcıdan taşmasını önler.
+`width`/`height` videonun en-boy oranıyla uyumlu olmalıdır: Günümüz videolarının çoğu 16:9'dur (ör. 640 × 360); 640 × 480 gibi eski 4:3 oranlı boyutlar 16:9 bir videoda siyah bantlar oluşturur. `video { max-width: 100%; height: auto; }` kuralı videonun kapsayıcıdan taşmasını önler.
 
 ### 3.6.3 Otomatik oynatma politikaları
 
@@ -892,7 +892,7 @@ flowchart TD
 </video>
 ```
 
-Önce daha verimli sıkıştırma sunan WebM/AV1, ardından neredeyse evrensel desteğe sahip MP4/H.264 verilmiştir; `type` içinde çift tırnak bulunduğundan nitelik tek tırnakla yazılmıştır (Tablo 3.7) [20].
+Önce daha verimli sıkıştırma sunan WebM/AV1, ardından neredeyse evrensel desteğe sahip MP4/H.264 verilmiştir; `type` içinde çift tırnak bulunduğundan nitelik tek tırnakla yazılmıştır (Tablo 3.7) [20]. Sunucunun da medya dosyalarını doğru MIME türüyle gönderecek biçimde yapılandırılmış olması gerekir [3, s. 198].
 
 *Tablo 3.7. Web için yaygın medya biçimleri.*
 
@@ -906,9 +906,9 @@ flowchart TD
 | WAV | `audio/wav` | PCM (sıkıştırmasız) | Kısa efektler; dosyalar büyüktür. |
 
 > [!NOTE]
-> **Tarihsel not:** Sunumdaki örnekte üçüncü kaynak `video/ogg; codecs="theora, vorbis"` (Ogg/Theora), WebM kaynağı ise `VP8, vorbis` kodekleriyle verilmiştir. Bunlar 2010'ların başında telifli H.264'e karşı geliştirilen açık alternatiflerdi [15, ss. 117–118]. Günümüzde Theora kullanılmamakta, VP8'in yerini VP9 ve AV1 almaktadır; yeni projelerde WebM (VP9/AV1) + MP4 (H.264) yeterlidir. Sunumun belirttiği gibi sunucunun dosyaları doğru MIME türüyle sunması da önemlidir [3, s. 198].
+> **Tarihsel not:** 2010'ların başındaki örneklerde WebM kaynağı `VP8, vorbis` kodekleriyle verilir, MP4'ün yanına üçüncü bir kaynak olarak `video/ogg; codecs="theora, vorbis"` (Ogg/Theora) eklenirdi. Bunlar telifli H.264'e karşı geliştirilen açık alternatiflerdi [15, ss. 117–118]. Günümüzde Theora kullanılmamakta, VP8'in yerini VP9 ve AV1 almaktadır; yeni projelerde WebM (VP9/AV1) + MP4 (H.264) yeterlidir.
 
-`video`/`audio` etiketleri arasına yazılan yedek içerik yalnızca bu öğeleri hiç tanımayan çok eski tarayıcılarda görünür; güncel bir tarayıcı kaynağı oynatamazsa yedek içerik gösterilmez, oynatıcıda hata oluşur. Bu nedenle indirme bağlantıları, sunumun ses örneğindeki gibi öğenin dışında da verilebilir.
+`video`/`audio` etiketleri arasına yazılan yedek içerik yalnızca bu öğeleri hiç tanımayan çok eski tarayıcılarda görünür; güncel bir tarayıcı kaynağı oynatamazsa yedek içerik gösterilmez, oynatıcıda hata oluşur. Bu nedenle indirme bağlantıları öğenin dışında da verilebilir (Kod 3.21).
 
 > [!TIP]
 > **Güncel hayattan:** YouTube ve Netflix videoyu tek dosya yerine farklı kalitelerde küçük parçalar hâlinde sunar ve bağlantı hızına göre kaliteyi anlık değiştirir (uyarlanabilir akış: HLS, MPEG-DASH). Bu teknik ek altyapı gerektirdiğinden küçük sitelerde ya `video` ile tek dosya ya da bir video platformunun `iframe` gömme kodu (Bölüm 3.4.2) tercih edilir [1, s. 206], [4, s. HTML 618].
@@ -945,7 +945,7 @@ WebVTT dosyası `WEBVTT` satırıyla başlar; her altyazı parçası (cue) bir z
 
 ### 3.6.6 `audio` öğesi
 
-`audio`, `video` ile aynı mantığı paylaşır; görüntü alanı olmadığından `poster`, `width`, `height` ve `playsinline` nitelikleri yoktur [1, ss. 219–220]. Sunumdaki `<audio src="soundtrack.mp3" autoplay loop>` örneği üç nedenle önerilmez: Sesli otomatik oynatma büyük olasılıkla engellenir; engellenmezse `controls` olmadığından kullanıcı sesi durduramaz (WCAG 1.4.2'ye aykırı); `audio` öğesi `controls` olmadan sayfada hiç görünmez. Sunumdaki ikinci örnekte ise MP3 için `type="audio/mp3"` yazılmıştır; doğru MIME türü `audio/mpeg`'dir (Kod 3.21). Podcast gibi uzun ses içerikleri için metin dökümü (transcript) de sunulmalıdır.
+`audio`, `video` ile aynı mantığı paylaşır; görüntü alanı olmadığından `poster`, `width`, `height` ve `playsinline` nitelikleri yoktur [1, ss. 219–220]. Arka plan müziği için kullanılan `<audio src="muzik.mp3" autoplay loop>` biçimi üç nedenle önerilmez: Sesli otomatik oynatma büyük olasılıkla engellenir; engellenmezse `controls` olmadığından kullanıcı sesi durduramaz (WCAG 1.4.2'ye aykırı); `audio` öğesi `controls` olmadan sayfada hiç görünmez. Bu nedenle ses öğesine `controls` verilir ve oynatma kullanıcıya bırakılır. Çoklu kaynakta MP3 dosyalarının MIME türü `audio/mpeg` olarak yazılır; `audio/mp3` standart bir MIME türü değildir (Kod 3.21). Podcast gibi uzun ses içerikleri için metin dökümü (transcript) de sunulmalıdır.
 
 *Kod 3.21. Çoklu kaynaklı ses oynatıcı ve öğenin dışında indirme bağlantıları.*
 
@@ -1006,7 +1006,7 @@ WebVTT dosyası `WEBVTT` satırıyla başlar; her altyazı parçası (cue) bir z
    </table>
    ```
 
-3. `scope="col"` ve `scope="row"` değerlerinin anlamını bir örnekle açıklayınız. Başlık hücresini kalın yazılmış bir `td` ile taklit etmek neden yanlıştır?
+3. `scope="col"` ve `scope="row"` değerlerinin anlamını bir örnekle açıklayınız. Başlık hücresini kalın yazılmış bir `td` ile taklit etmenin sakıncası nedir?
 4. `<table cellpadding="10" cellspacing="0" bgcolor="#eee" border="1">` satırını standartlara uygun HTML ve CSS ile yeniden yazınız. `border-collapse: collapse` kullanıldığında `border-spacing` neden etkisizdir?
 5. Bir bankanın internet şubesi sayfalarının başka sitelerde `iframe` içinde açılmasını neden engeller? Bu engelleme hangi HTTP başlıklarıyla yapılır?
 6. Boş `sandbox` nitelikli bir `iframe`'e hangi kısıtlamalar uygulanır? `allow-scripts allow-same-origin` ikilisinin birlikte kullanılmasının riski nedir?

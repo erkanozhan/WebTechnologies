@@ -18,7 +18,7 @@
 
 Gündelik hayatta kullanılan web uygulamalarının hemen hepsi bu iki yeteneğe dayanır. Bir e-ticaret sitesinde “Sepete ekle” düğmesine basıldığında sayfa yeniden yüklenmeden sepet simgesindeki sayı artar; üniversite öğrenci bilgi sisteminde (OBS) ders seçimi yapılırken kontenjanı dolan ders gri renge döner; bir kargo takip sayfasında takip numarası yazılırken alanın altında “Geçersiz numara” uyarısı belirir. Bu davranışların her birinde üç adım vardır: (1) bir **olay** (event) gerçekleşir, (2) JavaScript bu olayı bir **olay dinleyicisi** (event listener) aracılığıyla yakalar, (3) dinleyici, **Belge Nesne Modeli** (Document Object Model, DOM) üzerinden sayfayı günceller.
 
-Bu bölüm, ders sunumunda `addEventListener()` yöntemiyle sunulan konuyu (slayt 190–191) merkeze alarak bu üç adımı ayrıntılı biçimde inceler. Önce DOM'un ne olduğu ve öğelerin nasıl seçilip değiştirildiği, ardından olay modeli, form işlemleri, zamanlayıcılar, tarayıcı nesneleri ve `fetch` ile veri okuma anlatılır. Her ana başlıktan sonra Visual Studio Code ile yapılabilecek kısa bir uygulama yer almaktadır.
+Bu bölüm, olay dinleyicisi eklemenin temel aracı olan `addEventListener()` yöntemini merkeze alarak bu üç adımı ayrıntılı biçimde inceler. Önce DOM'un ne olduğu ve öğelerin nasıl seçilip değiştirildiği, ardından olay modeli, form işlemleri, zamanlayıcılar, tarayıcı nesneleri ve `fetch` ile veri okuma anlatılır. Her ana başlıktan sonra Visual Studio Code ile yapılabilecek kısa bir uygulama yer almaktadır.
 
 ## 8.2 Belge Nesne Modeli (DOM)
 
@@ -282,7 +282,7 @@ Tekrarlayan bir yapı (ör. her ürün kartı ya da her liste satırı) için HT
 
 ### 8.5.3 Örnek: güvenli metin arama ve vurgulama
 
-Eski ders notlarında yer alan “metin arama ve vurgulama” uygulaması, bu bölümde öğrenilen yöntemleri bir araya getiren iyi bir örnektir. Kullanıcı bir kelime yazar; sayfadaki paragrafta bu kelimenin geçtiği yerler `<mark>` öğesiyle vurgulanır (Şekil 8.4). Yaygın ama hatalı çözüm, paragrafın HTML'ini `innerHTML.replace(...)` ile değiştirmektir; bu yaklaşım hem XSS açığı oluşturur hem de kullanıcı `<` gibi özel karakterler aradığında sayfayı bozar. Aşağıdaki çözümde metin parçalara ayrılır ve parçalar metin düğümü ya da `<mark>` öğesi olarak yeniden kurulur:
+“Metin arama ve vurgulama” uygulaması, bu bölümde öğrenilen yöntemleri bir araya getiren iyi bir örnektir. Kullanıcı bir kelime yazar; sayfadaki paragrafta bu kelimenin geçtiği yerler `<mark>` öğesiyle vurgulanır (Şekil 8.4). Yaygın ama hatalı çözüm, paragrafın HTML'ini `innerHTML.replace(...)` ile değiştirmektir; bu yaklaşım hem XSS açığı oluşturur hem de kullanıcı `<` gibi özel karakterler aradığında sayfayı bozar. Aşağıdaki çözümde metin parçalara ayrılır ve parçalar metin düğümü ya da `<mark>` öğesi olarak yeniden kurulur:
 
 *Kod 8.1. Kullanıcı metnini HTML olarak yorumlamadan vurgulama (`ornek-8-2-metin-arama/script.js`, kısaltılmış).*
 
@@ -336,33 +336,17 @@ Bu modelin pratik bir sonucu vardır: Bir dinleyici uzun süren bir hesaplama ya
 
 ### 8.6.2 `addEventListener` ve `removeEventListener`
 
-Ders sunumunda (slayt 190) belirtildiği gibi `addEventListener()` yöntemi, belirtilen öğeye bir olay dinleyicisi ekler; bu yöntemle eklenmiş bir dinleyiciyi kaldırmak için `removeEventListener()` yöntemi kullanılır. Sunumda verilen söz dizimi şöyledir:
+`addEventListener()` yöntemi, belirtilen öğeye bir olay dinleyicisi ekler; bu yöntemle eklenmiş bir dinleyiciyi kaldırmak için `removeEventListener()` yöntemi kullanılır. Yöntemin genel söz dizimi şöyledir:
 
 ```js
 element.addEventListener(event, function, useCapture);
 ```
 
-Bu söz diziminde `event` olay türünü (ör. `"click"`; başında `on` olmadan), `function` olay gerçekleştiğinde çağrılacak dinleyiciyi, `useCapture` ise dinleyicinin olay yayılımının hangi aşamasında çalışacağını belirtir (Bölüm 8.6.4). Yöntemin adı büyük/küçük harfe duyarlıdır ve küçük harfle başlar: `addEventListener`.
+Bu söz diziminde `event` olay türünü (ör. `"click"`; başında `on` olmadan), `function` olay gerçekleştiğinde çağrılacak dinleyiciyi, `useCapture` ise dinleyicinin olay yayılımının hangi aşamasında çalışacağını belirtir (Bölüm 8.6.4). JavaScript büyük/küçük harfe duyarlı olduğundan yöntemin adı tam olarak `addEventListener` biçiminde, küçük `a` ile başlayıp her yeni sözcüğün ilk harfi büyük yazılarak (camelCase) kullanılır; `removeEventListener` için de aynı kural geçerlidir.
 
-Slayt 191'deki örnek, düğmeye tıklandığında bir paragrafın içeriğini değiştirmektedir:
+Kod 8.2'deki örnekte düğmeye tıklandığında bir paragrafın içeriği değiştirilmekte, ikinci bir düğme ile de bu dinleyici kaldırılmaktadır. Dinleyici olarak fonksiyonun **adı** verilir: `mesajGoster()` değil `mesajGoster` yazılır. Parantez yazılırsa fonksiyon, dinleyici eklenirken hemen bir kez çalışır ve dönüş değeri (`undefined`) dinleyici olarak verilmiş olur. Fonksiyon bildirimleri kapsamın başına “yükseltildiği” (hoisting, bkz. [Bölüm 7](07-javascript-temelleri.md)) için `mesajGoster` fonksiyonu `addEventListener` satırından sonra tanımlansaydı da çalışırdı; yine de okunabilirlik açısından önce tanımlanması tercih edilir. Betik, HTML yapısından ayrı bir dosyada tutulur ve `defer` niteliğiyle yüklenir; böylece yapı (HTML) ile davranış (JavaScript) birbirine karışmaz. Paragrafa yalnızca düz metin yazıldığı için `innerHTML` yerine `textContent` kullanılır.
 
-*Kod 8.2. Ders sunumundaki örnek (slayt 191).*
-
-```html
-<button id="myBtn">Tıkla Dene</button>
-<p id="demo">
-  <script>
-    document.getElementById("myBtn").addEventListener("click", myFunction);
-
-    function myFunction() {
-      document.getElementById("demo").innerHTML = "Hello World";
-    }
-  </script>
-```
-
-Örnekte dikkat edilmesi gereken üç ayrıntı vardır. Birincisi, dinleyici olarak fonksiyonun **adı** verilmiştir: `myFunction()` değil `myFunction` yazılır. Parantez yazılsaydı fonksiyon dinleyici eklenirken hemen bir kez çalışır ve dönüş değeri (`undefined`) dinleyici olarak verilmiş olurdu. İkincisi, `myFunction` fonksiyonu `addEventListener` satırından sonra tanımlanmış olmasına karşın çalışmaktadır; çünkü fonksiyon bildirimleri kapsamın başına “yükseltilir” (hoisting, bkz. [Bölüm 7](07-javascript-temelleri.md)). Üçüncüsü, `<script>` öğesi kapatılmamış bir `<p>` öğesinin içine yerleştirilmiştir. Tarayıcı bu yapıyı hata vermeden işler; ancak `innerHTML` ataması paragrafın içindeki betik öğesini de siler, ayrıca yapı (HTML) ile davranış (JavaScript) birbirine karışır. Aynı örneğin bu bölümün kurallarına uygun hâli Kod 8.3'te verilmiştir; sabit bir metin yazıldığı için `innerHTML` burada güvenlik açığı oluşturmasa da, alışkanlık olarak `textContent` tercih edilmiştir.
-
-*Kod 8.3. Slayt örneğinin düzeltilmiş ve `removeEventListener` ile genişletilmiş hâli (`ornek-8-1-addeventlistener`).*
+*Kod 8.2. `addEventListener` ile dinleyici ekleme ve `removeEventListener` ile kaldırma (`ornek-8-1-addeventlistener`).*
 
 ```html
 <button type="button" id="denemeDugmesi">Tıkla Dene</button>
@@ -397,7 +381,7 @@ Tam kod: [`codes/08-javascript-dom-olaylar/ornek-8-1-addeventlistener/`](../code
 >
 > Daha sonra kaldırılacak dinleyiciler bu nedenle adlandırılmış bir fonksiyon ya da bir değişkende saklanan fonksiyon olarak tanımlanmalıdır.
 
-**Üçüncü parametre: `useCapture`'dan seçenek nesnesine.** Sunumdaki `useCapture` parametresi tarihsel olarak bir mantıksal (boolean) değerdi ve bazı eski tarayıcılarda yazılması zorunluydu; bu nedenle eski kodlarda `addEventListener("click", f, false)` biçimine sık rastlanır. Güncel DOM standardında üçüncü parametre, mantıksal değer yerine bir **seçenek nesnesi** de olabilir [2], [8]:
+**Üçüncü parametre: `useCapture`'dan seçenek nesnesine.** `useCapture` parametresi tarihsel olarak bir mantıksal (boolean) değerdi ve bazı eski tarayıcılarda yazılması zorunluydu; bu nedenle eski kodlarda `addEventListener("click", f, false)` biçimine sık rastlanır. Güncel DOM standardında üçüncü parametre, mantıksal değer yerine bir **seçenek nesnesi** de olabilir [2], [8]:
 
 ```js
 dugme.addEventListener("click", tamamla, { once: true });          // bir kez çalışıp kendini kaldırır
@@ -797,9 +781,9 @@ Ondalık sayıları göstermek için `toFixed(2)` yöntemi iki ondalık basamakl
 
 ### 8.7.6 Örnek: “Ödev var mı?” sorusuna göre alanları pasifleştirme
 
-Eski ders notlarındaki bir örnekte, öğrencinin finalden en az kaç alması gerektiği hesaplanıyor ve “Ödev var mı?” sorusuna “Yok” yanıtı verildiğinde ödev notu alanlarının pasifleşmesi isteniyordu. Güncel yöntemle bu davranış, radyo düğmelerinin `change` olayı ve alanların `disabled` özelliğiyle sağlanır. `change` olayı kabardığı için iki radyo düğmesine ayrı ayrı değil, forma tek bir dinleyici eklemek yeterlidir:
+Bu örnekte öğrencinin finalden en az kaç alması gerektiği hesaplanır; “Ödev var mı?” sorusuna “Yok” yanıtı verildiğinde ödev notu alanlarının pasifleşmesi istenir. Bu davranış, radyo düğmelerinin `change` olayı ve alanların `disabled` özelliğiyle sağlanır. `change` olayı kabardığı için iki radyo düğmesine ayrı ayrı değil, forma tek bir dinleyici eklemek yeterlidir:
 
-*Kod 8.4. Ödev alanlarını koşula bağlı pasifleştirme (`ornek-8-4-final-hedefi/script.js`, kısaltılmış).*
+*Kod 8.3. Ödev alanlarını koşula bağlı pasifleştirme (`ornek-8-4-final-hedefi/script.js`, kısaltılmış).*
 
 ```js
 function odevAlanlariniAyarla() {
@@ -935,14 +919,14 @@ Zamanlayıcıların verilen süre için bir **alt sınır** belirttiği unutulma
 
 ### 8.8.3 Örnek: doğum günü hesaplayıcı
 
-Eski notlardaki “doğum gününe kaç gün kaldı?” örneği, tarih hesaplarında yapılan tipik hataları göstermesi bakımından öğreticidir. Doğru çalışan bir sürüm şu noktalara dikkat etmelidir:
+“Doğum gününe kaç gün kaldı?” sorusunu yanıtlayan bir program, tarih hesaplarında yapılan tipik hataları göstermesi bakımından öğreticidir. Doğru çalışan bir sürüm şu noktalara dikkat etmelidir:
 
 1. Bugünün tarihi **saatsiz** (gece 00:00) alınmalıdır. `new Date()` şu anki saati içerdiği için, doğum günü bugünse “bu yılki doğum günü geçti” sonucuna varılır ve yanlışlıkla yaklaşık 365 gün gösterilir.
 2. `<input type="date">` değeri parçalanarak yerel tarihe çevrilmelidir (Bölüm 8.8.1).
 3. 29 Şubat doğumlular için artık yıl olmayan yıllarda bir kural seçilmelidir. `new Date(2027, 1, 29)` ifadesi 1 Mart 2027 sonucunu verir; örnekte bu durumda 28 Şubat kabul edilmiştir.
 4. Yaş, “bu yılki doğum günü geldi mi?” sorusuna göre hesaplanmalıdır; yalnızca yıl farkı almak doğum günü henüz gelmemiş kişiler için bir fazla yaş verir.
 
-*Kod 8.5. Takvim günü farkı ve 29 Şubat kuralı (`ornek-8-5-dogum-gunu/script.js`, kısaltılmış).*
+*Kod 8.4. Takvim günü farkı ve 29 Şubat kuralı (`ornek-8-5-dogum-gunu/script.js`, kısaltılmış).*
 
 ```js
 function yildakiDogumGunu(yil, ay, gun) {
@@ -1156,7 +1140,7 @@ Bir hava durumu uygulaması yalnızca sıcaklık değerlerini, bir e-ticaret sit
 
 Güncel tarayıcılarda ağ istekleri, WHATWG *Fetch Standard* belgesinde tanımlanan `fetch()` fonksiyonuyla yapılır [17]. `fetch`, isteği başlatır ve hemen bir **`Promise`** (söz) döndürür; yanıt geldiğinde söz yerine getirilir. Bu sırada olay döngüsü çalışmaya devam ettiği için sayfa donmaz. Sözün sonucunu beklemek için **`async/await`** sözdizimi kullanılır: `async` ile işaretlenmiş bir fonksiyon içinde `await` yazılan satır, söz yerine gelene kadar fonksiyonun devamını bekletir; ancak tarayıcının geri kalanını engellemez [13], [14, s. 353].
 
-*Kod 8.6. `fetch` ile yerel bir JSON dosyasını okuma (`uygulama-8-8-urun-kartlari/script.js`, kısaltılmış).*
+*Kod 8.5. `fetch` ile yerel bir JSON dosyasını okuma (`uygulama-8-8-urun-kartlari/script.js`, kısaltılmış).*
 
 ```js
 async function urunleriYukle() {
@@ -1204,7 +1188,7 @@ sequenceDiagram
 2. `veri.json` dosyasına `id`, `ad`, `kategori`, `fiyat` ve `stok` alanlarına sahip 5–6 ürün içeren bir dizi yazınız. JSON'da anahtarların ve dizelerin **çift tırnak** içinde yazılması, son öğeden sonra virgül konmaması gerektiğini unutmayınız.
 3. HTML'e bir kategori seçimi (`<select id="kategori" disabled>` içinde “Tümü” seçeneği), durum mesajı için `<p id="durum" aria-live="polite">Ürünler yükleniyor…</p>` ve kartlar için boş bir `<div id="urunler">` ekleyiniz.
 4. `kartOlustur(urun)` fonksiyonunu yazınız: `<article>` içinde kategori etiketi, `<h2>` ürün adı, fiyat ve stok durumu oluştursun; tüm metinler `textContent` ile yazılsın. Fiyatı `Intl.NumberFormat("tr-TR", { style: "currency", currency: "TRY" })` ile biçimlendiriniz.
-5. Kod 8.6'daki gibi `async function urunleriYukle()` yazınız; veri geldikten sonra kategorileri `new Set(...)` ile tekilleştirip `new Option(ad, ad)` ile seçim listesine ekleyiniz ve listeyi etkinleştiriniz.
+5. Kod 8.5'teki gibi `async function urunleriYukle()` yazınız; veri geldikten sonra kategorileri `new Set(...)` ile tekilleştirip `new Option(ad, ad)` ile seçim listesine ekleyiniz ve listeyi etkinleştiriniz.
 6. Seçim listesinin `change` olayında ürünleri `filter` ile süzüp yeniden çiziniz.
 7. Sayfayı önce **Live Server** ile açınız (Şekil 8.21), ardından `index.html` dosyasını doğrudan çift tıklayarak açıp hata mesajını gözlemleyiniz (Şekil 8.22).
 

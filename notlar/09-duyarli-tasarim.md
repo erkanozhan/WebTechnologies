@@ -60,7 +60,7 @@ Tasarımcının görünüm alanını denetlemesini sağlayan yöntem, belgenin `
 
 - `name="viewport"`: Bu meta öğesinin görünüm alanı ayarı taşıdığını bildirir.
 - `width=device-width`: Düzen görünüm alanının genişliğini cihazın CSS piksel cinsinden genişliğine eşitler. Böylece 390 CSS pikseli genişliğindeki bir telefonda sayfa 980 değil 390 piksel genişliğinde düzenlenir ve `@media (min-width: 600px)` gibi sorgular doğru çalışır.
-- `initial-scale=1`: Sayfa ilk yüklendiğinde yakınlaştırma düzeyini 1'e (yüzde yüz) ayarlar. Sunumdaki `initial-scale=1.0` yazımı aynı anlama gelir.
+- `initial-scale=1`: Sayfa ilk yüklendiğinde yakınlaştırma düzeyini 1'e (yüzde yüz) ayarlar. `initial-scale=1.0` biçiminde yazılması da aynı anlama gelir.
 
 Masaüstü tarayıcılar bu etiketi dikkate almaz; etiketin etkisi yalnızca mobil tarayıcılarda (ve DevTools'un mobil öykünme modunda) görülür. Bu nedenle bir sayfanın masaüstünde pencere daraltılarak "düzgün" görünmesi, viewport etiketinin varlığını kanıtlamaz; test Device Toolbar ile yapılmalıdır (bkz. Bölüm 9.9).
 
@@ -238,7 +238,7 @@ Ters yöndeki "masaüstü öncelikli" yaklaşımda ise temel stiller geniş ekra
 
 **Kırılma noktaları cihaza göre değil, içeriğe göre seçilmelidir.** Belirli telefon veya tablet modellerinin genişliğini hedeflemek kısa ömürlüdür; her yıl yeni ekran boyutları çıkmaktadır. Doğru yöntem, Device Toolbar'ın Responsive modunda pencereyi yavaşça genişletmek ve düzenin "bozulduğu" (satırların aşırı uzadığı, kartların gereksiz gerildiği) noktaya bir kırılma noktası koymaktır [3, ss. 548–549]. 600, 900, 1200 gibi yuvarlak değerler başlangıç için makul bir rehberdir, standart değildir.
 
-Sunumda cihaz türlerine göre beklenen görünüm şöyle özetlenmektedir:
+Cihaz türlerine göre beklenen tipik görünüm Tablo 9.2'de özetlenmiştir:
 
 | Cihaz türü | Tipik görünüm alanı genişliği | Düzen | Gezinme ve etkileşim |
 |---|---|---|---|

@@ -22,7 +22,7 @@ Modern bir web sayfası üç katmanın birlikte çalışmasıyla oluşur (Şekil
 
 *Şekil 4.1. Bir web sayfasının üç katmanı: HTML yapı, CSS sunum, JavaScript davranış.*
 
-Ders sunumunda bu ayrım bir yemek sunumu benzetmesiyle anlatılmaktadır: aynı tatlı, farklı tabaklarda farklı süslemelerle sunulduğunda içeriği değişmez, yalnızca sunumu değişir. HTML tabaktaki yemek, CSS ise sunumdur. Bu benzetme, CSS öğrenimine başlarken önerilen üç adımlı yaklaşımla da örtüşür: (1) önce yalnızca HTML ile anlamlı bir sayfa hazırlanır; (2) stil kuralları uygulanmış sayfalar incelenir; (3) sayfaya adım adım stil kuralları eklenerek her kuralın tarayıcıdaki etkisi gözlemlenir.
+Bu ayrım bir yemek sunumu benzetmesiyle kolayca kavranabilir: aynı tatlı, farklı tabaklarda farklı süslemelerle sunulduğunda içeriği değişmez, yalnızca sunumu değişir. HTML tabaktaki yemek, CSS ise sunumdur. Bu benzetme, CSS öğrenimine başlarken önerilen üç adımlı yaklaşımla da örtüşür: (1) önce yalnızca HTML ile anlamlı bir sayfa hazırlanır; (2) stil kuralları uygulanmış sayfalar incelenir; (3) sayfaya adım adım stil kuralları eklenerek her kuralın tarayıcıdaki etkisi gözlemlenir.
 
 Şekil 4.2'de aynı HTML belgesi iki farklı biçimde görülmektedir. Soldaki görünümde belgeye hiçbir stil sayfası bağlanmamıştır; başlıkların büyük ve kalın, listelerin madde işaretli görünmesi tarayıcının kendi varsayılan stillerinden (user agent stylesheet) kaynaklanır. Sağdaki görünümde HTML'e tek satır bile dokunulmadan yalnızca bir `style.css` dosyası bağlanmıştır.
 
@@ -60,7 +60,7 @@ CSS1 Aralık 1996'da W3C önerisi (Recommendation) olarak yayımlandı [4]; yaz�
 CSS2.1'den sonra W3C, dili tek ve dev bir belge yerine bağımsız **modüller** hâlinde geliştirmeye başladı: *Selectors*, *Color*, *Backgrounds and Borders*, *Flexible Box Layout*, *Grid Layout*, *Cascading and Inheritance* gibi. Halk arasında "CSS3" olarak anılan şey, CSS2.1'in üzerine modül modül eklenen bu belgelerin toplamıdır. Her modül kendi seviye numarasıyla ilerler; örneğin *Selectors Level 4* veya *CSS Color Level 4*, "CSS4" adlı bir sürümün parçası değildir. W3C'nin her yıl yayımladığı *CSS Snapshot* belgesi bu durumu açıkça belirtir: "CSS Level 4 diye bir şey yoktur"; dil artık seviyelerle değil, olgunlaşan modüllerin yıllık anlık görüntüleriyle tanımlanır [1]. Hangi modülün hangi aşamada (Çalışma Taslağı, Aday Öneri, Öneri) olduğu W3C'nin "CSS Current Work" sayfasından izlenebilir.
 
 > [!NOTE]
-> **Tarihsel not:** Sunumda "Tüm tarayıcılar CSS seviye 2 ve 3'ü destekler" ifadesi yer almaktadır. "CSS3" tek bir belge olmadığından bu ifade ancak kabaca doğrudur: CSS2.1 güncel tarayıcıların tamamında desteklenir, ancak modüllerin ve yeni özelliklerin desteği tarayıcıdan tarayıcıya ve sürümden sürüme değişir. Bir özelliğin kullanılabilirliği MDN sayfalarındaki uyumluluk tablosundan ve "Baseline" etiketinden denetlenmelidir.
+> **Tarihsel not:** Eski kaynaklarda tarayıcı desteği "CSS seviye 2 ve 3'ü destekler" gibi sürüm numaralarıyla ifade edilirdi. "CSS3" tek bir belge olmadığından destek bugün sürüm düzeyinde değil, modül ve özellik düzeyinde değerlendirilir: CSS2.1 güncel tarayıcıların tamamında desteklenir; modüllerin ve yeni özelliklerin desteği ise tarayıcıdan tarayıcıya ve sürümden sürüme değişir. Bir özelliğin kullanılabilirliği MDN sayfalarındaki uyumluluk tablosundan ve "Baseline" etiketinden denetlenmelidir.
 
 ### 4.2.1 CSS Zen Garden: aynı içerik, binlerce tasarım
 
@@ -68,7 +68,7 @@ CSS'in gücünü gösteren en bilinen örneklerden biri Dave Shea'nın 2003'te b
 
 ### 4.2.2 Avantajlar ve dezavantajlar
 
-Sunum, CSS'in avantajlarını sıralayıp dezavantajları bir soru olarak bırakmaktadır. Tablo 4.1 her iki tarafı birlikte özetlemektedir.
+CSS'in getirdiği kolaylıkların yanında bazı sınırlılıkları da vardır. Tablo 4.1 her iki tarafı birlikte özetlemektedir.
 
 | Avantajlar | Dezavantajlar ve sınırlılıklar |
 |---|---|
@@ -87,7 +87,7 @@ Dezavantajların çoğu, dilin kendisinden çok büyüyen projelerin yönetimind
 
 ## 4.3 CSS Kural Sözdizimi
 
-Bir stil sayfası, her biri belirli öğeleri seçip bu öğelerin nasıl görüneceğini bildiren bir veya daha fazla **kural** (rule veya rule set) içerir [2, s. 231]. Aşağıdaki iki kural, sunumdaki ilk örnektir:
+Bir stil sayfası, her biri belirli öğeleri seçip bu öğelerin nasıl görüneceğini bildiren bir veya daha fazla **kural** (rule veya rule set) içerir [2, s. 231]. Aşağıda iki basit kural görülmektedir:
 
 ```css
 h1 { color: green; }
@@ -122,7 +122,7 @@ p {
 
 Boşluğun önemsiz olmasının tek ama kritik bir istisnası vardır: **bir sayı ile birimi arasına boşluk konulamaz.** `margin: 2em;` geçerlidir; `margin: 2 em;` ise geçersizdir, çünkü ayrıştırıcı bunu "2" sayısı ve "em" adlı bir anahtar sözcük olarak okur ve `margin` özelliği böyle bir değer kabul etmez [10]. Değer `0` olduğunda birim yazılmayabilir (`margin: 0;`).
 
-Noktalı virgül bildirimleri **ayırır**; bu nedenle bloğun son bildiriminden sonra yazılması zorunlu değildir, ancak sonradan yeni satır eklenirken hata yapılmaması için her zaman yazılması önerilir. Sunumda "noktalı virgülü unutursanız o bildirge gözardı edilir" denmektedir; gerçek davranış biraz daha geniş kapsamlıdır. Aşağıdaki örnekte ilk bildirimin sonundaki noktalı virgül unutulmuştur:
+Noktalı virgül bildirimleri **ayırır**; bu nedenle bloğun son bildiriminden sonra yazılması zorunlu değildir, ancak sonradan yeni satır eklenirken hata yapılmaması için her zaman yazılması önerilir. Noktalı virgül unutulduğunda yalnızca o bildirim değil, çoğu zaman ardından gelen bildirim de kaybolur. Aşağıdaki örnekte ilk bildirimin sonundaki noktalı virgül unutulmuştur:
 
 ```css
 p {
@@ -148,7 +148,7 @@ h1 {
 ```
 
 > [!IMPORTANT]
-> CSS'te `//` ile başlayan tek satırlık yorum **yoktur**. Sunumdaki gruplanmış seçici örneğinde kuralların yanına `// 5 elemanın hepsini kural etkiler` biçiminde açıklama yazılmıştır; bu satırlar bir stil dosyasına aynen kopyalanırsa `//` ve ardından gelen metin bir sonraki kuralın seçicisine karışır ve o kural tamamen geçersiz sayılır. Açıklamalar her zaman `/* … */` içinde yazılmalıdır. Benzer biçimde HTML yorumu olan `<!-- -->` da CSS içinde yorum değildir.
+> CSS'te `//` ile başlayan tek satırlık yorum **yoktur**. Başka dillerden alışkanlıkla bir kuralın yanına `// 5 öğenin hepsini kural etkiler` biçiminde açıklama yazılırsa `//` ve ardından gelen metin bir sonraki kuralın seçicisine karışır ve o kural tamamen geçersiz sayılır. Açıklamalar her zaman `/* … */` içinde yazılmalıdır. Benzer biçimde HTML yorumu olan `<!-- -->` da CSS içinde yorum değildir.
 
 > [!TIP]
 > **Güncel hayattan:** VS Code, `.css` dosyalarında bilinmeyen özellik adlarını, eksik parantezleri ve hatalı değerleri dalgalı çizgiyle işaretler; imleç bir özelliğin üzerine getirildiğinde MDN kaynaklı kısa bir açıklama ve tarayıcı desteği gösterilir. Tarayıcının sessizce yok saydığı hataları daha yazarken yakalamak için bu uyarılar dikkate alınmalıdır.
@@ -173,7 +173,7 @@ Satır içi stil yalnızca o öğeyi etkiler. Basamaklamada normal yazar stiller
 
 ### 4.4.2 Gömülü stil (`<style>` öğesi)
 
-Kurallar, belgenin `<head>` bölümündeki bir `<style>` öğesinin içine yazılır. Sunumdaki "Sağlıklı Beslenme" sayfası bu yöntemi kullanır:
+Kurallar, belgenin `<head>` bölümündeki bir `<style>` öğesinin içine yazılır. Aşağıdaki "Sağlıklı Beslenme" sayfası bu yöntemi kullanır:
 
 ```html
 <head>
@@ -274,11 +274,11 @@ Elli veya daha fazla sayfadan oluşan bir üniversite sitesi düşünüldüğün
 
 ### 4.5.1 Belge ağacı ve akrabalık terimleri
 
-Tarayıcı bir HTML belgesini okurken öğeleri iç içe geçme ilişkilerine göre bir **ağaç** yapısında düzenler (bkz. [Bölüm 2](02-html-temelleri.md)). Bir öğe başka bir öğenin içinde yer alıyorsa içteki öğeye **çocuk** (child), kapsayan öğeye **ebeveyn** (parent) denir. Bir öğenin içindeki her derinlikteki öğe o öğenin **torunu** (descendant), onu kapsayan tüm öğeler ise **ataları**dır (ancestor). Aynı ebeveyni paylaşan öğeler birbirinin **kardeşi**dir (sibling). Sunumdaki "ast/bağımlı" ve "üst" terimleri sırasıyla çocuk ve ebeveyn karşılığında kullanılmaktadır. Bu terimler hem kalıtımın hem de birleştirici seçicilerin (Bölüm 4.7.3) dayandığı temel kavramlardır.
+Tarayıcı bir HTML belgesini okurken öğeleri iç içe geçme ilişkilerine göre bir **ağaç** yapısında düzenler (bkz. [Bölüm 2](02-html-temelleri.md)). Bir öğe başka bir öğenin içinde yer alıyorsa içteki öğeye **çocuk** (child), kapsayan öğeye **ebeveyn** (parent) denir. Bir öğenin içindeki her derinlikteki öğe o öğenin **torunu** (descendant), onu kapsayan tüm öğeler ise **ataları**dır (ancestor). Aynı ebeveyni paylaşan öğeler birbirinin **kardeşi**dir (sibling). Bazı Türkçe kaynaklarda çocuk ve ebeveyn yerine sırasıyla "ast/bağımlı" ve "üst" terimleri de kullanılır. Bu terimler hem kalıtımın hem de birleştirici seçicilerin (Bölüm 4.7.3) dayandığı temel kavramlardır.
 
 ### 4.5.2 Kalıtım nedir?
 
-CSS'te bazı özelliklerin değeri, öğenin kendisine bir kural yazılmamışsa ebeveynden çocuğa aktarılır; buna **kalıtım** (inheritance) denir [13]. Sunumdaki örnek bunu gösterir:
+CSS'te bazı özelliklerin değeri, öğenin kendisine bir kural yazılmamışsa ebeveynden çocuğa aktarılır; buna **kalıtım** (inheritance) denir [13]. Aşağıdaki örnek bunu göstermektedir:
 
 ```css
 p {
@@ -291,13 +291,13 @@ p {
 <p>Merhaba <em>Dünya</em></p>
 ```
 
-Stil sayfasında `em` için hiçbir kural olmamasına rağmen "Dünya" sözcüğü de küçük ve sans-serif görünür; çünkü `font-size` ve `font-family` kalıtılan özelliklerdir ve `<em>`, değerlerini ebeveyni olan `<p>` öğesinden alır. Şekil 4.6, sunumdaki belge ağacı üzerinde bu durumu göstermektedir.
+Stil sayfasında `em` için hiçbir kural olmamasına rağmen "Dünya" sözcüğü de küçük ve sans-serif görünür; çünkü `font-size` ve `font-family` kalıtılan özelliklerdir ve `<em>`, değerlerini ebeveyni olan `<p>` öğesinden alır. Şekil 4.6, bu durumu daha büyük bir belge ağacı üzerinde göstermektedir.
 
 ![Şekil 4.6 html, head ve body dallarından oluşan belge ağacı; p öğeleri seçilmiş, p içindeki em öğeleri değeri kalıtıyor, img de kalıtıyor ama görsel etkisi yok](../images/04-css-temelleri/belge-agaci-kalitim.svg)
 
 *Şekil 4.6. Belge ağacında kalıtım: `p` kuralı paragrafları seçer, paragrafların içindeki `em` öğeleri değerleri kalıtır.*
 
-Sunumda aynı şekil üzerinden "`img` etiketi `p` içerisinde olmasına rağmen aynı tipte veri ile çalışmadığı için bu kurala uymayacaktır" denmektedir. Bu açıklamanın düzeltilmesi gerekir: `img` öğesi de `font-size` ve `font-family` değerlerini ebeveyninden **kalıtır**; kalıtım, öğenin türüne bakılmaksızın işler. Ancak bir görselin içinde çizilecek metin bulunmadığı için bu değerlerin ekranda **görünür bir etkisi olmaz**. Kalıtılan `font-size` değeri yine de hesaba katılır; örneğin görselin genişliği `em` birimiyle verilseydi bu değer kullanılırdı.
+Kalıtım, öğenin türüne bakılmaksızın işler. Şekildeki `img` öğesi de bir paragrafın içinde yer aldığı için `font-size` ve `font-family` değerlerini ebeveyninden **kalıtır**; ancak bir görselin içinde çizilecek metin bulunmadığından bu değerlerin ekranda **görünür bir etkisi olmaz**. Kalıtılan `font-size` değeri yine de hesaba katılır; örneğin görselin genişliği `em` birimiyle verilseydi bu değer kullanılırdı.
 
 ### 4.5.3 Hangi özellikler kalıtılır?
 
@@ -392,7 +392,7 @@ Normal bildirimlerde öncelik sırası *yazar > kullanıcı > kullanıcı aracı
 
 ### 4.6.2 Satır içi stil ve özgüllük
 
-Aynı köken ve önem düzeyindeki yazar bildirimleri arasında, öğenin `style` niteliğinde yazılmış bildirim seçicilerle uygulanan tüm bildirimleri yener [13]. Sunumdaki "`<style>` arasında tanımlanmış iken etiket içerisinde ayrı bir tanımlama yaparsanız etiket içerisindeki dikkate alınacaktır" ifadesi bu kuralı anlatır. Bazı kaynaklar bu durumu özgüllüğe dördüncü bir basamak ekleyerek (1,0,0,0) gösterir; güncel standart ise satır içi stili seçicilerden ayrı bir aşama olarak ele alır. Pratik sonuç aynıdır: hiçbir seçici, ne kadar özgül olursa olsun, satır içi normal bir bildirimi yenemez; satır içi stili yalnızca `!important` yenebilir.
+Aynı köken ve önem düzeyindeki yazar bildirimleri arasında, öğenin `style` niteliğinde yazılmış bildirim seçicilerle uygulanan tüm bildirimleri yener [13]. Örneğin `<style>` öğesinde bir paragraf için tanımlanan renk, aynı paragrafın `style` niteliğinde başka bir renk verildiğinde uygulanmaz. Bazı kaynaklar bu durumu özgüllüğe dördüncü bir basamak ekleyerek (1,0,0,0) gösterir; güncel standart ise satır içi stili seçicilerden ayrı bir aşama olarak ele alır. Pratik sonuç aynıdır: hiçbir seçici, ne kadar özgül olursa olsun, satır içi normal bir bildirimi yenemez; satır içi stili yalnızca `!important` yenebilir.
 
 Seçicilerle uygulanan bildirimler arasında karar **özgüllükle** (specificity) verilir: daha özgül, yani hedefini daha dar tanımlayan seçici kazanır [2, s. 239]. Özgüllük üç basamaklı bir sayı gibi hesaplanır ve (A, B, C) biçiminde yazılır [15]:
 
@@ -420,7 +420,7 @@ p.ozet { line-height: 1.8; }            /* (0,1,1) özet sınıfı her yerde */
 
 ### 4.6.3 Kaynak sırası: "Kazanan kim?"
 
-Köken, önem, katman ve özgüllük bakımından eşit olan iki bildirimden **belgede daha sonra gelen** kazanır [2, s. 239], [8, s. 219]. Sunumdaki iki soru bu kuralı sınar:
+Köken, önem, katman ve özgüllük bakımından eşit olan iki bildirimden **belgede daha sonra gelen** kazanır [2, s. 239], [8, s. 219]. Aşağıdaki iki örnekte paragrafın hangi renkte görüneceği bu kurala göre belirlenir:
 
 ```html
 <style>
@@ -453,7 +453,7 @@ Kaynak sırası yalnızca tek bir dosyanın içinde değil, belgeye bağlanan t�
 </head>
 ```
 
-Bu belgede başlık **kırmızı** görünür, çünkü harici dosya gömülü stilden sonra okunmuştur. Bazı ders kitaplarında gömülü stillerin harici stillerden "daha ağır" olduğu belirtilir [8, s. 217]; bu sonuç yalnızca `<style>` öğesinin, alışkanlıkla, `<link>` satırından sonra yazılmasından kaynaklanır.
+Bu belgede başlık **kırmızı** görünür, çünkü harici dosya gömülü stilden sonra okunmuştur. Gömülü stilleri harici stillerin önüne koyan ders kitabı sıralamaları da [8, s. 217] `<style>` öğesinin alışkanlıkla `<link>` satırından sonra yazıldığı tipik düzeni yansıtır; belirleyici olan yöntem değil, belgedeki sıradır.
 
 ### 4.6.4 Basamak katmanları (`@layer`)
 
@@ -505,24 +505,24 @@ flowchart TD
 
 *Şekil 4.10. Basamaklama karar akış diyagramı.*
 
-### 4.6.6 Sunumdaki öncelik tablosunun düzeltilmiş hâli
+### 4.6.6 Basamaklama sırasının özeti
 
-Sunumda "CSS Hiyerarşisi (veya Öncelik Sırası)" başlığıyla sekiz maddelik bir tablo verilmektedir. Tablo, basamaklamayı akılda tutmayı kolaylaştıran bir basitleştirmedir; ancak üç noktada yanıltıcıdır: (1) gömülü `<style>`, `@import` ve harici `<link>` ayrı öncelik düzeyleri olarak sıralanmıştır, oysa üçü de **aynı yazar kökenidir** ve aralarındaki sıra yalnızca belgedeki konumlarından doğar; (2) tabloda **özgüllük** hiç yer almaz, oysa harici dosyadaki bir `#kimlik` kuralı, gömülü stildeki bir `p` kuralını belgede nerede olursa olsun yener; (3) "kullanıcının tarayıcı stilleri" maddesi yalnızca normal kullanıcı bildirimlerini kapsar. Tablo 4.6 sunumdaki maddelerin doğru konumunu göstermektedir.
+Bu bölümde anlatılan ölçütler bir araya getirildiğinde, aynı öğenin aynı özelliği için yarışan bildirimlerin öncelik sırası Tablo 4.6'daki gibi özetlenir. Gömülü `<style>`, harici `<link>` ve `@import` ile gelen kurallar ayrı öncelik düzeyleri oluşturmaz: üçü de **yazar kökenlidir** ve aralarındaki yarışı önce **özgüllük**, özgüllükler eşitse belgedeki **kaynak sırası** belirler. Bu nedenle harici dosyadaki bir `#kimlik` kuralı, gömülü stildeki bir `p` kuralını belgede nerede yer alırsa alsın yener.
 
-| Sunumdaki sıra | Sunumdaki madde | Doğru model |
+| Öncelik (yüksekten düşüğe) | Bildirim grubu | Grup içindeki karar |
 |---|---|---|
-| 1 | `!important` (kullanıcı tarafı) | Doğru: önemli kullanıcı bildirimleri önemli yazar bildirimlerini yener. |
-| 2 | `!important` (geliştirici tarafı) | Doğru: yazar önemli bildirimleri tüm normal bildirimleri (satır içi dahil) yener. Kendi aralarında özgüllük ve sıra uygulanır. |
-| 3 | Satır içi stiller | Doğru: normal yazar bildirimleri arasında en güçlüsüdür. |
-| 4 | Gömülü stiller (`<style>`) | **Ayrı bir düzey değildir.** 4, 5 ve 6. maddeler tek bir "yazar normal" düzeyinde birleşir; aralarında önce **özgüllük**, eşitlikte **kaynak sırası** belirleyicidir. |
-| 5 | `@import` ile içe aktarılan stiller | İçe aktarılan kurallar `@import` satırının bulunduğu yerde okunur; bu nedenle genellikle aynı dosyanın sonraki kurallarından önce gelir. Ayrı bir düzey değildir. |
-| 6 | Harici stil dosyaları (`<link>`) | `<head>` içindeki konumuna göre `<style>`'dan önce veya sonra okunur; köken farkı yoktur. |
-| 7 | Kullanıcının tanımladığı tarayıcı stilleri | Doğru (normal kullanıcı bildirimleri): yazar stilleri tarafından ezilir. |
-| 8 | Tarayıcı varsayılan stilleri | Doğru: en düşük düzeydir. Bunun da altında, hiçbir bildirim yoksa kalıtım ve başlangıç değeri gelir. |
+| 1 | Tarayıcının `!important` bildirimleri | Az sayıdadır; sayfa yazarı bu bildirimleri ezemez. |
+| 2 | Kullanıcının `!important` bildirimleri | Erişilebilirlik için zorlanan yazı boyutu ve renkler yazarın önemli bildirimlerini de yener. |
+| 3 | Yazarın `!important` bildirimleri | Önce satır içi olan kazanır; ardından katman (önemli bildirimlerde katman sırası tersine döner), özgüllük ve kaynak sırası uygulanır. |
+| 4 | Yazarın satır içi (`style` niteliği) normal bildirimleri | Seçicilerle uygulanan tüm normal yazar bildirimlerini yener. |
+| 5 | Yazarın seçicilerle yazılmış normal bildirimleri (`<style>`, `<link>`, `@import`) | Tek bir düzeydir. Sırasıyla katman (katmansız > sonra bildirilen katman > önce bildirilen katman), özgüllük ve kaynak sırası belirleyicidir. |
+| 6 | Kullanıcının normal bildirimleri | Tarayıcı ayarlarındaki varsayılan yazı boyutu gibi tercihler; yazar stilleri tarafından ezilir. |
+| 7 | Tarayıcının normal bildirimleri | Kullanıcı aracısı stil sayfası; en düşük öncelikli bildirimlerdir. |
+| 8 | Hiçbir bildirim yoksa | Kalıtılan özelliklerde ebeveynin hesaplanan değeri, diğerlerinde özelliğin başlangıç değeri kullanılır. |
 
-*Tablo 4.6. Sunumdaki sekiz maddelik öncelik tablosunun basamaklama modeline göre düzeltilmesi.*
+*Tablo 4.6. Basamaklamada bildirimlerin öncelik sırası.*
 
-Bu düzeltmeyle birlikte sunumdaki tablonun doğru özeti şöyle yazılabilir: **önemli kullanıcı > önemli yazar > satır içi yazar > (katmansız > katmanlı) > özgüllük > kaynak sırası > kullanıcı > tarayıcı > kalıtım/başlangıç değeri.**
+Tablo kısaca şöyle akılda tutulabilir: **önemli tarayıcı > önemli kullanıcı > önemli yazar > satır içi yazar > (katmansız > katmanlı) > özgüllük > kaynak sırası > kullanıcı > tarayıcı > kalıtım/başlangıç değeri.**
 
 #### 🛠 Uygulama 4.2: Özgüllük Yarışması — Hangi Renk Kazanır?
 
@@ -579,11 +579,11 @@ Seçici, bir kuralın belge ağacındaki hangi öğelere uygulanacağını belir
 
 ### 4.7.1 Temel seçiciler
 
-**Evrensel seçici (`*`)** belgedeki tüm öğeleri seçer [2, s. 238]. Sunumdaki `* { color: gray; }` örneği sayfadaki her öğenin metnini gri yapar. Evrensel seçici, kalıtımla zaten aktarılacak değerleri her öğeye ayrı ayrı uyguladığı için dikkatli kullanılmalıdır; Uygulama 4.2'nin altıncı sorusunda görüldüğü gibi kalıtımı da bozar. Günümüzde en yaygın kullanımı, tüm öğelerin kutu boyutu hesabını değiştiren `*, *::before, *::after { box-sizing: border-box; }` kuralıdır (bkz. [Bölüm 6](06-css-kutu-modeli-yerlesim.md)).
+**Evrensel seçici (`*`)** belgedeki tüm öğeleri seçer [2, s. 238]. Örneğin `* { color: gray; }` kuralı sayfadaki her öğenin metnini gri yapar. Evrensel seçici, kalıtımla zaten aktarılacak değerleri her öğeye ayrı ayrı uyguladığı için dikkatli kullanılmalıdır; Uygulama 4.2'nin altıncı sorusunda görüldüğü gibi kalıtımı da bozar. Günümüzde en yaygın kullanımı, tüm öğelerin kutu boyutu hesabını değiştiren `*, *::before, *::after { box-sizing: border-box; }` kuralıdır (bkz. [Bölüm 6](06-css-kutu-modeli-yerlesim.md)).
 
 **Tür seçicisi** (type selector) bir HTML öğesinin adını kullanır ve o türdeki tüm öğeleri seçer: `h1`, `p`, `li`, `table`.
 
-**Sınıf seçicisi** (class selector) bir nokta ve ardından sınıf adıyla yazılır; `class` niteliğinde o adı taşıyan tüm öğeleri seçer. Bir sınıf istenen sayıda öğeye, bir öğe de boşlukla ayrılmış birden fazla sınıfa sahip olabilir. Sunumdaki örnek:
+**Sınıf seçicisi** (class selector) bir nokta ve ardından sınıf adıyla yazılır; `class` niteliğinde o adı taşıyan tüm öğeleri seçer. Bir sınıf istenen sayıda öğeye, bir öğe de boşlukla ayrılmış birden fazla sınıfa sahip olabilir. Aşağıdaki örnekte iki paragraf aynı sınıfı paylaşmaktadır:
 
 ```html
 <p class="paragraflar">Birinci paragraf</p>
@@ -600,7 +600,7 @@ Seçici, bir kuralın belge ağacındaki hangi öğelere uygulanacağını belir
 
 Tür ve sınıf birleştirilebilir: `p.not` yalnızca `not` sınıfına sahip **paragrafları** seçer; aynı sınıfı taşıyan bir `div` seçilmez [2, s. 238]. Bir öğenin birden fazla sınıfı varsa sınıflar boşluksuz zincirlenerek hepsini taşıyan öğe seçilebilir: `.kart.secili`.
 
-**Kimlik seçicisi** (ID selector) bir diyez (`#`) ve ardından kimlik adıyla yazılır; `id` niteliği bu değere sahip öğeyi seçer. Sunumdaki örnekte bir ürün listesindeki tek bir öğe kimliğiyle seçilmektedir:
+**Kimlik seçicisi** (ID selector) bir diyez (`#`) ve ardından kimlik adıyla yazılır; `id` niteliği bu değere sahip öğeyi seçer. Aşağıdaki örnekte bir ürün listesindeki tek bir öğe kimliğiyle seçilmektedir:
 
 ```html
 <li id="catalog1234">Happy Face T-shirt</li>
@@ -613,7 +613,7 @@ li#catalog1234 { color: red; }
 
 İki kural da aynı öğeyi seçer; ikincisi tür seçicisi içerdiği için bir puan daha özgüldür (1,0,1). Bir `id` değeri belgede **yalnızca bir kez** kullanılabilir [12].
 
-**Gruplama** (selector list): Aynı bildirimler birden fazla seçiciye uygulanacaksa seçiciler virgülle ayrılarak tek kural yazılır. Sunumdaki örnek beş türün hepsine aynı kenarlığı verir:
+**Gruplama** (selector list): Aynı bildirimler birden fazla seçiciye uygulanacaksa seçiciler virgülle ayrılarak tek kural yazılır. Aşağıdaki kural beş türün hepsine aynı kenarlığı verir:
 
 ```css
 h1, h2, p, em, img {
@@ -650,18 +650,16 @@ Büyük projelerde adlandırmaya sistem getirmek için çeşitli yöntemler geli
 
 Birleştiriciler, iki seçici arasındaki akrabalık ilişkisine göre seçim yapar [2, s. 238], [9, s. HTML 108]. Dört birleştirici vardır:
 
-- **Torun birleştiricisi (boşluk):** `li em`, bir `li` öğesinin içinde **herhangi bir derinlikte** bulunan tüm `em` öğelerini seçer. Aradaki başka öğeler (ör. `<strong>`) seçimi engellemez.
+- **Torun birleştiricisi (boşluk):** `li em`, bir `li` öğesinin içinde **herhangi bir derinlikte** bulunan tüm `em` öğelerini seçer. Aradaki başka öğeler (ör. `<strong>`) seçimi engellemez; bu nedenle `p em`, `p > em` seçicisinden daha geniş bir kümeyi seçer.
 - **Çocuk birleştiricisi (`>`):** `p > em`, yalnızca bir `p` öğesinin **doğrudan çocuğu** olan `em` öğelerini seçer. `<p><strong><em>…</em></strong></p>` yapısındaki `em` seçilmez, çünkü ebeveyni `strong`'dur.
-- **Bitişik kardeş birleştiricisi (`+`):** `h1 + p`, bir `h1` öğesinden **hemen sonra gelen** ve onunla aynı ebeveyni paylaşan ilk `p` öğesini seçer. İkinci ve üçüncü paragraflar seçilmez.
-- **Genel kardeş birleştiricisi (`~`):** `h1 ~ h2`, bir `h1` öğesinden **sonra gelen** ve aynı ebeveyni paylaşan **tüm** `h2` öğelerini seçer. Aralarında başka öğeler bulunabilir; `h1`'den önce gelen `h2` öğeleri ise seçilmez.
+- **Bitişik kardeş birleştiricisi (`+`):** `h1 + p`, bir `h1` öğesinden **hemen sonra gelen** ve onunla aynı ebeveyni paylaşan ilk `p` öğesini seçer. İki öğe arasına başka hiçbir öğe giremez; `h1` ile `p` arasında örneğin bir `<img>` varsa seçim yapılmaz. İkinci ve üçüncü paragraflar da seçilmez.
+- **Genel kardeş birleştiricisi (`~`):** `h1 ~ h2`, bir `h1` öğesinden **sonra gelen** ve aynı ebeveyni paylaşan **tüm** `h2` öğelerini seçer. Aralarında başka öğeler bulunabilir; tek koşul, iki öğenin aynı ebeveyne sahip olması ve hedefin belgede sonra gelmesidir. `h1`'den önce gelen `h2` öğeleri seçilmez.
 
 ![Şekil 4.12 Dört panelde birleştiricilerin belge ağacında seçtiği öğeler: li em, p > em, h1 + p, h1 ~ h2](../images/04-css-temelleri/secici-hedefleme.svg)
 
 *Şekil 4.12. Birleştiricilerin belge ağacında hedeflediği öğeler (turuncu: seçilen öğe).*
 
-Sunumda `h1 ~ h2` için "devamında olması, araya başka hiçbir etiketin girmemesidir" denmektedir; bu tanım `+` birleştiricisine aittir. `~` birleştiricisinde araya başka öğeler girebilir; tek koşul, öğelerin aynı ebeveyne sahip olması ve hedefin belgede sonra gelmesidir. Benzer biçimde `p > em` için "sadece paragraf içerisindeki `em` etiketleri" ifadesi eksiktir: paragrafın içinde olup başka bir öğenin içine yerleştirilmiş `em` öğeleri seçilmez; bu davranış `p em` (torun) seçicisine aittir.
-
-Birleştiriciler gruplamayla birlikte kullanılabilir. Sunumdaki `h1 em, h2 em, h3 em { color: red; }` kuralı üç başlık düzeyinin içindeki vurguları kırmızı yapar; modern CSS'te aynı kural `:is()` ile kısaltılabilir: `:is(h1, h2, h3) em { color: red; }`.
+Birleştiriciler gruplamayla birlikte kullanılabilir. `h1 em, h2 em, h3 em { color: red; }` kuralı üç başlık düzeyinin içindeki vurguları kırmızı yapar; modern CSS'te aynı kural `:is()` ile kısaltılabilir: `:is(h1, h2, h3) em { color: red; }`.
 
 ![Şekil 4.13 Birleştirici örneklerinin tarayıcı çıktısı: seçilen öğeler sarı zeminli ve turuncu çerçeveli](../images/04-css-temelleri/ornek-4-4.png)
 
@@ -828,7 +826,7 @@ Bu yazım, `.kart h2` ve `.kart:hover` kurallarını ayrı ayrı yazmakla eşde�
 
 ## 4.8 `div` ve `span`: Anlamsız Kapsayıcılar
 
-Sunumda geniş yer ayrılan `<div>` (division, bölme) öğesi, HTML'in **genel amaçlı blok kapsayıcısıdır**. Kendi başına hiçbir anlam taşımaz: içine konan içerik tarayıcılar, arama motorları ve ekran okuyucular için "bu bir başlık" veya "bu bir gezinme menüsü" gibi bir anlam kazanmaz. Varsayılan olarak blok düzeyindedir, yani yeni bir satırda başlar ve kapsayıcısının tüm genişliğini kaplar; tarayıcı ona herhangi bir renk, kenarlık veya boşluk vermez [12]. `<span>` ise aynı işlevin **satır içi** karşılığıdır: bir paragrafın içindeki birkaç sözcüğü, satırı bölmeden gruplamak için kullanılır.
+`<div>` (division, bölme) öğesi, HTML'in **genel amaçlı blok kapsayıcısıdır**. Kendi başına hiçbir anlam taşımaz: içine konan içerik tarayıcılar, arama motorları ve ekran okuyucular için "bu bir başlık" veya "bu bir gezinme menüsü" gibi bir anlam kazanmaz. Varsayılan olarak blok düzeyindedir, yani yeni bir satırda başlar ve kapsayıcısının tüm genişliğini kaplar; tarayıcı ona herhangi bir renk, kenarlık veya boşluk vermez [12]. `<span>` ise aynı işlevin **satır içi** karşılığıdır: bir paragrafın içindeki birkaç sözcüğü, satırı bölmeden gruplamak için kullanılır.
 
 Bu iki öğe, kendilerine ait bir görünümleri olmadığı için CSS ve JavaScript açısından ideal birer **kancadır** (hook): `class` veya `id` verilerek bir içerik grubuna stil uygulanır veya JavaScript ile erişilir. `div` başlıca dört amaçla kullanılır: ilişkili içeriği gruplamak, bir gruba ortak stil vermek, bir gruba JavaScript ile erişmek ve sayfa yerleşimi (Flexbox, Grid) için kapsayıcı oluşturmak.
 
@@ -953,7 +951,7 @@ Tüm güncel tarayıcılar, `F12` tuşuyla veya bir öğeye sağ tıklayıp **İ
 4. Elli sayfalık bir bölüm sitesi için stillerin nasıl düzenleneceğini satır içi, gömülü, harici ve `@import` yöntemlerini karşılaştırarak gerekçelendiriniz.
 5. Bir `div` öğesine `border: 2px solid red; color: red;` verildiğinde içindeki paragrafın hangi özellikleri devraldığını açıklayınız. `div { display: initial; }` ile `div { display: revert; }` yazımlarının sonuçları neden farklıdır?
 6. Aşağıdaki seçicilerin özgüllüğünü (A, B, C) biçiminde hesaplayınız ve en özgülden en az özgüle sıralayınız: `ul#menu li.aktif a`, `.menu a:hover`, `nav > ul > li > a`, `#menu a`, `a[href^="https"]`.
-7. Aşağıdaki belgede paragraf hangi renkte görünür? Sunumdaki sekiz maddelik öncelik tablosunun bu soruya neden yanlış cevap verdirebileceğini açıklayınız.
+7. Aşağıdaki belgede paragraf hangi renkte görünür? Cevabınızı basamaklama ölçütleriyle gerekçelendiriniz. `stil.css` dosyasındaki kural `body p { color: blue; }` biçiminde yazılsaydı ve `<link>` satırı `<style>` öğesinden önce yer alsaydı sonuç ne olurdu? Gömülü ve harici stillerin ayrı öncelik düzeyleri oluşturup oluşturmadığını bu iki durum üzerinden tartışınız.
    ```html
    <head>
      <style> p { color: green; } </style>

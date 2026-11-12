@@ -17,7 +17,7 @@ Bir web sayfasını tarayıcıda açan kullanıcı başlıkları, paragrafları,
 Web sayfası oluşturmada üç temel teknoloji birlikte çalışır: içeriğin yapısını ve anlamını **HTML**, görünümünü **CSS (Cascading Style Sheets — Basamaklı Stil Sayfaları)**, davranışını ise **JavaScript** ve onun belgeye erişim arayüzü **DOM (Document Object Model — Belge Nesne Modeli)** belirler. Bu bölümde HTML'in temelleri; [Bölüm 4](04-css-temelleri.md)'ten itibaren CSS, [Bölüm 7](07-javascript-temelleri.md) ve [Bölüm 8](08-javascript-dom-olaylar.md)'de JavaScript ve DOM ele alınmaktadır.
 
 > [!NOTE]
-> **Tarihsel not:** Ders sunumunun eski sürümlerinde dördüncü bileşen olarak **jQuery** kütüphanesi de sayılmaktaydı. jQuery, 2006–2015 döneminde tarayıcılar arası farkları gizlemek için çok yaygın kullanılmıştır. Bugün `querySelector`, `addEventListener` ve `fetch` gibi yerel DOM API'leri tüm tarayıcılarda aynı biçimde çalıştığından yeni projelerde jQuery'ye gerek duyulmamaktadır; bu nedenle derste yerel API'ler öğretilmektedir.
+> **Tarihsel not:** 2006–2015 döneminde bu üç teknolojinin yanında dördüncü bir bileşen olarak çoğu zaman **jQuery** kütüphanesi de anılırdı. jQuery, tarayıcılar arası farkları gizlemek için bu dönemde çok yaygın kullanılmıştır. Bugün `querySelector`, `addEventListener` ve `fetch` gibi yerel DOM API'leri tüm tarayıcılarda aynı biçimde çalıştığından yeni projelerde jQuery'ye gerek duyulmamaktadır; bu nedenle derste yerel API'ler öğretilmektedir.
 
 > [!TIP]
 > **Güncel hayattan:** e-Devlet Kapısı'nda bir belge sorgulandığında, banka uygulamasında hesap özeti açıldığında ya da bir e-ticaret sitesinde ürün sayfası görüntülendiğinde, ekrana gelen içeriğin iskeleti her durumda HTML'dir. Mobil uygulamaların önemli bir kısmı da uygulama içinde web görünümü (WebView) aracılığıyla HTML sayfaları göstermektedir.
@@ -39,7 +39,7 @@ Berners-Lee, Ekim 1994'te MIT bünyesinde **W3C (World Wide Web Consortium)**'u 
 
 ### 2.2.3 WHATWG, HTML5 ve Yaşayan Standart
 
-XML yönelimine katılmayan Apple, Mozilla ve Opera çalışanları Haziran 2004'te **WHATWG (Web Hypertext Application Technology Working Group)** adlı bağımsız bir grup kurmuş ve mevcut HTML'i geriye dönük uyumlu biçimde genişleten “Web Applications 1.0” ve “Web Forms 2.0” taslakları üzerinde çalışmaya başlamıştır [3, Giriş]. W3C 2007'de yeni bir HTML Çalışma Grubu kurmuş ve WHATWG'nin taslağını yeni HTML sürümünün temeli olarak kabul etmiştir. Böylece aynı belge bir süre **iki kuruluşta paralel** olarak geliştirilmiştir. HTML5'in ilk genel çalışma taslağı Ocak 2008'de yayımlanmış, HTML5 ise 28 Ekim 2014'te W3C Önerisi hâline gelmiştir.
+XML yönelimine katılmayan Apple, Mozilla ve Opera çalışanları Haziran 2004'te **WHATWG (Web Hypertext Application Technology Working Group)** adlı bağımsız bir grup kurmuş ve mevcut HTML'i geriye dönük uyumlu biçimde genişleten “Web Applications 1.0” ve “Web Forms 2.0” taslakları üzerinde çalışmaya başlamıştır [3, Giriş]. W3C 2007'de yeni bir HTML Çalışma Grubu kurmuş ve WHATWG'nin taslağını yeni HTML sürümünün temeli olarak kabul etmiştir. İki kuruluş birleşmemiş; aynı temelden çıkan HTML belgesi 2019'a kadar **iki kuruluşta paralel**, ayrı metinler hâlinde geliştirilmiştir. HTML5'in ilk genel çalışma taslağı Ocak 2008'de yayımlanmış, HTML5 ise 28 Ekim 2014'te W3C Önerisi hâline gelmiştir.
 
 WHATWG, 2011'de sürüm numarasını bırakarak belgeyi sürekli güncellenen bir **Yaşayan Standart (Living Standard)** olarak sürdürmeye karar vermiştir [3, Giriş]. İki ayrı HTML belgesinin varlığı karışıklık yarattığından W3C ve WHATWG 28 Mayıs 2019'da bir mutabakat zaptı imzalamış; bu tarihten itibaren HTML ve DOM için **tek yetkili metin WHATWG'nin HTML Living Standard'ıdır** ve W3C bu metnin belirli anlık görüntülerini onaylamaktadır [6]. Günlük dilde kullanılan “HTML5” ifadesi, bugün bu yaşayan standardı ve onunla birlikte gelen modern web özelliklerini anlatan genel bir ad olarak kalmıştır [1].
 
@@ -61,9 +61,6 @@ timeline
 
 *Şekil 2.1. HTML'in 1989'dan günümüze gelişimi.*
 
-> [!IMPORTANT]
-> Sık rastlanan “W3C ile WHATWG 2007'de birleşerek HTML5'i oluşturdu” ifadesi doğru değildir. İki kuruluş birleşmemiştir: W3C 2007'de WHATWG taslağını temel almış, ancak iki kuruluş 2019'a kadar ayrı metinler yayımlamıştır. Ayrıca W3C 1998'de değil, **1994'te** kurulmuştur; HTML5 2009'da değil, taslak olarak 2008'de duyurulmuş ve 2014'te standartlaşmıştır.
-
 HTML5 ile gelen yenilikler bu dersin pek çok konusunu oluşturur: anlamsal yapı öğeleri (`header`, `nav`, `main`, `article`…), yeni form denetimleri, eklentisiz `<video>` ve `<audio>`, `<canvas>` ile çizim ve tarayıcı tarafı depolama. 2010'da Apple'ın iPhone ve iPad'de Flash eklentisini desteklemeyeceğini açıklaması, eklentiye dayalı içerikten HTML5'e geçişi hızlandırmış; YouTube 2015'te varsayılan oynatıcısını HTML5 `<video>` öğesine taşımıştır.
 
 ## 2.3 Tarayıcılar ve Render Motorları
@@ -76,7 +73,7 @@ HTML5 ile gelen yenilikler bu dersin pek çok konusunu oluşturur: anlamsal yap�
 
 *Şekil 2.2. Dünyada ve Türkiye'de tarayıcı pazar payları, Ekim 2026 (kaynak: StatCounter; “Diğer” kalan payların toplamıdır).*
 
-Şekilde görüldüğü gibi Chrome dünyada yaklaşık her üç kullanıcıdan ikisine, Türkiye'de ise dörtte üçten fazlasına ulaşmaktadır; ikinci sırada, iPhone ve Mac cihazlarının varsayılan tarayıcısı Safari yer almaktadır. Ders sunumundaki Mart 2023–Mart 2024 verilerinde de sıralama aynıydı (Chrome %63,84, Safari %19,69); bu tür istatistikler hızla değiştiği için her zaman tarihiyle birlikte verilmelidir. Bu sayfaları ziyaret eden insan sayısı da artmaya devam etmektedir: ITU'nun 2025 verilerine göre dünyada yaklaşık 6 milyar kişi, yani nüfusun yaklaşık dörtte üçü İnternet kullanmaktadır [9] (ayrıntı için bkz. [Bölüm 1](01-internet-ve-web.md)).
+Şekilde görüldüğü gibi Chrome dünyada yaklaşık her üç kullanıcıdan ikisine, Türkiye'de ise dörtte üçten fazlasına ulaşmaktadır; ikinci sırada, iPhone ve Mac cihazlarının varsayılan tarayıcısı Safari yer almaktadır. StatCounter'ın Mart 2023–Mart 2024 verilerinde de sıralama aynıydı (Chrome %63,84, Safari %19,69); bu tür istatistikler hızla değiştiği için her zaman tarihiyle birlikte verilmelidir. Bu sayfaları ziyaret eden insan sayısı da artmaya devam etmektedir: ITU'nun 2025 verilerine göre dünyada yaklaşık 6 milyar kişi, yani nüfusun yaklaşık dörtte üçü İnternet kullanmaktadır [9] (ayrıntı için bkz. [Bölüm 1](01-internet-ve-web.md)).
 
 ### 2.3.2 Render motorları
 
@@ -107,7 +104,7 @@ HTML belgesi düz metin olduğundan Windows'taki Not Defteri (Notepad) veya Note
    - **Live Server** (Ritwick Dey): Projeyi yerel bir web sunucusu üzerinden tarayıcıda açar ve dosya her kaydedildiğinde sayfayı kendiliğinden yeniler.
    - **Prettier – Code formatter**: Kodu tutarlı girinti ve satır düzeniyle biçimlendirir. Kurulumdan sonra <kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>F</kbd> (*Format Document*) ile belge biçimlendirilir; *Settings* içinde **Format On Save** işaretlenirse her kayıtta otomatik biçimlendirme yapılır.
 
-Ders sunumunda örnek olarak gösterilen *HTML Preview* eklentisi, sayfanın önizlemesini düzenleyicinin içinde açar. Bu da kullanılabilir; ancak sayfayı gerçek bir tarayıcıda, gerçek bir sunucu adresi (`http://127.0.0.1:5500/...`) üzerinden açtığı için Live Server tercih edilmektedir. Microsoft'un *Live Preview* eklentisi de benzer bir seçenektir.
+*HTML Preview* gibi bazı eklentiler sayfanın önizlemesini düzenleyicinin içinde açar. Bunlar da kullanılabilir; ancak Live Server sayfayı gerçek bir tarayıcıda, gerçek bir sunucu adresi (`http://127.0.0.1:5500/...`) üzerinden açtığı için tercih edilmektedir. Microsoft'un *Live Preview* eklentisi de benzer bir seçenektir.
 
 ![Şekil 2.3 VS Code arayüzünün numaralandırılmış bölümleri](../images/02-html-temelleri/vscode-arayuzu.svg)
 
@@ -340,7 +337,7 @@ Bilgisayar mühendisliği metinlerinde sık geçen içerik türleri için özel 
 - **`<var>`**: Matematiksel ifadede veya programlamada bir **değişken**: alan = `<var>a</var> × <var>b</var>`.
 - **`<dfn>`**: Bir terimin **tanımlandığı yer** (defining instance). Terimin açıklaması içinde bulunduğu paragrafta yer alır; öğe, “bu terim burada tanımlanıyor” bilgisini taşır.
 
-Sunumda bu öğeler için verilen “matematiksel tanım tipinde”, “örnek tipinde yazdırır” gibi açıklamalar öğelerin görünümünü anlatmaktadır; doğru yaklaşım, öğeyi taşıdığı anlama göre seçmektir.
+Tarayıcılar bu öğeleri varsayılan olarak farklı görünümlerle gösterir (`code`, `kbd` ve `samp` eş aralıklı yazı tipiyle, `var` ve `dfn` italik); ancak bu görünüm CSS ile değiştirilebilir. Öğe, görünümüne göre değil taşıdığı anlama göre seçilir.
 
 ### 2.6.6 Üst ve alt indis; değişiklik işaretleri
 
@@ -483,7 +480,7 @@ Tarayıcı iç listelerin madde işaretini kendiliğinden değiştirir (dolu dai
 
 ### 2.7.5 Liste stilini CSS ile değiştirmek
 
-Ders sunumunda madde işaretleri `style` niteliğiyle değiştirilmektedir:
+Madde işaretlerinin ve numaralandırmanın biçimi CSS'teki `list-style-type` özelliğiyle belirlenir. En kısa yol, bu özelliği listenin `style` niteliğine yazmaktır:
 
 ```html
 <ul style="list-style-type: square">…</ul>
@@ -594,7 +591,7 @@ Sayfaya görsel eklemek için boş bir öğe olan **`<img>`** kullanılır. Gör
 *Kod 2.7. Görsel ve altyazısı. Öğenin adı `figcaption`'dır.*
 
 > [!IMPORTANT]
-> Sunumdaki `<figurecaption>` yazımı hatalıdır; HTML'de böyle bir öğe yoktur ve doğrulayıcı “completely-unknown element” hatası verir (Bölüm 2.13). Doğru ad **`figcaption`**'dır. Ayrıca `alt` niteliği bir “resim yazısı” değildir: altyazı `figcaption`'a, görselin metin alternatifi `alt`'a yazılır ve ikisi aynı cümle olmamalıdır.
+> Öğenin adı **`figcaption`**'dır; `<figurecaption>` biçiminde bir HTML öğesi yoktur ve bu yazım doğrulayıcıda “completely-unknown element” hatası verir (Bölüm 2.13). Altyazı ile metin alternatifi ayrı işlevler taşır: altyazı `figcaption`'a, görselin metin alternatifi `alt`'a yazılır ve ikisi aynı cümle olmamalıdır.
 
 ### 2.8.5 Görsel biçimleri
 
@@ -677,7 +674,7 @@ Yunanca *meta* (“ötesinde, hakkında”) sözcüğünden gelen **meta veri (m
 *Kod 2.9. Bir bölüm sayfası için temel meta veriler.*
 
 > [!IMPORTANT]
-> `html` öğesi belgenin köküdür ve `head` onun **içinde** yer alır. Sunumdaki örnekte `<head>` satırının `<html lang="tr">` satırından önce yazılması bir sıralama hatasıdır; doğru sıra Kod 2.2'de gösterilmiştir.
+> `html` öğesi belgenin köküdür; `head` ve `body` onun **içinde** yer alır. Bu nedenle `<head>` satırı her zaman `<html lang="tr">` satırından sonra yazılır; tam sıra Kod 2.2'de gösterilmiştir.
 
 - **`description`**: Arama sonuçları sayfasında (SERP — Search Engine Results Page) başlığın altında görünebilen kısa tanıtım metnidir. Sıralamayı doğrudan etkilemez, ancak kullanıcının bağlantıya tıklayıp tıklamamasını etkiler [12, s. 480]. Her sayfa için ayrı, sayfanın içeriğini özetleyen bir veya iki cümle yazılmalıdır. Arama motorları uygun bulmadıklarında bu metin yerine sayfadan seçtikleri bir parçayı gösterebilir.
 - **`author`**: Belgenin yazarını belirtir; kurumsal sitelerde içerik sahipliğini kayıt altına almak için kullanılır.
@@ -749,7 +746,7 @@ Bir bağlantı WhatsApp, LinkedIn veya Facebook'ta paylaşıldığında görüne
 > **Tarihsel not (`keywords`):** `<meta name="keywords" content="HTML, Bilgisayar, Çorlu">` etiketi 1990'larda arama motorlarına sayfanın anahtar sözcüklerini bildirmek için kullanılırdı. Sayfayla ilgisiz popüler sözcüklerle doldurularak kötüye kullanıldığından Google, 2009'da bu etiketi sıralamada **dikkate almadığını** açıklamıştır [18]. Etiket geçersiz değildir, ancak yeni sayfalara yazılmasının arama görünürlüğüne bir katkısı yoktur.
 
 > [!NOTE]
-> **Tarihsel not (URL gönderme):** Sunumda anlatılan `google.com/webmasters/tools/submit-url` adresi ve “Web Yöneticisi Araçları › Google gibi Getir › Dizine gönder” adımları, Google'ın eski Search Console arayüzüne aittir; bu araçlar 2018–2019 yıllarında kaldırılmıştır.
+> **Tarihsel not (URL gönderme):** Eskiden bir sayfanın Google dizinine eklenmesi, `google.com/webmasters/tools/submit-url` adresindeki form ya da eski Search Console arayüzündeki “Web Yöneticisi Araçları › Google gibi Getir › Dizine gönder” adımlarıyla istenirdi. Bu araçlar 2018–2019 yıllarında kaldırılmış, yerini Bölüm 2.9.7'de anlatılan URL Denetimi aracı almıştır.
 
 ### 2.9.7 Güncel yöntem: Search Console ve site haritası
 
@@ -795,16 +792,16 @@ Tablo 2.7'deki referanslardan özellikle ilk üçü önemlidir. Bir HTML dersind
 
 HTML ve CSS'te renkler üç temel yolla yazılır (ayrıntı [Bölüm 5](05-css-metin-renk-arka-plan.md)):
 
-- **Ad ile:** `red`, `navy`, `teal`… CSS 140'tan fazla renk adı tanımlar. Sunumda listelenen 16 ad (`aqua`, `black`, `blue`, `fuchsia`, `gray`, `green`, `lime`, `maroon`, `navy`, `olive`, `purple`, `red`, `silver`, `teal`, `white`, `yellow`) HTML 4'ten beri tanımlı olan temel renklerdir.
+- **Ad ile:** `red`, `navy`, `teal`… CSS 140'tan fazla renk adı tanımlar. Bunların temelini HTML 4'ten beri tanımlı olan 16 renk adı oluşturur: `aqua`, `black`, `blue`, `fuchsia`, `gray`, `green`, `lime`, `maroon`, `navy`, `olive`, `purple`, `red`, `silver`, `teal`, `white`, `yellow`.
 - **Onaltılık (hexadecimal) kod ile:** `#RRGGBB` biçiminde kırmızı, yeşil ve mavi bileşenlerin her biri `00`–`FF` (0–255) aralığında iki onaltılık basamakla yazılır: `#FF0000` kırmızı, `#FFFF00` sarı, `#2C3E50` koyu lacivert. Her bileşenin iki basamağı aynıysa üç basamaklı kısa yazım kullanılabilir: `#FF0` = `#FFFF00`.
 - **`rgb()` işlevi ile:** Aynı bileşenler onluk sayılarla yazılır: `rgb(255, 255, 0)`. Dördüncü bir değer saydamlığı (alfa) belirtir: `rgb(255 255 0 / 50%)`.
 
 > [!NOTE]
-> **Tarihsel not:** Sunumdaki onaltılık renk tablosu, her bileşeni yalnızca `00, 33, 66, 99, CC, FF` değerlerinden oluşan 216 renklik “web güvenli palet”tir. 1990'larda yalnızca 256 renk gösterebilen ekranlarda renklerin her sistemde aynı görünmesi için kullanılırdı; bugünkü ekranlar milyonlarca renk gösterdiğinden bu kısıtlama geçerliliğini yitirmiştir.
+> **Tarihsel not:** Eski HTML kaynaklarındaki onaltılık renk tabloları genellikle, her bileşeni yalnızca `00, 33, 66, 99, CC, FF` değerlerinden oluşan 216 renklik **“web güvenli palet”i (web-safe palette)** gösterir. Bu palet, 1990'larda yalnızca 256 renk gösterebilen ekranlarda renklerin her sistemde aynı görünmesi için kullanılırdı; bugünkü ekranlar milyonlarca renk gösterdiğinden bu kısıtlama geçerliliğini yitirmiştir.
 
 ### 2.10.3 `<style>` öğesi ve `style` niteliği
 
-HTML yapıyı, CSS görünümü tanımlar. CSS bir belgeye üç yolla bağlanabilir: harici `.css` dosyası, `head` içindeki **`<style>` öğesi** (gömülü stil) ve öğenin **`style` niteliği** (satır içi stil). Sunumda örneklenen ilk iki yöntem şöyledir:
+HTML yapıyı, CSS görünümü tanımlar. CSS bir belgeye üç yolla bağlanabilir: harici `.css` dosyası, `head` içindeki **`<style>` öğesi** (gömülü stil) ve öğenin **`style` niteliği** (satır içi stil). Gömülü ve satır içi stil Kod 2.10'da birlikte gösterilmiştir:
 
 ```html
 <head>
@@ -828,29 +825,22 @@ HTML yapıyı, CSS görünümü tanımlar. CSS bir belgeye üç yolla bağlanabi
 
 `<style>` içindeki `h1 { color: red; }` kuralı belgedeki **tüm** `h1` öğelerine uygulanır; `style` niteliği ise yalnızca yazıldığı öğeyi etkiler. Bir CSS bildirimi **özellik: değer;** biçimindedir; birden çok bildirim noktalı virgülle ayrılır. Satır içi stil hızlı denemeler için pratiktir, ancak bakımı zorlaştırdığından kalıcı projelerde harici stil dosyası tercih edilir ([Bölüm 4](04-css-temelleri.md)).
 
-### 2.10.4 Sunumdaki satır içi stil örneklerinin doğru yazımı
+### 2.10.4 Satır içi stilde birden çok bildirim
 
-Sunumdaki bazı `style` örnekleri CSS sözdizimi hatası içermektedir. CSS'te özellik ile değer arasında **iki nokta üst üste** (`:`) bulunur, eşittir işareti (`=`) kullanılmaz; niteliğin değeri ise tek bir çift tırnak çifti arasında kalmalıdır.
+Bir `style` niteliğine birden çok CSS bildirimi yazılabilir. Her bildirimde özellik ile değer arasında **iki nokta üst üste** (`:`) bulunur ve bildirimler **noktalı virgülle** (`;`) ayrılır; niteliğin tüm değeri tek bir çift tırnak çifti arasında kalır. Eşittir işareti (`=`) yalnızca HTML'de nitelik adı ile değeri arasında kullanılır; CSS bildiriminde kullanılmaz (`margin-top=80px` geçersizdir, `margin-top: 80px` yazılır).
 
 ```html
-<!-- Hatalı: " değer bitmeden kapanmış, = kullanılmış -->
-<body style="background-image: url(granite.gif); color: navy; background-color: #FFFFCC"; background-attachment=fixed">
-
-<!-- Doğru -->
 <body style="background-image: url(doku.svg); background-color: #ffffcc; color: navy; background-attachment: fixed;">
+  <p style="font-family: Verdana, sans-serif; font-size: 14px; color: blue; text-align: center; margin-top: 80px;">
+    Ortalanmış, mavi, 14 piksellik paragraf
+  </p>
+  <hr style="height: 3px; width: 85%; background-color: red; border: none;">
+</body>
 ```
 
-```html
-<!-- Hatalı: font yazı tipi adı için kısayol değil, margin-top'ta = kullanılmış -->
-<p style="font:Verdana; font-size:14px; color:blue; text-align:center; margin-top=80px">
+*Kod 2.11. Birden çok bildirim içeren satır içi stiller.*
 
-<!-- Doğru -->
-<p style="font-family: Verdana, sans-serif; font-size: 14px; color: blue; text-align: center; margin-top: 80px;">
-```
-
-*Kod 2.11. Sunumdaki satır içi stil örneklerinin hatalı ve doğru yazımları.*
-
-Doğru yazımlarda kullanılan özellikler şunlardır: `background-color` arka plan rengi, `background-image` arka plan görseli, `background-repeat: no-repeat` görselin tekrarlanmaması, `background-attachment: fixed` sayfa kaydırılırken görselin sabit kalması, `color` metin rengi, `font-family` yazı tipi ailesi (yedek aile ile birlikte), `font-size` yazı boyutu (`14px` gibi bir uzunluk veya `small`, `large`, `x-large` gibi anahtar sözcükler), `text-align` hizalama (`left`, `right`, `center`, `justify`) ve `margin-top` öğenin üstündeki dış boşluk. Arka plan rengi her zaman görselle birlikte verilmelidir; görsel yüklenemezse metin yine okunabilir kalır. Bu özellikler [Bölüm 5](05-css-metin-renk-arka-plan.md) ve [Bölüm 6](06-css-kutu-modeli-yerlesim.md)'da ayrıntılı ele alınmaktadır. Sunumdaki yatay çizgi örneği de aynı mantıkla yazılır: `<hr style="height: 3px; width: 85%; background-color: red; border: none;">`.
+Kod 2.11'de ve onunla birlikte sık kullanılan özellikler şunlardır: `background-color` arka plan rengi, `background-image` arka plan görseli, `background-repeat: no-repeat` görselin tekrarlanmaması, `background-attachment: fixed` sayfa kaydırılırken görselin sabit kalması, `color` metin rengi, `font-family` yazı tipi ailesi (yedek aile ile birlikte), `font-size` yazı boyutu (`14px` gibi bir uzunluk veya `small`, `large`, `x-large` gibi anahtar sözcükler), `text-align` hizalama (`left`, `right`, `center`, `justify`) ve `margin-top` öğenin üstündeki dış boşluk. Yazı tipi ailesi tek başına verilecekse `font-family` kullanılır; `font` kısayol özelliği en az boyut ve aileyi birlikte ister (`font: 14px Verdana, sans-serif`), yalnızca aile adıyla yazılan `font: Verdana` geçersizdir. Arka plan rengi her zaman görselle birlikte verilmelidir; görsel yüklenemezse metin yine okunabilir kalır. Bu özellikler [Bölüm 5](05-css-metin-renk-arka-plan.md) ve [Bölüm 6](06-css-kutu-modeli-yerlesim.md)'da ayrıntılı ele alınmaktadır. `hr` öğesinde `height`, `width` ve `background-color` çizginin kalınlığını, genişliğini ve rengini belirler; `border: none` tarayıcının varsayılan kenarlığını kaldırır.
 
 ![Şekil 2.15 Karakter referansları ve renk yazımları örneğinin çıktısı](../images/02-html-temelleri/ornek-2-3.png)
 
@@ -899,7 +889,7 @@ Büyük sitelerde dosyalar klasörlere ayrılır. Göreli yol yazılırken bağl
 
 *Şekil 2.17. Uygulama 2.5'teki sitenin klasör yapısı. Mavi ok `index.html`'den iki alt klasöre iner; turuncu ok `html-notlari.html`'den `../../` ile köke çıkar; yeşil ok bir üst klasöre çıkıp `images/` klasörüne girer.*
 
-Şekil 2.17'de görüldüğü gibi aynı `index.html` dosyasına, bağlantının yazıldığı yere göre farklı yollarla ulaşılır: kökteki bir dosyadan `index.html`, `dersler/` içinden `../index.html`, `dersler/web/` içinden `../../index.html`. Görsellerin `src` niteliği de aynı kurallara uyar. Sunumdaki “Jen's Kitchen” şeması (Robbins'in kitabından) aynı ilkeyi göstermektedir [5, Bl. 6].
+Şekil 2.17'de görüldüğü gibi aynı `index.html` dosyasına, bağlantının yazıldığı yere göre farklı yollarla ulaşılır: kökteki bir dosyadan `index.html`, `dersler/` içinden `../index.html`, `dersler/web/` içinden `../../index.html`. Görsellerin `src` niteliği de aynı kurallara uyar. Robbins'in kitabındaki “Jen's Kitchen” örnek sitesinin klasör şeması da aynı ilkeyi göstermektedir [5, Bl. 6].
 
 > [!IMPORTANT]
 > Dosya ve klasör adlarında **küçük harf**, **Türkçe karakter içermeyen** sözcükler ve boşluk yerine **tire** kullanılmalıdır (`ders-plani.html`). Windows büyük-küçük harf ayrımı yapmaz, ancak web sunucularının çoğu (Linux) yapar: Yerelde çalışan `Logo.PNG` bağlantısı, dosyanın adı `logo.png` ise sunucuda kırık görünür. URL'lerde ters eğik çizgi (`\`) değil düz eğik çizgi (`/`) kullanılır.
@@ -959,7 +949,7 @@ Uzun bir sayfanın belirli bir bölümüne bağlantı vermek için hedef öğeye
 Başka bir sayfanın belirli bölümüne bağlantı vermek için dosya adı ile parça birleştirilir: `href="sss.html#kayit-yenileme"`. Wikipedia makalelerindeki içindekiler tablosu ve MDN'deki başlık bağlantıları bu mekanizmayla çalışır. Bir `id` değeri belgede **yalnızca bir kez** kullanılabilir; boşluk içeremez ve büyük-küçük harfe duyarlıdır.
 
 > [!NOTE]
-> **Tarihsel not:** Eski HTML'de hedef nokta `<a name="grafik"></a>` biçiminde, içeriği boş bir `a` öğesiyle işaretlenirdi. Sunumdaki `<h2><a id="grafik">Grafikler</a></h2>` yazımı bu alışkanlığın devamıdır. HTML5'te `a` öğesinin `name` niteliği kullanımdan kaldırılmıştır; `id` doğrudan hedef öğeye yazılır: `<h2 id="grafik">Grafikler</h2>`.
+> **Tarihsel not:** Eski HTML'de hedef nokta `<a name="grafik"></a>` biçiminde, içeriği boş bir `a` öğesiyle işaretlenirdi; `<h2><a id="grafik">Grafikler</a></h2>` gibi başlığın içine `a` yerleştiren yazımlar da bu alışkanlığın devamıdır. HTML5'te `a` öğesinin `name` niteliği kullanımdan kaldırılmıştır; `id` doğrudan hedef öğeye yazılır: `<h2 id="grafik">Grafikler</h2>`.
 
 ### 2.11.6 Anlamlı bağlantı metni
 

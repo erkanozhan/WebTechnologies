@@ -1,4 +1,4 @@
-// Slayt 191'deki örneğin düzeltilmiş ve genişletilmiş hâli
+// addEventListener ile dinleyici ekleme ve removeEventListener ile kaldırma örneği
 const denemeDugmesi = document.getElementById("denemeDugmesi");
 const kaldirDugmesi = document.getElementById("kaldirDugmesi");
 const demo = document.getElementById("demo");

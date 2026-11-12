@@ -43,10 +43,7 @@ Tanenbaum aynı bağlamda dünya çapındaki telefon ağlarının kurulmasını,
 
 İnternet'in düşünsel kökeni, bir mühendislik projesinden çok bir vizyona dayanır. 1960'ların başında bilgisayarlar büyük salonları kaplayan, pahalı ve birbirinden yalıtılmış makinelerdi; kullanıcılar programlarını delikli kartlarla teslim eder, sonuçları saatler sonra alırdı. Massachusetts Teknoloji Enstitüsü'nden (MIT) J. C. R. Licklider (Joseph Carl Robnett Licklider), Ağustos 1962'de yazdığı bir dizi notta **"Galaktik Ağ" (Galactic Network)** adını verdiği kavramı tartışmaya açtı. Licklider, herkesin herhangi bir yerden veri ve programlara hızlı biçimde erişebildiği, küresel ölçekte birbirine bağlı bilgisayarlar öngörüyordu; bu tasavvur, özünde bugünkü İnternet'e çok yakındır [4], [2, s. 2].
 
-Licklider, Ekim 1962'de ABD Savunma Bakanlığına bağlı İleri Araştırma Projeleri Ajansı'nda (ARPA, sonradan DARPA) bilgisayar araştırma programının ilk başkanı oldu [4]. Bu görevde kalış süresi kısa olsa da ağ fikrini kuruma yerleştirdi ve kendisinden sonra gelen Ivan Sutherland, Bob Taylor ve Lawrence G. Roberts gibi araştırmacıları bu yönde etkiledi.
-
-> [!NOTE]
-> **Düzeltme notu:** Licklider DARPA'nın başkanı değil, ARPA bünyesindeki bilgisayar araştırma programının (daha sonra Bilgi İşleme Teknikleri Ofisi, IPTO adını alan birimin) ilk başkanıdır.
+Licklider, Ekim 1962'de ABD Savunma Bakanlığına bağlı İleri Araştırma Projeleri Ajansı (ARPA, sonradan DARPA) bünyesinde kurulan bilgisayar araştırma programının, yani daha sonra **Bilgi İşleme Teknikleri Ofisi (Information Processing Techniques Office, IPTO)** adını alacak birimin ilk başkanı oldu [4]. Bu görevde kalış süresi kısa olsa da ağ fikrini kuruma yerleştirdi ve kendisinden sonra gelen Ivan Sutherland, Bob Taylor ve Lawrence G. Roberts gibi araştırmacıları bu yönde etkiledi.
 
 ### 1.2.3 Paket Anahtarlama: Veriyi Küçük Parçalarla Taşımak
 
@@ -166,14 +163,11 @@ Kablosuz ortamlar ise yerel ağlarda **Wi-Fi** (IEEE 802.11; güncel nesiller Wi
 
 *Şekil 1.8. Tim Berners-Lee (2005). Fotoğraf: Uldis Bojārs, Wikimedia Commons, CC BY-SA 2.0.*
 
-Berners-Lee, Robert Cailliau ile birlikte öneriyi geliştirdi ve 1990 sonunda ilk web sunucusunu, ilk tarayıcı/düzenleyiciyi ve ilk web sayfalarını bir NeXT bilgisayarında çalışır hâle getirdi (Şekil 1.9) [1, s. 22]. Sistem 1991'de CERN dışına açıldı; CERN, 30 Nisan 1993'te Web yazılımını telif ücreti talep etmeksizin herkesin kullanımına sundu. Berners-Lee'nin buluşu, belgeleri okumak için basit bir araç (tarayıcı), belge oluşturmak için bir işaretleme dili (HTML) ve belgeleri adresleyip aktarmak için bir iletişim protokolü ile adresleme düzenini (HTTP ve URL) bir araya getirmesiydi; bu sade arayüz, İnternet'i geniş kitlelerin kullanımına açtı [8, s. 19].
+Berners-Lee, Robert Cailliau ile birlikte öneriyi geliştirdi ve 1990 sonunda ilk web sunucusunu, ilk tarayıcı/düzenleyiciyi ve ilk web sayfalarını bir NeXT bilgisayarında çalışır hâle getirdi (Şekil 1.9) [1, s. 22]. Sistem 1991'de CERN dışına açıldı; CERN, 30 Nisan 1993'te Web yazılımını telif ücreti talep etmeksizin herkesin kullanımına sundu. Berners-Lee'nin buluşu, belgeleri okumak için basit bir araç (tarayıcı), belge oluşturmak için bir işaretleme dili (HTML) ve belgeleri adresleyip aktarmak için bir iletişim protokolü ile adresleme düzenini (HTTP ve URL) bir araya getirmesiydi; bu sade arayüz, İnternet'i geniş kitlelerin kullanımına açtı [8, s. 19]. HTML, HTTP ve URL, 1989 tarihli önerinin ardından 1990–1991 yıllarında hayata geçirilmiştir. Berners-Lee, HTML'i belge yapısını tanımlamak için kullanılan SGML (Standard Generalized Markup Language) dilinin sadeleştirilmiş bir uygulaması olarak tasarlamış, ilk sürümde yalnızca başlık, paragraf ve liste gibi temel belge öğelerine yer vermiştir [8, s. 20].
 
 ![Şekil 1.9 CERN'deki ilk web sunucusu olarak kullanılan NeXT bilgisayarı; kasa üzerinde "Bu makine bir sunucudur, KAPATMAYIN!!" etiketi](../images/01-internet-ve-web/ilk-web-sunucusu.jpg)
 
 *Şekil 1.9. İlk web sunucusu olarak kullanılan NeXT bilgisayarı. Kasadaki etikette "This machine is a server. DO NOT POWER IT DOWN!!" (Bu makine bir sunucudur, KAPATMAYIN!!) yazar; klavyenin üzerinde 1989 önerisinin bir kopyası durmaktadır. Fotoğraf: Coolcaesar, Wikimedia Commons, CC BY-SA 3.0.*
-
-> [!NOTE]
-> **Düzeltme notu:** 1989, HTML'in değil Web önerisinin tarihidir. HTML, HTTP ve URL bu önerinin ardından 1990–1991 yıllarında hayata geçirilmiştir. Berners-Lee, HTML'i belge yapısını tanımlamak için kullanılan SGML (Standard Generalized Markup Language) dilinin sadeleştirilmiş bir uygulaması olarak tasarlamış, ilk sürümde yalnızca başlık, paragraf ve liste gibi temel belge öğelerine yer vermiştir [8, s. 20].
 
 ### 1.4.2 Üç Temel Taş: URL, HTTP ve HTML
 
@@ -202,10 +196,9 @@ Web'in ilk yıllarında HTML'in kurallarını tek bir kuruluş belirlemiyordu; t
 
 ### 1.5.1 Tanım ve Yönetişim
 
-İnternet, birbirine kablolu ya da kablosuz olarak bağlanan bilgisayar ağlarının oluşturduğu küresel **ağlar ağının (network of networks)** genel adıdır. Adı, "ağlar arası bağlantı" anlamındaki *internetwork* sözcüğünden gelir. İnternet belirli bir kuruma ya da kişiye ait değildir; ancak ağa katılan herkes, belirli kurumların koyduğu kurallara ve standartlara uymak zorundadır [1, s. 21]. Protokol standartlarını IETF, alan adları ve IP adreslerinin küresel koordinasyonunu ICANN/IANA, bölgesel IP adresi dağıtımını ise Türkiye'nin de bağlı olduğu RIPE NCC gibi bölgesel İnternet kayıt kuruluşları yürütür. İnternet'e bağlanan her aygıt veri iletişimi yapabildiği için ağın bir parçası olur; bu nedenle dünyada İnternet'e bağlı aygıt sayısı kesin olarak bilinemez, yalnızca tahmin edilebilir.
+İnternet, birbirine kablolu ya da kablosuz olarak bağlanan bilgisayar ağlarının oluşturduğu küresel **ağlar ağının (network of networks)** genel adıdır. İnternet belirli bir kuruma ya da kişiye ait değildir; ancak ağa katılan herkes, belirli kurumların koyduğu kurallara ve standartlara uymak zorundadır [1, s. 21]. Protokol standartlarını IETF, alan adları ve IP adreslerinin küresel koordinasyonunu ICANN/IANA, bölgesel IP adresi dağıtımını ise Türkiye'nin de bağlı olduğu RIPE NCC gibi bölgesel İnternet kayıt kuruluşları yürütür. İnternet'e bağlanan her aygıt veri iletişimi yapabildiği için ağın bir parçası olur; bu nedenle dünyada İnternet'e bağlı aygıt sayısı kesin olarak bilinemez, yalnızca tahmin edilebilir.
 
-> [!NOTE]
-> **Düzeltme notu:** "İnternet" sözcüğü sıkça söylendiği gibi "International Network" ifadesinin kısaltması değildir; ağları birbirine bağlama (internetworking) kavramından türemiştir.
+“İnternet” sözcüğü, sıkça söylendiği gibi “International Network” ifadesinin kısaltması değildir; ağları birbirine bağlama (internetworking) kavramından türemiştir. Nitekim TCP’nin ilk belirtimi olan RFC 675'te (Cerf, Dalal ve Sunshine, 1974) [10] “internet” sözcüğü “internetwork” ile eş anlamlı olarak, onun kısa biçimi şeklinde kullanılmıştır.
 
 ### 1.5.2 TCP/IP Katman Modeli
 
@@ -220,7 +213,7 @@ Farklı donanım ve işletim sistemlerine sahip milyarlarca cihazın anlaşabilm
 | İnternet (internet) | Adresleme ve ağlar arası yönlendirme | IP (IPv4, IPv6), ICMP | Yönlendirici |
 | Bağlantı (link) | Aynı yerel ağ içinde fiziksel iletim | Ethernet, Wi-Fi | Anahtar, ağ kartı, erişim noktası |
 
-**TCP**, uygulamadan gelen veriyi **segment** adı verilen parçalara böler, her birine sıra numarası verir, alıcının aldığını onaylamadığı parçaları yeniden gönderir ve alıcı tarafta parçaları doğru sırayla birleştirir; böylece üst katmana güvenilir bir bayt akışı sunar [10]. Bağlantı kurulmadan önce iki taraf "üçlü el sıkışma" (SYN, SYN-ACK, ACK) ile anlaşır. **UDP** ise onay ve yeniden gönderim yapmayan, daha hafif bir taşıma protokolüdür; DNS sorguları, canlı ses/görüntü ve HTTP/3'ün temelindeki QUIC gibi gecikmeye duyarlı uygulamalarda tercih edilir. **IP** ise her pakete kaynak ve hedef adresi ekler ve paketin ağlar arasında hedefe doğru yönlendirilmesini sağlar; IP, paketlerin ulaşacağını garanti etmez, bu sorumluluk üst katmandadır [11].
+**TCP**, uygulamadan gelen veriyi **segment** adı verilen parçalara böler, her birine sıra numarası verir, alıcının aldığını onaylamadığı parçaları yeniden gönderir ve alıcı tarafta parçaları doğru sırayla birleştirir; böylece üst katmana güvenilir bir bayt akışı sunar [11]. Bağlantı kurulmadan önce iki taraf "üçlü el sıkışma" (SYN, SYN-ACK, ACK) ile anlaşır. **UDP** ise onay ve yeniden gönderim yapmayan, daha hafif bir taşıma protokolüdür; DNS sorguları, canlı ses/görüntü ve HTTP/3'ün temelindeki QUIC gibi gecikmeye duyarlı uygulamalarda tercih edilir. **IP** ise her pakete kaynak ve hedef adresi ekler ve paketin ağlar arasında hedefe doğru yönlendirilmesini sağlar; IP, paketlerin ulaşacağını garanti etmez, bu sorumluluk üst katmandadır [12].
 
 Gönderici tarafta veri katmanlar boyunca aşağı inerken her katman kendi **başlığını (header)** ekler; bu işleme **kapsülleme (encapsulation)** denir. Alıcı tarafta süreç tersine işler: Her katman kendi başlığını okuyup çıkarır ve kalanı bir üst katmana verir.
 
@@ -233,9 +226,9 @@ Gönderici tarafta veri katmanlar boyunca aşağı inerken her katman kendi **ba
 
 ### 1.5.3 IP Adresleri: IPv4 ve IPv6
 
-İnternet'e bağlı her arabirim, **IP adresi** adı verilen sayısal bir kimlikle tanımlanır [1, s. 22]. **IPv4** adresleri 32 bitlik sayılardır ve noktayla ayrılmış dört ondalık sayı olarak yazılır (ör. `192.0.2.10`); bu biçim yaklaşık 4,3 milyar (2³²) farklı adres sağlar [11]. İnternet'in beklenmedik büyümesi karşısında IANA'nın dağıtıma hazır IPv4 havuzu 3 Şubat 2011'de tükenmiştir [1, s. 22]. Çözüm, 128 bitlik adresler kullanan **IPv6**'dır (ör. `2001:db8::10`); 2¹²⁸ ≈ 3,4 × 10³⁸ adres, öngörülebilir her ihtiyacı karşılayacak büyüklüktedir [12]. Günümüzde iki sürüm bir arada kullanılmakta, birçok site ve mobil operatör IPv6'yı da desteklemektedir.
+İnternet'e bağlı her arabirim, **IP adresi** adı verilen sayısal bir kimlikle tanımlanır [1, s. 22]. **IPv4** adresleri 32 bitlik sayılardır ve noktayla ayrılmış dört ondalık sayı olarak yazılır (ör. `192.0.2.10`); bu biçim yaklaşık 4,3 milyar (2³²) farklı adres sağlar [12]. İnternet'in beklenmedik büyümesi karşısında IANA'nın dağıtıma hazır IPv4 havuzu 3 Şubat 2011'de tükenmiştir [1, s. 22]. Çözüm, 128 bitlik adresler kullanan **IPv6**'dır (ör. `2001:db8::10`); 2¹²⁸ ≈ 3,4 × 10³⁸ adres, öngörülebilir her ihtiyacı karşılayacak büyüklüktedir [13]. Günümüzde iki sürüm bir arada kullanılmakta, birçok site ve mobil operatör IPv6'yı da desteklemektedir.
 
-IPv4 adres sıkıntısının bir başka çözümü **özel (private) adres** bloklarıdır: `10.0.0.0/8`, `172.16.0.0/12` ve `192.168.0.0/16` aralıklarındaki adresler yalnızca yerel ağlarda kullanılır ve İnternet'te yönlendirilmez [13]. Evdeki ya da okuldaki bilgisayarın `192.168.1.34` gibi bir adres alması bundandır; dışarıya çıkan trafikte yönlendirici, NAT ile bu adresi kendi ortak (public) adresine çevirir. `127.0.0.1` (IPv6'da `::1`) ise her bilgisayarın kendisini gösteren **geri döngü (loopback)** adresidir; Kısım 1.13'te kullanılacak Live Server bu adres üzerinden çalışır.
+IPv4 adres sıkıntısının bir başka çözümü **özel (private) adres** bloklarıdır: `10.0.0.0/8`, `172.16.0.0/12` ve `192.168.0.0/16` aralıklarındaki adresler yalnızca yerel ağlarda kullanılır ve İnternet'te yönlendirilmez [14]. Evdeki ya da okuldaki bilgisayarın `192.168.1.34` gibi bir adres alması bundandır; dışarıya çıkan trafikte yönlendirici, NAT ile bu adresi kendi ortak (public) adresine çevirir. `127.0.0.1` (IPv6'da `::1`) ise her bilgisayarın kendisini gösteren **geri döngü (loopback)** adresidir; Kısım 1.13'te kullanılacak Live Server bu adres üzerinden çalışır.
 
 *Tablo 1.4. IPv4 ile IPv6'nın karşılaştırılması.*
 
@@ -276,31 +269,31 @@ Açıklamalı komutlar ve temsilî çıktılar: [`codes/01-internet-ve-web/uygul
 
 ### 1.6.1 Cihaz Sayıları ve Büyüme Oranı
 
-Cisco'nun Mart 2020'de yayımladığı *Annual Internet Report (2018–2023)*, ağa bağlı cihaz ve bağlantı sayısının 2018'deki 18,4 milyardan 2023'te 29,3 milyara çıkacağını öngörmüştür. Aynı rapora göre makineler arası (M2M) bağlantıların payı %33'ten %50'ye (14,7 milyar) yükselecek, mobil M2M bağlantıları ise 1,2 milyardan 4,4 milyara, yıllık yaklaşık %30 oranında büyüyecektir [14]. Bu rakamlar bir **öngörüdür**; yine de İnternet'in artık yalnızca insanların değil, sayaçların, araçların ve sensörlerin de ağı olduğunu açıkça gösterir.
+Cisco'nun Mart 2020'de yayımladığı *Annual Internet Report (2018–2023)*, ağa bağlı cihaz ve bağlantı sayısının 2018'deki 18,4 milyardan 2023'te 29,3 milyara çıkacağını öngörmüştür. Aynı rapora göre makineler arası (M2M) bağlantıların payı %33'ten %50'ye (14,7 milyar) yükselecek, mobil M2M bağlantıları ise 1,2 milyardan 4,4 milyara, yıllık yaklaşık %30 oranında büyüyecektir [15]. Bu rakamlar bir **öngörüdür**; yine de İnternet'in artık yalnızca insanların değil, sayaçların, araçların ve sensörlerin de ağı olduğunu açıkça gösterir.
 
 Bu tür raporlarda sıkça geçen **CAGR (Compound Annual Growth Rate)**, Türkçede **bileşik yıllık büyüme oranı** olarak çevrilir. *n* yıllık bir dönemde başlangıç değeri *B*, bitiş değeri *S* olan bir büyüklük için
 
 CAGR = (S / B)^(1/n) − 1
 
-olarak hesaplanır. Cisco'nun cihaz öngörüsü için CAGR = (29,3 / 18,4)^(1/5) − 1 ≈ 0,10, yani her yıl ortalama **%10** büyüme bulunur; bu değer raporda verilen oranla örtüşür [14].
+olarak hesaplanır. Cisco'nun cihaz öngörüsü için CAGR = (29,3 / 18,4)^(1/5) − 1 ≈ 0,10, yani her yıl ortalama **%10** büyüme bulunur; bu değer raporda verilen oranla örtüşür [15].
 
 ### 1.6.2 Kullanıcı Sayıları (2025–2026)
 
-Uluslararası Telekomünikasyon Birliği'nin (ITU) Kasım 2025'te yayımladığı *Facts and Figures 2025* verilerine göre 2025'te dünyada yaklaşık **6 milyar** kişi, yani dünya nüfusunun yaklaşık **%74**'ü İnternet kullanmaktadır; yaklaşık **2,2 milyar** kişi ise hâlâ çevrim dışıdır. Kullanım oranı yüksek gelirli ülkelerde %94 iken düşük gelirli ülkelerde %23'te kalmakta; kentlerde %85, kırsalda %58'dir. Dünya genelinde 5G abonelik sayısının 3 milyara yaklaştığı tahmin edilmektedir [15]. Bu farklar, **dijital uçurum (digital divide)** olarak adlandırılır (Şekil 1.12).
+Uluslararası Telekomünikasyon Birliği'nin (ITU) Kasım 2025'te yayımladığı *Facts and Figures 2025* verilerine göre 2025'te dünyada yaklaşık **6 milyar** kişi, yani dünya nüfusunun yaklaşık **%74**'ü İnternet kullanmaktadır; yaklaşık **2,2 milyar** kişi ise hâlâ çevrim dışıdır. Kullanım oranı yüksek gelirli ülkelerde %94 iken düşük gelirli ülkelerde %23'te kalmakta; kentlerde %85, kırsalda %58'dir. Dünya genelinde 5G abonelik sayısının 3 milyara yaklaştığı tahmin edilmektedir [16]. Bu farklar, **dijital uçurum (digital divide)** olarak adlandırılır (Şekil 1.12).
 
 ![Şekil 1.12 2025'te İnternet kullanım oranları: yüksek gelirli 94, düşük gelirli 23, kentsel 85, kırsal 58, 15–24 yaş 82, diğer yaşlar 72, erkek 77, kadın 71 yüzde](../images/01-internet-ve-web/dijital-ucurum.svg)
 
-*Şekil 1.12. Dünyada gruplara göre İnternet kullanım oranları, 2025 (veri: ITU [15]).*
+*Şekil 1.12. Dünyada gruplara göre İnternet kullanım oranları, 2025 (veri: ITU [16]).*
 
-Türkiye'de TÜİK'in Ağustos 2026'da açıkladığı *Hanehalkı Bilişim Teknolojileri Kullanım Araştırması* sonuçlarına göre 16–74 yaş grubunda İnternet kullanım oranı 2025'teki %90,9'dan 2026'da **%92,3**'e yükselmiş; İnternet üzerinden mal veya hizmet satın alanların oranı %60'a ulaşmıştır [16]. Bir başka deyişle, bu dersi alan öğrencilerin geliştireceği sayfalar, nüfusun büyük çoğunluğunun her gün kullandığı bir ortama yayımlanacaktır.
+Türkiye'de TÜİK'in Ağustos 2026'da açıkladığı *Hanehalkı Bilişim Teknolojileri Kullanım Araştırması* sonuçlarına göre 16–74 yaş grubunda İnternet kullanım oranı 2025'teki %90,9'dan 2026'da **%92,3**'e yükselmiş; İnternet üzerinden mal veya hizmet satın alanların oranı %60'a ulaşmıştır [17]. Bir başka deyişle, bu dersi alan öğrencilerin geliştireceği sayfalar, nüfusun büyük çoğunluğunun her gün kullandığı bir ortama yayımlanacaktır.
 
 ### 1.6.3 İnternet'in Sektörel Yapısı ve Nesnelerin İnterneti
 
-Cisco'nun 2011 tarihli bir çalışmasında İnternet'in geleceği, sektörlere ait ayrı ağların aşamalı olarak birleşmesi biçiminde resmedilmiştir: Ulaşım, enerji, eğitim, ev ve iş dünyası gibi alanlar önce kendi ağlarını kurar, sonra bu ağlar ortak protokollerle birbirine bağlanır ve en dışta güvenlik, veri analitiği ve yönetim katmanıyla sarmalanır [17] (Şekil 1.13). Bu birleşik yapıya **Nesnelerin İnterneti (Internet of Things, IoT)** denir.
+Cisco'nun 2011 tarihli bir çalışmasında İnternet'in geleceği, sektörlere ait ayrı ağların aşamalı olarak birleşmesi biçiminde resmedilmiştir: Ulaşım, enerji, eğitim, ev ve iş dünyası gibi alanlar önce kendi ağlarını kurar, sonra bu ağlar ortak protokollerle birbirine bağlanır ve en dışta güvenlik, veri analitiği ve yönetim katmanıyla sarmalanır [18] (Şekil 1.13). Bu birleşik yapıya **Nesnelerin İnterneti (Internet of Things, IoT)** denir.
 
 ![Şekil 1.13 Ulaşım, enerji, sağlık, tarım, ev ve eğitim ağlarının iş dünyası etrafında birleşmesi ve güvenlik çemberi](../images/01-internet-ve-web/iot-sektorler.svg)
 
-*Şekil 1.13. Nesnelerin interneti: sektörel ağların birleşmesi (Cisco IBSG, 2011 şeklinden uyarlanmıştır [17]).*
+*Şekil 1.13. Nesnelerin interneti: sektörel ağların birleşmesi (Cisco IBSG, 2011 şeklinden uyarlanmıştır [18]).*
 
 > [!TIP]
 > **Güncel hayattan:** Akıllı elektrik sayaçları, kargo takip sistemleri, toplu taşımadaki "otobüs kaç dakikada gelir" ekranları, tarımda toprak nem sensörleri ve akıllı saatler IoT'nin gündelik örnekleridir. Bu cihazların topladığı veri çoğu zaman bir web paneli ya da mobil uygulama aracılığıyla kullanıcıya sunulur; yani IoT'nin "yüzü" de çoğunlukla Web teknolojileriyle yazılır.
@@ -383,7 +376,7 @@ flowchart LR
 
 ### 1.9.2 Alan Adı ve Hiyerarşisi
 
-**Alan adı**, İnternet'te belirli bir sunucuya ya da hizmete erişimi kolaylaştıran, insanların okuyup hatırlayabileceği benzersiz bir addır. Bilgisayarlar birbirini IP adresleriyle bulur; ancak `193.255.68.63` gibi sayıları akılda tutmak zordur. **DNS (Domain Name System, Alan Adı Sistemi)**, alan adlarını ilgili IP adreslerine çeviren dağıtık bir veritabanıdır [18]. Bu nedenle DNS'e sıklıkla "İnternet'in telefon rehberi" benzetmesi yapılır. Bir sunucu, birden çok alan adına hizmet verecek biçimde de yapılandırılabilir; böylece birçok site aynı sunucuyu paylaşabilir [1, s. 22].
+**Alan adı**, İnternet'te belirli bir sunucuya ya da hizmete erişimi kolaylaştıran, insanların okuyup hatırlayabileceği benzersiz bir addır. Bilgisayarlar birbirini IP adresleriyle bulur; ancak `193.255.68.63` gibi sayıları akılda tutmak zordur. **DNS (Domain Name System, Alan Adı Sistemi)**, alan adlarını ilgili IP adreslerine çeviren dağıtık bir veritabanıdır [19]. Bu nedenle DNS'e sıklıkla "İnternet'in telefon rehberi" benzetmesi yapılır. Bir sunucu, birden çok alan adına hizmet verecek biçimde de yapılandırılabilir; böylece birçok site aynı sunucuyu paylaşabilir [1, s. 22].
 
 Alan adları, en üstünde **kök (root)** bulunan ağaç biçiminde bir ad alanında düzenlenir (Şekil 1.15). Kökün altında `com`, `org`, `net` gibi genel ve `tr`, `de`, `jp` gibi ülke kodlu **üst düzey alan adları (Top-Level Domain, TLD)** yer alır. `edu.tr`, `com.tr`, `gov.tr` ikinci düzey; `nku.edu.tr` ise kuruma ait alan adıdır. Alan adının sahibi, kendi alanının altında istediği **ana makine adlarını (host name)** ya da alt alan adlarını (`www`, `obs`, `mail`) tanımlayabilir. `www` öneki bir kural değil, bir gelenektir [1, s. 24]. Alan adları sağdan sola, genelden özele doğru okunur.
 
@@ -395,7 +388,7 @@ Alan adları, en üstünde **kök (root)** bulunan ağaç biçiminde bir ad alan
 
 Alan adı sisteminin küresel koordinasyonu, kâr amacı gütmeyen **ICANN (Internet Corporation for Assigned Names and Numbers)** tarafından yürütülür. ICANN, IANA işlevleri aracılığıyla kök bölgenin (root zone) yönetimini ve IP adresi bloklarının bölgesel kayıt kuruluşlarına dağıtımını koordine eder. Her üst düzey alan adının veritabanını bir **kayıt operatörü (registry)** işletir; son kullanıcıya alan adı satışı ise ICANN'in ya da ilgili kayıt operatörünün yetkilendirdiği **kayıt kuruluşları (registrar)** üzerinden yapılır.
 
-Alan adları satın alınmaz, belirli bir süre için **kiralanır**. `.com` gibi genel üst düzey alan adlarında kayıt bir yıllık dilimlerle yapılır ve bir alan adının kalan kayıt süresi hiçbir anda **10 yılı aşamaz**; süre bitmeden yenilenmeyen alan adı, bekleme sürelerinin ardından yeniden kayda açılır. Türkiye'nin ülke kodu olan `.tr` uzantılı alan adları ise 1991'den bu yana ODTÜ bünyesindeki nic.tr tarafından yönetilmiş; 14 Eylül 2022'den itibaren Bilgi Teknolojileri ve İletişim Kurumu (BTK) bünyesindeki **TRABİS (.tr Ağ Bilgi Sistemi)** üzerinden, yetkilendirilmiş kayıt kuruluşları aracılığıyla tahsis edilmektedir [19]. `edu.tr` gibi bazı uzantılar yalnızca belge sunan kurumlara (bu örnekte yükseköğretim kurumlarına) verilir.
+Alan adları satın alınmaz, belirli bir süre için **kiralanır**. `.com` gibi genel üst düzey alan adlarında kayıt bir yıllık dilimlerle yapılır ve bir alan adının kalan kayıt süresi hiçbir anda **10 yılı aşamaz**; süre bitmeden yenilenmeyen alan adı, bekleme sürelerinin ardından yeniden kayda açılır. Türkiye'nin ülke kodu olan `.tr` uzantılı alan adları ise 1991'den bu yana ODTÜ bünyesindeki nic.tr tarafından yönetilmiş; 14 Eylül 2022'den itibaren Bilgi Teknolojileri ve İletişim Kurumu (BTK) bünyesindeki **TRABİS (.tr Ağ Bilgi Sistemi)** üzerinden, yetkilendirilmiş kayıt kuruluşları aracılığıyla tahsis edilmektedir [20]. `edu.tr` gibi bazı uzantılar yalnızca belge sunan kurumlara (bu örnekte yükseköğretim kurumlarına) verilir.
 
 Alan adı kiralandıktan sonra, alan adının hangi IP adresine karşılık geldiği DNS kayıtları olarak sisteme girilir. Bu kayıtlar, alan adının **yetkili ad sunucularında (authoritative name server)** tutulur ve Tablo 1.6'daki türlerden oluşur.
 
@@ -412,11 +405,11 @@ Alan adı kiralandıktan sonra, alan adının hangi IP adresine karşılık geld
 
 ### 1.9.4 DNS Çözümleme Adımları
 
-DNS'in temel görevi, alan adı olarak yazılan ifadeyi IP adresine çevirmektir; çevrilen IP adresi çoğunlukla bir web sunucusuna aittir. Bu çeviri işlemine **ad çözümleme (name resolution)** denir ve hiyerarşik olarak gerçekleşir [18], [20]. Tarayıcıya `www.nku.edu.tr` yazıldığında süreç şöyle işler (Şekil 1.16):
+DNS'in temel görevi, alan adı olarak yazılan ifadeyi IP adresine çevirmektir; çevrilen IP adresi çoğunlukla bir web sunucusuna aittir. Bu çeviri işlemine **ad çözümleme (name resolution)** denir ve hiyerarşik olarak gerçekleşir [19], [21]. Tarayıcıya `www.nku.edu.tr` yazıldığında süreç şöyle işler (Şekil 1.16):
 
 1. Tarayıcı ve işletim sistemi önce kendi **önbelleklerine** bakar; ad yakın zamanda çözümlendiyse yanıt hemen kullanılır.
 2. Önbellekte yoksa soru, ağ ayarlarında tanımlı **özyinelemeli çözümleyiciye (recursive resolver)** gönderilir. Bu çözümleyici çoğunlukla İnternet servis sağlayıcısının, kurumun ya da `1.1.1.1`, `8.8.8.8`, `9.9.9.9` gibi ortak bir hizmetin DNS sunucusudur. Çözümleyicinin kendi önbelleğinde yanıt varsa hemen döndürülür.
-3. Yoksa çözümleyici **kök sunuculardan** birine sorar. Kök sunucu yanıtı bilmez; ancak `tr` alanından sorumlu sunucuların adreslerini verir. Kök sunucular `a`'dan `m`'ye kadar 13 adla tanımlanır; her biri dünyaya dağılmış çok sayıda kopyadan (anycast) oluşur [21].
+3. Yoksa çözümleyici **kök sunuculardan** birine sorar. Kök sunucu yanıtı bilmez; ancak `tr` alanından sorumlu sunucuların adreslerini verir. Kök sunucular `a`'dan `m`'ye kadar 13 adla tanımlanır; her biri dünyaya dağılmış çok sayıda kopyadan (anycast) oluşur [22].
 4. Çözümleyici **TLD sunucusuna** (`tr`) sorar; bu sunucu da `nku.edu.tr` alanının yetkili ad sunucularını bildirir.
 5. Çözümleyici **yetkili ad sunucusuna** sorar ve kesin yanıtı (`A` kaydı: `193.255.68.63`) alır.
 6. Çözümleyici yanıtı istemciye döndürür ve kaydın **TTL (Time To Live, yaşam süresi)** değeri kadar önbellekte saklar. Aynı adı soran sonraki kullanıcılar yanıtı doğrudan önbellekten alır.
@@ -474,7 +467,7 @@ Açıklamalı komutlar ve örnek çıktılar: [`codes/01-internet-ve-web/uygulam
 
 ### 1.10.1 URL'nin Anatomisi
 
-Web'deki her sayfa ve kaynağın kendine özgü bir adresi, yani bir **URL**'si vardır [1, s. 24]. URL, daha genel bir kavram olan **URI (Uniform Resource Identifier, Tekdüzen Kaynak Tanımlayıcısı)**'nın bir türüdür [2, s. 3]. URI'nin genel sözdizimi RFC 3986'da tanımlanmıştır [22]; tarayıcıların adresleri fiilen nasıl ayrıştırdığı ise WHATWG URL Standardı'nda belirlenir [23]. Bir URL'nin bileşenleri Şekil 1.17'de gösterilmiştir:
+Web'deki her sayfa ve kaynağın kendine özgü bir adresi, yani bir **URL**'si vardır [1, s. 24]. URL, daha genel bir kavram olan **URI (Uniform Resource Identifier, Tekdüzen Kaynak Tanımlayıcısı)**'nın bir türüdür [2, s. 3]. URI'nin genel sözdizimi RFC 3986'da tanımlanmıştır [23]; tarayıcıların adresleri fiilen nasıl ayrıştırdığı ise WHATWG URL Standardı'nda belirlenir [24]. Bir URL'nin bileşenleri Şekil 1.17'de gösterilmiştir:
 
 ![Şekil 1.17 https://obs.example.edu.tr:443/notlar/donem.html?yil=2026&donem=bahar#vize adresinin şema, ana makine, port, yol, sorgu ve parça bileşenleri](../images/01-internet-ve-web/url-anatomisi.svg)
 
@@ -519,9 +512,9 @@ Tarayıcılar, adres çubuğuna şema yazılmadığında kullanıcıya kolaylık
 
 ### 1.10.2 HTTP İstek ve Yanıtının Yapısı
 
-HTTP, istemci ile sunucu arasındaki konuşmanın kurallarını belirleyen, **durumsuz (stateless)** bir istek–yanıt protokolüdür: Her istek kendi başına değerlendirilir ve sunucu, aksi sağlanmadıkça önceki istekleri hatırlamaz [24]. Oturum açmış kullanıcının tanınması gibi durum bilgisi, çerezler (cookie) gibi ek mekanizmalarla taşınır. HTTP yalnızca HTML belgelerini değil; görselleri, videoları, ses dosyalarını, betikleri ve verileri de aktarır [1, s. 23].
+HTTP, istemci ile sunucu arasındaki konuşmanın kurallarını belirleyen, **durumsuz (stateless)** bir istek–yanıt protokolüdür: Her istek kendi başına değerlendirilir ve sunucu, aksi sağlanmadıkça önceki istekleri hatırlamaz [25]. Oturum açmış kullanıcının tanınması gibi durum bilgisi, çerezler (cookie) gibi ek mekanizmalarla taşınır. HTTP yalnızca HTML belgelerini değil; görselleri, videoları, ses dosyalarını, betikleri ve verileri de aktarır [1, s. 23].
 
-HTTP/1.1'de bir istek; **yöntem**, **hedef yol** ve **sürüm** bilgisini içeren bir istek satırı, ardından **başlık alanları (header fields)** ve isteğe bağlı bir **gövdeden (body)** oluşur [25]. Kod 1.1, bir tarayıcının gönderdiği tipik bir isteği göstermektedir.
+HTTP/1.1'de bir istek; **yöntem**, **hedef yol** ve **sürüm** bilgisini içeren bir istek satırı, ardından **başlık alanları (header fields)** ve isteğe bağlı bir **gövdeden (body)** oluşur [26]. Kod 1.1, bir tarayıcının gönderdiği tipik bir isteği göstermektedir.
 
 *Kod 1.1. Bir HTTP/1.1 isteği.*
 
@@ -551,7 +544,7 @@ Cache-Control: max-age=600
 
 `Content-Type` başlığı gövdenin türünü (**MIME türü**) ve karakter kodlamasını bildirir; tarayıcı gövdeyi HTML olarak mı, görsel olarak mı işleyeceğine bu başlığa bakarak karar verir. `Cache-Control` ise yanıtın tarayıcı önbelleğinde ne kadar süre (burada 600 saniye) yeniden kullanılabileceğini belirtir.
 
-İstek satırındaki **yöntem (method)**, istemcinin kaynak üzerinde ne yapmak istediğini bildirir (Tablo 1.7) [24].
+İstek satırındaki **yöntem (method)**, istemcinin kaynak üzerinde ne yapmak istediğini bildirir (Tablo 1.7) [25].
 
 *Tablo 1.7. Yaygın HTTP yöntemleri.*
 
@@ -568,7 +561,7 @@ Cache-Control: max-age=600
 
 ### 1.10.3 HTTP Durum Kodları
 
-Yanıtın ilk satırındaki üç basamaklı **durum kodu (status code)**, isteğin sonucunu bildirir. İlk basamak kodun sınıfını belirler (Tablo 1.8) [24], [26]. Sunucu istenen dosyayı bulamazsa en bilinen hata kodu olan **404 Not Found** döner [1, s. 30].
+Yanıtın ilk satırındaki üç basamaklı **durum kodu (status code)**, isteğin sonucunu bildirir. İlk basamak kodun sınıfını belirler (Tablo 1.8) [25], [27]. Sunucu istenen dosyayı bulamazsa en bilinen hata kodu olan **404 Not Found** döner [1, s. 30].
 
 *Tablo 1.8. HTTP durum kodu sınıfları ve sık görülen kodlar.*
 
@@ -585,7 +578,7 @@ Yanıtın ilk satırındaki üç basamaklı **durum kodu (status code)**, isteğ
 
 ### 1.10.4 HTTPS ve TLS
 
-Düz HTTP'de istek ve yanıtlar şifrelenmeden taşındığından aynı ağdaki (ör. ortak bir Wi-Fi ağındaki) biri trafiği okuyabilir ya da değiştirebilir. **HTTPS**, HTTP trafiğini **TLS (Transport Layer Security)** protokolüyle şifreler. TLS üç güvence sağlar: **gizlilik** (iletinin içeriğini yalnızca uç taraflar okuyabilir), **bütünlük** (iletinin yolda değiştirilmediği doğrulanır) ve **kimlik doğrulama** (sunucunun gerçekten iddia ettiği site olduğu, güvenilir bir sertifika otoritesinin imzaladığı **dijital sertifika** ile kanıtlanır) [27]. Güncel sürüm 2018'de yayımlanan TLS 1.3'tür; eski SSL ve TLS 1.0/1.1 sürümleri güvensiz kabul edilerek kullanımdan kaldırılmıştır. Ücretsiz sertifika sağlayan hizmetlerin yaygınlaşmasıyla bugün Web trafiğinin büyük çoğunluğu HTTPS ile taşınmaktadır; tarayıcılar HTTP ile açılan sayfaları "Güvenli değil" olarak işaretler.
+Düz HTTP'de istek ve yanıtlar şifrelenmeden taşındığından aynı ağdaki (ör. ortak bir Wi-Fi ağındaki) biri trafiği okuyabilir ya da değiştirebilir. **HTTPS**, HTTP trafiğini **TLS (Transport Layer Security)** protokolüyle şifreler. TLS üç güvence sağlar: **gizlilik** (iletinin içeriğini yalnızca uç taraflar okuyabilir), **bütünlük** (iletinin yolda değiştirilmediği doğrulanır) ve **kimlik doğrulama** (sunucunun gerçekten iddia ettiği site olduğu, güvenilir bir sertifika otoritesinin imzaladığı **dijital sertifika** ile kanıtlanır) [28]. Güncel sürüm 2018'de yayımlanan TLS 1.3'tür; eski SSL ve TLS 1.0/1.1 sürümleri güvensiz kabul edilerek kullanımdan kaldırılmıştır. Ücretsiz sertifika sağlayan hizmetlerin yaygınlaşmasıyla bugün Web trafiğinin büyük çoğunluğu HTTPS ile taşınmaktadır; tarayıcılar HTTP ile açılan sayfaları "Güvenli değil" olarak işaretler.
 
 > [!WARNING]
 > Adres çubuğundaki kilit simgesi yalnızca bağlantının şifreli olduğunu ve sertifikanın o alan adına ait olduğunu gösterir; sitenin **güvenilir** olduğunu göstermez. Dolandırıcılık amaçlı sahte siteler de HTTPS kullanabilir. Banka ve e-Devlet gibi sitelerde alan adının doğru yazıldığı (ör. `turkiye.gov.tr`) mutlaka kontrol edilmelidir.
@@ -594,9 +587,9 @@ Düz HTTP'de istek ve yanıtlar şifrelenmeden taşındığından aynı ağdaki 
 
 HTTP'nin ilk sürümü (1991'de kullanılan ve sonradan HTTP/0.9 diye anılan sürüm) yalnızca `GET` yöntemini destekleyen tek satırlık bir protokoldü. 1996'da HTTP/1.0 ile başlıklar ve durum kodları, 1997'de **HTTP/1.1** ile kalıcı bağlantılar ve zorunlu `Host` başlığı geldi. HTTP/1.1 metin tabanlıdır ve bir bağlantı üzerinden aynı anda tek bir istek–yanıt yürütür; bu yüzden tarayıcılar bir sayfanın onlarca kaynağını indirmek için birden çok paralel bağlantı açmak zorunda kalıyordu.
 
-2015'te yayımlanan **HTTP/2**, aynı anlamı (yöntemler, başlıklar, durum kodları) korurken iletileri ikili (binary) çerçevelere böler ve tek bir TCP bağlantısı üzerinde çok sayıda isteği eş zamanlı yürütür (**çoğullama, multiplexing**); başlıkları da sıkıştırır [28]. Ancak TCP, kaybolan bir paket yeniden gönderilinceye kadar arkasındaki tüm verileri bekletir; bu durum bütün akışları yavaşlatabilir.
+2015'te yayımlanan **HTTP/2**, aynı anlamı (yöntemler, başlıklar, durum kodları) korurken iletileri ikili (binary) çerçevelere böler ve tek bir TCP bağlantısı üzerinde çok sayıda isteği eş zamanlı yürütür (**çoğullama, multiplexing**); başlıkları da sıkıştırır [29]. Ancak TCP, kaybolan bir paket yeniden gönderilinceye kadar arkasındaki tüm verileri bekletir; bu durum bütün akışları yavaşlatabilir.
 
-2022'de standartlaşan **HTTP/3**, bu sorunu çözmek için TCP yerine UDP üzerinde çalışan **QUIC** protokolünü kullanır [29], [30]. QUIC, TLS 1.3'ü kendi içinde barındırır; bağlantı kurulumu daha az gidiş-dönüş gerektirir, kaybolan bir paket yalnızca ait olduğu akışı etkiler ve telefon Wi-Fi'dan mobil ağa geçtiğinde bağlantı kopmadan sürebilir. Üç sürüm de aynı HTTP anlam modelini paylaştığından [24], web geliştiricisinin yazdığı HTML, CSS ve JavaScript sürümden bağımsız olarak aynı biçimde çalışır; sürüm seçimini tarayıcı ve sunucu kendi aralarında yapar (Şekil 1.19).
+2022'de standartlaşan **HTTP/3**, bu sorunu çözmek için TCP yerine UDP üzerinde çalışan **QUIC** protokolünü kullanır [30], [31]. QUIC, TLS 1.3'ü kendi içinde barındırır; bağlantı kurulumu daha az gidiş-dönüş gerektirir, kaybolan bir paket yalnızca ait olduğu akışı etkiler ve telefon Wi-Fi'dan mobil ağa geçtiğinde bağlantı kopmadan sürebilir. Üç sürüm de aynı HTTP anlam modelini paylaştığından [25], web geliştiricisinin yazdığı HTML, CSS ve JavaScript sürümden bağımsız olarak aynı biçimde çalışır; sürüm seçimini tarayıcı ve sunucu kendi aralarında yapar (Şekil 1.19).
 
 ![Şekil 1.19 HTTP/1.1 ve HTTP/2'nin TLS ve TCP üzerinde, HTTP/3'ün QUIC ve UDP üzerinde çalışması](../images/01-internet-ve-web/http-surumleri.svg)
 
@@ -630,7 +623,7 @@ HTTP'nin ilk sürümü (1991'de kullanılan ve sonradan HTTP/0.9 diye anılan s�
 
 ## 1.11 Adres Çubuğundan Ekrana: Bir Web Sayfası Nasıl Açılır?
 
-Önceki kısımlarda ele alınan kavramlar, bir web sayfası her açıldığında birkaç yüz milisaniye içinde birlikte çalışır. `https://www.nku.edu.tr/` adresi yazılıp Enter tuşuna basıldığında olan bitenler Şekil 1.21'de özetlenmiştir [1, s. 30], [31].
+Önceki kısımlarda ele alınan kavramlar, bir web sayfası her açıldığında birkaç yüz milisaniye içinde birlikte çalışır. `https://www.nku.edu.tr/` adresi yazılıp Enter tuşuna basıldığında olan bitenler Şekil 1.21'de özetlenmiştir [1, s. 30], [32].
 
 ```mermaid
 flowchart TD
@@ -650,7 +643,7 @@ flowchart TD
 
 *Şekil 1.21. Adres çubuğundan ekrana: bir web sayfasının açılma adımları.*
 
-Ağ tarafındaki adımlar (DNS, bağlantı kurulumu, TLS ve HTTP) önceki kısımlarda ele alınmıştır; sunucuya 443 numaralı port üzerinden HTTP/1.1 ve HTTP/2 için TCP, HTTP/3 için QUIC bağlantısı açılır. Yanıt geldikten sonra iş tarayıcıya geçer. Tarayıcı HTML'i baştan sona okuyarak (**ayrıştırma, parsing**) sayfanın ağaç biçimindeki modelini, yani **DOM (Document Object Model)**'u kurar ve HTML'de bağlantısı verilen stil dosyası, görsel ve betik gibi her kaynak için yeni istekler gönderir [1, s. 28]. Ardından CSS kuralları DOM öğelerine uygulanır, her öğenin boyutu ve konumu hesaplanır (**yerleşim, layout**) ve sayfa piksellere dönüştürülerek ekrana çizilir (**boyama, paint**) [31]. Son olarak JavaScript kodu çalışır ve sayfa tıklama, kaydırma ve yazma gibi kullanıcı olaylarına yanıt verir hâle gelir.
+Ağ tarafındaki adımlar (DNS, bağlantı kurulumu, TLS ve HTTP) önceki kısımlarda ele alınmıştır; sunucuya 443 numaralı port üzerinden HTTP/1.1 ve HTTP/2 için TCP, HTTP/3 için QUIC bağlantısı açılır. Yanıt geldikten sonra iş tarayıcıya geçer. Tarayıcı HTML'i baştan sona okuyarak (**ayrıştırma, parsing**) sayfanın ağaç biçimindeki modelini, yani **DOM (Document Object Model)**'u kurar ve HTML'de bağlantısı verilen stil dosyası, görsel ve betik gibi her kaynak için yeni istekler gönderir [1, s. 28]. Ardından CSS kuralları DOM öğelerine uygulanır, her öğenin boyutu ve konumu hesaplanır (**yerleşim, layout**) ve sayfa piksellere dönüştürülerek ekrana çizilir (**boyama, paint**) [32]. Son olarak JavaScript kodu çalışır ve sayfa tıklama, kaydırma ve yazma gibi kullanıcı olaylarına yanıt verir hâle gelir.
 
 **Tarayıcının rolü:** Bu süreçte tarayıcı yalnızca bir "görüntüleyici" değil; DNS istemcisi, HTTP istemcisi, güvenlik denetçisi, HTML ayrıştırıcısı, CSS motoru ve JavaScript çalışma ortamıdır. HTML ve CSS'i okuyup biçimlendirilmiş içeriği ekrana çizen bileşene **görüntüleme motoru (rendering engine)** denir [8, s. 12]. Günümüzde Chrome, Edge ve Opera **Blink**, Firefox **Gecko**, Safari ise **WebKit** motorunu kullanır. Motorlar standartları büyük ölçüde aynı biçimde uyguladığından sayfalar çoğunlukla benzer görünür; yine de geliştirilen sayfaların birden fazla tarayıcıda ve farklı ekran boyutlarında denenmesi gerekir [8, s. 12].
 
@@ -670,10 +663,10 @@ Ağ tarafındaki adımlar (DNS, bağlantı kurulumu, TLS ve HTTP) önceki kısı
 - **İçerik stratejisi:** Sitede hangi içeriğin, hangi dil ve düzenle, kimin için yer alacağını planlamak.
 - **Çoklu ortam (multimedya) tasarımı:** Ses, video ve animasyon içerikleri üretmek.
 
-Günümüzde bu disiplinlere **erişilebilirlik** (WCAG 2.2 yönergelerine uygunluk) [32], **performans** ve **arama motoru görünürlüğü** de eklenmiştir. Sektörde ise roller çoğunlukla **ön yüz (front-end)** geliştirici (HTML, CSS, JavaScript), **arka yüz (back-end)** geliştirici (sunucu ve veritabanı) ve her ikisiyle çalışan **tam yığın (full-stack)** geliştirici olarak adlandırılır. Bu ders, ön yüz geliştirmenin temeli olan HTML, CSS ve JavaScript'e odaklanır.
+Günümüzde bu disiplinlere **erişilebilirlik** (WCAG 2.2 yönergelerine uygunluk) [33], **performans** ve **arama motoru görünürlüğü** de eklenmiştir. Sektörde ise roller çoğunlukla **ön yüz (front-end)** geliştirici (HTML, CSS, JavaScript), **arka yüz (back-end)** geliştirici (sunucu ve veritabanı) ve her ikisiyle çalışan **tam yığın (full-stack)** geliştirici olarak adlandırılır. Bu ders, ön yüz geliştirmenin temeli olan HTML, CSS ve JavaScript'e odaklanır.
 
 > [!NOTE]
-> **Tarihsel not:** Ders sunumunda web tasarımı araçları arasında **jQuery** de anılmaktadır. jQuery, 2006'da tarayıcılar arasındaki uyumsuzlukları gizleyerek DOM işlemlerini kolaylaştırmak için ortaya çıkmış ve uzun yıllar çok yaygın kullanılmıştır. Bugün `querySelector`, `addEventListener` ve `fetch` gibi yerel tarayıcı API'leri aynı işleri doğrudan yapabildiğinden yeni projelerde jQuery'ye gerek duyulmaz; bu derste de kullanılmayacaktır.
+> **Tarihsel not:** Eski kaynaklarda web tasarımı araçları arasında **jQuery** kütüphanesi de sayılır. jQuery, 2006'da tarayıcılar arasındaki uyumsuzlukları gizleyerek DOM işlemlerini kolaylaştırmak için ortaya çıkmış ve uzun yıllar çok yaygın kullanılmıştır. Bugün `querySelector`, `addEventListener` ve `fetch` gibi yerel tarayıcı API'leri aynı işleri doğrudan yapabildiğinden yeni projelerde jQuery'ye gerek duyulmaz; bu derste de kullanılmayacaktır.
 
 ### 1.12.2 Web Sayfasının Anatomisi: Tel Kafes (Wireframe)
 
@@ -822,50 +815,52 @@ Bu araçların kurulumu ve kullanımı [Bölüm 2](02-html-temelleri.md)'de ayr�
 
 \[9\] WHATWG, "HTML Living Standard." [Çevrimiçi]. Erişim: https://html.spec.whatwg.org/ (Erişim tarihi: 2 Kasım 2026).
 
-\[10\] W. Eddy, Ed., "Transmission Control Protocol (TCP)," IETF, RFC 9293, Aug. 2022. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc9293
+\[10\] V. Cerf, Y. Dalal, and C. Sunshine, "Specification of Internet Transmission Control Program," IETF, RFC 675, Dec. 1974. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc675 (Erişim tarihi: 12 Kasım 2026).
 
-\[11\] J. Postel, "Internet Protocol," IETF, RFC 791, Sep. 1981. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc791
+\[11\] W. Eddy, Ed., "Transmission Control Protocol (TCP)," IETF, RFC 9293, Aug. 2022. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc9293
 
-\[12\] S. Deering and R. Hinden, "Internet Protocol, Version 6 (IPv6) Specification," IETF, RFC 8200, Jul. 2017. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc8200
+\[12\] J. Postel, "Internet Protocol," IETF, RFC 791, Sep. 1981. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc791
 
-\[13\] Y. Rekhter, B. Moskowitz, D. Karrenberg, G. J. de Groot, and E. Lear, "Address Allocation for Private Internets," IETF, RFC 1918, Feb. 1996. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc1918
+\[13\] S. Deering and R. Hinden, "Internet Protocol, Version 6 (IPv6) Specification," IETF, RFC 8200, Jul. 2017. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc8200
 
-\[14\] Cisco, "Cisco Annual Internet Report (2018–2023) White Paper," Mar. 2020. [Çevrimiçi]. Erişim: https://www.cisco.com/c/en/us/solutions/collateral/executive-perspectives/annual-internet-report/white-paper-c11-741490.html (Erişim tarihi: 2 Kasım 2026).
+\[14\] Y. Rekhter, B. Moskowitz, D. Karrenberg, G. J. de Groot, and E. Lear, "Address Allocation for Private Internets," IETF, RFC 1918, Feb. 1996. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc1918
 
-\[15\] ITU, "Global number of Internet users increases, but disparities deepen key digital divides," Basın bülteni (Facts and Figures 2025), 17 Kas. 2025. [Çevrimiçi]. Erişim: https://www.itu.int/en/mediacentre/Pages/PR-2025-11-17-Facts-and-Figures.aspx (Erişim tarihi: 2 Kasım 2026).
+\[15\] Cisco, "Cisco Annual Internet Report (2018–2023) White Paper," Mar. 2020. [Çevrimiçi]. Erişim: https://www.cisco.com/c/en/us/solutions/collateral/executive-perspectives/annual-internet-report/white-paper-c11-741490.html (Erişim tarihi: 2 Kasım 2026).
 
-\[16\] TÜİK, "Hanehalkı Bilişim Teknolojileri (BT) Kullanım Araştırması, 2026," Haber Bülteni, Ağu. 2026. [Çevrimiçi]. Erişim: https://data.tuik.gov.tr/ (Erişim tarihi: 2 Kasım 2026).
+\[16\] ITU, "Global number of Internet users increases, but disparities deepen key digital divides," Basın bülteni (Facts and Figures 2025), 17 Kas. 2025. [Çevrimiçi]. Erişim: https://www.itu.int/en/mediacentre/Pages/PR-2025-11-17-Facts-and-Figures.aspx (Erişim tarihi: 2 Kasım 2026).
 
-\[17\] D. Evans, "The Internet of Things: How the Next Evolution of the Internet Is Changing Everything," Cisco Internet Business Solutions Group (IBSG), White Paper, Apr. 2011.
+\[17\] TÜİK, "Hanehalkı Bilişim Teknolojileri (BT) Kullanım Araştırması, 2026," Haber Bülteni, Ağu. 2026. [Çevrimiçi]. Erişim: https://data.tuik.gov.tr/ (Erişim tarihi: 2 Kasım 2026).
 
-\[18\] P. Mockapetris, "Domain names - concepts and facilities," IETF, RFC 1034, Nov. 1987. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc1034
+\[18\] D. Evans, "The Internet of Things: How the Next Evolution of the Internet Is Changing Everything," Cisco Internet Business Solutions Group (IBSG), White Paper, Apr. 2011.
 
-\[19\] Bilgi Teknolojileri ve İletişim Kurumu, ".tr Ağ Bilgi Sistemi (TRABİS)." [Çevrimiçi]. Erişim: https://www.trabis.gov.tr/ (Erişim tarihi: 2 Kasım 2026).
+\[19\] P. Mockapetris, "Domain names - concepts and facilities," IETF, RFC 1034, Nov. 1987. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc1034
 
-\[20\] P. Mockapetris, "Domain names - implementation and specification," IETF, RFC 1035, Nov. 1987. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc1035
+\[20\] Bilgi Teknolojileri ve İletişim Kurumu, ".tr Ağ Bilgi Sistemi (TRABİS)." [Çevrimiçi]. Erişim: https://www.trabis.gov.tr/ (Erişim tarihi: 2 Kasım 2026).
 
-\[21\] Root Server Technical Operations Association, "Root Servers." [Çevrimiçi]. Erişim: https://root-servers.org/ (Erişim tarihi: 2 Kasım 2026).
+\[21\] P. Mockapetris, "Domain names - implementation and specification," IETF, RFC 1035, Nov. 1987. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc1035
 
-\[22\] T. Berners-Lee, R. Fielding, and L. Masinter, "Uniform Resource Identifier (URI): Generic Syntax," IETF, RFC 3986, Jan. 2005. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc3986
+\[22\] Root Server Technical Operations Association, "Root Servers." [Çevrimiçi]. Erişim: https://root-servers.org/ (Erişim tarihi: 2 Kasım 2026).
 
-\[23\] WHATWG, "URL Living Standard." [Çevrimiçi]. Erişim: https://url.spec.whatwg.org/ (Erişim tarihi: 2 Kasım 2026).
+\[23\] T. Berners-Lee, R. Fielding, and L. Masinter, "Uniform Resource Identifier (URI): Generic Syntax," IETF, RFC 3986, Jan. 2005. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc3986
 
-\[24\] R. Fielding, M. Nottingham, and J. Reschke, Eds., "HTTP Semantics," IETF, RFC 9110, Jun. 2022. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc9110
+\[24\] WHATWG, "URL Living Standard." [Çevrimiçi]. Erişim: https://url.spec.whatwg.org/ (Erişim tarihi: 2 Kasım 2026).
 
-\[25\] R. Fielding, M. Nottingham, and J. Reschke, Eds., "HTTP/1.1," IETF, RFC 9112, Jun. 2022. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc9112
+\[25\] R. Fielding, M. Nottingham, and J. Reschke, Eds., "HTTP Semantics," IETF, RFC 9110, Jun. 2022. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc9110
 
-\[26\] Mozilla, "HTTP response status codes," *MDN Web Docs*. [Çevrimiçi]. Erişim: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status (Erişim tarihi: 2 Kasım 2026).
+\[26\] R. Fielding, M. Nottingham, and J. Reschke, Eds., "HTTP/1.1," IETF, RFC 9112, Jun. 2022. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc9112
 
-\[27\] E. Rescorla, "The Transport Layer Security (TLS) Protocol Version 1.3," IETF, RFC 8446, Aug. 2018. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc8446
+\[27\] Mozilla, "HTTP response status codes," *MDN Web Docs*. [Çevrimiçi]. Erişim: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status (Erişim tarihi: 2 Kasım 2026).
 
-\[28\] M. Thomson and C. Benfield, Eds., "HTTP/2," IETF, RFC 9113, Jun. 2022. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc9113
+\[28\] E. Rescorla, "The Transport Layer Security (TLS) Protocol Version 1.3," IETF, RFC 8446, Aug. 2018. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc8446
 
-\[29\] M. Bishop, Ed., "HTTP/3," IETF, RFC 9114, Jun. 2022. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc9114
+\[29\] M. Thomson and C. Benfield, Eds., "HTTP/2," IETF, RFC 9113, Jun. 2022. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc9113
 
-\[30\] J. Iyengar and M. Thomson, Eds., "QUIC: A UDP-Based Multiplexed and Secure Transport," IETF, RFC 9000, May 2021. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc9000
+\[30\] M. Bishop, Ed., "HTTP/3," IETF, RFC 9114, Jun. 2022. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc9114
 
-\[31\] Mozilla, "Populating the page: how browsers work," *MDN Web Docs*. [Çevrimiçi]. Erişim: https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/How_browsers_work (Erişim tarihi: 2 Kasım 2026).
+\[31\] J. Iyengar and M. Thomson, Eds., "QUIC: A UDP-Based Multiplexed and Secure Transport," IETF, RFC 9000, May 2021. [Çevrimiçi]. Erişim: https://www.rfc-editor.org/rfc/rfc9000
 
-\[32\] W3C, *Web Content Accessibility Guidelines (WCAG) 2.2*, W3C Recommendation, Oct. 2023. [Çevrimiçi]. Erişim: https://www.w3.org/TR/WCAG22/ (Erişim tarihi: 2 Kasım 2026).
+\[32\] Mozilla, "Populating the page: how browsers work," *MDN Web Docs*. [Çevrimiçi]. Erişim: https://developer.mozilla.org/en-US/docs/Web/Performance/Guides/How_browsers_work (Erişim tarihi: 2 Kasım 2026).
+
+\[33\] W3C, *Web Content Accessibility Guidelines (WCAG) 2.2*, W3C Recommendation, Oct. 2023. [Çevrimiçi]. Erişim: https://www.w3.org/TR/WCAG22/ (Erişim tarihi: 2 Kasım 2026).
 
 [İçindekiler](../README.md) · [Sonraki bölüm →](02-html-temelleri.md)

@@ -22,10 +22,7 @@ Tasarım kitaplarında web tipografisi için tekrarlanan temel öneriler şöyle
 
 ## 5.2 Yazı Tipleri ve `font-family`
 
-Sunumdaki "Font ile ilgili alt özellikler" slaytında yazı tipiyle ilgili altı özellik listelenmektedir: `font-family`, `font-size`, `font-weight`, `font-style`, `font-variant` ve bunların kısayolu olan `font`. Bu özelliklerin tamamı W3C'nin *CSS Fonts* modülünde tanımlanır [2] ve tamamı kalıtılır (inherited); yani `body` öğesine verilen bir yazı tipi, aksi belirtilmedikçe sayfadaki bütün metne uygulanır.
-
-> [!NOTE]
-> Sunumda bu özellikler için "font tagı" ifadesi kullanılmaktadır. CSS'te `font-family`, `font-size` gibi yapılar **özellik** (property) olarak adlandırılır; "etiket" (tag) terimi yalnızca HTML'deki `<p>`, `<h1>` gibi yapılar için kullanılır.
+Yazı tipiyle ilgili altı temel CSS **özelliği** (property) vardır: `font-family`, `font-size`, `font-weight`, `font-style`, `font-variant` ve bunların kısayolu olan `font`. "Etiket" (tag) terimi yalnızca HTML'deki `<p>`, `<h1>` gibi yapılar için kullanılır; CSS'teki bu yapılar özellik olarak adlandırılır. Bu özelliklerin tamamı W3C'nin *CSS Fonts* modülünde tanımlanır [2] ve tamamı kalıtılır (inherited); yani `body` öğesine verilen bir yazı tipi, aksi belirtilmedikçe sayfadaki bütün metne uygulanır.
 
 ### 5.2.1 Yazı tipi yığını ve jenerik aileler
 
@@ -70,11 +67,11 @@ CSS'te tanımlı başlıca jenerik aileler Tablo 5.1'de özetlenmiştir.
 
 *Şekil 5.2. Jenerik aileler ve bir yazı tipi yığını (Örnek 5.1: [`codes/05-css-metin-renk-arka-plan/ornek-5-1-jenerik-aileler/`](../codes/05-css-metin-renk-arka-plan/ornek-5-1-jenerik-aileler/index.html)).*
 
-Sunumdaki `font-family: Comic Sans, cursive;` kuralında yazı tipinin sistemdeki adı aslında **Comic Sans MS**'tir; `Comic Sans` hiçbir yazı tipiyle eşleşmediğinden tarayıcı doğrudan `cursive` ailesine düşer. Doğru yazım `font-family: "Comic Sans MS", cursive;` biçimindedir. Aynı slayttaki `!important` [Bölüm 4](04-css-temelleri.md)'te, `border-bottom` [Bölüm 6](06-css-kutu-modeli-yerlesim.md)'da ele alınmaktadır; `!important` "hiçbir kuralın ezemeyeceği" mutlak bir öncelik değildir.
+Yığındaki adlar, yazı tipinin işletim sisteminde kayıtlı tam adıyla yazılmalıdır. Örneğin el yazısı görünümlü Comic Sans yazı tipinin sistemdeki adı **Comic Sans MS**'tir; bu yazı tipini isteyen bildirim `font-family: "Comic Sans MS", cursive;` biçiminde yazılır. Ad eksik yazılırsa (`Comic Sans`) hiçbir yazı tipiyle eşleşmez ve tarayıcı doğrudan `cursive` ailesine düşer.
 
 ### 5.2.2 Web-güvenli yazı tipleri
 
-Web'in ilk yıllarında tasarımcı yalnızca ziyaretçinin bilgisayarında yüklü olan yazı tiplerini kullanabiliyordu. Bu nedenle Windows, macOS ve Linux'ta büyük olasılıkla bulunan Arial, Verdana, Georgia, Times New Roman, Courier New, Trebuchet MS gibi yazı tiplerine **web-güvenli** (web-safe) yazı tipleri denmiştir [4, s. 231]. Sunumda bağlantısı verilen "font stack" makaleleri de bu dönemin ürünüdür.
+Web'in ilk yıllarında tasarımcı yalnızca ziyaretçinin bilgisayarında yüklü olan yazı tiplerini kullanabiliyordu. Bu nedenle Windows, macOS ve Linux'ta büyük olasılıkla bulunan Arial, Verdana, Georgia, Times New Roman, Courier New, Trebuchet MS gibi yazı tiplerine **web-güvenli** (web-safe) yazı tipleri denmiştir [4, s. 231]. Bu dönemde yaygınlaşan hazır "font stack" listeleri de bu yazı tiplerinden oluşur.
 
 Günümüzde bu kavram iki nedenle önemini kısmen yitirmiştir. Birincisi, `@font-face` ile istenen yazı tipi sunucudan indirilebilmektedir (bkz. 5.2.4). İkincisi, mobil cihazlar (Android, iOS) masaüstü yazı tiplerinin çoğunu içermez; örneğin bir Android telefonda Verdana bulunmaz. Bu nedenle yığının sonundaki jenerik aile hâlâ vazgeçilmezdir. Yalnızca sistem yazı tiplerini kullanmak isteyen sayfalarda `system-ui` ile başlayan bir "sistem yığını" yaygın bir tercihtir: Hiçbir dosya indirilmeden her platformda doğal görünen bir metin elde edilir.
 
@@ -97,7 +94,7 @@ h1 { font-family: "Lora", Georgia, serif; }
 
 *Kod 5.2. Google Fonts'tan iki yazı tipinin yüklenmesi ve kullanılması.*
 
-Adresteki `css2` servisin güncel CSS API'sidir. `family=Inter:wght@400;700` Inter ailesinin yalnızca 400 ve 700 ağırlıklarını ister; birden çok aile için `family` parametresi tekrarlanır, değişken yazı tiplerinde `wght@100..900` biçiminde aralık da istenebilir. `display=swap`, yazı tipi dosyası inene kadar metnin yedek yazı tipiyle hemen gösterilmesini sağlar ve yavaş bağlantılarda metnin bir süre hiç görünmemesini (FOIT, *flash of invisible text*) önler [5]. `preconnect` ise tarayıcıya iki sunucuyla bağlantı kurmaya erkenden başlamasını söyleyen bir performans ipucudur; yazı tipi dosyaları başka bir kökenden CORS kipinde indirildiği için ikinci satırda `crossorigin` gerekir. Sunumdaki `family=Marko+One&display=swap` örneği bu yapının tek aileli hâlidir; addaki boşluk `+` ile yazılır. İşleyiş Şekil 5.3'te gösterilmiştir.
+Adresteki `css2` servisin güncel CSS API'sidir. `family=Inter:wght@400;700` Inter ailesinin yalnızca 400 ve 700 ağırlıklarını ister; birden çok aile için `family` parametresi tekrarlanır, değişken yazı tiplerinde `wght@100..900` biçiminde aralık da istenebilir. `display=swap`, yazı tipi dosyası inene kadar metnin yedek yazı tipiyle hemen gösterilmesini sağlar ve yavaş bağlantılarda metnin bir süre hiç görünmemesini (FOIT, *flash of invisible text*) önler [5]. `preconnect` ise tarayıcıya iki sunucuyla bağlantı kurmaya erkenden başlamasını söyleyen bir performans ipucudur; yazı tipi dosyaları başka bir kökenden CORS kipinde indirildiği için ikinci satırda `crossorigin` gerekir. Tek aile isteyen bir adreste (ör. `family=Marko+One&display=swap`) aile adındaki boşluk `+` ile yazılır. İşleyiş Şekil 5.3'te gösterilmiştir.
 
 ```mermaid
 sequenceDiagram
@@ -216,7 +213,7 @@ CSS'teki `px`, ekrandaki fiziksel bir nokta değil, **referans pikseldir** (refe
 
 ### 5.3.2 Göreli birimler: `em`, `%` ve `rem`
 
-`font-size` içinde kullanılan `em` ve `%` birimleri **ebeveyn öğenin yazı boyutuna** göre hesaplanır. Tarayıcıların varsayılan yazı boyutu çoğunlukla 16px olduğundan `body` içinde `1.5em` = `150%` = 24px olur; sunumdaki "Varsayılan 20px ise %50 → 10px" örneği de aynı kuralın uygulamasıdır.
+`font-size` içinde kullanılan `em` ve `%` birimleri **ebeveyn öğenin yazı boyutuna** göre hesaplanır. Tarayıcıların varsayılan yazı boyutu çoğunlukla 16px olduğundan `body` içinde `1.5em` = `150%` = 24px olur; ebeveynin yazı boyutu 20px ise `50%` değeri 10px'e karşılık gelir.
 
 `em` biriminin önemli yan etkisi, iç içe öğelerde **bileşik büyüme** (compounding) göstermesidir: `li { font-size: 1.2em; }` kuralı iç içe listelerde 19,2px → 23,04px → 27,65px şeklinde büyüyen yazılar üretir (Şekil 5.5). Eski kaynaklarda bu sorun her düzey için "hedef ÷ bağlam" hesabıyla çözülür [4, ss. 235–236]; CSS3 ile gelen `rem` (root em) birimi ise her zaman **kök öğenin** (`html`) yazı boyutuna göre hesaplandığından bu hesabı gereksiz kılar [6, s. HTML 122].
 
@@ -250,13 +247,13 @@ Görüntü alanına bağlı `vw` birimi ekranla büyüyen başlıklar için kull
 
 ### 5.3.3 Erişilebilirlik: kullanıcının yazı boyutu ayarı
 
-Sunumda `px` için "tarayıcı ayarlarından etkilenmez" denmektedir; bu ifade bir ayrım gerektirir. **Sayfa yakınlaştırma** (Ctrl + +) `px` dahil her şeyi orantılı büyütür. **Varsayılan yazı boyutu ayarı** (Chrome'da *Ayarlar → Görünüm → Yazı tipi boyutu*) ise yalnızca kök yazı boyutunu değiştirir; `rem`, `em` ve `%` ile verilen boyutlar bu ayara uyar, **`px` ile verilen yazı boyutları uymaz.** Görme güçlüğü yaşayan pek çok kullanıcı tüm sitelerde kalıcı olan bu ikinci yolu kullanır. WCAG 2.2'nin 1.4.4 *Metni Yeniden Boyutlandırma* ölçütü metnin içerik kaybı olmadan %200'e kadar büyütülebilmesini ister [10]. Bu nedenle kök boyut `html { font-size: 100%; }` bırakılmalı, `16px` veya `62.5%` gibi değerlerle sabitlenmemelidir.
+`px` ile verilen yazı boyutlarının tarayıcı ayarlarına nasıl tepki verdiği, ayarın türüne bağlıdır. **Sayfa yakınlaştırma** (Ctrl + +) `px` dahil her şeyi orantılı büyütür. **Varsayılan yazı boyutu ayarı** (Chrome'da *Ayarlar → Görünüm → Yazı tipi boyutu*) ise yalnızca kök yazı boyutunu değiştirir; `rem`, `em` ve `%` ile verilen boyutlar bu ayara uyar, **`px` ile verilen yazı boyutları uymaz.** Görme güçlüğü yaşayan pek çok kullanıcı tüm sitelerde kalıcı olan bu ikinci yolu kullanır. WCAG 2.2'nin 1.4.4 *Metni Yeniden Boyutlandırma* ölçütü metnin içerik kaybı olmadan %200'e kadar büyütülebilmesini ister [10]. Bu nedenle kök boyut `html { font-size: 100%; }` bırakılmalı, `16px` veya `62.5%` gibi değerlerle sabitlenmemelidir.
 
 ### 5.3.4 Anahtar sözcükler
 
 `font-size` sayısal değer yerine anahtar sözcük de alabilir:
 
-- **Mutlak boyut anahtar sözcükleri:** `xx-small`, `x-small`, `small`, `medium`, `large`, `x-large`, `xx-large`, `xxx-large`. Varsayılan değer `medium`'dur ve kullanıcının tarayıcı ayarına karşılık gelir (çoğunlukla 16px). Sunumdaki `xxlarge` yazımı hatalıdır; doğrusu kısa çizgili `xx-large` biçimindedir.
+- **Mutlak boyut anahtar sözcükleri:** `xx-small`, `x-small`, `small`, `medium`, `large`, `x-large`, `xx-large`, `xxx-large`. Varsayılan değer `medium`'dur ve kullanıcının tarayıcı ayarına karşılık gelir (çoğunlukla 16px). Bileşik sözcükler kısa çizgiyle yazılır: `xx-large` geçerli, `xxlarge` geçersizdir.
 - **Göreli anahtar sözcükler:** `smaller` ve `larger`, ebeveyne göre bir adım küçük veya büyük boyut verir.
 - **Genel anahtar sözcükler:** `inherit` (ebeveynin değerini al), `initial` (özelliğin başlangıç değerine dön), `unset` (kalıtılan özelliklerde `inherit`, diğerlerinde `initial` gibi davran). Bu sözcükler yalnızca `font-size`'a özgü değildir; her CSS özelliğinde kullanılabilir ve ayrıntıları [Bölüm 4](04-css-temelleri.md)'te kalıtım konusunda anlatılmıştır.
 
@@ -295,7 +292,7 @@ Sunumda `px` için "tarayıcı ayarlarından etkilenmez" denmektedir; bu ifade b
 
 `font-style` özelliği `normal`, `italic` veya `oblique` değerlerini alır [3, s. 280]. `italic`, tasarımcının ayrıca çizdiği el yazısı karakterli eğik harfleri; `oblique` ise normal harflerin geometrik olarak eğilmiş hâlini ifade eder. Yazı tipinin italik dosyası yoksa tarayıcı her iki değerde de yapay eğim uygular.
 
-Bu noktada HTML ile CSS arasındaki görev ayrımı hatırlanmalıdır: `<em>` vurgu, `<strong>` güçlü önem bildiren **anlamsal** öğelerdir; tarayıcılar bunları varsayılan olarak italik ve kalın gösterir. Yalnızca görünüm için eğik veya kalın yazı gerekiyorsa anlamsal öğe yerine CSS (`font-style`, `font-weight`) kullanılmalıdır. Sunumdaki `strong { font-style: italic; }` örneği teknik olarak geçerlidir: Bu kural `<strong>` öğesinin varsayılan kalınlığını korur ve ona ayrıca eğiklik ekler.
+Bu noktada HTML ile CSS arasındaki görev ayrımı hatırlanmalıdır: `<em>` vurgu, `<strong>` güçlü önem bildiren **anlamsal** öğelerdir; tarayıcılar bunları varsayılan olarak italik ve kalın gösterir. Yalnızca görünüm için eğik veya kalın yazı gerekiyorsa anlamsal öğe yerine CSS (`font-style`, `font-weight`) kullanılmalıdır. Örneğin `strong { font-style: italic; }` kuralı `<strong>` öğesinin varsayılan kalınlığını korur ve ona ayrıca eğiklik ekler.
 
 ### 5.4.3 `font-variant`
 
@@ -340,7 +337,7 @@ Yazı tipinin kendisinden bağımsız olarak, satırların ve harflerin yerleşi
 
 `line-height` özelliği satır yüksekliğini, dolayısıyla ardışık satırlar arasındaki aralığı belirler; matbaacılıkta bu aralığa *leading* denir [3, s. 283]. Uzun gövde metinlerinde 1,4–1,7 arası bir değer okunabilirliği artırır. WCAG 2.2'nin 1.4.12 *Metin Aralığı* ölçütü de kullanıcının satır yüksekliğini yazı boyutunun en az 1,5 katına çıkardığı durumda içeriğin bozulmamasını ister [10].
 
-Sunumda satır aralığı için üç yazım eş değer gibi verilmiştir: `line-height: 2;`, `line-height: 2em;` ve `line-height: 200%;`. Bu üç değer **tek bir öğe için** aynı sonucu verir; fark, değerin çocuk öğelere nasıl kalıtıldığında ortaya çıkar [13]:
+Satır aralığı üç biçimde yazılabilir: `line-height: 2;`, `line-height: 2em;` ve `line-height: 200%;`. Bu üç değer **tek bir öğe için** aynı sonucu verir; ancak çocuk öğelere farklı biçimde kalıtılır [13]:
 
 - **Birimsiz sayı (`2`):** Çocuk öğeye bir **çarpan** olarak geçer; her öğe bu çarpanı kendi yazı boyutuyla çarpar.
 - **`2em` veya `200%`:** Ebeveynde bir **piksel değerine** dönüştürülür ve çocuk öğeye bu sabit piksel değeri kalıtılır.
@@ -373,7 +370,7 @@ h2 {
 
 `text-indent` bir bloğun **yalnızca ilk satırını** içeri (pozitif değer) veya dışarı (negatif değer) kaydırır: `p { text-indent: 2em; }` [6, s. HTML 125]. Web'de paragraflar genellikle girinti yerine aralarındaki boşlukla ayrılır; girinti daha çok kitap benzeri uzun metinlerde kullanılır.
 
-`text-align` satırları yatayda hizalar: `left`, `right`, `center`, `justify` (iki yana yaslı; son satır hariç) ve yazı yönüne göre çalışan **mantıksal** `start` / `end` değerleri [6, s. HTML 128], [11]. Sunumdaki "5 seçenek" listesinde yer alan `inherit` bir hizalama türü değil, her özellikte kullanılabilen genel bir anahtar sözcüktür. Soldan sağa yazılan Türkçede `start` sola, Arapçada sağa karşılık geldiği için çok dilli sitelerde `start` / `end` önerilir. `text-align` yalnızca öğenin **içindeki** satır içi içeriği hizalar; kutunun kendisini ortalamak [Bölüm 6](06-css-kutu-modeli-yerlesim.md)'nın konusudur.
+`text-align` satırları yatayda hizalar: `left`, `right`, `center`, `justify` (iki yana yaslı; son satır hariç) ve yazı yönüne göre çalışan **mantıksal** `start` / `end` değerleri [6, s. HTML 128], [11]. Soldan sağa yazılan Türkçede `start` sola, Arapçada sağa karşılık geldiği için çok dilli sitelerde `start` / `end` önerilir. `text-align` yalnızca öğenin **içindeki** satır içi içeriği hizalar; kutunun kendisini ortalamak [Bölüm 6](06-css-kutu-modeli-yerlesim.md)'nın konusudur.
 
 > [!IMPORTANT]
 > `justify` dar sütunlarda kelimeler arasında göze batan boşluklar oluşturabilir; uzun sözcükleri olan Türkçede bu etki belirgindir. `<html lang="tr">` ile birlikte `hyphens: auto;` tarayıcının heceleme yapmasını sağlayabilir, ancak sonuç denetlenmelidir.
@@ -395,13 +392,13 @@ a {
 
 *Kod 5.6. `text-decoration` kullanım örnekleri.*
 
-Sunumda `linethrough` olarak geçen değerin doğru yazımı `line-through`'dur. En sık rastlanan bildirim, bağlantıların alt çizgisini kaldıran `a { text-decoration: none; }` kuralıdır.
+`line-through` değeri bitişik değil tire ile yazılır; `linethrough` geçersizdir. En yaygın kullanım, bağlantıların alt çizgisini kaldıran `a { text-decoration: none; }` kuralıdır.
 
 > [!WARNING]
 > Alt çizgisi kaldırılan bağlantı çevresindeki metinden yalnızca renkle ayrılır; bu, renk körlüğü olan kullanıcılar için yetersizdir. WCAG 2.2'nin 1.4.1 *Rengin Kullanımı* ölçütü bilginin yalnızca renkle aktarılmamasını ister [10]. Gövde metnindeki bağlantılarda alt çizgi korunmalı, menü gibi yerlerde kaldırılırsa `:hover` ve `:focus-visible` durumlarında görsel bir değişiklik sağlanmalıdır.
 
 > [!NOTE]
-> **Tarihsel not:** Sunumdaki `blink` değeri metni yanıp söndürmek için tanımlanmıştı. Kullanıcıyı rahatsız ettiği ve ışığa duyarlı kişilerde sağlık riski oluşturabildiği için tarayıcılar bu değeri uygulamaz; standart da yanıp sönme efekti gösterilmemesine izin verir [12]. HTML'deki `<blink>` öğesi de tamamen kaldırılmıştır.
+> **Tarihsel not:** `text-decoration` özelliğinin `blink` değeri eskiden metni yanıp söndürmek için tanımlanmıştı. Kullanıcıyı rahatsız ettiği ve ışığa duyarlı kişilerde sağlık riski oluşturabildiği için tarayıcılar bu değeri uygulamaz; standart da yanıp sönme efekti gösterilmemesine izin verir [12]. HTML'deki `<blink>` öğesi de tamamen kaldırılmıştır.
 
 ### 5.5.4 `text-transform` ve Türkçe büyük harf dönüşümü
 
@@ -447,13 +444,13 @@ h1 {
 }
 ```
 
-Pozitif yatay değer gölgeyi sağa, pozitif dikey değer aşağıya kaydırır; bulanıklık yazılmazsa gölge keskin olur. Virgülle ayrılan **birden çok gölge** tek öğeye uygulanabilir; ilk yazılan gölge en üstte çizilir. Sunumdaki örnekler (çoklu gölge, dış parıltı, kabartma ve gömme görünümü) bu çoklu gölge tekniğine dayanır [4, ss. 254–256]:
+Pozitif yatay değer gölgeyi sağa, pozitif dikey değer aşağıya kaydırır; bulanıklık yazılmazsa gölge keskin olur. Virgülle ayrılan **birden çok gölge** tek öğeye uygulanabilir; ilk yazılan gölge en üstte çizilir. Dış parıltı, kabartma ve gömme görünümü gibi efektler bu çoklu gölge tekniğine dayanır [4, ss. 254–256]:
 
 - **Dış parıltı (glow):** Kayması sıfır, bulanıklığı büyük tek gölge: `0 0 0.4em #8250df`.
 - **Kabartma (raised):** Sol-üste açık renk, sağ-alta koyu renk gölge; ışığın sol üstten geldiği izlenimi verir.
 - **Gömme (embossed):** Kabartmanın tersi; sol-üste koyu, sağ-alta açık renk gölge.
 
-Sunumda `text-shadow`'un "CSS3 ile ortaya çıktığı" belirtilmektedir. Daha kesin ifadeyle bu özellik ilk olarak 1998'de CSS2'de tanımlanmış, tarayıcı desteği yetersiz kaldığı için CSS 2.1'den çıkarılmış ve CSS3 döneminde *CSS Text Decoration* modülüyle yeniden standartlaşarak yaygın destek kazanmıştır.
+`text-shadow` özelliği ilk olarak 1998'de CSS2'de tanımlanmış, tarayıcı desteği yetersiz kaldığı için CSS 2.1'den çıkarılmış ve CSS3 döneminde *CSS Text Decoration* modülüyle yeniden standartlaşarak yaygın destek kazanmıştır.
 
 > [!WARNING]
 > Gölge, metnin okunabilirliğini artırmak (ör. fotoğraf üzerindeki beyaz yazının arkasına koyu, yumuşak bir gölge) için kullanıldığında yararlıdır. Gövde metnine uygulanan belirgin gölgeler ise harfleri bulanıklaştırır ve okumayı zorlaştırır.
@@ -530,7 +527,7 @@ Onaltılık gösterimde renk `#` işaretinden sonra üç çift onaltılık basam
 
 *Şekil 5.11. `#1F6FEB` kodunun anatomisi.*
 
-Her çiftin iki basamağı aynıysa kısa yazım kullanılabilir: `#666666` → `#666`, `#ffcc00` → `#fc0`. Sunumdaki `color: #666;` örneği bu kısaltmadır ve `gray` ile aynı değildir: `gray` = `#808080` iken `#666` daha koyu bir gridir. CSS Color Level 4 ile dördüncü bir çift eklenerek alfa (opaklık) bileşeni de yazılabilir: `#RRGGBBAA` veya kısa `#RGBA` [14]. Onaltılık gösterimde büyük/küçük harf farkı yoktur.
+Her çiftin iki basamağı aynıysa kısa yazım kullanılabilir: `#666666` → `#666`, `#ffcc00` → `#fc0`. Örneğin `color: #666;` bildirimindeki `#666` (`#666666`), `gray` adlı renkten (`#808080`) daha koyu bir gridir. CSS Color Level 4 ile dördüncü bir çift eklenerek alfa (opaklık) bileşeni de yazılabilir: `#RRGGBBAA` veya kısa `#RGBA` [14]. Onaltılık gösterimde büyük/küçük harf farkı yoktur.
 
 > [!NOTE]
 > **Tarihsel not:** 1990'larda pek çok ekran yalnızca 256 renk gösterebildiğinden tasarımcılar her bileşeni yalnızca `00`, `33`, `66`, `99`, `CC` ve `FF` değerlerinden biri olan 216 renklik **web-güvenli palete** (web-safe palette) bağlı kalırdı [15, s. 139]. Günümüz ekranları milyonlarca renk gösterdiğinden bu kısıt geçerliliğini yitirmiştir.
@@ -569,7 +566,7 @@ HSL'nin bir zayıflığı, "açıklık" değerinin insan gözünün algısıyla 
 
 ### 5.6.6 `opacity` ile yarı saydam renk arasındaki fark
 
-`opacity` özelliği bir öğeyi **içeriğiyle birlikte** saydamlaştırır; değer 0 (görünmez) ile 1 (tam opak) arasındadır [14], [3, s. 254]. Sunumdaki örnekte (`opacity: .25`, `.5`, `1`) yeşil başlığın hem arka planı hem de metni birlikte soluklaşmaktadır. Bu davranış çoğu zaman istenen sonuç değildir: Yalnızca arka planın saydam olması, metnin ise tam okunaklı kalması gerekir. Bu durumda `opacity` yerine **alfalı bir arka plan rengi** kullanılmalıdır.
+`opacity` özelliği bir öğeyi **içeriğiyle birlikte** saydamlaştırır; değer 0 (görünmez) ile 1 (tam opak) arasındadır [14], [3, s. 254]. Örneğin yeşil arka planlı bir başlığa sırasıyla `opacity: .25`, `.5` ve `1` verildiğinde başlığın hem arka planı hem de metni birlikte soluklaşır. Bu davranış çoğu zaman istenen sonuç değildir: Yalnızca arka planın saydam olması, metnin ise tam okunaklı kalması gerekir. Bu durumda `opacity` yerine **alfalı bir arka plan rengi** kullanılmalıdır.
 
 ```css
 /* Kutu, metin ve içindeki her şey %50 saydam */
@@ -596,7 +593,7 @@ HSL'nin bir zayıflığı, "açıklık" değerinin insan gözünün algısıyla 
 
 Metin ile arka plan arasında yeterli **kontrast** bulunmaması okunabilirliği en sık bozan tasarım hatasıdır [3, s. 253]. WCAG 2.2'nin 1.4.3 *Kontrast (Asgari)* ölçütü (AA düzeyi) kontrast oranının normal metinde **en az 4,5:1**, büyük metinde (en az 18 punto ≈ 24px veya kalın 14 punto ≈ 18,66px) **en az 3:1** olmasını ister; AAA düzeyindeki 1.4.6 ölçütü bu sınırları 7:1 ve 4,5:1'e yükseltir. Oran, iki rengin göreli parlaklıklarından hesaplanır ve 1:1 ile 21:1 (siyah–beyaz) arasında değişir [10]. Örneğin beyaz zemin üzerinde `#767676` gri yaklaşık 4,5:1 ile sınırı ancak geçerken `#999999` yaklaşık 2,8:1 ile gövde metni için yetersizdir.
 
-Kontrast oranı tarayıcıda doğrudan ölçülebilir: Chrome'da öğe seçilip **Styles** panelindeki renk kutucuğuna tıklandığında açılan renk seçici, oranı ve AA/AAA eşiklerini gösterir. Sunumda renk kodu almak için önerilen harici "color picker" siteleri yerine bu yerleşik araç kullanılabilir [3, s. 251].
+Kontrast oranı tarayıcıda doğrudan ölçülebilir: Chrome'da öğe seçilip **Styles** panelindeki renk kutucuğuna tıklandığında açılan renk seçici, oranı ve AA/AAA eşiklerini gösterir. Aynı yerleşik araç, harici "color picker" sitelerine gerek kalmadan renk kodu almak için de kullanılabilir [3, s. 251].
 
 > [!WARNING]
 > Kontrast, arka plan görseli ve gradyan üzerindeki metinlerde de sağlanmalıdır. Görselin en açık bölgesi yeterli kontrast vermiyorsa metnin arkasına yarı saydam koyu bir katman (`rgb(0 0 0 / 0.5)`) veya yarı saydam açık bir kutu konmalıdır (bkz. Uygulama 5.6).
@@ -671,7 +668,7 @@ Her öğenin içerik, iç boşluk (padding) ve kenarlık alanının arkasında b
 
 ### 5.7.1 `background-color`
 
-`background-color`, öğenin arka planını tek bir renkle doldurur; başlangıç değeri `transparent`'tır. Bu bölümde anlatılan her renk gösterimi burada kullanılabilir: `background-color: #b4dbe6;`. `body` öğesine verilen arka plan rengi (ve görseli) tarayıcı tarafından tüm tuvale (canvas) yayılır; bu nedenle `body` içeriği kısa olsa bile pencerenin tamamı boyanır. Sunumdaki "Body kısmına eklenirse sayfanın tamamına … ekler" ifadesi bu davranışı anlatmaktadır.
+`background-color`, öğenin arka planını tek bir renkle doldurur; başlangıç değeri `transparent`'tır. Bu bölümde anlatılan her renk gösterimi burada kullanılabilir: `background-color: #b4dbe6;`. `body` öğesine verilen arka plan rengi (ve görseli) tarayıcı tarafından tüm tuvale (canvas) yayılır; bu nedenle `body` içeriği kısa olsa bile pencerenin tamamı boyanır.
 
 ### 5.7.2 `background-image` ve `url()` yolları
 
@@ -712,7 +709,7 @@ Varsayılan olarak arka plan görseli, öğeyi dolduruncaya kadar hem yatayda he
 | `space` | Görseli kesmeden tekrarlar, artan alanı aralara boşluk olarak dağıtır |
 | `round` | Görseli kesmeden tekrarlar, tam sayıda kopya sığacak şekilde ölçekler |
 
-Sunumda geçen `norepeat` yazımı hatalıdır; doğrusu `no-repeat` biçimindedir. `space` ve `round` değerleri sunumda yer almayan CSS3 eklemeleridir.
+`no-repeat` değeri bitişik değil tire ile yazılır; `norepeat` geçersizdir. `space` ve `round` değerleri CSS3 ile eklenmiştir.
 
 ### 5.7.4 `background-position`
 
@@ -726,7 +723,7 @@ Sunumda geçen `norepeat` yazımı hatalıdır; doğrusu `no-repeat` biçiminded
 }
 ```
 
-Yüzde değerleri özel bir anlam taşır: `50% 50%` görselin **kendi** orta noktasını kutunun orta noktasına hizalar; bu nedenle `center` ile eş değerdir. Sunumdaki `background-position: center 300px;` örneği görseli yatayda ortalar ve üst kenardan 300px aşağı yerleştirir.
+Yüzde değerleri özel bir anlam taşır: `50% 50%` görselin **kendi** orta noktasını kutunun orta noktasına hizalar; bu nedenle `center` ile eş değerdir. Örneğin `background-position: center 300px;` bildirimi görseli yatayda ortalar ve üst kenardan 300px aşağı yerleştirir.
 
 ### 5.7.5 `background-size`
 
@@ -758,7 +755,7 @@ Kapak fotoğraflı başlık bantlarında (hero) `cover`, logo veya illüstrasyon
 `background-attachment`, sayfa veya öğe kaydırıldığında arka planın nasıl davranacağını belirler:
 
 - **`scroll`** (varsayılan): Arka plan öğeye bağlıdır; sayfa kaydırıldığında öğeyle birlikte hareket eder.
-- **`fixed`:** Arka plan görüntü alanına (viewport) sabitlenir; içerik kaydırılırken görsel yerinde kalır. Uzun sayfalarda derinlik hissi veren *parallax* benzeri etkiler bu değerle elde edilir. Sunumdaki "en uygun biçimde sabitlenir" ifadesinin kesin karşılığı budur: Sabitleme, öğeye değil pencereye göre yapılır.
+- **`fixed`:** Arka plan görüntü alanına (viewport) sabitlenir; içerik kaydırılırken görsel yerinde kalır. Uzun sayfalarda derinlik hissi veren *parallax* benzeri etkiler bu değerle elde edilir. Sabitleme, öğeye değil pencereye göre yapılır.
 - **`local`:** Arka plan öğenin **içeriğine** bağlıdır; öğenin kendi kaydırma çubuğu varsa (ör. `overflow: auto` olan bir kutu) içerikle birlikte kayar.
 
 > [!NOTE]
@@ -782,7 +779,7 @@ Kısayolda değerlerin sırası büyük ölçüde serbesttir; tarayıcı her de�
 1. `background-size` değeri yalnızca `background-position` değerinden **hemen sonra** ve aralarına eğik çizgi (`/`) konularak yazılabilir. Hem konum hem boyut uzunluk alabildiği için, eğik çizgi olmadan `center 50%` gibi bir ifadenin hangi özelliğe ait olduğu belirsiz kalırdı.
 2. Kısayolda yazılmayan alt özellikler **başlangıç değerlerine sıfırlanır.**
 
-İkinci kural, sunumdaki şu örnekte önemli bir sonuç doğurur:
+İkinci kural, aşağıdaki örnekte önemli bir sonuç doğurur:
 
 ```css
 h1, h2, h3 { background: red url("dots.gif") repeat-x; }
@@ -844,7 +841,7 @@ Gradyan çoklu arka planla birleştirildiğinde, fotoğraf üzerindeki metnin ok
 *Şekil 5.17. Gradyan türleri ve çoklu arka plan (Örnek 5.6: [`codes/05-css-metin-renk-arka-plan/ornek-5-6-gradyanlar/`](../codes/05-css-metin-renk-arka-plan/ornek-5-6-gradyanlar/index.html)).*
 
 > [!NOTE]
-> **Tarihsel not:** Sunumda, çevrim içi gradyan editörlerinin ürettiği şu türden bir blok yer almaktadır:
+> **Tarihsel not:** Eski sayfalarda, çevrim içi gradyan editörlerinin ürettiği şu türden bloklar yer alır:
 >
 > ```css
 > background: #ffff00; /* Old browsers */
@@ -888,7 +885,7 @@ Bu uygulamadaki `background-color` + `background` ikilisi **aşamalı geliştirm
 
 ## 5.8 Harici CSS Dosyası Oluşturma ve Bağlama
 
-[Bölüm 4](04-css-temelleri.md)'te CSS'in satır içi, gömülü ve harici olarak uygulanabildiği ve çok sayfalı sitelerde harici dosyanın tercih edildiği açıklanmıştır; bu bölümdeki tüm örnekler harici `style.css` ile hazırlanmıştır. Sunumun son slaytındaki adımlar VS Code ile şöyle uygulanır:
+[Bölüm 4](04-css-temelleri.md)'te CSS'in satır içi, gömülü ve harici olarak uygulanabildiği ve çok sayfalı sitelerde harici dosyanın tercih edildiği açıklanmıştır; bu bölümdeki tüm örnekler harici `style.css` ile hazırlanmıştır. Harici bir CSS dosyası VS Code ile şu adımlarla oluşturulur ve sayfaya bağlanır:
 
 1. Proje klasörü açılır (*File → Open Folder*); Explorer panelinde **New File** ile `style.css` oluşturulur (gerekirse önce **New Folder** ile `css/` klasörü).
 2. Dosyaya yalnızca CSS kuralları yazılır; harici CSS dosyasında `<style>` etiketi **bulunmaz**.
@@ -951,11 +948,11 @@ Stiller uygulanmıyorsa `href` yolu (Linux sunucular dosya adlarında büyük/k�
 ## 5.10 Değerlendirme Soruları
 
 1. `font-family: "Segoe UI", Roboto, sans-serif;` bildiriminde tarayıcının yazı tipi seçme sürecini adım adım açıklayınız. `sans-serif` neden tırnak içinde yazılmamalıdır?
-2. Sunumdaki `font-family: Comic Sans, cursive;` kuralı Windows'ta hangi yazı tipiyle görüntülenir? Kuralın doğru yazımı nedir?
+2. Bir öğrenci, Windows'ta yüklü Comic Sans MS yazı tipini kullanmak için `font-family: Comic Sans, cursive;` bildirimini yazmıştır. Tarayıcı metni hangi yazı tipiyle görüntüler? Nedenini açıklayınız ve bildirimi istenen yazı tipini seçecek biçimde yeniden yazınız.
 3. Google Fonts bağlantısındaki `display=swap` parametresinin ve `<link rel="preconnect">` öğesinin işlevlerini açıklayınız.
 4. Bir kurumsal sitenin yazı tiplerini Google sunucularından yüklemek yerine `@font-face` ile kendi sunucusunda barındırmasının performans ve kişisel veri açısından gerekçelerini tartışınız.
 5. Kök yazı boyutu 16px olan bir sayfada `article { font-size: 0.875rem; }` ve `article p { font-size: 1.5em; }` kuralları uygulanmıştır. Paragrafın yazı boyutu kaç pikseldir? `1.5em` yerine `1.5rem` yazılsaydı sonuç ne olurdu?
-6. "`px` ile verilen yazı boyutları tarayıcı ayarlarından etkilenmez" ifadesini sayfa yakınlaştırma ve varsayılan yazı boyutu ayarı açısından değerlendiriniz. Bu fark erişilebilirliği nasıl etkiler?
+6. Sayfa yakınlaştırma (Ctrl + +) ve tarayıcının varsayılan yazı boyutu ayarı, `px` ve `rem` ile verilen yazı boyutlarını nasıl etkiler? Bu farkın erişilebilirlik açısından sonucu nedir?
 7. Aşağıdaki bildirimlerden hangileri geçersizdir? Nedenlerini belirtiniz: (a) `font: bold 1rem/1.5 Arial, sans-serif;` (b) `font: Arial 1rem;` (c) `font-size: 1.2 em;` (d) `font: italic 600 1.25rem Georgia, serif;`
 8. `body { font-size: 16px; line-height: 1.5em; }` kuralı olan bir sayfada `font-size: 2.5rem` olan bir `<h1>`'in satırları neden üst üste biner? Sorun nasıl giderilir?
 9. `lang="en"` tanımlı bir sayfada `text-transform: uppercase` uygulanan "bilişim" sözcüğü nasıl görüntülenir? Doğru sonucu elde etmek için ne yapılmalıdır?

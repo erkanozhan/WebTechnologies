@@ -52,10 +52,7 @@ Microsoft, Ağustos 1996'da çıkardığı Internet Explorer 3 ile birlikte Java
 
 ### 7.2.3 ECMAScript Standardı
 
-Netscape, Kasım 1996'da dilin tanımını Avrupa merkezli standart kuruluşu **Ecma**'ya sundu [2]. Kuruluş bünyesinde oluşturulan 39 numaralı teknik komite (TC39), Netscape, Sun, Microsoft ve başka firmaların temsilcileriyle çalışarak **ECMA-262** standardını hazırladı; standartta tanımlanan dile **ECMAScript** adı verildi [3, s. 2]. JavaScript, bu standardın en yaygın uygulamasıdır; tarayıcı üreticileri ECMAScript'i uygulayarak birbiriyle uyumlu JavaScript motorları geliştirir.
-
-> [!NOTE]
-> **Tarihsel not:** ECMA adı başlangıçta *European Computer Manufacturers Association* (Avrupa Bilgisayar Üreticileri Derneği) sözcüklerinin kısaltmasıydı. Kuruluş, küresel bir yapıya dönüşmesini yansıtmak için 1994'te adını **Ecma International** olarak değiştirdi; bugün "Ecma" bir kısaltma olarak açılmaz.
+Netscape, Kasım 1996'da dilin tanımını Cenevre merkezli standart kuruluşu **Ecma International**'a sundu [2]. Kuruluşun adı 1961'deki kuruluşunda *European Computer Manufacturers Association* (Avrupa Bilgisayar Üreticileri Derneği) sözcüklerinin kısaltmasıydı; 1994'te küresel bir yapıya dönüşmesini yansıtmak için adını Ecma International olarak değiştirdi ve bugün "Ecma" bir kısaltma olarak açılmaz. Kuruluş bünyesinde oluşturulan 39 numaralı teknik komite (TC39), Netscape, Sun, Microsoft ve başka firmaların temsilcileriyle çalışarak **ECMA-262** standardını hazırladı; standartta tanımlanan dile **ECMAScript** adı verildi [3, s. 2]. JavaScript, bu standardın en yaygın uygulamasıdır; tarayıcı üreticileri ECMAScript'i uygulayarak birbiriyle uyumlu JavaScript motorları geliştirir.
 
 Standardın sürümleri "baskı" (edition) olarak adlandırılır. 1999'da yayımlanan üçüncü baskı (ES3), bugün kullanılan temel sözdiziminin büyük bölümünü yerleştirdi. Dördüncü baskı, dili kökten değiştirmeye çalışan büyük kapsamı nedeniyle uzlaşma sağlanamayınca 2008'de terk edildi. 2009'daki ES5, katı mod (strict mode) ve yerleşik JSON desteği getirdi [3, s. 4]. 2015'te yayımlanan altıncı baskı (**ES2015**, yaygın adıyla **ES6**) modern JavaScript'in dönüm noktasıdır: `let`, `const`, ok fonksiyonları, şablon dizgeleri, sınıflar ve modüller bu baskıyla dile girdi [2]. ES2015'ten itibaren standart her yıl Haziran ayında yenilenmekte ve baskılar yıl adıyla anılmaktadır. Bu not yazıldığı sırada (Kasım 2026) en güncel baskı, Haziran 2026'da kabul edilen **ECMAScript 2026** (ECMA-262, 17. baskı) idi; bir önceki ECMAScript 2025 ise 16. baskıdır [5].
 
@@ -101,13 +98,13 @@ timeline
 - **Derleyici (compiler):** Kaynak kodun tamamını, program çalıştırılmadan önce makine koduna çevirir. C ve C++ bu modeli kullanır; programcı derleme adımını açıkça başlatır ve kullanıcıya derlenmiş program dağıtılır.
 - **Yorumlayıcı (interpreter):** Kodu çalışma zamanında çevirerek yürütür; ayrı bir derleme adımı yoktur.
 
-"Betik dili" (scripting language) terimi başlangıçta Java veya C++ gibi dillerin gelişmiş özelliklerini içermeyen, görece basit diller için kullanılıyordu. Web bağlamında ise bir web sayfasını programla denetleyebilen ya da tarayıcıya bir yanıt döndürebilen her dil için kullanılır; bugünün web betik dilleri ise hiç de basit değildir [4, s. 19]. Tarayıcının betik kodunu çalıştıran bölümüne **betik motoru** (scripting engine) denir; betik motoru bir tür yorumlayıcıdır [4, ss. 19–20].
+"Betik dili" (scripting language) terimi başlangıçta Java veya C++ gibi dillerin gelişmiş özelliklerini içermeyen, görece basit diller için kullanılıyordu. Web bağlamında ise bir web sayfasını programla denetleyebilen ya da tarayıcıya bir yanıt döndürebilen her dil için kullanılır; bugünün web betik dilleri ise hiç de basit değildir [4, s. 19]. Tarayıcının betik kodunu çalıştıran bölümüne **betik motoru** (scripting engine) denir [4, ss. 19–20]. Günümüz betik motorları ne saf bir derleyici ne de saf bir yorumlayıcıdır; aşağıda anlatıldığı gibi yorumlama ile çalışma zamanında derlemeyi birlikte kullanır.
 
 ### 7.3.2 Günümüz Motorları: Ayrıştırma, Bayt Kodu ve JIT
 
-JavaScript'in "kodu satır satır çeviren bir yorumlayıcıyla çalıştığı" anlatımı, dilin ilk yıllarındaki motorlar için kabaca doğru olsa da günümüz motorlarını tam olarak yansıtmaz. Bugünkü başlıca motorlar Chrome, Edge ve Opera'daki **V8**, Firefox'taki **SpiderMonkey** ve Safari'deki **JavaScriptCore**'dur. Bu motorlar betiği aşağıdaki aşamalardan geçirir (Şekil 7.3):
+Bugünkü başlıca JavaScript motorları Chrome, Edge ve Opera'daki **V8**, Firefox'taki **SpiderMonkey** ve Safari'deki **JavaScriptCore**'dur. Bu motorlar betiği aşağıdaki aşamalardan geçirir (Şekil 7.3):
 
-1. **Ayrıştırma (parsing):** Betiğin tamamı okunur ve sözdizimi denetlenir; kod, soyut sözdizimi ağacı (abstract syntax tree, AST) adı verilen bir veri yapısına dönüştürülür. Betiğin herhangi bir yerinde tek bir sözdizimi hatası bulunursa betiğin **hiçbir satırı çalışmaz**. Bu davranış, "satır satır yorumlama" anlatımının neden eksik olduğunu gösterir.
+1. **Ayrıştırma (parsing):** Betiğin tamamı okunur ve sözdizimi denetlenir; kod, soyut sözdizimi ağacı (abstract syntax tree, AST) adı verilen bir veri yapısına dönüştürülür. Betik, çalıştırılmadan önce bir bütün olarak ayrıştırıldığı için herhangi bir yerinde tek bir sözdizimi hatası bulunursa betiğin **hiçbir satırı çalışmaz**; hata en sondaki satırda olsa bile ilk satır da yürütülmez.
 2. **Bayt kodu (bytecode) üretimi ve yorumlama:** AST, makineden bağımsız ve daha sade bir ara koda çevrilir ve yorumlayıcı tarafından çalıştırılmaya başlanır. V8'de bu işi **Ignition** adlı yorumlayıcı yapar [6].
 3. **Anında derleme (Just-In-Time, JIT):** Çok sık çalışan ("sıcak") kod parçaları, çalışma sırasında toplanan tür bilgisi kullanılarak optimize eden bir derleyiciyle doğrudan makine koduna çevrilir. V8'de bu derleyici **TurboFan**'dır [6]. Varsayımlar bozulursa (ör. hep sayı alan bir fonksiyona bir gün metin gönderilirse) motor optimize edilmiş kodu bırakıp bayt koduna geri döner (deoptimizasyon).
 
@@ -1422,7 +1419,7 @@ Açıklama: Üçüncü turda `155 + "90"` işlemi, `+` işlecinin taraflardan bi
 
 ## 7.15 Bölüm Özeti
 
-- JavaScript, web sayfasının **davranış** katmanıdır; HTML içeriği, CSS sunumu belirler. Java ile adı dışında ilişkisi yoktur; buyurgan, nesne yönelimli ve fonksiyonel tarzları destekleyen çok paradigmalı bir dildir.
+- JavaScript, web sayfasının **davranış** katmanıdır; HTML içeriği, CSS sunumu belirler. Java ile ad ve yüzeysel sözdizimi benzerliği dışında ilişkisi yoktur; buyurgan, nesne yönelimli ve fonksiyonel tarzları destekleyen çok paradigmalı bir dildir.
 - Dil 1995'te Brendan Eich tarafından Netscape'te Mocha → LiveScript → JavaScript adlarıyla geliştirildi; Microsoft'un JScript'iyle başlayan uyumsuzluklar, Ecma'nın **ECMA-262 (ECMAScript)** standardıyla çözüldü. ES2015 modern JavaScript'in dönüm noktasıdır; standart 2015'ten bu yana her yıl yenilenmektedir (güncel: ECMAScript 2026, 17. baskı).
 - V8, SpiderMonkey ve JavaScriptCore gibi motorlar betiği **ayrıştırır**, **bayt koduna** çevirip yorumlar ve sık çalışan kodu **JIT** ile makine koduna derler. Geliştirici ayrı bir derleme adımı yürütmez; tek bir sözdizimi hatası betiğin hiçbir satırının çalışmamasına yol açar.
 - Web, **iki katmanlı** istemci–sunucu sistemine dayanır; veritabanı eklendiğinde **üç katmanlı** (istemci, işlem, veri) mimari ortaya çıkar. JavaScript istemci taraflıdır; veritabanı ve güvenlik kararları sunucu taraflı dillerle (PHP, Python, Node.js, C#, Java, Ruby …) sunucuda verilir. İstemci denetimi sunucu denetiminin yerini tutmaz.
@@ -1437,9 +1434,9 @@ Açıklama: Üçüncü turda `155 + "90"` işlemi, `+` işlecinin taraflardan bi
 ## 7.16 Değerlendirme Soruları
 
 1. Bir web sayfasının üç katmanını, bir kargo takip sayfasından örnek vererek açıklayınız. Her katmanın ayrı dosyada tutulmasının yararları nelerdir?
-2. "JavaScript, Java'nın tarayıcıda çalışan basit bir sürümüdür" ifadesindeki yanlışları tarihsel ve teknik açıdan düzeltiniz.
+2. Java ile JavaScript'i çalışma biçimi (derleme, çalıştığı ortam) ve tarihsel kökenleri açısından karşılaştırınız. "JavaScript" adının seçilmesinin nedeni nedir?
 3. ECMAScript ile JavaScript arasındaki ilişkiyi açıklayınız. ES2015 neden bir dönüm noktası olarak kabul edilir?
-4. "JavaScript, kodu satır satır çeviren bir yorumlayıcıyla çalışır" ifadesi günümüz motorları için neden eksiktir? Betiğin sonundaki bir sözdizimi hatası, betiğin ilk satırını nasıl etkiler?
+4. Günümüz JavaScript motorlarının bir betiği çalıştırırken geçtiği aşamaları (ayrıştırma, bayt kodu, JIT derleme) açıklayınız. Betiğin sonundaki bir sözdizimi hatası, betiğin ilk satırını nasıl etkiler? Neden?
 5. Üç katmanlı mimarinin katmanlarını bir üniversite öğrenci bilgi sistemi üzerinden açıklayınız. Hangi denetimler istemcide, hangileri mutlaka sunucuda yapılmalıdır? Neden?
 6. Aynı köken politikası nedir? `https://obs.ornek.edu.tr` ile `http://obs.ornek.edu.tr` aynı kökenden midir?
 7. `<head>` içinde `defer` niteliği olmadan bağlanan bir betikte `document.querySelector("#tablo").textContent = "…"` satırı hangi hatayı verir? Sorunu iki farklı yolla çözünüz.

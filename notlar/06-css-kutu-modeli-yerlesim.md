@@ -49,7 +49,7 @@ CSS kutu modeli (box model), her kutuyu içten dışa doğru dört katmandan olu
 
 *Şekil 6.2. CSS kutu modeli: içten dışa içerik, dolgu, kenarlık ve kenar boşluğu.*
 
-Sunumdaki kutu şemasında kenar boşluğu alanı "sayfa kenarına göre boşluklar" olarak etiketlenmiştir. Bu ifade yanıltıcıdır: kenar boşluğu sayfa kenarına göre değil, **kutunun kendi kenarlığına göre** ölçülür ve kutu ile komşuları (kardeş öğeler veya kapsayıcı öğenin içeriği) arasındaki mesafeyi belirler. Bir paragrafın `margin-left: 2em` değeri, paragrafı sayfanın solundan değil, onu içeren öğenin içerik alanının solundan 2em uzaklaştırır.
+Kenar boşluğu, **kutunun kendi kenarlığından dışarıya doğru** ölçülür ve kutu ile komşuları (kardeş öğeler veya kapsayıcı öğenin içeriği) arasındaki mesafeyi belirler. Örneğin bir paragrafın `margin-left: 2em` değeri, paragrafı onu içeren öğenin içerik alanının solundan 2em uzaklaştırır.
 
 ### 6.2.2 Genişlik, Yükseklik ve `box-sizing`
 
@@ -106,10 +106,10 @@ Aynı kural yükseklik için `height`, üst/alt dolgu, üst/alt kenarlık ve üs
 `*` evrensel seçicisi tüm öğeleri, `::before` ve `::after` sözde öğeleri (pseudo-elements) ise CSS ile üretilen içerik kutularını kapsar. Bu bölümdeki uygulamaların çoğu bu kuralla başlamaktadır.
 
 > [!IMPORTANT]
-> `box-sizing` yalnızca dolgu ve kenarlığın `width` değerine dahil edilip edilmeyeceğini belirler. **Kenar boşluğu (margin) hiçbir modelde `width` değerine dahil değildir.** Sunumdaki örnekte `width: 500;` biçiminde birimsiz yazılan değer de geçersizdir; sıfır dışındaki uzunluklarda birim (`px`, `em`, `rem`, `%` …) zorunludur, aksi hâlde tarayıcı bildirimi yok sayar.
+> `box-sizing` yalnızca dolgu ve kenarlığın `width` değerine dahil edilip edilmeyeceğini belirler. **Kenar boşluğu (margin) hiçbir modelde `width` değerine dahil değildir.** `width: 500;` biçiminde birimsiz yazılan bir değer ise geçersizdir; sıfır dışındaki uzunluklarda birim (`px`, `em`, `rem`, `%` …) zorunludur, aksi hâlde tarayıcı bildirimi yok sayar.
 
 > [!NOTE]
-> **Tarihsel not:** Sunumda `box-sizing` için `-webkit-box-sizing` ve `-moz-box-sizing` önekli yazımların da eklenmesi önerilmektedir. Bu önekler 2010'ların başında, özellik henüz standartlaşmamışken gerekliydi; bugün tüm güncel tarayıcılar öneksiz `box-sizing` özelliğini desteklemektedir ve önekli satırlar gereksizdir [6]. Benzer biçimde Internet Explorer'ın eski sürümleri, belge `<!DOCTYPE>` bildirimi olmadan açıldığında genişliği `border-box` mantığıyla hesaplıyordu; bu tutarsızlık uzun süre "IE kutu modeli sorunu" olarak anıldı [2, s. 316].
+> **Tarihsel not:** Eski stil dosyalarında `box-sizing` özelliği, `-webkit-box-sizing` ve `-moz-box-sizing` önekli yazımlarla birlikte yazılırdı. Bu önekler 2010'ların başında, özellik henüz standartlaşmamışken gerekliydi; bugün tüm güncel tarayıcılar öneksiz `box-sizing` özelliğini desteklemektedir ve önekli satırlar gereksizdir [6]. Benzer biçimde Internet Explorer'ın eski sürümleri, belge `<!DOCTYPE>` bildirimi olmadan açıldığında genişliği `border-box` mantığıyla hesaplıyordu; bu tutarsızlık uzun süre "IE kutu modeli sorunu" olarak anıldı [2, s. 316].
 
 `width` ve `height` değerleri verilmezse varsayılan değer `auto` olur. Blok düzeyindeki bir öğe `width: auto` iken kapsayıcısının içerik genişliğini doldurur; yüksekliği ise içeriği kadardır. Bu nedenle sabit `height` vermek çoğu zaman gereksizdir ve içerik büyüdüğünde taşmaya yol açar (bkz. Bölüm 6.6).
 
@@ -161,14 +161,11 @@ p#b { margin: 1em 120px 1em 4em; }     /* üst, sağ, alt, sol */
 body { margin: 0 15%; }                /* üst-alt 0, sağ-sol %15 */
 ```
 
-Sunumdaki örnek (slayt 157) bu yazımların etkisini göstermektedir. Şekil 6.8'de aynı örneğin Türkçe içerikli yeniden üretimi yer almaktadır; kesikli mavi çerçeve paragrafı saran kapsayıcıdır, aradaki şerit ise paragrafın kenar boşluğudur.
+Bu yazımların etkisi Şekil 6.8'de görülmektedir; kesikli mavi çerçeve paragrafı saran kapsayıcıdır, aradaki şerit ise paragrafın kenar boşluğudur.
 
 ![Şekil 6.8 Farklı margin ve padding değerlerine sahip paragraflar](../images/06-css-kutu-modeli-yerlesim/ornek-6-2-margin-padding.png)
 
 *Şekil 6.8. Örnek 6.2: dört kenarda eşit kenar boşluğu (A), dört farklı kenar boşluğu (B) ve yatay/dikey dolgu (C) ([codes/06-css-kutu-modeli-yerlesim/ornek-6-2-margin-padding/](../codes/06-css-kutu-modeli-yerlesim/ornek-6-2-margin-padding/index.html)).*
-
-> [!NOTE]
-> Sunumdaki aynı örnekte `background-color: #;` bildirimi yer almaktadır. `#` işaretinden sonra onaltılık bir renk kodu (ör. `#fcf2be`) yazılmadığı için bu bildirim geçersizdir ve tarayıcı tarafından yok sayılır.
 
 ### 6.3.2 `auto` ile Yatay Ortalama
 
@@ -202,9 +199,9 @@ Normal akışta alt alta gelen iki blok kutunun dikey kenar boşlukları toplanm
 
 ## 6.4 Dolgu (`padding`)
 
-Dolgu, öğenin içeriği ile kendi kenarlığı arasındaki boşluktur. Sunumda dolgunun "sayfa kenarına göre değil, öğenin kendisine göre" verildiği vurgulanmaktadır; daha doğru bir ifadeyle, **dolgu öğenin içinde, kenar boşluğu ise öğenin dışında** kalır. İkisi de sayfa kenarıyla ilgili değildir. Dolgunun pratikteki iki sonucu vardır: (1) öğenin arka plan rengi dolgu alanını da kaplar, dolayısıyla dolgu "renkli boşluk"tur; (2) `content-box` modelinde dolgu kutunun görünen boyutunu büyütür [2, s. 313].
+Dolgu, öğenin içeriği ile kendi kenarlığı arasındaki boşluktur. **Dolgu öğenin içinde, kenar boşluğu ise öğenin dışında** kalır; her ikisi de sayfa kenarına göre değil, öğenin kendi kenarlarına göre ölçülür. Dolgunun pratikteki iki sonucu vardır: (1) öğenin arka plan rengi dolgu alanını da kaplar, dolayısıyla dolgu "renkli boşluk"tur; (2) `content-box` modelinde dolgu kutunun görünen boyutunu büyütür [2, s. 313].
 
-Dolgu da kenar boşluğu gibi dört ayrı özellikle (`padding-top`, `padding-right`, `padding-bottom`, `padding-left`) veya Şekil 6.7'daki kurala uyan `padding` kısayoluyla yazılır. Değer uzunluk veya yüzde olabilir; `auto` ve negatif değer alamaz. Sunumdaki alıntı bloğu örneği (slayt 166) şu biçimde kısaltılabilir:
+Dolgu da kenar boşluğu gibi dört ayrı özellikle (`padding-top`, `padding-right`, `padding-bottom`, `padding-left`) veya Şekil 6.7'daki kurala uyan `padding` kısayoluyla yazılır. Değer uzunluk veya yüzde olabilir; `auto` ve negatif değer alamaz. Örneğin üst-alt dolgusu 1em, sağ-sol dolgusu 3em olan bir alıntı bloğu, dört ayrı bildirim yerine kısayolla şöyle yazılır:
 
 ```css
 blockquote {
@@ -239,7 +236,7 @@ Bir kenarlığın görünmesi için en az stilinin belirtilmesi gerekir; `border
 
 `groove`, `ridge`, `inset` ve `outset` stilleri, kenarlık rengini açık ve koyu tonlara ayırarak üç boyut yanılsaması üretir; görünümleri tarayıcıdan tarayıcıya hafifçe farklılık gösterebilir.
 
-Sunumdaki değer listesinde soru işaretiyle bırakılan `inherit`, aslında kenarlığa özgü bir stil değil, **tüm CSS özelliklerinin alabildiği genel bir anahtar sözcüktür**: öğenin, söz konusu özelliğin değerini ebeveyninden almasını sağlar. Kenarlık özellikleri varsayılan olarak kalıtılmadığı için (bkz. [Bölüm 4](04-css-temelleri.md)) `border-style: inherit` yazıldığında kalıtım açıkça istenmiş olur. `initial` (özelliğin başlangıç değeri) ve `unset` de aynı türden genel anahtar sözcüklerdir.
+`border-style` özelliği Tablo 6.2'deki değerlerin yanında `inherit` değerini de alabilir. `inherit`, kenarlığa özgü bir stil değil, **tüm CSS özelliklerinin alabildiği genel bir anahtar sözcüktür**: öğenin, söz konusu özelliğin değerini ebeveyninden almasını sağlar. Kenarlık özellikleri varsayılan olarak kalıtılmadığı için (bkz. [Bölüm 4](04-css-temelleri.md)) `border-style: inherit` yazıldığında kalıtım açıkça istenmiş olur. `initial` (özelliğin başlangıç değeri) ve `unset` de aynı türden genel anahtar sözcüklerdir.
 
 ### 6.5.2 Kenarlık Kalınlığı ve Rengi
 
@@ -306,14 +303,14 @@ Kısayol yazılırken belirtilmeyen alt özellikler başlangıç değerlerine d�
 .hap   { border-radius: 999px; }               /* kısa kenarın yarısını aşan değer: hap biçimi */
 ```
 
-Eğik çizgi (`/`) ile ayrılan yazımda ilk grup yatay, ikinci grup dikey yarıçapları verir; böylece köşeler çeyrek daire yerine çeyrek elips olur. Kare bir öğeye `border-radius: 50%` verildiğinde daire, dikdörtgen bir öğeye verildiğinde elips elde edilir. Yarıçap kısa kenarın yarısından büyük verildiğinde tarayıcı değeri ölçekleyerek iki ucu tam yarım daire olan "hap" (pill) biçimini üretir.
+Eğik çizgi (`/`) ile ayrılan yazımda ilk grup yatay, ikinci grup dikey yarıçapları verir; böylece köşeler çeyrek daire yerine çeyrek elips olur. İki grup eğik çizgiyle ayrılır: araya noktalı virgül konursa (`border-radius: 5px 20px; 40px 60px`) noktalı virgül bildirimi sonlandırır ve ikinci grup yok sayılır. Kare bir öğeye `border-radius: 50%` verildiğinde daire, dikdörtgen bir öğeye verildiğinde elips elde edilir. Yarıçap kısa kenarın yarısından büyük verildiğinde tarayıcı değeri ölçekleyerek iki ucu tam yarım daire olan "hap" (pill) biçimini üretir.
 
 ![Şekil 6.11 Farklı border-radius değerleriyle elde edilen köşe, elips, daire ve hap biçimleri](../images/06-css-kutu-modeli-yerlesim/border-radius.png)
 
 *Şekil 6.11. Örnek 6.3: `border-radius` değerlerinin etkisi ([codes/06-css-kutu-modeli-yerlesim/ornek-6-3-border-radius/](../codes/06-css-kutu-modeli-yerlesim/ornek-6-3-border-radius/index.html)).*
 
 > [!NOTE]
-> **Tarihsel not:** Sunumda eski tarayıcılar için `-webkit-border-top-left-radius` ve `-moz-border-radius-topleft` önekli özelliklerin kullanılması önerilmektedir. Bu yazımlar 2008–2011 yıllarında, `border-radius` henüz deneysel iken gerekliydi; dikkat edilirse eski Firefox önekinde köşe adı bile farklı (`topleft`) yazılıyordu. Öneksiz `border-radius` uzun zamandır tüm tarayıcılarda desteklenmektedir; önekli satırlar artık yazılmaz [6]. Sunumdaki şekil altı yazısında geçen `border-radius: 5px 20px; 40px 60px` ifadesindeki noktalı virgül de hatalıdır; eliptik köşe için doğru yazım `5px 20px / 40px 60px` biçimindedir.
+> **Tarihsel not:** Eski stil dosyalarında köşe yuvarlatma, eski tarayıcılar için `-webkit-border-top-left-radius` ve `-moz-border-radius-topleft` gibi önekli özelliklerle de yazılırdı. Bu yazımlar 2008–2011 yıllarında, `border-radius` henüz deneysel iken gerekliydi; dikkat edilirse eski Firefox önekinde köşe adı bile farklı (`topleft`) yazılıyordu. Öneksiz `border-radius` uzun zamandır tüm tarayıcılarda desteklenmektedir; önekli satırlar artık yazılmaz [6].
 
 ### 6.5.5 Dış Çizgi (`outline`) ve Odak Görünürlüğü
 
@@ -444,7 +441,7 @@ CSS'te özel bir yerleşim kuralı verilmediğinde öğeler **normal akış** (n
 
 *Şekil 6.14. Normal akış: blok düzeyi ve satır içi kutular.*
 
-`display` özelliği, bir öğenin hangi tür kutu ürettiğini değiştirir [11]. Sunumda bu özellik "katman içerisinde üretilmiş kutunun tipini tanımlar" biçiminde ifade edilmiştir; daha açık bir ifadeyle `display`, öğenin **dışarıya karşı** (çevresindeki akışta) nasıl davranacağını ve **içindeki** alt öğeleri hangi kurala göre yerleştireceğini belirler. Örneğin `display: flex` öğeyi dışarıya karşı blok gibi davrandırır, içindeki çocukları ise Flexbox kurallarına göre dizer.
+`display` özelliği, bir öğenin hangi tür kutu ürettiğini değiştirir [11]. Bu özellik, öğenin **dışarıya karşı** (çevresindeki akışta) nasıl davranacağını ve **içindeki** alt öğeleri hangi kurala göre yerleştireceğini belirler. Örneğin `display: flex` öğeyi dışarıya karşı blok gibi davrandırır, içindeki çocukları ise Flexbox kurallarına göre dizer.
 
 ### 6.7.2 Temel Değerler
 
@@ -470,7 +467,7 @@ CSS'te özel bir yerleşim kuralı verilmediğinde öğeler **normal akış** (n
 `table`, `table-row`, `table-cell`, `table-caption`, `inline-table`, `table-header-group` gibi değerler, HTML tablo öğelerinin varsayılan davranışlarını CSS ile tanımlar ve tablo olmayan öğelerin tablo gibi dizilmesini sağlar. Flexbox ve Grid yaygınlaşmadan önce dikey ortalama ve eşit yükseklikli sütunlar için `display: table-cell` sıkça kullanılırdı; bugün bu amaçla Flexbox veya Grid tercih edilir. `ruby`, `ruby-base`, `ruby-text` değerleri ise Doğu Asya dillerinde sözcüklerin üstüne okunuş notu yazmak için kullanılan `<ruby>` öğesinin kutularını tanımlar.
 
 > [!NOTE]
-> **Tarihsel not:** Sunumda "CSS3 ile yeni gelen" değerler arasında `run-in` ve `compact` sayılmaktadır. `compact`, CSS 2 taslağında yer alıp CSS 2.1'de kaldırılmış; `run-in` ise CSS Display Level 3 taslağında tanımlı olmasına karşın güncel tarayıcıların hiçbirinde desteklenmemektedir [11], [6]. Bu değerler gerçek projelerde kullanılmaz.
+> **Tarihsel not:** Eski kaynaklarda `display` değerleri arasında `run-in` ve `compact` de sayılır. `compact`, CSS 2 taslağında yer alıp CSS 2.1'de kaldırılmış; `run-in` ise CSS Display Level 3 taslağında tanımlı olmasına karşın güncel tarayıcıların hiçbirinde desteklenmemektedir [11], [6]. Bu değerler gerçek projelerde kullanılmaz.
 
 > [!IMPORTANT]
 > Bir öğeye `position: absolute`, `position: fixed` veya `float` verildiğinde tarayıcı, öğenin `display` değerini blok düzeyine dönüştürür (blockification). Bu nedenle satır içi bir `<span>` öğesine bu özelliklerden biri verildiğinde ayrıca `display: block` yazmadan `width` ve `height` uygulanabilir [11].
@@ -482,7 +479,7 @@ CSS'te özel bir yerleşim kuralı verilmediğinde öğeler **normal akış** (n
 `position` özelliği, öğenin normal akış içindeki yerinin nasıl hesaplanacağını belirler ve beş değer alır [12], [13, ss. 226–230]. `top`, `right`, `bottom`, `left` ofset özellikleri (offset properties) öğenin yerini ince ayarlamak için kullanılır; ancak bu özellikler **yalnızca `static` dışındaki değerlerde** etkilidir.
 
 - **`static`:** Varsayılan değerdir; CSS'te ayrıca yazılmasına gerek yoktur. Öğe normal akıştaki yerinde durur, ofset özellikleri yok sayılır.
-- **`relative` (göreli):** Öğe, *kendi normal konumuna göre* kaydırılır. Sunumdaki benzetmeyle öğe "eski yerinde hâlâ oturuyor ama hafifçe ötelenmiş"tir: akıştaki asıl yeri korunur, diğer öğeler oraya girmez. `left: 30px`, öğeyi sol kenarından 30 piksel **sağa** iter. `relative` en sık, içindeki `absolute` öğeler için referans noktası oluşturmak amacıyla kullanılır.
+- **`relative` (göreli):** Öğe, *kendi normal konumuna göre* kaydırılır. Bir benzetmeyle öğe, eski yerinde hâlâ oturuyor ama hafifçe ötelenmiş gibidir: akıştaki asıl yeri korunur, diğer öğeler oraya girmez. `left: 30px`, öğeyi sol kenarından 30 piksel **sağa** iter. `relative` en sık, içindeki `absolute` öğeler için referans noktası oluşturmak amacıyla kullanılır.
 - **`absolute` (mutlak):** Öğe normal akıştan tamamen çıkar; yeri boşalır ve diğer öğeler sanki yokmuş gibi yerleşir. Konumu, **en yakın konumlandırılmış ataya** (positioned ancestor), yani `position` değeri `static` dışında olan en yakın üst öğeye göre hesaplanır. Böyle bir ata yoksa başlangıç kapsayıcı bloğu (initial containing block; pratikte sayfanın ilk görünüm alanı boyutundaki dikdörtgen) referans alınır [3, s. 359].
 - **`fixed` (sabit):** Öğe akıştan çıkar ve tarayıcı penceresinin görünür alanına (viewport) göre konumlanır; sayfa kaydırılsa da ekrandaki yerinden oynamaz [2, ss. 363–364].
 - **`sticky` (yapışkan):** Öğe, kaydırma belirtilen eşiğe ulaşana kadar normal akışta `relative` gibi davranır; eşik aşılınca `fixed` gibi o noktaya yapışır. `fixed` öğeden farkı, yalnızca **kendi kapsayıcısının sınırları içinde** yapışık kalması ve akıştaki yerini korumasıdır. Yapışmanın gerçekleşmesi için en az bir eşik (ör. `top: 0`) verilmelidir.
