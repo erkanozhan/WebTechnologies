@@ -22,6 +22,7 @@
   <script>
     mermaid.initialize({
       startOnLoad: false,
+      deterministicIds: true,   // aynı sayfadaki diyagramların kimlikleri çakışmasın
       theme: 'default',
       securityLevel: 'loose',
       flowchart: { useMaxWidth: true, htmlLabels: true }
