@@ -6,6 +6,8 @@ Bu depo, Tekirdağ Namık Kemal Üniversitesi Çorlu Mühendislik Fakültesi Bil
 - **Dil:** Türkçe; teknik terimlerin İngilizce karşılıkları ilk geçtikleri yerde parantez içinde verilir.
 - **Kaynak gösterme:** Her bölümün sonunda IEEE biçiminde bir kaynakça bulunur.
 - **Lisans:** MIT (bkz. [LICENSE](LICENSE))
+- **Web sürümü:** [erkanozhan.github.io/WebTechnologies](https://erkanozhan.github.io/WebTechnologies/). Aynı notlar; bölüm listesi, tüm notlarda arama ve diyagramlarla birlikte. Web sürümünde örnek ve uygulama çözümlerine verilen bağlantılar, çalışan sayfayı doğrudan tarayıcıda açar.
+- **PDF / yazdırma:** [Notların tamamı tek sayfada](https://erkanozhan.github.io/WebTechnologies/yazdir.html) açılıp Ctrl+P ile "PDF olarak kaydet" seçilebilir. Aynı PDF `python araclar/pdf_olustur.py` komutuyla da üretilir (Chrome veya Edge gerekir).
 
 ## İçindekiler
 
@@ -32,9 +34,12 @@ codes/    Örneklerin ve uygulamaların çalışır çözümleri; bölüm klasö
             ornek-N-M-…      : bölüm metnindeki tam sayfa örnekler
             uygulama-N-M-…   : 🛠 Uygulama kutularının örnek çözümleri
 .vscode/  Önerilen VS Code eklentileri (Live Server, Prettier).
+araclar/  pdf_olustur.py: notların tamamını tek PDF dosyasında birleştiren betik.
+index.html, _sidebar.md, docsify-ayar.js, docsify-stil.css   Web sürümünün sayfası, bölüm listesi, ayarları ve stilleri.
+yazdir.html   Notların tamamını tek sayfada gösteren yazdırma sayfası.
 ```
 
-Şekillerin bir kısmı SVG şemalar, bir kısmı `codes/` altındaki örneklerin gerçek ekran görüntüleridir. Akış diyagramları Markdown içindeki Mermaid bloklarıyla çizilmiştir; GitHub bunları otomatik olarak görüntüler.
+Şekillerin bir kısmı SVG şemalar, bir kısmı `codes/` altındaki örneklerin gerçek ekran görüntüleridir. Akış diyagramları Markdown içindeki Mermaid bloklarıyla çizilmiştir; GitHub ve web sürümü bunları otomatik olarak görüntüler.
 
 ## Çalışma Ortamı ve Uygulamaların Yapılışı
 
